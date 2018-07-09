@@ -35,7 +35,5 @@ Pod::Spec.new do |s|
 	s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration', 'WebKit','CoreLocation'
 
 	# 框架依赖的其他第三方库
- 	s.dependency 'AFNetworking', '~> 3.2.1'
-	s.dependency 'Reachability', '~> 3.2'
 end
 

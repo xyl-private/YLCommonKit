@@ -200,7 +200,6 @@
 		7B941B6020F32B5A00811329 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				7B941B6120F32B5A00811329 /* YLNetworking */,
 				7B941B6820F32B5A00811329 /* YLTools */,
 				7B941B6C20F32B5A00811329 /* YLMacro */,
 				7B941B7020F32B5A00811329 /* YLCategory */,
@@ -208,13 +207,6 @@
 			);
 			name = YLCommonKit;
 			path = ../../../YLCommonKit/Classes/YLCommonKit;
-			sourceTree = "<group>";
-		};
-		7B941B6120F32B5A00811329 /* YLNetworking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = YLNetworking;
 			sourceTree = "<group>";
 		};
 		7B941B6820F32B5A00811329 /* YLTools */ = {
