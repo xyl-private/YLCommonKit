@@ -1,6 +1,6 @@
 //
 //  UIColor+JYColor.m
-//  zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2017/11/26.
 //  Copyright © 2017年 xyanl. All rights reserved.

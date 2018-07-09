@@ -1,6 +1,6 @@
 //
 //  NSString+JYString.m
-//  zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2017/11/30.
 //  Copyright © 2017年 xyanl. All rights reserved.
@@ -262,20 +262,6 @@
                             }];
     
     return returnValue;
-}
-/**
- * 打电话
- */
-+ (BOOL)yl_callUpWithPhoneNum:(NSString *)str
-{
-    str = [NSString stringWithFormat:@"telprompt://%@",str];
-    NSURL *url = [NSURL URLWithString:str];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-        return YES;
-    } else {
-        return NO;
-    }
 }
 
 - (NSURL *)yl_url {

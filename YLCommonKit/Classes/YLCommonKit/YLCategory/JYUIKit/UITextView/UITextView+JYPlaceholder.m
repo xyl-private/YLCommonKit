@@ -1,9 +1,9 @@
 //
 //  UITextView+JYPlaceholder.m
-//  Zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2018/6/18.
-//  Copyright © 2018年 JieyueUnion. All rights reserved.
+//  Copyright © 2018年 xyanl. All rights reserved.
 //
 
 #import "UITextView+JYPlaceholder.h"
@@ -50,14 +50,14 @@ static const void *yl_placeHolderKey;
 -(NSString *)yl_placeHolder{
     return objc_getAssociatedObject(self, &yl_placeHolderKey);
 }
--(void)setyl_placeHolder:(NSString *)yl_placeHolder{
+-(void)setYl_placeHolder:(NSString *)yl_placeHolder{
     objc_setAssociatedObject(self, &yl_placeHolderKey, yl_placeHolder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self updatePlaceHolder];
 }
 -(UIColor *)yl_placeHolderColor{
     return self.yl_placeHolderLabel.textColor;
 }
--(void)setyl_placeHolderColor:(UIColor *)yl_placeHolderColor{
+-(void)setYl_placeHolderColor:(UIColor *)yl_placeHolderColor{
     self.yl_placeHolderLabel.textColor = yl_placeHolderColor;
 }
 -(NSString *)placeholder{

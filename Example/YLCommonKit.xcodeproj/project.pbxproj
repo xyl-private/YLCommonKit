@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B20719820F34100004F2914 /* JYBaseFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20715A20F34100004F2914 /* JYBaseFileTools.m */; };
+		7B20719920F34100004F2914 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20716220F34100004F2914 /* NSDictionary+YLDictionary.m */; };
+		7B20719A20F34100004F2914 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20716520F34100004F2914 /* NSData+YLData.m */; };
+		7B20719B20F34100004F2914 /* NSString+JYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20716920F34100004F2914 /* NSString+JYString.m */; };
+		7B20719C20F34100004F2914 /* NSString+JYRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20716A20F34100004F2914 /* NSString+JYRegex.m */; };
+		7B20719D20F34100004F2914 /* NSAttributedString+JYAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20716E20F34100004F2914 /* NSAttributedString+JYAttributedString.m */; };
+		7B20719E20F34100004F2914 /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717320F34100004F2914 /* NSDate+YLDate.m */; };
+		7B20719F20F34100004F2914 /* UIImage+JYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717620F34100004F2914 /* UIImage+JYImage.m */; };
+		7B2071A020F34100004F2914 /* UILabel+JYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717A20F34100004F2914 /* UILabel+JYLabel.m */; };
+		7B2071A120F34100004F2914 /* UIButton+JYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717D20F34100004F2914 /* UIButton+JYButton.m */; };
+		7B2071A220F34100004F2914 /* UIColor+JYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717F20F34100004F2914 /* UIColor+JYColor.m */; };
+		7B2071A320F34100004F2914 /* UIView+JYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20718220F34100004F2914 /* UIView+JYView.m */; };
+		7B2071A420F34100004F2914 /* UITextView+JYPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20718520F34100004F2914 /* UITextView+JYPlaceholder.m */; };
+		7B2071A520F34100004F2914 /* UIViewController+JYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20718920F34100004F2914 /* UIViewController+JYHelper.m */; };
+		7B2071A620F34100004F2914 /* UITableView+JYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20718B20F34100004F2914 /* UITableView+JYHeader.m */; };
+		7B2071A720F34100004F2914 /* UITextField+JYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20718E20F34100004F2914 /* UITextField+JYTextField.m */; };
+		7B2071A820F34100004F2914 /* JYKeyChainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20719520F34100004F2914 /* JYKeyChainManager.m */; };
+		7B2071A920F34100004F2914 /* JYKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20719620F34100004F2914 /* JYKeyChain.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
@@ -15,24 +33,6 @@
 		7B941B3D20F3126700811329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3C20F3126700811329 /* main.m */; };
 		7B941B4720F3126700811329 /* YLCommonKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B4620F3126700811329 /* YLCommonKitTests.m */; };
 		7B941B5220F3126700811329 /* YLCommonKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B5120F3126700811329 /* YLCommonKitUITests.m */; };
-		7B941BB720F32B5A00811329 /* JYBaseFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B6B20F32B5A00811329 /* JYBaseFileTools.m */; };
-		7B941BB920F32B5A00811329 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B7620F32B5A00811329 /* NSData+YLData.m */; };
-		7B941BBA20F32B5A00811329 /* NSString+JYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B7A20F32B5A00811329 /* NSString+JYString.m */; };
-		7B941BBB20F32B5A00811329 /* NSString+JYRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B7B20F32B5A00811329 /* NSString+JYRegex.m */; };
-		7B941BBD20F32B5A00811329 /* NSAttributedString+JYAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B8020F32B5A00811329 /* NSAttributedString+JYAttributedString.m */; };
-		7B941BC020F32B5A00811329 /* UIImage+JYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B8A20F32B5A00811329 /* UIImage+JYImage.m */; };
-		7B941BC120F32B5A00811329 /* UILabel+JYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B8E20F32B5A00811329 /* UILabel+JYLabel.m */; };
-		7B941BC220F32B5A00811329 /* UIButton+JYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9120F32B5A00811329 /* UIButton+JYButton.m */; };
-		7B941BC320F32B5A00811329 /* UIColor+JYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9320F32B5A00811329 /* UIColor+JYColor.m */; };
-		7B941BC420F32B5A00811329 /* UIView+JYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9620F32B5A00811329 /* UIView+JYView.m */; };
-		7B941BC520F32B5A00811329 /* UITextView+JYPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9920F32B5A00811329 /* UITextView+JYPlaceholder.m */; };
-		7B941BC620F32B5A00811329 /* UIViewController+JYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9D20F32B5A00811329 /* UIViewController+JYHelper.m */; };
-		7B941BC720F32B5A00811329 /* UITableView+JYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B9F20F32B5A00811329 /* UITableView+JYHeader.m */; };
-		7B941BC820F32B5A00811329 /* UITextField+JYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941BA220F32B5A00811329 /* UITextField+JYTextField.m */; };
-		7B941BCD20F32B5A00811329 /* JYKeyChainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941BB120F32B5A00811329 /* JYKeyChainManager.m */; };
-		7B941BCE20F32B5A00811329 /* JYKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941BB220F32B5A00811329 /* JYKeyChain.m */; };
-		7B941BD120F32BC800811329 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941BD020F32BC800811329 /* NSDictionary+YLDictionary.m */; };
-		7BBBD3C020F32EF500FB4973 /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBBD3BF20F32EF500FB4973 /* NSDate+YLDate.m */; };
 		B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +55,45 @@
 
 /* Begin PBXFileReference section */
 		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
+		7B20715920F34100004F2914 /* JYBaseFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBaseFileTools.h; sourceTree = "<group>"; };
+		7B20715A20F34100004F2914 /* JYBaseFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBaseFileTools.m; sourceTree = "<group>"; };
+		7B20715C20F34100004F2914 /* YLUIMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
+		7B20715D20F34100004F2914 /* YLToolMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToolMacro.h; sourceTree = "<group>"; };
+		7B20715E20F34100004F2914 /* YLRegExMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRegExMacro.h; sourceTree = "<group>"; };
+		7B20716220F34100004F2914 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
+		7B20716320F34100004F2914 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
+		7B20716520F34100004F2914 /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
+		7B20716620F34100004F2914 /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
+		7B20716820F34100004F2914 /* NSString+JYRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JYRegex.h"; sourceTree = "<group>"; };
+		7B20716920F34100004F2914 /* NSString+JYString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JYString.m"; sourceTree = "<group>"; };
+		7B20716A20F34100004F2914 /* NSString+JYRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JYRegex.m"; sourceTree = "<group>"; };
+		7B20716B20F34100004F2914 /* NSString+JYString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JYString.h"; sourceTree = "<group>"; };
+		7B20716E20F34100004F2914 /* NSAttributedString+JYAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+JYAttributedString.m"; sourceTree = "<group>"; };
+		7B20716F20F34100004F2914 /* NSAttributedString+JYAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+JYAttributedString.h"; sourceTree = "<group>"; };
+		7B20717220F34100004F2914 /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
+		7B20717320F34100004F2914 /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
+		7B20717620F34100004F2914 /* UIImage+JYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JYImage.m"; sourceTree = "<group>"; };
+		7B20717720F34100004F2914 /* UIImage+JYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JYImage.h"; sourceTree = "<group>"; };
+		7B20717920F34100004F2914 /* UILabel+JYLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JYLabel.h"; sourceTree = "<group>"; };
+		7B20717A20F34100004F2914 /* UILabel+JYLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JYLabel.m"; sourceTree = "<group>"; };
+		7B20717C20F34100004F2914 /* UIButton+JYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JYButton.h"; sourceTree = "<group>"; };
+		7B20717D20F34100004F2914 /* UIButton+JYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JYButton.m"; sourceTree = "<group>"; };
+		7B20717F20F34100004F2914 /* UIColor+JYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JYColor.m"; sourceTree = "<group>"; };
+		7B20718020F34100004F2914 /* UIColor+JYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JYColor.h"; sourceTree = "<group>"; };
+		7B20718220F34100004F2914 /* UIView+JYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JYView.m"; sourceTree = "<group>"; };
+		7B20718320F34100004F2914 /* UIView+JYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JYView.h"; sourceTree = "<group>"; };
+		7B20718520F34100004F2914 /* UITextView+JYPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+JYPlaceholder.m"; sourceTree = "<group>"; };
+		7B20718620F34100004F2914 /* UITextView+JYPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+JYPlaceholder.h"; sourceTree = "<group>"; };
+		7B20718820F34100004F2914 /* UIViewController+JYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JYHelper.h"; sourceTree = "<group>"; };
+		7B20718920F34100004F2914 /* UIViewController+JYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JYHelper.m"; sourceTree = "<group>"; };
+		7B20718B20F34100004F2914 /* UITableView+JYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+JYHeader.m"; sourceTree = "<group>"; };
+		7B20718C20F34100004F2914 /* UITableView+JYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+JYHeader.h"; sourceTree = "<group>"; };
+		7B20718E20F34100004F2914 /* UITextField+JYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+JYTextField.m"; sourceTree = "<group>"; };
+		7B20718F20F34100004F2914 /* UITextField+JYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JYTextField.h"; sourceTree = "<group>"; };
+		7B20719420F34100004F2914 /* JYKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYKeyChain.h; sourceTree = "<group>"; };
+		7B20719520F34100004F2914 /* JYKeyChainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYKeyChainManager.m; sourceTree = "<group>"; };
+		7B20719620F34100004F2914 /* JYKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYKeyChain.m; sourceTree = "<group>"; };
+		7B20719720F34100004F2914 /* JYKeyChainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYKeyChainManager.h; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,45 +110,6 @@
 		7B941B4D20F3126700811329 /* YLCommonKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLCommonKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B5120F3126700811329 /* YLCommonKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCommonKitUITests.m; sourceTree = "<group>"; };
 		7B941B5320F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B941B6A20F32B5A00811329 /* JYBaseFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBaseFileTools.h; sourceTree = "<group>"; };
-		7B941B6B20F32B5A00811329 /* JYBaseFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBaseFileTools.m; sourceTree = "<group>"; };
-		7B941B6D20F32B5A00811329 /* YLUIMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
-		7B941B6E20F32B5A00811329 /* YLToolMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToolMacro.h; sourceTree = "<group>"; };
-		7B941B6F20F32B5A00811329 /* YLRegExMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLRegExMacro.h; sourceTree = "<group>"; };
-		7B941B7620F32B5A00811329 /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
-		7B941B7720F32B5A00811329 /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
-		7B941B7920F32B5A00811329 /* NSString+JYRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JYRegex.h"; sourceTree = "<group>"; };
-		7B941B7A20F32B5A00811329 /* NSString+JYString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JYString.m"; sourceTree = "<group>"; };
-		7B941B7B20F32B5A00811329 /* NSString+JYRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JYRegex.m"; sourceTree = "<group>"; };
-		7B941B7C20F32B5A00811329 /* NSString+JYString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JYString.h"; sourceTree = "<group>"; };
-		7B941B8020F32B5A00811329 /* NSAttributedString+JYAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+JYAttributedString.m"; sourceTree = "<group>"; };
-		7B941B8120F32B5A00811329 /* NSAttributedString+JYAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+JYAttributedString.h"; sourceTree = "<group>"; };
-		7B941B8A20F32B5A00811329 /* UIImage+JYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JYImage.m"; sourceTree = "<group>"; };
-		7B941B8B20F32B5A00811329 /* UIImage+JYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JYImage.h"; sourceTree = "<group>"; };
-		7B941B8D20F32B5A00811329 /* UILabel+JYLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+JYLabel.h"; sourceTree = "<group>"; };
-		7B941B8E20F32B5A00811329 /* UILabel+JYLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+JYLabel.m"; sourceTree = "<group>"; };
-		7B941B9020F32B5A00811329 /* UIButton+JYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+JYButton.h"; sourceTree = "<group>"; };
-		7B941B9120F32B5A00811329 /* UIButton+JYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JYButton.m"; sourceTree = "<group>"; };
-		7B941B9320F32B5A00811329 /* UIColor+JYColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JYColor.m"; sourceTree = "<group>"; };
-		7B941B9420F32B5A00811329 /* UIColor+JYColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JYColor.h"; sourceTree = "<group>"; };
-		7B941B9620F32B5A00811329 /* UIView+JYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JYView.m"; sourceTree = "<group>"; };
-		7B941B9720F32B5A00811329 /* UIView+JYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JYView.h"; sourceTree = "<group>"; };
-		7B941B9920F32B5A00811329 /* UITextView+JYPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+JYPlaceholder.m"; sourceTree = "<group>"; };
-		7B941B9A20F32B5A00811329 /* UITextView+JYPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+JYPlaceholder.h"; sourceTree = "<group>"; };
-		7B941B9C20F32B5A00811329 /* UIViewController+JYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JYHelper.h"; sourceTree = "<group>"; };
-		7B941B9D20F32B5A00811329 /* UIViewController+JYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JYHelper.m"; sourceTree = "<group>"; };
-		7B941B9F20F32B5A00811329 /* UITableView+JYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+JYHeader.m"; sourceTree = "<group>"; };
-		7B941BA020F32B5A00811329 /* UITableView+JYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+JYHeader.h"; sourceTree = "<group>"; };
-		7B941BA220F32B5A00811329 /* UITextField+JYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+JYTextField.m"; sourceTree = "<group>"; };
-		7B941BA320F32B5A00811329 /* UITextField+JYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+JYTextField.h"; sourceTree = "<group>"; };
-		7B941BB020F32B5A00811329 /* JYKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYKeyChain.h; sourceTree = "<group>"; };
-		7B941BB120F32B5A00811329 /* JYKeyChainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYKeyChainManager.m; sourceTree = "<group>"; };
-		7B941BB220F32B5A00811329 /* JYKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYKeyChain.m; sourceTree = "<group>"; };
-		7B941BB320F32B5A00811329 /* JYKeyChainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYKeyChainManager.h; sourceTree = "<group>"; };
-		7B941BCF20F32BC800811329 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
-		7B941BD020F32BC800811329 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
-		7BBBD3BE20F32EF500FB4973 /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
-		7BBBD3BF20F32EF500FB4973 /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
 		D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCommonKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +140,261 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B20715620F34100004F2914 /* YLCommonKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B20715720F34100004F2914 /* YLTools */,
+				7B20715B20F34100004F2914 /* YLMacro */,
+				7B20715F20F34100004F2914 /* YLCategory */,
+				7B20719020F34100004F2914 /* YLManager */,
+			);
+			name = YLCommonKit;
+			path = ../../YLCommonKit/Classes/YLCommonKit;
+			sourceTree = "<group>";
+		};
+		7B20715720F34100004F2914 /* YLTools */ = {
+			isa = PBXGroup;
+			children = (
+				7B20715820F34100004F2914 /* YLBaseFileTools */,
+			);
+			path = YLTools;
+			sourceTree = "<group>";
+		};
+		7B20715820F34100004F2914 /* YLBaseFileTools */ = {
+			isa = PBXGroup;
+			children = (
+				7B20715920F34100004F2914 /* JYBaseFileTools.h */,
+				7B20715A20F34100004F2914 /* JYBaseFileTools.m */,
+			);
+			path = YLBaseFileTools;
+			sourceTree = "<group>";
+		};
+		7B20715B20F34100004F2914 /* YLMacro */ = {
+			isa = PBXGroup;
+			children = (
+				7B20715C20F34100004F2914 /* YLUIMacro.h */,
+				7B20715D20F34100004F2914 /* YLToolMacro.h */,
+				7B20715E20F34100004F2914 /* YLRegExMacro.h */,
+			);
+			path = YLMacro;
+			sourceTree = "<group>";
+		};
+		7B20715F20F34100004F2914 /* YLCategory */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716020F34100004F2914 /* JYFoundation */,
+				7B20717420F34100004F2914 /* JYUIKit */,
+			);
+			path = YLCategory;
+			sourceTree = "<group>";
+		};
+		7B20716020F34100004F2914 /* JYFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716120F34100004F2914 /* NSDictionary */,
+				7B20716420F34100004F2914 /* NSData */,
+				7B20716720F34100004F2914 /* NSString */,
+				7B20716C20F34100004F2914 /* NSLog */,
+				7B20716D20F34100004F2914 /* NSAttributedString */,
+				7B20717020F34100004F2914 /* NSObject */,
+				7B20717120F34100004F2914 /* NSDate */,
+			);
+			path = JYFoundation;
+			sourceTree = "<group>";
+		};
+		7B20716120F34100004F2914 /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716220F34100004F2914 /* NSDictionary+YLDictionary.m */,
+				7B20716320F34100004F2914 /* NSDictionary+YLDictionary.h */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		7B20716420F34100004F2914 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716520F34100004F2914 /* NSData+YLData.m */,
+				7B20716620F34100004F2914 /* NSData+YLData.h */,
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
+		7B20716720F34100004F2914 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716820F34100004F2914 /* NSString+JYRegex.h */,
+				7B20716920F34100004F2914 /* NSString+JYString.m */,
+				7B20716A20F34100004F2914 /* NSString+JYRegex.m */,
+				7B20716B20F34100004F2914 /* NSString+JYString.h */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		7B20716C20F34100004F2914 /* NSLog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSLog;
+			sourceTree = "<group>";
+		};
+		7B20716D20F34100004F2914 /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				7B20716E20F34100004F2914 /* NSAttributedString+JYAttributedString.m */,
+				7B20716F20F34100004F2914 /* NSAttributedString+JYAttributedString.h */,
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		7B20717020F34100004F2914 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		7B20717120F34100004F2914 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717220F34100004F2914 /* NSDate+YLDate.h */,
+				7B20717320F34100004F2914 /* NSDate+YLDate.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		7B20717420F34100004F2914 /* JYUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717520F34100004F2914 /* UIImage */,
+				7B20717820F34100004F2914 /* UILabel */,
+				7B20717B20F34100004F2914 /* UIButton */,
+				7B20717E20F34100004F2914 /* UIColor */,
+				7B20718120F34100004F2914 /* UIView */,
+				7B20718420F34100004F2914 /* UITextView */,
+				7B20718720F34100004F2914 /* UIViewController */,
+				7B20718A20F34100004F2914 /* UITableView */,
+				7B20718D20F34100004F2914 /* UITextField */,
+			);
+			path = JYUIKit;
+			sourceTree = "<group>";
+		};
+		7B20717520F34100004F2914 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717620F34100004F2914 /* UIImage+JYImage.m */,
+				7B20717720F34100004F2914 /* UIImage+JYImage.h */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		7B20717820F34100004F2914 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717920F34100004F2914 /* UILabel+JYLabel.h */,
+				7B20717A20F34100004F2914 /* UILabel+JYLabel.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		7B20717B20F34100004F2914 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717C20F34100004F2914 /* UIButton+JYButton.h */,
+				7B20717D20F34100004F2914 /* UIButton+JYButton.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		7B20717E20F34100004F2914 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				7B20717F20F34100004F2914 /* UIColor+JYColor.m */,
+				7B20718020F34100004F2914 /* UIColor+JYColor.h */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		7B20718120F34100004F2914 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				7B20718220F34100004F2914 /* UIView+JYView.m */,
+				7B20718320F34100004F2914 /* UIView+JYView.h */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		7B20718420F34100004F2914 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				7B20718520F34100004F2914 /* UITextView+JYPlaceholder.m */,
+				7B20718620F34100004F2914 /* UITextView+JYPlaceholder.h */,
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		7B20718720F34100004F2914 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B20718820F34100004F2914 /* UIViewController+JYHelper.h */,
+				7B20718920F34100004F2914 /* UIViewController+JYHelper.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		7B20718A20F34100004F2914 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				7B20718B20F34100004F2914 /* UITableView+JYHeader.m */,
+				7B20718C20F34100004F2914 /* UITableView+JYHeader.h */,
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		7B20718D20F34100004F2914 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				7B20718E20F34100004F2914 /* UITextField+JYTextField.m */,
+				7B20718F20F34100004F2914 /* UITextField+JYTextField.h */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		7B20719020F34100004F2914 /* YLManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B20719120F34100004F2914 /* YLLocationManager */,
+				7B20719220F34100004F2914 /* YLAddressBookManager */,
+				7B20719320F34100004F2914 /* YLKeyChainManager */,
+			);
+			path = YLManager;
+			sourceTree = "<group>";
+		};
+		7B20719120F34100004F2914 /* YLLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLLocationManager;
+			sourceTree = "<group>";
+		};
+		7B20719220F34100004F2914 /* YLAddressBookManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLAddressBookManager;
+			sourceTree = "<group>";
+		};
+		7B20719320F34100004F2914 /* YLKeyChainManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B20719420F34100004F2914 /* JYKeyChain.h */,
+				7B20719520F34100004F2914 /* JYKeyChainManager.m */,
+				7B20719620F34100004F2914 /* JYKeyChain.m */,
+				7B20719720F34100004F2914 /* JYKeyChainManager.h */,
+			);
+			path = YLKeyChainManager;
+			sourceTree = "<group>";
+		};
 		7B941B2120F3126500811329 = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +424,7 @@
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
 				7B941B3120F3126600811329 /* ViewController.m */,
-				7B941B6020F32B5A00811329 /* YLCommonKit */,
+				7B20715620F34100004F2914 /* YLCommonKit */,
 				7B941B3320F3126600811329 /* Main.storyboard */,
 				7B941B3620F3126700811329 /* Assets.xcassets */,
 				7B941B3820F3126700811329 /* LaunchScreen.storyboard */,
@@ -195,245 +450,6 @@
 				7B941B5320F3126700811329 /* Info.plist */,
 			);
 			path = YLCommonKitUITests;
-			sourceTree = "<group>";
-		};
-		7B941B6020F32B5A00811329 /* YLCommonKit */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B6820F32B5A00811329 /* YLTools */,
-				7B941B6C20F32B5A00811329 /* YLMacro */,
-				7B941B7020F32B5A00811329 /* YLCategory */,
-				7B941BA420F32B5A00811329 /* YLManager */,
-			);
-			name = YLCommonKit;
-			path = ../../../YLCommonKit/Classes/YLCommonKit;
-			sourceTree = "<group>";
-		};
-		7B941B6820F32B5A00811329 /* YLTools */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B6920F32B5A00811329 /* YLBaseFileTools */,
-			);
-			path = YLTools;
-			sourceTree = "<group>";
-		};
-		7B941B6920F32B5A00811329 /* YLBaseFileTools */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B6A20F32B5A00811329 /* JYBaseFileTools.h */,
-				7B941B6B20F32B5A00811329 /* JYBaseFileTools.m */,
-			);
-			path = YLBaseFileTools;
-			sourceTree = "<group>";
-		};
-		7B941B6C20F32B5A00811329 /* YLMacro */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B6D20F32B5A00811329 /* YLUIMacro.h */,
-				7B941B6E20F32B5A00811329 /* YLToolMacro.h */,
-				7B941B6F20F32B5A00811329 /* YLRegExMacro.h */,
-			);
-			path = YLMacro;
-			sourceTree = "<group>";
-		};
-		7B941B7020F32B5A00811329 /* YLCategory */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B7120F32B5A00811329 /* JYFoundation */,
-				7B941B8820F32B5A00811329 /* JYUIKit */,
-			);
-			path = YLCategory;
-			sourceTree = "<group>";
-		};
-		7B941B7120F32B5A00811329 /* JYFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B7220F32B5A00811329 /* NSDictionary */,
-				7B941B7520F32B5A00811329 /* NSData */,
-				7B941B7820F32B5A00811329 /* NSString */,
-				7B941B7D20F32B5A00811329 /* NSLog */,
-				7B941B7F20F32B5A00811329 /* NSAttributedString */,
-				7B941B8220F32B5A00811329 /* NSObject */,
-				7B941B8520F32B5A00811329 /* NSDate */,
-			);
-			path = JYFoundation;
-			sourceTree = "<group>";
-		};
-		7B941B7220F32B5A00811329 /* NSDictionary */ = {
-			isa = PBXGroup;
-			children = (
-				7B941BCF20F32BC800811329 /* NSDictionary+YLDictionary.h */,
-				7B941BD020F32BC800811329 /* NSDictionary+YLDictionary.m */,
-			);
-			path = NSDictionary;
-			sourceTree = "<group>";
-		};
-		7B941B7520F32B5A00811329 /* NSData */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B7720F32B5A00811329 /* NSData+YLData.h */,
-				7B941B7620F32B5A00811329 /* NSData+YLData.m */,
-			);
-			path = NSData;
-			sourceTree = "<group>";
-		};
-		7B941B7820F32B5A00811329 /* NSString */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B7C20F32B5A00811329 /* NSString+JYString.h */,
-				7B941B7A20F32B5A00811329 /* NSString+JYString.m */,
-				7B941B7920F32B5A00811329 /* NSString+JYRegex.h */,
-				7B941B7B20F32B5A00811329 /* NSString+JYRegex.m */,
-			);
-			path = NSString;
-			sourceTree = "<group>";
-		};
-		7B941B7D20F32B5A00811329 /* NSLog */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSLog;
-			sourceTree = "<group>";
-		};
-		7B941B7F20F32B5A00811329 /* NSAttributedString */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B8020F32B5A00811329 /* NSAttributedString+JYAttributedString.m */,
-				7B941B8120F32B5A00811329 /* NSAttributedString+JYAttributedString.h */,
-			);
-			path = NSAttributedString;
-			sourceTree = "<group>";
-		};
-		7B941B8220F32B5A00811329 /* NSObject */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSObject;
-			sourceTree = "<group>";
-		};
-		7B941B8520F32B5A00811329 /* NSDate */ = {
-			isa = PBXGroup;
-			children = (
-				7BBBD3BE20F32EF500FB4973 /* NSDate+YLDate.h */,
-				7BBBD3BF20F32EF500FB4973 /* NSDate+YLDate.m */,
-			);
-			path = NSDate;
-			sourceTree = "<group>";
-		};
-		7B941B8820F32B5A00811329 /* JYUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B8920F32B5A00811329 /* UIImage */,
-				7B941B8C20F32B5A00811329 /* UILabel */,
-				7B941B8F20F32B5A00811329 /* UIButton */,
-				7B941B9220F32B5A00811329 /* UIColor */,
-				7B941B9520F32B5A00811329 /* UIView */,
-				7B941B9820F32B5A00811329 /* UITextView */,
-				7B941B9B20F32B5A00811329 /* UIViewController */,
-				7B941B9E20F32B5A00811329 /* UITableView */,
-				7B941BA120F32B5A00811329 /* UITextField */,
-			);
-			path = JYUIKit;
-			sourceTree = "<group>";
-		};
-		7B941B8920F32B5A00811329 /* UIImage */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B8B20F32B5A00811329 /* UIImage+JYImage.h */,
-				7B941B8A20F32B5A00811329 /* UIImage+JYImage.m */,
-			);
-			path = UIImage;
-			sourceTree = "<group>";
-		};
-		7B941B8C20F32B5A00811329 /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B8D20F32B5A00811329 /* UILabel+JYLabel.h */,
-				7B941B8E20F32B5A00811329 /* UILabel+JYLabel.m */,
-			);
-			path = UILabel;
-			sourceTree = "<group>";
-		};
-		7B941B8F20F32B5A00811329 /* UIButton */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B9020F32B5A00811329 /* UIButton+JYButton.h */,
-				7B941B9120F32B5A00811329 /* UIButton+JYButton.m */,
-			);
-			path = UIButton;
-			sourceTree = "<group>";
-		};
-		7B941B9220F32B5A00811329 /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B9420F32B5A00811329 /* UIColor+JYColor.h */,
-				7B941B9320F32B5A00811329 /* UIColor+JYColor.m */,
-			);
-			path = UIColor;
-			sourceTree = "<group>";
-		};
-		7B941B9520F32B5A00811329 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B9720F32B5A00811329 /* UIView+JYView.h */,
-				7B941B9620F32B5A00811329 /* UIView+JYView.m */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		7B941B9820F32B5A00811329 /* UITextView */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B9A20F32B5A00811329 /* UITextView+JYPlaceholder.h */,
-				7B941B9920F32B5A00811329 /* UITextView+JYPlaceholder.m */,
-			);
-			path = UITextView;
-			sourceTree = "<group>";
-		};
-		7B941B9B20F32B5A00811329 /* UIViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B9C20F32B5A00811329 /* UIViewController+JYHelper.h */,
-				7B941B9D20F32B5A00811329 /* UIViewController+JYHelper.m */,
-			);
-			path = UIViewController;
-			sourceTree = "<group>";
-		};
-		7B941B9E20F32B5A00811329 /* UITableView */ = {
-			isa = PBXGroup;
-			children = (
-				7B941BA020F32B5A00811329 /* UITableView+JYHeader.h */,
-				7B941B9F20F32B5A00811329 /* UITableView+JYHeader.m */,
-			);
-			path = UITableView;
-			sourceTree = "<group>";
-		};
-		7B941BA120F32B5A00811329 /* UITextField */ = {
-			isa = PBXGroup;
-			children = (
-				7B941BA320F32B5A00811329 /* UITextField+JYTextField.h */,
-				7B941BA220F32B5A00811329 /* UITextField+JYTextField.m */,
-			);
-			path = UITextField;
-			sourceTree = "<group>";
-		};
-		7B941BA420F32B5A00811329 /* YLManager */ = {
-			isa = PBXGroup;
-			children = (
-				7B941BAF20F32B5A00811329 /* YLKeyChainManager */,
-			);
-			path = YLManager;
-			sourceTree = "<group>";
-		};
-		7B941BAF20F32B5A00811329 /* YLKeyChainManager */ = {
-			isa = PBXGroup;
-			children = (
-				7B941BB020F32B5A00811329 /* JYKeyChain.h */,
-				7B941BB220F32B5A00811329 /* JYKeyChain.m */,
-				7B941BB120F32B5A00811329 /* JYKeyChainManager.m */,
-				7B941BB320F32B5A00811329 /* JYKeyChainManager.h */,
-			);
-			path = YLKeyChainManager;
 			sourceTree = "<group>";
 		};
 		DE81F01665D3AB5243CD2260 /* Pods */ = {
@@ -605,27 +621,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B941BC420F32B5A00811329 /* UIView+JYView.m in Sources */,
+				7B2071A220F34100004F2914 /* UIColor+JYColor.m in Sources */,
+				7B20719D20F34100004F2914 /* NSAttributedString+JYAttributedString.m in Sources */,
+				7B20719E20F34100004F2914 /* NSDate+YLDate.m in Sources */,
+				7B2071A620F34100004F2914 /* UITableView+JYHeader.m in Sources */,
+				7B20719920F34100004F2914 /* NSDictionary+YLDictionary.m in Sources */,
+				7B2071A420F34100004F2914 /* UITextView+JYPlaceholder.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
-				7B941BC820F32B5A00811329 /* UITextField+JYTextField.m in Sources */,
-				7B941BB720F32B5A00811329 /* JYBaseFileTools.m in Sources */,
+				7B2071A720F34100004F2914 /* UITextField+JYTextField.m in Sources */,
+				7B2071A820F34100004F2914 /* JYKeyChainManager.m in Sources */,
+				7B20719B20F34100004F2914 /* NSString+JYString.m in Sources */,
+				7B20719F20F34100004F2914 /* UIImage+JYImage.m in Sources */,
+				7B2071A920F34100004F2914 /* JYKeyChain.m in Sources */,
+				7B2071A120F34100004F2914 /* UIButton+JYButton.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
-				7B941BC520F32B5A00811329 /* UITextView+JYPlaceholder.m in Sources */,
-				7B941BBB20F32B5A00811329 /* NSString+JYRegex.m in Sources */,
-				7BBBD3C020F32EF500FB4973 /* NSDate+YLDate.m in Sources */,
-				7B941BD120F32BC800811329 /* NSDictionary+YLDictionary.m in Sources */,
-				7B941BBA20F32B5A00811329 /* NSString+JYString.m in Sources */,
-				7B941BB920F32B5A00811329 /* NSData+YLData.m in Sources */,
+				7B20719A20F34100004F2914 /* NSData+YLData.m in Sources */,
+				7B2071A320F34100004F2914 /* UIView+JYView.m in Sources */,
+				7B2071A020F34100004F2914 /* UILabel+JYLabel.m in Sources */,
+				7B2071A520F34100004F2914 /* UIViewController+JYHelper.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
-				7B941BC320F32B5A00811329 /* UIColor+JYColor.m in Sources */,
-				7B941BC220F32B5A00811329 /* UIButton+JYButton.m in Sources */,
-				7B941BCE20F32B5A00811329 /* JYKeyChain.m in Sources */,
-				7B941BBD20F32B5A00811329 /* NSAttributedString+JYAttributedString.m in Sources */,
-				7B941BC120F32B5A00811329 /* UILabel+JYLabel.m in Sources */,
-				7B941BCD20F32B5A00811329 /* JYKeyChainManager.m in Sources */,
-				7B941BC620F32B5A00811329 /* UIViewController+JYHelper.m in Sources */,
-				7B941BC020F32B5A00811329 /* UIImage+JYImage.m in Sources */,
-				7B941BC720F32B5A00811329 /* UITableView+JYHeader.m in Sources */,
+				7B20719C20F34100004F2914 /* NSString+JYRegex.m in Sources */,
+				7B20719820F34100004F2914 /* JYBaseFileTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

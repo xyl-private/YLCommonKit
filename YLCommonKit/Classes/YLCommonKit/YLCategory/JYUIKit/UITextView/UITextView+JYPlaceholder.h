@@ -1,6 +1,6 @@
 //
 //  UITextView+JYPlaceholder.h
-//  Zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2018/6/18.
 //  Copyright © 2018年 JieyueUnion. All rights reserved.

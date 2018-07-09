@@ -1,6 +1,6 @@
 //
 //  NSString+JYString.h
-//  zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2017/11/30.
 //  Copyright © 2017年 xyanl. All rights reserved.
@@ -106,10 +106,6 @@
  *  判断是否包含emoji表情 YES:包含; NO:不包含
  */
 + (BOOL)yl_stringContainsEmojiWith:(NSString *)str;
-/**
- * 打电话
- */
-+ (BOOL)yl_callUpWithPhoneNum:(NSString *)str;
 
 /**
  对url字符串特殊字符处理

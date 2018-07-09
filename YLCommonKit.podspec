@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   #                   2.指向本地项目：    { :path => 'yoowei', }
   s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 	# 框架被其他工程引入时，会导入Classes目录下的.h和.m文件
-  s.source_files  = "Classes", "YLCommonKit/Classes/**/*.{h,m}"
+  s.source_files  = "YLCommonKit/**/*.{h,m}"
 	# 框架依赖的framework
 	s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration', 'WebKit','CoreLocation'
 

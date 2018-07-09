@@ -1,6 +1,6 @@
 //
 //  UIView+JYView.m
-//  zhanye
+//  YLCommonKit
 //
 //  Created by xyanl on 2017/11/26.
 //  Copyright © 2017年 xyanl. All rights reserved.
@@ -10,7 +10,7 @@
 
 @implementation UIView (JYView)
 /** x **/
--(void)setyl_x:(CGFloat)yl_x
+-(void)setYl_x:(CGFloat)yl_x
 {
     CGRect frame = self.frame;
     frame.origin.x = yl_x;
@@ -23,7 +23,7 @@
 }
 
 /** y **/
-- (void)setyl_y:(CGFloat)yl_y
+- (void)setYl_y:(CGFloat)yl_y
 {
     CGRect frame = self.frame;
     frame.origin.y = yl_y;
@@ -36,7 +36,7 @@
 }
 
 /** 宽度 **/
-- (void)setyl_width:(CGFloat)yl_width
+- (void)setYl_width:(CGFloat)yl_width
 {
     CGRect frame = self.frame;
     frame.size.width = yl_width;
@@ -49,7 +49,7 @@
 }
 
 /** 高度 **/
-- (void)setyl_height:(CGFloat)yl_height
+- (void)setYl_height:(CGFloat)yl_height
 {
     CGRect frame = self.frame;
     frame.size.height = yl_height;
@@ -62,7 +62,7 @@
 }
 
 /** centerX **/
-- (void)setyl_centerX:(CGFloat)yl_centerX
+- (void)setYl_centerX:(CGFloat)yl_centerX
 {
     CGPoint center = self.center;
     center.x = yl_centerX;
@@ -75,7 +75,7 @@
 }
 
 /** centerY **/
-- (void)setyl_centerY:(CGFloat)yl_centerY
+- (void)setYl_centerY:(CGFloat)yl_centerY
 {
     CGPoint center = self.center;
     center.y = yl_centerY;
@@ -88,7 +88,7 @@
 }
 
 /** size **/
-- (void)setyl_size:(CGSize)yl_size
+- (void)setYl_size:(CGSize)yl_size
 {
     CGRect frame = self.frame;
     frame.size = yl_size;
@@ -101,7 +101,7 @@
 }
 
 /** origin **/
-- (void)setyl_origin:(CGPoint)yl_origin
+- (void)setYl_origin:(CGPoint)yl_origin
 {
     CGRect frame = self.frame;
     frame.origin = yl_origin;
