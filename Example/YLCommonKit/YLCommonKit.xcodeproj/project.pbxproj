@@ -15,9 +15,6 @@
 		7B941B3D20F3126700811329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3C20F3126700811329 /* main.m */; };
 		7B941B4720F3126700811329 /* YLCommonKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B4620F3126700811329 /* YLCommonKitTests.m */; };
 		7B941B5220F3126700811329 /* YLCommonKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B5120F3126700811329 /* YLCommonKitUITests.m */; };
-		7B941BB420F32B5A00811329 /* JYNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B6220F32B5A00811329 /* JYNetManager.m */; };
-		7B941BB520F32B5A00811329 /* NSURLSessionTask+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B6520F32B5A00811329 /* NSURLSessionTask+UserInfo.m */; };
-		7B941BB620F32B5A00811329 /* JYResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B6720F32B5A00811329 /* JYResponseTip.m */; };
 		7B941BB720F32B5A00811329 /* JYBaseFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B6B20F32B5A00811329 /* JYBaseFileTools.m */; };
 		7B941BB920F32B5A00811329 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B7620F32B5A00811329 /* NSData+YLData.m */; };
 		7B941BBA20F32B5A00811329 /* NSString+JYString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B7A20F32B5A00811329 /* NSString+JYString.m */; };
@@ -74,12 +71,6 @@
 		7B941B4D20F3126700811329 /* YLCommonKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YLCommonKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B5120F3126700811329 /* YLCommonKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCommonKitUITests.m; sourceTree = "<group>"; };
 		7B941B5320F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B941B6220F32B5A00811329 /* JYNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYNetManager.m; sourceTree = "<group>"; };
-		7B941B6320F32B5A00811329 /* NSURLSessionTask+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+UserInfo.h"; sourceTree = "<group>"; };
-		7B941B6420F32B5A00811329 /* JYResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYResponseTip.h; sourceTree = "<group>"; };
-		7B941B6520F32B5A00811329 /* NSURLSessionTask+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+UserInfo.m"; sourceTree = "<group>"; };
-		7B941B6620F32B5A00811329 /* JYNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYNetManager.h; sourceTree = "<group>"; };
-		7B941B6720F32B5A00811329 /* JYResponseTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYResponseTip.m; sourceTree = "<group>"; };
 		7B941B6A20F32B5A00811329 /* JYBaseFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBaseFileTools.h; sourceTree = "<group>"; };
 		7B941B6B20F32B5A00811329 /* JYBaseFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBaseFileTools.m; sourceTree = "<group>"; };
 		7B941B6D20F32B5A00811329 /* YLUIMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
@@ -222,12 +213,6 @@
 		7B941B6120F32B5A00811329 /* YLNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				7B941B6620F32B5A00811329 /* JYNetManager.h */,
-				7B941B6220F32B5A00811329 /* JYNetManager.m */,
-				7B941B6420F32B5A00811329 /* JYResponseTip.h */,
-				7B941B6720F32B5A00811329 /* JYResponseTip.m */,
-				7B941B6320F32B5A00811329 /* NSURLSessionTask+UserInfo.h */,
-				7B941B6520F32B5A00811329 /* NSURLSessionTask+UserInfo.m */,
 			);
 			path = YLNetworking;
 			sourceTree = "<group>";
@@ -637,10 +622,8 @@
 				7B941BBB20F32B5A00811329 /* NSString+JYRegex.m in Sources */,
 				7BBBD3C020F32EF500FB4973 /* NSDate+YLDate.m in Sources */,
 				7B941BD120F32BC800811329 /* NSDictionary+YLDictionary.m in Sources */,
-				7B941BB420F32B5A00811329 /* JYNetManager.m in Sources */,
 				7B941BBA20F32B5A00811329 /* NSString+JYString.m in Sources */,
 				7B941BB920F32B5A00811329 /* NSData+YLData.m in Sources */,
-				7B941BB520F32B5A00811329 /* NSURLSessionTask+UserInfo.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				7B941BC320F32B5A00811329 /* UIColor+JYColor.m in Sources */,
 				7B941BC220F32B5A00811329 /* UIButton+JYButton.m in Sources */,
@@ -648,7 +631,6 @@
 				7B941BBD20F32B5A00811329 /* NSAttributedString+JYAttributedString.m in Sources */,
 				7B941BC120F32B5A00811329 /* UILabel+JYLabel.m in Sources */,
 				7B941BCD20F32B5A00811329 /* JYKeyChainManager.m in Sources */,
-				7B941BB620F32B5A00811329 /* JYResponseTip.m in Sources */,
 				7B941BC620F32B5A00811329 /* UIViewController+JYHelper.m in Sources */,
 				7B941BC020F32B5A00811329 /* UIImage+JYImage.m in Sources */,
 				7B941BC720F32B5A00811329 /* UITableView+JYHeader.m in Sources */,
