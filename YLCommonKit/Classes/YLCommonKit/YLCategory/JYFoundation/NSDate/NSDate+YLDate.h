@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
+    YLDateComponentsTypeYear,
+    YLDateComponentsTypeMonth,
+    YLDateComponentsTypeDay,
+    YLDateComponentsTypeHour,
+    YLDateComponentsTypeMinute,
+    YLDateComponentsTypeSecond,
+    YLDateComponentsTypeWeekday
+};
+
 @interface NSDate (YLDate)
 
 + (NSCalendar *)yl_calendar;
 + (NSCalendar *)yl_chineseCalendar;
++ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat;
 
 /**
  获取当前时间
@@ -19,8 +30,9 @@
  @param dateFormat dateFormat description
  */
 + (NSString *) yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat;
+
 /**
- NSDate 转字符串
+ NSDate 转 NSString
 
  @param date date description
  @param dateFormat dateFormat description
@@ -40,7 +52,7 @@
 + (NSDateComponents *) yl_lunarCalendarWithDate:(NSDate*)date;
 
 /**
- * 时间比较：-1：dateB比dateA小
+ 时间比较：-1：dateB比dateA小
  0：相等；
  1：dateB比dateA大；
  */
@@ -52,12 +64,13 @@
  @return return YES 相等  NO 不等
  */
 + (BOOL)yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat;
+
 /**
  给定日期时间 判断是不是今天的当前时间
- 
  @param date 给定日期
  */
 + (BOOL)yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat;
+
 /**
  判断给定时间是不是今天
  */
@@ -83,4 +96,29 @@
  @param date 给定日期
  */
 + (NSInteger)yl_numberWeeksInMonthWithDate:(NSDate*)date;
+
+
+/**
+ a period of time from the current time
+ 以当前时间为起点,间隔几个时间单位的 date
+ @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+ @param length 长度可以是正负数，
+ 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+ 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ @return return value description
+ */
++ (NSDate *)yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
+
+/**
+ a period of time from the current time
+ 以当前时间为起点,间隔几个时间单位的 date
+ 
+ @param startDate  以 startDate 为起始时间
+ @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+ @param length 长度可以是正负数，
+ 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+ 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ @return return value description
+ */
++ (NSDate *)yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
 @end

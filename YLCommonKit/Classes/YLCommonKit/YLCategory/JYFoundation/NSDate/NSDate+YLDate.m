@@ -15,25 +15,17 @@
  @param dateFormat dateFormat description
  */
 + (NSString *) yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat{
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateFormat = dateFormat;
-    [dateFormatter setCalendar:[NSDate yl_calendar]];
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-
-
 + (NSString *) yl_stringFromDate:(NSDate*)date DateFormat:(NSString *)dateFormat{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
-    [dateFormatter setDateFormat:dateFormat];
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter stringFromDate:date];
 }
 
 + (NSDate *) yl_dateFromDateString:(NSString *)dateString DateFormat:(NSString *)dateFormat{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
-    [dateFormatter setDateFormat:dateFormat];
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter dateFromString:dateString];
 }
 
@@ -44,27 +36,23 @@
     return localeComp;
 }
 
-
-
 /**
  * 时间比较：-1：dateB比dateA小
             0：相等；
             1：dateB比dateA大；
  */
-+ (NSInteger)yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat
-{
-    NSInteger aa = 0;
-    NSDateFormatter *dateformater = [[NSDateFormatter alloc] init];
-    [dateformater setDateFormat:dateFormat];
++ (NSInteger)yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat{
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     
-    NSDate *dta = [dateformater dateFromString:dateA];
-    NSDate *dtb = [dateformater dateFromString:dateB];
+    NSDate *dta = [dateFormatter dateFromString:dateA];
+    NSDate *dtb = [dateFormatter dateFromString:dateB];
     NSComparisonResult result = [dta compare:dtb];
-    if (result == NSOrderedSame) {
+    NSInteger aa = 0;
+    if (result == NSOrderedSame) {//相等
         aa = 0;
-    } else if (result == NSOrderedAscending) {
+    } else if (result == NSOrderedAscending) {//上升
         aa = 1;
-    } else if (result == NSOrderedDescending) {
+    } else if (result == NSOrderedDescending) {//下降
         aa = -1;
     }
     return aa;
@@ -72,11 +60,7 @@
 
 ///比较日期是否相等
 + (BOOL)yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat{
-    
-    NSDateFormatter *dateFormatter = [NSDateFormatter new];
-    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
-    dateFormatter.dateFormat = dateFormat;
-    
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [[dateFormatter stringFromDate:dateA] isEqualToString:[dateFormatter stringFromDate:dateB]];
 }
 
@@ -118,10 +102,67 @@
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:date];
     return range.length;
 }
+
+/**
+ a period of time from the current time
+ 以当前时间为起点,间隔几个时间单位的 date
+ @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+ @param length 长度可以是正负数，
+            正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+            负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ @return return value description
+ */
++ (NSDate *)yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
+    return [self yl_datePeriodOfDateFromStertDate:[NSDate date] componentsType:type periodLength:length];
+}
+
+
+/**
+ a period of time from the current time
+ 以当前时间为起点,间隔几个时间单位的 date
+
+ @param startDate  以 startDate 为起始时间
+ @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+ @param length 长度可以是正负数，
+            正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+            负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ @return return value description
+ */
++ (NSDate *)yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
+    NSDateComponents * components = [[NSDateComponents alloc] init];
+    switch (type) {
+        case YLDateComponentsTypeYear:
+            components.year = length;
+            break;
+        case YLDateComponentsTypeMonth:
+            components.month = length;
+            break;
+        case YLDateComponentsTypeDay:
+            components.day = length;
+            break;
+        case YLDateComponentsTypeHour:
+            components.hour = length;
+            break;
+        case YLDateComponentsTypeMinute:
+            components.minute = length;
+            break;
+        case YLDateComponentsTypeSecond:
+            components.second = length;
+            break;
+        case YLDateComponentsTypeWeekday:
+            components.weekday = length;
+            break;
+        default:
+            break;
+    }
+    
+    NSDate * nextData = [[self yl_calendar] dateByAddingComponents:components toDate:startDate options:NSCalendarMatchStrictly];
+    return nextData;
+}
+
 #pragma mark - 通用
 
-+ (NSCalendar *)yl_calendar
-{
++ (NSCalendar *)yl_calendar{
     static NSCalendar *calendar;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -139,5 +180,13 @@
         calendar.timeZone = [NSTimeZone localTimeZone];
     });
     return calendar;
+}
+
++ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat{
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = dateFormat;
+    [dateFormatter setCalendar:[NSDate yl_calendar]];
+    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
+    return dateFormatter;
 }
 @end
