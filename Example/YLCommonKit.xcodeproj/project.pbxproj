@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B20719E20F34100004F2914 /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B20717320F34100004F2914 /* NSDate+YLDate.m */; };
+		7B87989F20F5D2EC00060D79 /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B87989020F5D2EC00060D79 /* NSDate+YLDate.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
-		7B20717220F34100004F2914 /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
-		7B20717320F34100004F2914 /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
+		7B87988F20F5D2EC00060D79 /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
+		7B87989020F5D2EC00060D79 /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -86,38 +86,222 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B20715620F34100004F2914 /* YLCommonKit */ = {
+		7B87988220F5D2EC00060D79 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				7B20715F20F34100004F2914 /* YLCategory */,
+				7B87988320F5D2EC00060D79 /* YLTools */,
+				7B87988520F5D2EC00060D79 /* YLMacro */,
+				7B87988620F5D2EC00060D79 /* YLCategory */,
+				7B87989B20F5D2EC00060D79 /* YLManager */,
 			);
 			name = YLCommonKit;
 			path = ../../YLCommonKit/Classes/YLCommonKit;
 			sourceTree = "<group>";
 		};
-		7B20715F20F34100004F2914 /* YLCategory */ = {
+		7B87988320F5D2EC00060D79 /* YLTools */ = {
 			isa = PBXGroup;
 			children = (
-				7B20716020F34100004F2914 /* JYFoundation */,
+				7B87988420F5D2EC00060D79 /* YLBaseFileTools */,
+			);
+			path = YLTools;
+			sourceTree = "<group>";
+		};
+		7B87988420F5D2EC00060D79 /* YLBaseFileTools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLBaseFileTools;
+			sourceTree = "<group>";
+		};
+		7B87988520F5D2EC00060D79 /* YLMacro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLMacro;
+			sourceTree = "<group>";
+		};
+		7B87988620F5D2EC00060D79 /* YLCategory */ = {
+			isa = PBXGroup;
+			children = (
+				7B87988720F5D2EC00060D79 /* JYFoundation */,
+				7B87989120F5D2EC00060D79 /* JYUIKit */,
 			);
 			path = YLCategory;
 			sourceTree = "<group>";
 		};
-		7B20716020F34100004F2914 /* JYFoundation */ = {
+		7B87988720F5D2EC00060D79 /* JYFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				7B20717120F34100004F2914 /* NSDate */,
+				7B87988820F5D2EC00060D79 /* NSDictionary */,
+				7B87988920F5D2EC00060D79 /* NSData */,
+				7B87988A20F5D2EC00060D79 /* NSString */,
+				7B87988B20F5D2EC00060D79 /* NSLog */,
+				7B87988C20F5D2EC00060D79 /* NSAttributedString */,
+				7B87988D20F5D2EC00060D79 /* NSObject */,
+				7B87988E20F5D2EC00060D79 /* NSDate */,
 			);
 			path = JYFoundation;
 			sourceTree = "<group>";
 		};
-		7B20717120F34100004F2914 /* NSDate */ = {
+		7B87988820F5D2EC00060D79 /* NSDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				7B20717220F34100004F2914 /* NSDate+YLDate.h */,
-				7B20717320F34100004F2914 /* NSDate+YLDate.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		7B87988920F5D2EC00060D79 /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSData;
+			sourceTree = "<group>";
+		};
+		7B87988A20F5D2EC00060D79 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		7B87988B20F5D2EC00060D79 /* NSLog */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSLog;
+			sourceTree = "<group>";
+		};
+		7B87988C20F5D2EC00060D79 /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		7B87988D20F5D2EC00060D79 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		7B87988E20F5D2EC00060D79 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				7B87988F20F5D2EC00060D79 /* NSDate+YLDate.h */,
+				7B87989020F5D2EC00060D79 /* NSDate+YLDate.m */,
 			);
 			path = NSDate;
+			sourceTree = "<group>";
+		};
+		7B87989120F5D2EC00060D79 /* JYUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				7B87989220F5D2EC00060D79 /* UIImage */,
+				7B87989320F5D2EC00060D79 /* UILabel */,
+				7B87989420F5D2EC00060D79 /* UIButton */,
+				7B87989520F5D2EC00060D79 /* UIColor */,
+				7B87989620F5D2EC00060D79 /* UIView */,
+				7B87989720F5D2EC00060D79 /* UITextView */,
+				7B87989820F5D2EC00060D79 /* UIViewController */,
+				7B87989920F5D2EC00060D79 /* UITableView */,
+				7B87989A20F5D2EC00060D79 /* UITextField */,
+			);
+			path = JYUIKit;
+			sourceTree = "<group>";
+		};
+		7B87989220F5D2EC00060D79 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		7B87989320F5D2EC00060D79 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		7B87989420F5D2EC00060D79 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
+		7B87989520F5D2EC00060D79 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		7B87989620F5D2EC00060D79 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		7B87989720F5D2EC00060D79 /* UITextView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UITextView;
+			sourceTree = "<group>";
+		};
+		7B87989820F5D2EC00060D79 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		7B87989920F5D2EC00060D79 /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UITableView;
+			sourceTree = "<group>";
+		};
+		7B87989A20F5D2EC00060D79 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		7B87989B20F5D2EC00060D79 /* YLManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B87989C20F5D2EC00060D79 /* YLLocationManager */,
+				7B87989D20F5D2EC00060D79 /* YLAddressBookManager */,
+				7B87989E20F5D2EC00060D79 /* YLKeyChainManager */,
+			);
+			path = YLManager;
+			sourceTree = "<group>";
+		};
+		7B87989C20F5D2EC00060D79 /* YLLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLLocationManager;
+			sourceTree = "<group>";
+		};
+		7B87989D20F5D2EC00060D79 /* YLAddressBookManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLAddressBookManager;
+			sourceTree = "<group>";
+		};
+		7B87989E20F5D2EC00060D79 /* YLKeyChainManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YLKeyChainManager;
 			sourceTree = "<group>";
 		};
 		7B941B2120F3126500811329 = {
@@ -149,7 +333,7 @@
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
 				7B941B3120F3126600811329 /* ViewController.m */,
-				7B20715620F34100004F2914 /* YLCommonKit */,
+				7B87988220F5D2EC00060D79 /* YLCommonKit */,
 				7B941B3320F3126600811329 /* Main.storyboard */,
 				7B941B3620F3126700811329 /* Assets.xcassets */,
 				7B941B3820F3126700811329 /* LaunchScreen.storyboard */,
@@ -346,10 +530,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B20719E20F34100004F2914 /* NSDate+YLDate.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
+				7B87989F20F5D2EC00060D79 /* NSDate+YLDate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

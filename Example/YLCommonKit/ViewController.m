@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "NSDate+YLDate.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSDate * date = [NSDate yl_datePeriodOfDateFromCurrentDateWithComponentsType:YLDateComponentsTypeHour periodLength:2];
+    NSString * dateStr = [NSDate yl_stringFromDate:date DateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSLog(@"%@",dateStr);
+    
 }
 
 
