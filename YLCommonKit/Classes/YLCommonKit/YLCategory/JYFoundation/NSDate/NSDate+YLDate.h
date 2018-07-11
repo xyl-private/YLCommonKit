@@ -23,7 +23,12 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 + (NSCalendar *)yl_calendar;
 + (NSCalendar *)yl_chineseCalendar;
 + (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat;
-
+/**
+ 将 NSDate 转成 NSDateComponents 类型
+ 
+ @param date 给定的 date
+ */
++ (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date;
 /**
  获取当前时间
 

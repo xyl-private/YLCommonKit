@@ -189,4 +189,34 @@
     dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
     return dateFormatter;
 }
+
+/**
+ 将 NSDate 转成 NSDateComponents 类型
+ 
+ @param date 给定的 date
+ */
++ (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date{
+    
+    NSCalendar *calendar = [NSDate yl_calendar];//当前用户的calendar
+    
+    NSDateComponents * components = [calendar components:
+                                     NSCalendarUnitEra |
+                                     NSCalendarUnitYear |
+                                     NSCalendarUnitMonth |
+                                     NSCalendarUnitDay |
+                                     NSCalendarUnitHour |
+                                     NSCalendarUnitMinute |
+                                     NSCalendarUnitSecond |
+                                     NSCalendarUnitWeekday |
+                                     NSCalendarUnitWeekdayOrdinal |
+                                     NSCalendarUnitWeekOfMonth |
+                                     NSCalendarUnitWeekOfYear |
+                                     NSCalendarUnitNanosecond |
+                                     NSCalendarUnitCalendar |
+                                     NSCalendarUnitTimeZone |
+                                     NSCalendarUnitYearForWeekOfYear |
+                                     NSCalendarUnitQuarter
+                                                fromDate:date];
+    return components;
+}
 @end
