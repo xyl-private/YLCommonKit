@@ -2,7 +2,7 @@
 //  NSString+YLRegex.h
 //  YLCommonKit
 //
-//  Created by McIntosh on 2018/7/18.
+//  Created by xyanl on 2018/7/18.
 //  Copyright © 2018年 xyanl. All rights reserved.
 //
 
@@ -27,32 +27,32 @@
 + (BOOL)yl_isStringContainSomeSymbolWithString:(NSString * )string Symbol:(NSArray *)symbols;
 
 /**
- *  手机号码证验证 YES验证通过，NO验证失败
+ * 手机号码证验证 YES验证通过，NO验证失败
  */
 + (BOOL)yl_isPhoneNumberWith:(NSString *)str;
 
 /**
- *  验证数字 YES:是数字; NO:不是数字
+ * 验证数字 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isNumberWith:(NSString *)str;
 
 /**
- *  验证是否是中文 YES:是; NO:不是
+ * 验证是否是中文 YES:是; NO:不是
  */
 + (BOOL)yl_isChineseWith:(NSString *)str;
 
 /**
- *  验证是否是英文 YES:是; NO:不是
+ * 验证是否是英文 YES:是; NO:不是
  */
 + (BOOL)yl_isEnglishWith:(NSString *)str;
 
 /**
- *  验证金额，输入只限小数点后两位 YES:是数字; NO:不是数字
+ * 验证金额，输入只限小数点后两位 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isMoneyWith:(NSString *)str;
 
 /**
- *   车牌号的有效性验证 YES:是数字; NO:不是数字
+ * 车牌号的有效性验证 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isCarNumberWith:(NSString *)str;
 
@@ -62,8 +62,8 @@
 + (BOOL)yl_isPostalcodeWith:(NSString *)str;
 
 /**
- * 银行卡号有效性校验
- * 银行卡号有效性问题Luhn算法
+ *  银行卡号有效性校验
+ *  银行卡号有效性问题Luhn算法
  *  现行 16 位银联卡现行卡号开头 6 位是 622126～622925 之间的，7 到 15 位是银行自定义的，
  *  可能是发卡分行，发卡网点，发卡序号，第 16 位是校验码。
  *  16 位卡号校验位采用 Luhm 校验方法计算：

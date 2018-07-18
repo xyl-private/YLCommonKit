@@ -18,6 +18,7 @@
 		7B941B5220F3126700811329 /* YLCommonKitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B5120F3126700811329 /* YLCommonKitUITests.m */; };
 		7BF2646820FED9CA00C5F71A /* NSString+YLRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2646420FED9CA00C5F71A /* NSString+YLRegex.m */; };
 		7BF2646920FED9CA00C5F71A /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2646620FED9CA00C5F71A /* NSString+YLString.m */; };
+		7BF2647020FEDE3900C5F71A /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BF2646E20FEDE3900C5F71A /* NSData+YLData.m */; };
 		B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		7BF2646520FED9CA00C5F71A /* NSString+YLRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLRegex.h"; sourceTree = "<group>"; };
 		7BF2646620FED9CA00C5F71A /* NSString+YLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLString.m"; sourceTree = "<group>"; };
 		7BF2646720FED9CA00C5F71A /* NSString+YLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLString.h"; sourceTree = "<group>"; };
+		7BF2646E20FEDE3900C5F71A /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
+		7BF2646F20FEDE3900C5F71A /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
 		D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCommonKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,8 @@
 		7B87988920F5D2EC00060D79 /* NSData */ = {
 			isa = PBXGroup;
 			children = (
+				7BF2646F20FEDE3900C5F71A /* NSData+YLData.h */,
+				7BF2646E20FEDE3900C5F71A /* NSData+YLData.m */,
 			);
 			path = NSData;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7BF2646820FED9CA00C5F71A /* NSString+YLRegex.m in Sources */,
+				7BF2647020FEDE3900C5F71A /* NSData+YLData.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				7B87989F20F5D2EC00060D79 /* NSDate+YLDate.m in Sources */,
 				7BF2646920FED9CA00C5F71A /* NSString+YLString.m in Sources */,

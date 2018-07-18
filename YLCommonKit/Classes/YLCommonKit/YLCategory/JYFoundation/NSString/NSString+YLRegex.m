@@ -2,7 +2,7 @@
 //  NSString+YLRegex.m
 //  YLCommonKit
 //
-//  Created by McIntosh on 2018/7/18.
+//  Created by xyanl on 2018/7/18.
 //  Copyright © 2018年 xyanl. All rights reserved.
 //
 
