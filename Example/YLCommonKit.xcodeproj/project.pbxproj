@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B8770C020FF49CA00DAE2C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BE20FF49CA00DAE2C2 /* README.md */; };
+		7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */; };
 		7B87989F20F5D2EC00060D79 /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B87989020F5D2EC00060D79 /* NSDate+YLDate.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
+		7B8770BE20FF49CA00DAE2C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		7B87988F20F5D2EC00060D79 /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
 		7B87989020F5D2EC00060D79 /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B8770BD20FF49AD00DAE2C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B8770BE20FF49CA00DAE2C2 /* README.md */,
+				7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7B87988220F5D2EC00060D79 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +413,7 @@
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
 				7B941B3120F3126600811329 /* ViewController.m */,
+				7B8770BD20FF49AD00DAE2C2 /* Pods */,
 				7B87988220F5D2EC00060D79 /* YLCommonKit */,
 				7B941B3320F3126600811329 /* Main.storyboard */,
 				7B941B3620F3126700811329 /* Assets.xcassets */,
@@ -597,6 +611,8 @@
 			files = (
 				7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */,
 				7B941B3720F3126700811329 /* Assets.xcassets in Resources */,
+				7B8770C020FF49CA00DAE2C2 /* README.md in Resources */,
+				7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */,
 				7B941B3520F3126600811329 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
