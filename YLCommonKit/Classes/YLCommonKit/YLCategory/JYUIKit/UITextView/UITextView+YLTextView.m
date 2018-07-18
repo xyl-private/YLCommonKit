@@ -22,21 +22,21 @@ static const void * yl_placeHolderKey;
 +(void)load{
     [super load];
     method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"layoutSubviews")),
-                                   class_getInstanceMethod(self.class, @selector(jyPlaceHolder_swizzling_layoutSubviews)));
+                                   class_getInstanceMethod(self.class, @selector(ylPlaceHolder_swizzling_layoutSubviews)));
     method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
-                                   class_getInstanceMethod(self.class, @selector(jyPlaceHolder_swizzled_dealloc)));
+                                   class_getInstanceMethod(self.class, @selector(ylPlaceHolder_swizzled_dealloc)));
     method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"setText:")),
-                                   class_getInstanceMethod(self.class, @selector(jyPlaceHolder_swizzled_setText:)));
+                                   class_getInstanceMethod(self.class, @selector(ylPlaceHolder_swizzled_setText:)));
 }
 
 #pragma mark - swizzled
 
-- (void)jyPlaceHolder_swizzled_dealloc {
+- (void)ylPlaceHolder_swizzled_dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self jyPlaceHolder_swizzled_dealloc];
+    [self ylPlaceHolder_swizzled_dealloc];
 }
 
-- (void)jyPlaceHolder_swizzling_layoutSubviews {
+- (void)ylPlaceHolder_swizzling_layoutSubviews {
     if (self.yl_placeHolder) {
         UIEdgeInsets textContainerInset = self.textContainerInset;
         CGFloat lineFragmentPadding = self.textContainer.lineFragmentPadding;
@@ -46,11 +46,11 @@ static const void * yl_placeHolderKey;
         CGFloat height = [self.yl_placeHolderLabel sizeThatFits:CGSizeMake(width, 0)].height;
         self.yl_placeHolderLabel.frame = CGRectMake(x, y, width, height);
     }
-    [self jyPlaceHolder_swizzling_layoutSubviews];
+    [self ylPlaceHolder_swizzling_layoutSubviews];
 }
 
-- (void)jyPlaceHolder_swizzled_setText:(NSString *)text{
-    [self jyPlaceHolder_swizzled_setText:text];
+- (void)ylPlaceHolder_swizzled_setText:(NSString *)text{
+    [self ylPlaceHolder_swizzled_setText:text];
     if (self.yl_placeHolder) {
         [self updatePlaceHolder];
     }
