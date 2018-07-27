@@ -21,7 +21,7 @@ s.ios.deployment_target = "9.0"
 s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 s.source_files  = "YLCommonKit/**/*.{h,m}"
 
-s.subspec 'JYNetworking' do |networking|
+s.subspec 'YLNetworking' do |networking|
 networking.source_files = 'YLCommonKit/**/*.{h,m}'
 networking.public_header_files = 'YLCommonKit/**/*.{h}'
 networking.dependency 'AFNetworking'
