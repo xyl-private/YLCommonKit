@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
         s.public_header_files = 'YLCommonKit/**/*.h'
         s.source_files = 'YLCommonKit/**/*.{h,m}'
 
-        s.subspec 'Serialization' do |ss|
+        s.subspec 'YLNetworking' do |ss|
             ss.source_files = 'YLCommonKit/YLNetworking/*.{h,m}'
             ss.public_header_files =  'YLCommonKit/YLNetworking/*.h'
             ss.ios.frameworks = 'UIKit', 'Foundation'
