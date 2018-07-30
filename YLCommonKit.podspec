@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
         s.license      = { :type => "MIT", :file => "LICENSE" }
         s.author       = { "村雨灬龑" => "xyl-private@163.com" }
 
-        s.ios.deployment_target = "9.0"
+        s.ios.deployment_target = "8.0"
         s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 
         s.requires_arc = true
