@@ -7,25 +7,26 @@
 #
 
 Pod::Spec.new do |s|
-s.name         = "YLCommonKit"
-s.version      = "0.0.2"
-s.summary      = "我的基础库"
-s.description  = <<-DESC
-简单的 kit 存放各种常用的分类方法
-DESC
-s.homepage     = "https://github.com/xyl-private/YLCommonKit"
-s.license      = { :type => "MIT", :file => "LICENSE" }
-s.author       = { "村雨灬龑" => "xyl-private@163.com" }
+        s.name         = "YLCommonKit"
+        s.version      = "0.0.3"
+        s.summary      = "我的基础库"
+        s.description  = <<-DESC
+                        简单的 kit 存放各种常用的分类方法
+                            DESC
+        s.homepage     = "https://github.com/xyl-private/YLCommonKit"
+        s.license      = { :type => "MIT", :file => "LICENSE" }
+        s.author       = { "村雨灬龑" => "xyl-private@163.com" }
 
-s.ios.deployment_target = "9.0"
-s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
-s.source_files  = "YLCommonKit/**/*.{h,m}"
+        s.ios.deployment_target = "9.0"
+        s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 
-s.subspec 'YLNetworking' do |networking|
-networking.source_files = 'YLCommonKit/**/*.{h,m}'
-networking.public_header_files = 'YLCommonKit/**/*.{h}'
-networking.dependency 'AFNetworking'
-networking.dependency 'Reachability'
-end
+        s.requires_arc = true
+
+        s.source_files  = "YLCommonKit/**/*.{h,m}"
+        s.public_header_files = 'YLCommonKit/**/*.{h}'
+        s.dependency 'AFNetworking'
+        s.dependency 'Reachability'
+        s.dependency 'YYModel'
+
 end
 

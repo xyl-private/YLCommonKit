@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B10B422210AC59500F35E77 /* YLNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3D5210AC59500F35E77 /* YLNetManager.m */; };
-		7B10B423210AC59500F35E77 /* YLResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3D9210AC59500F35E77 /* YLResponseTip.m */; };
-		7B10B424210AC59500F35E77 /* NSURLSessionTask+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3DB210AC59500F35E77 /* NSURLSessionTask+UserInfo.m */; };
-		7B10B425210AC59500F35E77 /* YLHttpResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3DC210AC59500F35E77 /* YLHttpResponseTip.m */; };
-		7B10B426210AC59500F35E77 /* YLNetManager+YLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3DF210AC59500F35E77 /* YLNetManager+YLAction.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
 		7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3EA210AC59500F35E77 /* NSString+YLString.m */; };
 		7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3ED210AC59500F35E77 /* NSString+YLRegex.m */; };
@@ -39,23 +34,16 @@
 		7B941B3720F3126700811329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3620F3126700811329 /* Assets.xcassets */; };
 		7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3820F3126700811329 /* LaunchScreen.storyboard */; };
 		7B941B3D20F3126700811329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3C20F3126700811329 /* main.m */; };
+		7BECB5F8210EAAEE004BE620 /* NSURLSessionTask+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB5EC210EAAEE004BE620 /* NSURLSessionTask+UserInfo.m */; };
+		7BECB5F9210EAAEE004BE620 /* YLNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB5EE210EAAEE004BE620 /* YLNetManager.m */; };
+		7BECB5FA210EAAEE004BE620 /* YLResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB5F0210EAAEE004BE620 /* YLResponseTip.m */; };
+		7BECB5FB210EAAEE004BE620 /* YLNetManager+YLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB5F1210EAAEE004BE620 /* YLNetManager+YLAction.m */; };
+		7BECB5FC210EAAEE004BE620 /* YLHttpResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB5F3210EAAEE004BE620 /* YLHttpResponseTip.m */; };
 		B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
-		7B10B3D4210AC59500F35E77 /* NSURLSessionTask+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+UserInfo.h"; sourceTree = "<group>"; };
-		7B10B3D5210AC59500F35E77 /* YLNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLNetManager.m; sourceTree = "<group>"; };
-		7B10B3D6210AC59500F35E77 /* YLApiMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLApiMacro.h; sourceTree = "<group>"; };
-		7B10B3D7210AC59500F35E77 /* YLHttpResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpResponseTip.h; sourceTree = "<group>"; };
-		7B10B3D8210AC59500F35E77 /* YLNetManager+YLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLNetManager+YLAction.h"; sourceTree = "<group>"; };
-		7B10B3D9210AC59500F35E77 /* YLResponseTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLResponseTip.m; sourceTree = "<group>"; };
-		7B10B3DA210AC59500F35E77 /* YLHttpRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpRequestTypes.h; sourceTree = "<group>"; };
-		7B10B3DB210AC59500F35E77 /* NSURLSessionTask+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+UserInfo.m"; sourceTree = "<group>"; };
-		7B10B3DC210AC59500F35E77 /* YLHttpResponseTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLHttpResponseTip.m; sourceTree = "<group>"; };
-		7B10B3DD210AC59500F35E77 /* YLNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLNetManager.h; sourceTree = "<group>"; };
-		7B10B3DE210AC59500F35E77 /* YLResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLResponseTip.h; sourceTree = "<group>"; };
-		7B10B3DF210AC59500F35E77 /* YLNetManager+YLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLNetManager+YLAction.m"; sourceTree = "<group>"; };
 		7B10B3E2210AC59500F35E77 /* YLToolMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToolMacro.h; sourceTree = "<group>"; };
 		7B10B3E7210AC59500F35E77 /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
 		7B10B3E8210AC59500F35E77 /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
@@ -107,10 +95,18 @@
 		7B941B3920F3126700811329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B941B3B20F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B941B3C20F3126700811329 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7B941B4620F3126700811329 /* YLCommonKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCommonKitTests.m; sourceTree = "<group>"; };
-		7B941B4820F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B941B5120F3126700811329 /* YLCommonKitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCommonKitUITests.m; sourceTree = "<group>"; };
-		7B941B5320F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BECB5EC210EAAEE004BE620 /* NSURLSessionTask+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+UserInfo.m"; sourceTree = "<group>"; };
+		7BECB5ED210EAAEE004BE620 /* YLApiMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLApiMacro.h; sourceTree = "<group>"; };
+		7BECB5EE210EAAEE004BE620 /* YLNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLNetManager.m; sourceTree = "<group>"; };
+		7BECB5EF210EAAEE004BE620 /* YLNetManager+YLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YLNetManager+YLAction.h"; sourceTree = "<group>"; };
+		7BECB5F0210EAAEE004BE620 /* YLResponseTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLResponseTip.m; sourceTree = "<group>"; };
+		7BECB5F1210EAAEE004BE620 /* YLNetManager+YLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YLNetManager+YLAction.m"; sourceTree = "<group>"; };
+		7BECB5F2210EAAEE004BE620 /* YLResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLResponseTip.h; sourceTree = "<group>"; };
+		7BECB5F3210EAAEE004BE620 /* YLHttpResponseTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLHttpResponseTip.m; sourceTree = "<group>"; };
+		7BECB5F4210EAAEE004BE620 /* YLNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLNetManager.h; sourceTree = "<group>"; };
+		7BECB5F5210EAAEE004BE620 /* YLHttpResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpResponseTip.h; sourceTree = "<group>"; };
+		7BECB5F6210EAAEE004BE620 /* NSURLSessionTask+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+UserInfo.h"; sourceTree = "<group>"; };
+		7BECB5F7210EAAEE004BE620 /* YLHttpRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpRequestTypes.h; sourceTree = "<group>"; };
 		D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCommonKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,18 +140,18 @@
 		7B10B3D3210AC59500F35E77 /* YLNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3D4210AC59500F35E77 /* NSURLSessionTask+UserInfo.h */,
-				7B10B3D5210AC59500F35E77 /* YLNetManager.m */,
-				7B10B3D6210AC59500F35E77 /* YLApiMacro.h */,
-				7B10B3D7210AC59500F35E77 /* YLHttpResponseTip.h */,
-				7B10B3D8210AC59500F35E77 /* YLNetManager+YLAction.h */,
-				7B10B3D9210AC59500F35E77 /* YLResponseTip.m */,
-				7B10B3DA210AC59500F35E77 /* YLHttpRequestTypes.h */,
-				7B10B3DB210AC59500F35E77 /* NSURLSessionTask+UserInfo.m */,
-				7B10B3DC210AC59500F35E77 /* YLHttpResponseTip.m */,
-				7B10B3DD210AC59500F35E77 /* YLNetManager.h */,
-				7B10B3DE210AC59500F35E77 /* YLResponseTip.h */,
-				7B10B3DF210AC59500F35E77 /* YLNetManager+YLAction.m */,
+				7BECB5F6210EAAEE004BE620 /* NSURLSessionTask+UserInfo.h */,
+				7BECB5EC210EAAEE004BE620 /* NSURLSessionTask+UserInfo.m */,
+				7BECB5ED210EAAEE004BE620 /* YLApiMacro.h */,
+				7BECB5F7210EAAEE004BE620 /* YLHttpRequestTypes.h */,
+				7BECB5F5210EAAEE004BE620 /* YLHttpResponseTip.h */,
+				7BECB5F3210EAAEE004BE620 /* YLHttpResponseTip.m */,
+				7BECB5F4210EAAEE004BE620 /* YLNetManager.h */,
+				7BECB5EE210EAAEE004BE620 /* YLNetManager.m */,
+				7BECB5EF210EAAEE004BE620 /* YLNetManager+YLAction.h */,
+				7BECB5F1210EAAEE004BE620 /* YLNetManager+YLAction.m */,
+				7BECB5F2210EAAEE004BE620 /* YLResponseTip.h */,
+				7BECB5F0210EAAEE004BE620 /* YLResponseTip.m */,
 			);
 			path = YLNetworking;
 			sourceTree = "<group>";
@@ -423,8 +419,6 @@
 			isa = PBXGroup;
 			children = (
 				7B941B2C20F3126500811329 /* YLCommonKit */,
-				7B941B4520F3126700811329 /* YLCommonKitTests */,
-				7B941B5020F3126700811329 /* YLCommonKitUITests */,
 				7B941B2B20F3126500811329 /* Products */,
 				DE81F01665D3AB5243CD2260 /* Pods */,
 				EB60C5CB8CF98BC959C8B7B2 /* Frameworks */,
@@ -455,24 +449,6 @@
 				7B941B3C20F3126700811329 /* main.m */,
 			);
 			path = YLCommonKit;
-			sourceTree = "<group>";
-		};
-		7B941B4520F3126700811329 /* YLCommonKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B4620F3126700811329 /* YLCommonKitTests.m */,
-				7B941B4820F3126700811329 /* Info.plist */,
-			);
-			path = YLCommonKitTests;
-			sourceTree = "<group>";
-		};
-		7B941B5020F3126700811329 /* YLCommonKitUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7B941B5120F3126700811329 /* YLCommonKitUITests.m */,
-				7B941B5320F3126700811329 /* Info.plist */,
-			);
-			path = YLCommonKitUITests;
 			sourceTree = "<group>";
 		};
 		DE81F01665D3AB5243CD2260 /* Pods */ = {
@@ -586,21 +562,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BECB5F9210EAAEE004BE620 /* YLNetManager.m in Sources */,
 				7B10B434210AC59500F35E77 /* NSData+AES256.m in Sources */,
 				7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */,
 				7B10B42C210AC59500F35E77 /* UIImage+YLImage.m in Sources */,
+				7BECB5F8210EAAEE004BE620 /* NSURLSessionTask+UserInfo.m in Sources */,
 				7B10B42F210AC59500F35E77 /* UIView+YLView.m in Sources */,
 				7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */,
-				7B10B423210AC59500F35E77 /* YLResponseTip.m in Sources */,
-				7B10B424210AC59500F35E77 /* NSURLSessionTask+UserInfo.m in Sources */,
 				7B10B42D210AC59500F35E77 /* UIButton+YLButton.m in Sources */,
-				7B10B422210AC59500F35E77 /* YLNetManager.m in Sources */,
+				7BECB5FC210EAAEE004BE620 /* YLHttpResponseTip.m in Sources */,
 				7B10B435210AC59500F35E77 /* NSString+Base64.m in Sources */,
 				7B10B439210AC59500F35E77 /* YLAESManager.m in Sources */,
-				7B10B425210AC59500F35E77 /* YLHttpResponseTip.m in Sources */,
 				7B10B438210AC59500F35E77 /* NSData+Base64.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
+				7BECB5FB210EAAEE004BE620 /* YLNetManager+YLAction.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
@@ -608,11 +584,11 @@
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
+				7BECB5FA210EAAEE004BE620 /* YLResponseTip.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
 				7B10B437210AC59500F35E77 /* NSData+CommonCrypto.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
-				7B10B426210AC59500F35E77 /* YLNetManager+YLAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
