@@ -157,9 +157,9 @@
 		7B10B3E9210AC59500F35E77 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
+				7B10B3EC210AC59500F35E77 /* NSString+YLString.h */,
 				7B10B3EA210AC59500F35E77 /* NSString+YLString.m */,
 				7B10B3EB210AC59500F35E77 /* NSString+YLRegex.h */,
-				7B10B3EC210AC59500F35E77 /* NSString+YLString.h */,
 				7B10B3ED210AC59500F35E77 /* NSString+YLRegex.m */,
 			);
 			path = NSString;

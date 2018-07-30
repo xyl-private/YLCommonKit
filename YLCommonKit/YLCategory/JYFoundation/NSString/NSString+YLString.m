@@ -272,7 +272,13 @@
     str = [NSString stringWithFormat:@"telprompt://%@",str];
     NSURL *url = [NSURL URLWithString:str];
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        [[UIApplication sharedApplication] openURL:url];
+        //        if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 10.0) {
+        //            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+        //
+        //        }else{
+        //
+        //        }
         return YES;
     } else {
         return NO;
