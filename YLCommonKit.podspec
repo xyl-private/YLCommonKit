@@ -18,8 +18,6 @@ Pod::Spec.new do |s|
         s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 
         s.requires_arc = true
-
-        s.public_header_files = 'YLCommonKit/**/*.h'
         s.source_files = 'YLCommonKit/**/*.{h,m}'
 
 end

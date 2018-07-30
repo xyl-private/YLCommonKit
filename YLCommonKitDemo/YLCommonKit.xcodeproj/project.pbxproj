@@ -20,12 +20,6 @@
 		7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B409210AC59500F35E77 /* UIViewController+YLViewController.m */; };
 		7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40C210AC59500F35E77 /* UITableView+YLTableHeaderView.m */; };
 		7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */; };
-		7B10B434210AC59500F35E77 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B412210AC59500F35E77 /* NSData+AES256.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B10B435210AC59500F35E77 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B413210AC59500F35E77 /* NSString+Base64.m */; };
-		7B10B436210AC59500F35E77 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B414210AC59500F35E77 /* AESCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B10B437210AC59500F35E77 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B41A210AC59500F35E77 /* NSData+CommonCrypto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7B10B438210AC59500F35E77 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B41B210AC59500F35E77 /* NSData+Base64.m */; };
-		7B10B439210AC59500F35E77 /* YLAESManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B41C210AC59500F35E77 /* YLAESManager.m */; };
 		7B8770C020FF49CA00DAE2C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BE20FF49CA00DAE2C2 /* README.md */; };
 		7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
@@ -66,18 +60,6 @@
 		7B10B40C210AC59500F35E77 /* UITableView+YLTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YLTableHeaderView.m"; sourceTree = "<group>"; };
 		7B10B40E210AC59500F35E77 /* UITextField+YLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YLTextField.h"; sourceTree = "<group>"; };
 		7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YLTextField.m"; sourceTree = "<group>"; };
-		7B10B412210AC59500F35E77 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
-		7B10B413210AC59500F35E77 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
-		7B10B414210AC59500F35E77 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
-		7B10B415210AC59500F35E77 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		7B10B416210AC59500F35E77 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
-		7B10B417210AC59500F35E77 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
-		7B10B418210AC59500F35E77 /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
-		7B10B419210AC59500F35E77 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
-		7B10B41A210AC59500F35E77 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
-		7B10B41B210AC59500F35E77 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		7B10B41C210AC59500F35E77 /* YLAESManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLAESManager.m; sourceTree = "<group>"; };
-		7B10B41D210AC59500F35E77 /* YLAESManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLAESManager.h; sourceTree = "<group>"; };
 		7B8770BE20FF49CA00DAE2C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +94,6 @@
 				7B10B3E0210AC59500F35E77 /* YLTools */,
 				7B10B3E1210AC59500F35E77 /* YLMacro */,
 				7B10B3E3210AC59500F35E77 /* YLCategory */,
-				7B10B410210AC59500F35E77 /* YLAESManager */,
 				7B10B41E210AC59500F35E77 /* YLManager */,
 			);
 			name = YLCommonKit;
@@ -311,33 +292,6 @@
 			path = UITextField;
 			sourceTree = "<group>";
 		};
-		7B10B410210AC59500F35E77 /* YLAESManager */ = {
-			isa = PBXGroup;
-			children = (
-				7B10B411210AC59500F35E77 /* YLAES */,
-				7B10B41C210AC59500F35E77 /* YLAESManager.m */,
-				7B10B41D210AC59500F35E77 /* YLAESManager.h */,
-			);
-			path = YLAESManager;
-			sourceTree = "<group>";
-		};
-		7B10B411210AC59500F35E77 /* YLAES */ = {
-			isa = PBXGroup;
-			children = (
-				7B10B412210AC59500F35E77 /* NSData+AES256.m */,
-				7B10B413210AC59500F35E77 /* NSString+Base64.m */,
-				7B10B414210AC59500F35E77 /* AESCrypt.m */,
-				7B10B415210AC59500F35E77 /* NSData+Base64.h */,
-				7B10B416210AC59500F35E77 /* NSData+CommonCrypto.h */,
-				7B10B417210AC59500F35E77 /* NSData+AES256.h */,
-				7B10B418210AC59500F35E77 /* AESCrypt.h */,
-				7B10B419210AC59500F35E77 /* NSString+Base64.h */,
-				7B10B41A210AC59500F35E77 /* NSData+CommonCrypto.m */,
-				7B10B41B210AC59500F35E77 /* NSData+Base64.m */,
-			);
-			path = YLAES;
-			sourceTree = "<group>";
-		};
 		7B10B41E210AC59500F35E77 /* YLManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,27 +479,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B10B434210AC59500F35E77 /* NSData+AES256.m in Sources */,
 				7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */,
 				7B10B42C210AC59500F35E77 /* UIImage+YLImage.m in Sources */,
 				7B10B42F210AC59500F35E77 /* UIView+YLView.m in Sources */,
 				7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */,
 				7B10B42D210AC59500F35E77 /* UIButton+YLButton.m in Sources */,
-				7B10B435210AC59500F35E77 /* NSString+Base64.m in Sources */,
-				7B10B439210AC59500F35E77 /* YLAESManager.m in Sources */,
-				7B10B438210AC59500F35E77 /* NSData+Base64.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
-				7B10B436210AC59500F35E77 /* AESCrypt.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
-				7B10B437210AC59500F35E77 /* NSData+CommonCrypto.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
