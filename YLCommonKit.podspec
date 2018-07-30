@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
         httpManager.source_files = 'YLCommonKit/YLNetworking/*.{h,m}'
         httpManager.public_header_files = 'YLCommonKit/YLNetworking/*.h'
 
-        httpManager.dependency 'JYNetworking'
-        httpManager.dependency 'YYModel'
-
+        httpManager.dependency 'YLCommonKit/YLNetworking/AFNetworking'
+        httpManager.dependency 'YLCommonKit/YLNetworking/YYModel'
+        httpManager.dependency 'YLCommonKit/YLNetworking/Reachability'
         end
 
 
