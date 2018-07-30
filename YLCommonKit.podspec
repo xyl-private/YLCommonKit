@@ -22,7 +22,15 @@ Pod::Spec.new do |s|
         s.public_header_files = 'YLCommonKit/**/*.h'
         s.source_files = 'YLCommonKit/**/*.{h,m}'
 
-      
+        s.subspec 'YLNetworking' do |httpManager|
+        httpManager.source_files = 'YLCommonKit/YLNetworking/*.{h,m}'
+        httpManager.public_header_files = 'YLCommonKit/YLNetworking/*.h'
+
+        httpManager.dependency 'JYNetworking'
+        httpManager.dependency 'YYModel'
+
+        end
+
 
 end
 
