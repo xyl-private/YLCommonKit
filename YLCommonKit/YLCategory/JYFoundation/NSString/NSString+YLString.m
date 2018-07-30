@@ -264,26 +264,7 @@
     
     return returnValue;
 }
-/**
- * 打电话
- */
-+ (BOOL)yl_callUpWithPhoneNum:(NSString *)str
-{
-    str = [NSString stringWithFormat:@"telprompt://%@",str];
-    NSURL *url = [NSURL URLWithString:str];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-        //        if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 10.0) {
-        //            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
-        //
-        //        }else{
-        //
-        //        }
-        return YES;
-    } else {
-        return NO;
-    }
-}
+
 
 - (NSURL *)yl_url {
 #pragma clang diagnostic push
