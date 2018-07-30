@@ -33,6 +33,12 @@
 		7BECB61D210EE08B004BE620 /* YLResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB613210EE08A004BE620 /* YLResponseTip.m */; };
 		7BECB61E210EE08B004BE620 /* YLNetManager+YLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB614210EE08A004BE620 /* YLNetManager+YLAction.m */; };
 		7BECB61F210EE08B004BE620 /* YLHttpResponseTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB616210EE08A004BE620 /* YLHttpResponseTip.m */; };
+		7BECB62E210EE2D0004BE620 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB622210EE2D0004BE620 /* NSData+AES256.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BECB62F210EE2D0004BE620 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB623210EE2D0004BE620 /* NSString+Base64.m */; };
+		7BECB630210EE2D0004BE620 /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB624210EE2D0004BE620 /* AESCrypt.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BECB631210EE2D0004BE620 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB62A210EE2D0004BE620 /* NSData+CommonCrypto.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7BECB632210EE2D0004BE620 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB62B210EE2D0004BE620 /* NSData+Base64.m */; };
+		7BECB633210EE2D0004BE620 /* YLAESManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BECB62C210EE2D0004BE620 /* YLAESManager.m */; };
 		B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +95,18 @@
 		7BECB618210EE08B004BE620 /* YLHttpResponseTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpResponseTip.h; sourceTree = "<group>"; };
 		7BECB619210EE08B004BE620 /* NSURLSessionTask+UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+UserInfo.h"; sourceTree = "<group>"; };
 		7BECB61A210EE08B004BE620 /* YLHttpRequestTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLHttpRequestTypes.h; sourceTree = "<group>"; };
+		7BECB622210EE2D0004BE620 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		7BECB623210EE2D0004BE620 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		7BECB624210EE2D0004BE620 /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
+		7BECB625210EE2D0004BE620 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		7BECB626210EE2D0004BE620 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
+		7BECB627210EE2D0004BE620 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		7BECB628210EE2D0004BE620 /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		7BECB629210EE2D0004BE620 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		7BECB62A210EE2D0004BE620 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
+		7BECB62B210EE2D0004BE620 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		7BECB62C210EE2D0004BE620 /* YLAESManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLAESManager.m; sourceTree = "<group>"; };
+		7BECB62D210EE2D0004BE620 /* YLAESManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLAESManager.h; sourceTree = "<group>"; };
 		D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCommonKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +126,7 @@
 		7B10B3D2210AC59500F35E77 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
+				7BECB620210EE2CF004BE620 /* YLAESManager */,
 				7BECB5FD210EE07A004BE620 /* YLNetworking */,
 				7B10B3E0210AC59500F35E77 /* YLTools */,
 				7B10B3E1210AC59500F35E77 /* YLMacro */,
@@ -405,6 +424,33 @@
 			path = YLNetworking;
 			sourceTree = "<group>";
 		};
+		7BECB620210EE2CF004BE620 /* YLAESManager */ = {
+			isa = PBXGroup;
+			children = (
+				7BECB621210EE2D0004BE620 /* YLAES */,
+				7BECB62D210EE2D0004BE620 /* YLAESManager.h */,
+				7BECB62C210EE2D0004BE620 /* YLAESManager.m */,
+			);
+			path = YLAESManager;
+			sourceTree = "<group>";
+		};
+		7BECB621210EE2D0004BE620 /* YLAES */ = {
+			isa = PBXGroup;
+			children = (
+				7BECB622210EE2D0004BE620 /* NSData+AES256.m */,
+				7BECB623210EE2D0004BE620 /* NSString+Base64.m */,
+				7BECB624210EE2D0004BE620 /* AESCrypt.m */,
+				7BECB625210EE2D0004BE620 /* NSData+Base64.h */,
+				7BECB626210EE2D0004BE620 /* NSData+CommonCrypto.h */,
+				7BECB627210EE2D0004BE620 /* NSData+AES256.h */,
+				7BECB628210EE2D0004BE620 /* AESCrypt.h */,
+				7BECB629210EE2D0004BE620 /* NSString+Base64.h */,
+				7BECB62A210EE2D0004BE620 /* NSData+CommonCrypto.m */,
+				7BECB62B210EE2D0004BE620 /* NSData+Base64.m */,
+			);
+			path = YLAES;
+			sourceTree = "<group>";
+		};
 		DE81F01665D3AB5243CD2260 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BECB62E210EE2D0004BE620 /* NSData+AES256.m in Sources */,
 				7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */,
 				7B10B42C210AC59500F35E77 /* UIImage+YLImage.m in Sources */,
 				7BECB61B210EE08B004BE620 /* NSURLSessionTask+UserInfo.m in Sources */,
@@ -524,17 +571,22 @@
 				7B10B42D210AC59500F35E77 /* UIButton+YLButton.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
+				7BECB62F210EE2D0004BE620 /* NSString+Base64.m in Sources */,
+				7BECB633210EE2D0004BE620 /* YLAESManager.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
+				7BECB632210EE2D0004BE620 /* NSData+Base64.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7BECB61D210EE08B004BE620 /* YLResponseTip.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7BECB61C210EE08B004BE620 /* YLNetManager.m in Sources */,
+				7BECB630210EE2D0004BE620 /* AESCrypt.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
 				7BECB61F210EE08B004BE620 /* YLHttpResponseTip.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
+				7BECB631210EE2D0004BE620 /* NSData+CommonCrypto.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				7BECB61E210EE08B004BE620 /* YLNetManager+YLAction.m in Sources */,
 			);
