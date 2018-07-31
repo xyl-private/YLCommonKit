@@ -139,8 +139,8 @@
 		7B10B3E6210AC59500F35E77 /* NSData */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3E7210AC59500F35E77 /* NSData+YLData.m */,
 				7B10B3E8210AC59500F35E77 /* NSData+YLData.h */,
+				7B10B3E7210AC59500F35E77 /* NSData+YLData.m */,
 			);
 			path = NSData;
 			sourceTree = "<group>";
@@ -166,8 +166,8 @@
 		7B10B3EF210AC59500F35E77 /* NSAttributedString */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3F0210AC59500F35E77 /* NSAttributedString+YLAttributedString.m */,
 				7B10B3F1210AC59500F35E77 /* NSAttributedString+YLAttributedString.h */,
+				7B10B3F0210AC59500F35E77 /* NSAttributedString+YLAttributedString.m */,
 			);
 			path = NSAttributedString;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 		7B10B3F7210AC59500F35E77 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3F8210AC59500F35E77 /* UIImage+YLImage.m */,
 				7B10B3F9210AC59500F35E77 /* UIImage+YLImage.h */,
+				7B10B3F8210AC59500F35E77 /* UIImage+YLImage.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		7B10B3FE210AC59500F35E77 /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3FF210AC59500F35E77 /* UIColor+YLColor.m */,
 				7B10B400210AC59500F35E77 /* UIColor+YLColor.h */,
+				7B10B3FF210AC59500F35E77 /* UIColor+YLColor.m */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -241,8 +241,8 @@
 		7B10B401210AC59500F35E77 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B402210AC59500F35E77 /* UIView+YLView.m */,
 				7B10B403210AC59500F35E77 /* UIView+YLView.h */,
+				7B10B402210AC59500F35E77 /* UIView+YLView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
