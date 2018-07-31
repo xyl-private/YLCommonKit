@@ -9,17 +9,8 @@ Pod::Spec.new do |s|
         s.ios.deployment_target = "8.0"
         s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 
-        s.requires_arc = true
         s.source_files = 'YLCommonKit/**/*.{h,m}'
-
-        s.subspec 'YLNetworking' do |httpManager|
-            httpManager.source_files = 'YLCommonKit/YLNetworking/*.{h,m}'
-            httpManager.public_header_files = 'YLCommonKit/YLNetworking/*.h'
-
-            httpManager.dependency 'AFNetworking'
-            httpManager.dependency 'Reachability'
-            httpManager.dependency 'YYModel'
-        end
+        s.public_header_files = 'YLCommonKit/**/*.h'
 
 end
 
