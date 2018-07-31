@@ -30,13 +30,71 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'YLCommonKit/YLMacro/*.h'
     end
 
-    s.subspec 'YLFoundation' do |ss|
-        ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/**/*.{h,m}'
-        ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/**/*.h'
+    s.subspec 'YLCategory' do |ss|
+        ss.subspec 'YLFoundation' do |ss|
+            ss.subspec 'NSData' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.h'
+            end
+
+            ss.subspec 'NSString' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSString/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSString/*.h'
+            end
+
+            ss.subspec 'NSDate' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSDate/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSDate/*.h'
+            end
+
+            ss.subspec 'NSAttributedString' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSAttributedString/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSAttributedString/*.h'
+            end
+        end
+
+        ss.subspec 'YLUIKit' do |ss|
+            ss.subspec 'UIImage' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIImage/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIImage/*.h'
+            end
+
+            ss.subspec 'UIButton' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIButton/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIButton/*.h'
+            end
+
+            ss.subspec 'UIColor' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIColor/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIColor/*.h'
+            end
+
+            ss.subspec 'UIView' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIView/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIView/*.h'
+            end
+
+            ss.subspec 'UITextView' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UITextView/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UITextView/*.h'
+            end
+
+            ss.subspec 'UIViewController' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIViewController/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIViewController/*.h'
+            end
+
+            ss.subspec 'UITableView' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UITableView/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UITableView/*.h'
+            end
+
+            ss.subspec 'UITextField' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UITextField/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UITextField/*.h'
+            end
+
+        end
     end
 
-    s.subspec 'YLUIKit' do |ss|
-        ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/**/*.{h,m}'
-        ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/**/*.h'
-    end
 end

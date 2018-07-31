@@ -118,22 +118,12 @@
 		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3E5210AC59500F35E77 /* NSDictionary */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
-				7B10B3EE210AC59500F35E77 /* NSLog */,
 				7B10B3EF210AC59500F35E77 /* NSAttributedString */,
-				7B10B3F2210AC59500F35E77 /* NSObject */,
 				7B10B3F3210AC59500F35E77 /* NSDate */,
 			);
 			path = YLFoundation;
-			sourceTree = "<group>";
-		};
-		7B10B3E5210AC59500F35E77 /* NSDictionary */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSDictionary;
 			sourceTree = "<group>";
 		};
 		7B10B3E6210AC59500F35E77 /* NSData */ = {
@@ -156,13 +146,6 @@
 			path = NSString;
 			sourceTree = "<group>";
 		};
-		7B10B3EE210AC59500F35E77 /* NSLog */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSLog;
-			sourceTree = "<group>";
-		};
 		7B10B3EF210AC59500F35E77 /* NSAttributedString */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,13 +153,6 @@
 				7B10B3F0210AC59500F35E77 /* NSAttributedString+YLAttributedString.m */,
 			);
 			path = NSAttributedString;
-			sourceTree = "<group>";
-		};
-		7B10B3F2210AC59500F35E77 /* NSObject */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NSObject;
 			sourceTree = "<group>";
 		};
 		7B10B3F3210AC59500F35E77 /* NSDate */ = {
@@ -192,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				7B10B3F7210AC59500F35E77 /* UIImage */,
-				7B10B3FA210AC59500F35E77 /* UILabel */,
 				7B10B3FB210AC59500F35E77 /* UIButton */,
 				7B10B3FE210AC59500F35E77 /* UIColor */,
 				7B10B401210AC59500F35E77 /* UIView */,
@@ -211,13 +186,6 @@
 				7B10B3F8210AC59500F35E77 /* UIImage+YLImage.m */,
 			);
 			path = UIImage;
-			sourceTree = "<group>";
-		};
-		7B10B3FA210AC59500F35E77 /* UILabel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UILabel;
 			sourceTree = "<group>";
 		};
 		7B10B3FB210AC59500F35E77 /* UIButton */ = {
