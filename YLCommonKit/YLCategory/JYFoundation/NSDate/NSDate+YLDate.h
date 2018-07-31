@@ -20,28 +20,30 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 
 @interface NSDate (YLDate)
 
-+ (NSCalendar *)yl_calendar;
-+ (NSCalendar *)yl_chineseCalendar;
-+ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat;
++ (NSCalendar *) yl_calendar;
++ (NSCalendar *) yl_chineseCalendar;
++ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat;
 /**
  将 NSDate 转成 NSDateComponents 类型
  
  @param date 给定的 date
  */
-+ (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date;
++ (NSDateComponents *) yl_dateComponentsWithDate:(NSDate *)date;
+
 /**
  获取当前时间
 
  @param dateFormat dateFormat description
+ @return 当前时间 NSString
  */
 + (NSString *) yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat;
 
 /**
  NSDate 转 NSString
 
- @param date date description
- @param dateFormat dateFormat description
- @return return value description
+ @param date date
+ @param dateFormat dateFormat
+ @return return NSString
  */
 + (NSString *) yl_stringFromDate:(NSDate*)date DateFormat:(NSString *)dateFormat;
 
@@ -61,46 +63,45 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  0：相等；
  1：dateB比dateA大；
  */
-+ (NSInteger)yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormatter;
-
++ (NSInteger) yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormatter;
 
 /**
  比较日期是否相等
  @return return YES 相等  NO 不等
  */
-+ (BOOL)yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat;
++ (BOOL) yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat;
 
 /**
  给定日期时间 判断是不是今天的当前时间
  @param date 给定日期
  */
-+ (BOOL)yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat;
++ (BOOL) yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat;
 
 /**
  判断给定时间是不是今天
  */
-+ (BOOL)yl_isToday:(NSDate *)date;
++ (BOOL) yl_isToday:(NSDate *)date;
 
 /**
  获取给定日期的月份
  
  @param date 给定日期
  */
-+ (NSInteger)yl_monthFromDate:(NSDate *)date;
++ (NSInteger) yl_monthFromDate:(NSDate *)date;
 
 /**
  获取给定日期所在周 是在当月的第几周
 
  @param date 给定日期
  */
-+ (NSInteger)yl_weekInMonthIndexWithDate:(NSDate *)date;
++ (NSInteger) yl_weekInMonthIndexWithDate:(NSDate *)date;
 
 /**
  获取给定日期所在月中有多少周
  
  @param date 给定日期
  */
-+ (NSInteger)yl_numberWeeksInMonthWithDate:(NSDate*)date;
++ (NSInteger) yl_numberWeeksInMonthWithDate:(NSDate*)date;
 
 
 /**
@@ -112,7 +113,7 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
-+ (NSDate *)yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
++ (NSDate *) yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
 
 /**
  a period of time from the current time
@@ -125,5 +126,21 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
-+ (NSDate *)yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
++ (NSDate *) yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
+
+/**
+ 判断给定日期 是周几 // 1 是周日，2是周一 3.以此类推
+ 
+ @param date 给定的日期
+ @return 周日、周一...
+ */
++ (NSInteger) yl_weekDayStringWithDate:(NSDate *)date;
+
+/**
+ 判断 给定日期 是不是工作日
+ 
+ @param date  给定日历
+ @return YES 工作日 ; NO 周末
+ */
++ (BOOL) yl_isWorkingDayWith:(NSDate *)date;
 @end

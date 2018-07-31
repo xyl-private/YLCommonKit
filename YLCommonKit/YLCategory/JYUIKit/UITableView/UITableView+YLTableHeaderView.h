@@ -17,12 +17,12 @@
  @param section section description
  @param isSelected YES 当前 headerView 被选中, NO 当前 取消选中状态
  */
-- (void)yl_tableView:(UITableView *)tableView didSelectHeaderView:(UIView *)headerView inSection:(NSInteger)section isSelected:(BOOL)isSelected;
+- (void) yl_tableView:(UITableView *)tableView didSelectHeaderView:(UIView *)headerView inSection:(NSInteger)section isSelected:(BOOL)isSelected;
 
 @end
 
 @interface UITableView (YLTableHeaderView)
 
-- (void)yl_headerView:(UIView *)headerView forSeciton:(NSInteger)section;
+- (void) yl_headerView:(UIView *)headerView forSeciton:(NSInteger)section;
 
 @end

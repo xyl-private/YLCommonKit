@@ -31,12 +31,12 @@ static const void * yl_placeHolderKey;
 
 #pragma mark - swizzled
 
-- (void)ylPlaceHolder_swizzled_dealloc {
+- (void) ylPlaceHolder_swizzled_dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self ylPlaceHolder_swizzled_dealloc];
 }
 
-- (void)ylPlaceHolder_swizzling_layoutSubviews {
+- (void) ylPlaceHolder_swizzling_layoutSubviews {
     if (self.yl_placeHolder) {
         UIEdgeInsets textContainerInset = self.textContainerInset;
         CGFloat lineFragmentPadding = self.textContainer.lineFragmentPadding;
@@ -49,27 +49,27 @@ static const void * yl_placeHolderKey;
     [self ylPlaceHolder_swizzling_layoutSubviews];
 }
 
-- (void)ylPlaceHolder_swizzled_setText:(NSString *)text{
+- (void) ylPlaceHolder_swizzled_setText:(NSString *)text{
     [self ylPlaceHolder_swizzled_setText:text];
     if (self.yl_placeHolder) {
         [self updatePlaceHolder];
     }
 }
 #pragma mark - associated
--(NSString *)yl_placeHolder{
+-(NSString *) yl_placeHolder{
     return objc_getAssociatedObject(self, &yl_placeHolderKey);
 }
 
--(void)setYl_placeHolder:(NSString *)yl_placeHolder{
+-(void)setYl_placeHolder:(NSString *) yl_placeHolder{
     objc_setAssociatedObject(self, &yl_placeHolderKey, yl_placeHolder, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self updatePlaceHolder];
 }
 
--(UIColor *)yl_placeHolderColor{
+-(UIColor *) yl_placeHolderColor{
     return self.yl_placeHolderLabel.textColor;
 }
 
--(void)setYl_placeHolderColor:(UIColor *)yl_placeHolderColor{
+-(void)setYl_placeHolderColor:(UIColor *) yl_placeHolderColor{
     self.yl_placeHolderLabel.textColor = yl_placeHolderColor;
 }
 
@@ -88,7 +88,7 @@ static const void * yl_placeHolderKey;
     [self insertSubview:self.yl_placeHolderLabel atIndex:0];
 }
 #pragma mark - lazzing
--(UILabel *)yl_placeHolderLabel{
+-(UILabel *) yl_placeHolderLabel{
     UILabel *placeHolderLab = objc_getAssociatedObject(self, @selector(yl_placeHolderLabel));
     if (!placeHolderLab) {
         placeHolderLab = [[UILabel alloc] init];

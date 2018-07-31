@@ -12,7 +12,7 @@
 /**
  * 压缩图片到指定大小,大小为多少KB
  */
-+ (NSData *)yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize
++ (NSData *) yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize
 {
     CGFloat compression = 0.9f;
     CGFloat maxCompression = 0.1f;
@@ -24,7 +24,7 @@
     return imageData;
 }
 
-+ (NSData *)yl_dataFromBase64String:(NSString *)encoding
++ (NSData *) yl_dataFromBase64String:(NSString *)encoding
 {
     NSData *data = nil;
     unsigned char *decodedBytes = NULL;

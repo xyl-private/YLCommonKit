@@ -12,10 +12,10 @@
 /**
  * 获取当前页面的控制器
  */
-+ (UIViewController *)yl_getCurrentVC;
++ (UIViewController *) yl_getCurrentVC;
 /**
  * 获取目标页面的控制器
  */
-+ (UIViewController *)yl_getTargetVCWithVCCls:(Class)cls;
++ (UIViewController *) yl_getTargetVCWithVCCls:(Class)cls;
 
 @end

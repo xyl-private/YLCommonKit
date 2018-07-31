@@ -11,7 +11,7 @@
 
 @implementation UITableView (YLTableHeaderView)
 
-- (void)yl_headerView:(UIView *)headerView forSeciton:(NSInteger)section {
+- (void) yl_headerView:(UIView *)headerView forSeciton:(NSInteger)section {
     //add tapGesture to the headerView so it can be selected.
     [headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHeaderView:)]];
     //insert the headerView to an array

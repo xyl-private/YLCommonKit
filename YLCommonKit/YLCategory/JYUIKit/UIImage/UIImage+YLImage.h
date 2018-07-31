@@ -12,17 +12,17 @@
 /**
  * 渲染为原始图片
  */
-+ (UIImage *)yl_imageWithRenderingImage:(NSString *)imageName;
++ (UIImage *) yl_imageWithRenderingImage:(NSString *)imageName;
 
 /**
  * 颜色转为图片
  */
-+ (UIImage *)yl_imageWithColor:(UIColor *)color;
++ (UIImage *) yl_imageWithColor:(UIColor *)color;
 
 /**
  * 颜色转为图片
  */
-+ (UIImage *)yl_imageWithColor:(UIColor *)color andSize:(CGSize)size;
++ (UIImage *) yl_imageWithColor:(UIColor *)color andSize:(CGSize)size;
 
 /**
  生成更清晰的图片
@@ -30,7 +30,7 @@
  @param size 图片大小
  @return 更清晰的图片
  */
-+ (UIImage *)yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size;
++ (UIImage *) yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size;
 
 /**
  获取二维码
@@ -38,7 +38,7 @@
  @param size 生成二维码的大小
  @return 生成的二维码图片
  */
-+ (UIImage *)yl_createQRCodeWithContentText:(NSString *)contentText withSize:(CGFloat)size;
++ (UIImage *) yl_createQRCodeWithContentText:(NSString *)contentText withSize:(CGFloat)size;
 
 /**
  获取带中心图标的二维码
@@ -47,7 +47,7 @@
  @param size 生成二维码的大小
  @return 生成的二维码图片
  */
-+ (UIImage *)yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage withSize:(CGFloat)size;
++ (UIImage *) yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage withSize:(CGFloat)size;
 /**
  将UIView生成Image
  
@@ -55,8 +55,8 @@
  @param size 区域大小
  @return 生成后的Image
  */
-- (UIImage *)yl_makeImageWithView:(UIView *)view withSize:(CGSize)size;
+- (UIImage *) yl_makeImageWithView:(UIView *)view withSize:(CGSize)size;
 
 /*两张图片合成*/
-+ (UIImage *)yl_imageSynthesis:(UIImage *)image1 toImage:(UIImage *)image2;
++ (UIImage *) yl_imageSynthesis:(UIImage *)image1 toImage:(UIImage *)image2;
 @end

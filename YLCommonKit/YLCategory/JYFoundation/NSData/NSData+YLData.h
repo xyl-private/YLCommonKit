@@ -18,13 +18,13 @@
  @param maxFileSize 压缩的大小
  @return 压缩后的图片Data
  */
-+ (NSData *)yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize;
++ (NSData *) yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize;
 
 /**
  将图片二进制字符串转成NSData
  @param encoding 二进制字符串
  @return 图片的NSData类型
  */
-+ (NSData *)yl_dataFromBase64String:(NSString *)encoding;
++ (NSData *) yl_dataFromBase64String:(NSString *)encoding;
 
 @end

@@ -41,7 +41,7 @@
             0：相等；
             1：dateB比dateA大；
  */
-+ (NSInteger)yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat{
++ (NSInteger) yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat{
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     
     NSDate *dta = [dateFormatter dateFromString:dateA];
@@ -59,7 +59,7 @@
 }
 
 ///比较日期是否相等
-+ (BOOL)yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat{
++ (BOOL) yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat{
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [[dateFormatter stringFromDate:dateA] isEqualToString:[dateFormatter stringFromDate:dateB]];
 }
@@ -69,14 +69,14 @@
 
  @param date 给定日期
  */
-+ (BOOL)yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat{
++ (BOOL) yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat{
     return [NSDate yl_isEqual:[NSDate date] other:date DateFormatter:dateFormat];
 }
 
 /**
  判断给定时间是不是今天
  */
-+ (BOOL)yl_isToday:(NSDate *)date{
++ (BOOL) yl_isToday:(NSDate *)date{
     return [NSDate yl_isCurrentDate:date DateFormatter:@"yyyy-MM-dd"];
 }
 
@@ -85,19 +85,19 @@
 
  @param date 给定日期
  */
-+ (NSInteger)yl_monthFromDate:(NSDate *)date
++ (NSInteger) yl_monthFromDate:(NSDate *)date
 {
     NSDateComponents *comps = [[NSDate yl_calendar] components:NSCalendarUnitMonth fromDate:date];
     return comps.month;
 }
 
 //获取给定日期所在周 是在当月的第几周
-+ (NSInteger)yl_weekInMonthIndexWithDate:(NSDate *)date{
++ (NSInteger) yl_weekInMonthIndexWithDate:(NSDate *)date{
     NSDateComponents * components =[[NSDate yl_calendar] components:NSCalendarUnitWeekOfMonth fromDate:date];
     return components.weekOfMonth;
 }
 
-+ (NSInteger)yl_numberWeeksInMonthWithDate:(NSDate *)date{
++ (NSInteger) yl_numberWeeksInMonthWithDate:(NSDate *)date{
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//指定日历的算法
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:date];
     return range.length;
@@ -112,7 +112,7 @@
             负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
-+ (NSDate *)yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
++ (NSDate *) yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
     return [self yl_datePeriodOfDateFromStertDate:[NSDate date] componentsType:type periodLength:length];
 }
 
@@ -128,7 +128,7 @@
             负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
-+ (NSDate *)yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
++ (NSDate *) yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
     NSDateComponents * components = [[NSDateComponents alloc] init];
     switch (type) {
         case YLDateComponentsTypeYear:
@@ -160,9 +160,27 @@
     return nextData;
 }
 
+
++ (NSInteger) yl_weekDayStringWithDate:(NSDate *)date{
+    NSCalendar * calendar = [self yl_calendar]; // 指定日历的算法
+    NSDateComponents *comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
+    // 1 是周日，2是周一 3.以此类推
+    return [comps weekday];
+}
+
++ (BOOL) yl_isWorkingDayWith:(NSDate *)date{
+    NSInteger index = [self yl_weekDayStringWithDate:date];
+    if (index == 1 || index == 7) {
+        return NO;
+    }
+    return YES;
+}
+
+
+
 #pragma mark - 通用
 
-+ (NSCalendar *)yl_calendar{
++ (NSCalendar *) yl_calendar{
     static NSCalendar *calendar;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -172,7 +190,7 @@
     return calendar;
 }
 
-+ (NSCalendar *)yl_chineseCalendar{
++ (NSCalendar *) yl_chineseCalendar{
     static NSCalendar *calendar;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -182,7 +200,7 @@
     return calendar;
 }
 
-+ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat{
++ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat{
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateFormat = dateFormat;
     [dateFormatter setCalendar:[NSDate yl_calendar]];
@@ -195,7 +213,7 @@
  
  @param date 给定的 date
  */
-+ (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date{
++ (NSDateComponents *) yl_dateComponentsWithDate:(NSDate *)date{
     
     NSCalendar *calendar = [NSDate yl_calendar];//当前用户的calendar
     

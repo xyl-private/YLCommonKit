@@ -12,13 +12,13 @@
 
 @implementation NSString (YLString)
 #pragma mark - 其他相关
-- (CGSize)yl_sizeWithAdapterFont:(UIFont *)font
+- (CGSize) yl_sizeWithAdapterFont:(UIFont *)font
 {
     NSDictionary* dic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
     return [self sizeWithAttributes:dic];
 }
 
-- (CGSize)yl_sizeWithAdapterFont:(UIFont *)font constrainedToSize:(CGSize)size
+- (CGSize) yl_sizeWithAdapterFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
     NSDictionary* dic = [NSDictionary dictionaryWithObject:font
                                                     forKey:NSFontAttributeName];
@@ -29,7 +29,7 @@
     return  rect.size;
 }
 
-- (NSString *)yl_removeSpaces{
+- (NSString *) yl_removeSpaces{
     NSString *removedString = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
     return removedString;
 }
@@ -37,7 +37,7 @@
  *  str:   需要处理的数据
  *  type:  元/期
  */
-+ (NSString *)yl_numberFormateWith:(NSString *)str addType:(NSString *)type{
++ (NSString *) yl_numberFormateWith:(NSString *)str addType:(NSString *)type{
     if (type == nil) {
         type = @"";
     }
@@ -52,7 +52,7 @@
     }
 }
 // 核对输入是否为空信息
-+ (BOOL)yl_checkInputText:(NSString*)text{
++ (BOOL) yl_checkInputText:(NSString*)text{
     text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if (!text||text.length==0) {
         return NO;
@@ -62,13 +62,13 @@
 /**
  * 判断字符串是否是空
  */
-+ (BOOL)yl_stringIsNullWith:(NSString *)str
++ (BOOL) yl_stringIsNullWith:(NSString *)str
 {
     return [self yl_stringNoNullWith:[self yl_removeSpacesWith:str]].length > 0 ? NO : YES;
 }
 
 //判断字符串数值
-+ (BOOL)yl_stringValid:(NSString *)str {
++ (BOOL) yl_stringValid:(NSString *)str {
     if (![str isKindOfClass:[NSString class]]) {
         return NO;
     }
@@ -90,7 +90,7 @@
 /**
  * 转换字符串：如果是空 -> @""
  */
-+ (NSString *)yl_stringNoNullWith:(id)sender
++ (NSString *) yl_stringNoNullWith:(id)sender
 {
     if (sender == [NSNull null]){ return @"";}
     if ([sender isKindOfClass:[NSNull class]]) { return @"";}
@@ -102,25 +102,25 @@
 /**
  * 计算字符串宽度
  */
-+ (CGFloat)yl_getStringWidthWith:(CGFloat)fontSize string:(NSString *)str
++ (CGFloat) yl_getStringWidthWith:(CGFloat)fontSize string:(NSString *)str
 {
     return [str boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, fontSize) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size.width;
 }
 /**
  * 计算字符串高度
  */
-+ (CGFloat)yl_getStringHeightWith:(CGFloat)fontSize twoEdge:(CGFloat)twoEdge string:(NSString *)str
++ (CGFloat) yl_getStringHeightWith:(CGFloat)fontSize twoEdge:(CGFloat)twoEdge string:(NSString *)str
 {
     return [str boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - twoEdge, CGFLOAT_MAX) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size.height;
 }
-+ (CGFloat)yl_getStringHeightWith:(UIFont *)font strWidth:(CGFloat)strWidth string:(NSString *)str
++ (CGFloat) yl_getStringHeightWith:(UIFont *)font strWidth:(CGFloat)strWidth string:(NSString *)str
 {
     return [str boundingRectWithSize:CGSizeMake(strWidth, CGFLOAT_MAX) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size.height;
 }
 /**
  *  隐藏手机号中间四位号码
  */
-+ (NSString *)yl_hidePhoneMiddle4NumsWith:(NSString *)str
++ (NSString *) yl_hidePhoneMiddle4NumsWith:(NSString *)str
 {
     if (![self isPhoneNumberWith:str]) return @"";
     NSString *tempStr1 = [str substringToIndex:3];
@@ -143,7 +143,7 @@
 /**
  *  MD5加密字符串
  */
-+ (NSString *)yl_stringToMD5With:(NSString *)str
++ (NSString *) yl_stringToMD5With:(NSString *)str
 {
     const char *cStr = [str UTF8String];
     unsigned char result[16];
@@ -159,7 +159,7 @@
 /**
  * 隐藏字符中的一部分
  */
-+ (NSString *)yl_hideStringWith:(NSString *)str hideRange:(NSRange)range
++ (NSString *) yl_hideStringWith:(NSString *)str hideRange:(NSRange)range
 {
     NSMutableString *mString = [NSMutableString stringWithString:str];
     NSMutableString *comStr = [NSMutableString stringWithCapacity:range.length];
@@ -172,7 +172,7 @@
 /**
  *  去除字符串两边空格
  */
-+ (NSString *)yl_removeSidesSpacesWith:(NSString *)str
++ (NSString *) yl_removeSidesSpacesWith:(NSString *)str
 {
     NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     str = [str stringByTrimmingCharactersInSet:whitespace];
@@ -181,7 +181,7 @@
 /**
  *  去除字符串空格
  */
-+ (NSString *)yl_removeSpacesWith:(NSString *)str
++ (NSString *) yl_removeSpacesWith:(NSString *)str
 {
     str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
     return str;
@@ -189,14 +189,14 @@
 /**
  *  去除字符串'.'
  */
-+ (NSString *)yl_removeDotWith:(NSString *)str
++ (NSString *) yl_removeDotWith:(NSString *)str
 {
     return [str stringByReplacingOccurrencesOfString:@"." withString:@""];
 }
 /**
  *  验证TouchID是否可用 返回YES:可用;  NO:不可用
  */
-+ (BOOL)yl_canTouchID
++ (BOOL) yl_canTouchID
 {
     LAContext *context = [[LAContext alloc] init];
     NSError *error;
@@ -205,7 +205,7 @@
 /**
  *  验证TouchID是否正确 successBlock TouchID验证Block
  */
-+ (void)yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock
++ (void) yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock
 {
     LAContext *context = [[LAContext alloc] init];
     // show the authentication UI with our reason string
@@ -219,7 +219,7 @@
 /**
  *  判断是否包含字符串 YES:包含; NO:不包含
  */
-- (BOOL)yl_containsStringWith:(NSString *)str
+- (BOOL) yl_containsStringWith:(NSString *)str
 {
     NSRange range = [[self lowercaseString] rangeOfString:[str lowercaseString]];
     return range.location != NSNotFound;
@@ -227,7 +227,7 @@
 /**
  *  判断是否包含emoji表情 YES:包含; NO:不包含
  */
-+ (BOOL)yl_stringContainsEmojiWith:(NSString *)str
++ (BOOL) yl_stringContainsEmojiWith:(NSString *)str
 {
     __block BOOL returnValue = NO;
     [str enumerateSubstringsInRange:NSMakeRange(0, [str length])
@@ -266,7 +266,7 @@
 }
 
 
-- (NSURL *)yl_url {
+- (NSURL *) yl_url {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
     return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]", NULL,kCFStringEncodingUTF8))];
@@ -277,7 +277,7 @@
 /**
  * 从身份证获取生日
  */
-+ (NSString *)yl_birthdayStrFromIdentityCardWith:(NSString *)str
++ (NSString *) yl_birthdayStrFromIdentityCardWith:(NSString *)str
 {
     NSMutableString *result = [NSMutableString stringWithCapacity:0];
     NSString *year = nil;
@@ -316,7 +316,7 @@
 /**
  * 从身份证获取性别
  */
-+ (NSString *)yl_getCardIdGenderWith:(NSString *)str
++ (NSString *) yl_getCardIdGenderWith:(NSString *)str
 {
     NSString *sex = @"";
     //获取18位 二代身份证  性别
@@ -344,7 +344,7 @@
 /**
  * 字符串金额至少保留两位小数位末尾去零
  */
-+ (NSString*)yl_deleteFloatAllZeroWith:(NSString *)str
++ (NSString*) yl_deleteFloatAllZeroWith:(NSString *)str
 {
     if ([str containsString:@"."]) {
         NSArray *arrStr = [str componentsSeparatedByString:@"."];
@@ -365,7 +365,7 @@
 /**
  * 金额保留两位小数
  */
-+ (NSString *)yl_currencyFormatWith:(NSString *)str
++ (NSString *) yl_currencyFormatWith:(NSString *)str
 {
     if ([[self yl_stringNoNullWith:str] isEqualToString:@""]) return @"0.00";
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];

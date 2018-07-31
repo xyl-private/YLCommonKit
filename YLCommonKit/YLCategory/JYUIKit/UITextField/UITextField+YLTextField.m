@@ -17,7 +17,7 @@
  @param string 站位字符串
  @return 是否包含表情
  */
-+ (BOOL)yl_isEmojiWithTextField:(UITextField *)textField replacementString:(NSString *)string{
++ (BOOL) yl_isEmojiWithTextField:(UITextField *)textField replacementString:(NSString *)string{
     if ([string isEqualToString:@""]) {
         return NO;
     }
@@ -37,7 +37,7 @@
  @param string  输入的字符
  @return YES(是九宫格拼音键盘)
  */
-+ (BOOL)yl_isNineKeyBoard:(NSString *)string
++ (BOOL) yl_isNineKeyBoard:(NSString *)string
 {
     NSString *other = @"➋➌➍➎➏➐➑➒";
     int len = (int)string.length;
@@ -54,7 +54,7 @@
  @param textField 输入框
  @return 是否是表情键盘
  */
-+ (BOOL)yl_isEmojiInputMode:(UIResponder *)textField{
++ (BOOL) yl_isEmojiInputMode:(UIResponder *)textField{
     if ([textField isFirstResponder]) {
         if ([[[textField textInputMode] primaryLanguage] isEqualToString:@"emoji"] || ![[textField textInputMode] primaryLanguage]) {
             return YES;;
@@ -68,7 +68,7 @@
  *只要知道Emoji表情的Unicode编码的范围，
  *就可以判断用户是否输入了Emoji表情。
  */
-+ (BOOL)yl_stringContainsEmoji:(NSString *)string
++ (BOOL) yl_stringContainsEmoji:(NSString *)string
 {
     // 过滤所有表情。returnValue为NO表示不含有表情，YES表示含有表情
     __block BOOL returnValue = NO;

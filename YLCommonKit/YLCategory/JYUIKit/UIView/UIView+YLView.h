@@ -28,28 +28,28 @@
 @property (nonatomic, assign) CGPoint yl_origin;
 
 /** 添加手势 */
-- (void)yl_addTapGestureOntarget:(id)obj selector:(SEL)selector;
+- (void) yl_addTapGestureOntarget:(id)obj selector:(SEL)selector;
 /**
  ** lineView:       需要绘制成虚线的view
  ** lineLength:     虚线的宽度
  ** lineSpacing:    虚线的间距
  ** lineColor:      虚线的颜色
  **/
-- (void)yl_drawDashHorizontalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor;
+- (void) yl_drawDashHorizontalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor;
 /**
  ** 绘制垂直虚线
  ** lineLength:     虚线的宽度
  ** lineSpacing:    虚线的间距
  ** lineColor:      虚线的颜色
  **/
-- (void)yl_drawDashVerticalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor;
+- (void) yl_drawDashVerticalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor;
 /**
  * 水平抖动
  */
-- (void)yl_horizontalShake;
+- (void) yl_horizontalShake;
 /**
  * 删除所有Views
  */
-- (void)yl_removeAllSubviews;
+- (void) yl_removeAllSubviews;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation UIButton (YLButton)
 
-- (void)yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing {
+- (void) yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing {
     [self setTitle:self.currentTitle forState:UIControlStateNormal];
     [self setImage:self.currentImage forState:UIControlStateNormal];
     

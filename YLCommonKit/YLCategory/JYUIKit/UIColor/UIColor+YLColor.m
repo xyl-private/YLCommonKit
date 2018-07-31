@@ -15,7 +15,7 @@ static NSString * const colorStrPrefix2 = @"#";
 /**
  *  十六进制颜色 - 不透明
  */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor
++ (UIColor *) yl_colorWithHexString:(NSString *)hexColor
 {
     return [self yl_colorWithHexString:hexColor alpha:1.0f];
 }
@@ -23,7 +23,7 @@ static NSString * const colorStrPrefix2 = @"#";
 /**
  *  十六进制颜色 - 可透明
  */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha
++ (UIColor *) yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha
 {
     // 替换空格&统一变大写
     NSString *colorStr = [[hexColor stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
@@ -59,7 +59,7 @@ static NSString * const colorStrPrefix2 = @"#";
     return [UIColor colorWithRed:((CGFloat)red/ 255.0f) green:((CGFloat)green/ 255.0f) blue:((CGFloat)blue/ 255.0f) alpha:alpha];
 }
 
-+ (CAGradientLayer *)yl_getGraduallyChangingColor:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
++ (CAGradientLayer *) yl_getGraduallyChangingColor:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     NSMutableArray *CGColorsArr = [NSMutableArray array];
     for (int i = 0 ; i<colors.count; i++) {

@@ -13,12 +13,12 @@
 /**
  *  十六进制颜色 - 不透明
  */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor;
++ (UIColor *) yl_colorWithHexString:(NSString *)hexColor;
 
 /**
  *  十六进制颜色 - 可透明
  */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha;
++ (UIColor *) yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha;
 
 /**
  获取渐变色Layer
@@ -28,6 +28,6 @@
  @param frame frame
  @return CAGradientLayer
  */
-+ (CAGradientLayer *)yl_getGraduallyChangingColor:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame;
++ (CAGradientLayer *) yl_getGraduallyChangingColor:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame;
 
 @end
