@@ -12,26 +12,31 @@ Pod::Spec.new do |s|
     s.version      = "0.0.4"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
+                        简单的整理,常用的分类
                     DESC
 
     s.homepage     = "https://github.com/xyl-private/YLCommonKit"
-    s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+    s.license      = { :type => "MIT", :file => "LICENSE" }
     s.author       = { "村雨灬龑" => "xyl-private@163.com" }
 
     s.ios.deployment_target = "9.0"
 
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
 
-    s.source_files  = "YLCommonKit", "YLCommonKit/**/*.{h,m}"
-    s.public_header_files = "YLCommonKit/**/*.h"
+
 
     s.subspec 'YLMacro' do |ss|
-        ss.source_files = 'YLMacro/*.{h,m}'
-        ss.public_header_files = 'YLMacro/*.h'
+        ss.source_files = 'YLCommonKit/YLMacro/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLMacro/*.h'
     end
 
-    s.subspec 'YLCategory' do |ss|
-        ss.source_files = 'YLCategory/**/*.{h,m}'
-        ss.public_header_files = 'YLCategory/**/*.h'
+    s.subspec 'YLFoundation' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/**/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/**/*.h'
+    end
+
+    s.subspec 'YLUIKit' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/**/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/**/*.h'
     end
 end

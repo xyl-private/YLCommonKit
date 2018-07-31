@@ -109,13 +109,13 @@
 		7B10B3E3210AC59500F35E77 /* YLCategory */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3E4210AC59500F35E77 /* JYFoundation */,
-				7B10B3F6210AC59500F35E77 /* JYUIKit */,
+				7B10B3E4210AC59500F35E77 /* YLFoundation */,
+				7B10B3F6210AC59500F35E77 /* YLUIKit */,
 			);
 			path = YLCategory;
 			sourceTree = "<group>";
 		};
-		7B10B3E4210AC59500F35E77 /* JYFoundation */ = {
+		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
 				7B10B3E5210AC59500F35E77 /* NSDictionary */,
@@ -126,7 +126,7 @@
 				7B10B3F2210AC59500F35E77 /* NSObject */,
 				7B10B3F3210AC59500F35E77 /* NSDate */,
 			);
-			path = JYFoundation;
+			path = YLFoundation;
 			sourceTree = "<group>";
 		};
 		7B10B3E5210AC59500F35E77 /* NSDictionary */ = {
@@ -188,7 +188,7 @@
 			path = NSDate;
 			sourceTree = "<group>";
 		};
-		7B10B3F6210AC59500F35E77 /* JYUIKit */ = {
+		7B10B3F6210AC59500F35E77 /* YLUIKit */ = {
 			isa = PBXGroup;
 			children = (
 				7B10B3F7210AC59500F35E77 /* UIImage */,
@@ -201,7 +201,7 @@
 				7B10B40A210AC59500F35E77 /* UITableView */,
 				7B10B40D210AC59500F35E77 /* UITextField */,
 			);
-			path = JYUIKit;
+			path = YLUIKit;
 			sourceTree = "<group>";
 		};
 		7B10B3F7210AC59500F35E77 /* UIImage */ = {
