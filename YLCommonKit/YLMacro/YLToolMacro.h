@@ -2,7 +2,7 @@
 //  YLToolMacro.h
 //  Pods
 //
-//  Created by McIntosh on 2018/5/15.
+//  Created by xyanl on 2018/5/15.
 //
 
 #ifndef YLToolMacro_h

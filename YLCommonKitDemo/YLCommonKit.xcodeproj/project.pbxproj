@@ -22,6 +22,8 @@
 		7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */; };
 		7B8770C020FF49CA00DAE2C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BE20FF49CA00DAE2C2 /* README.md */; };
 		7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */; };
+		7B8FC220211A985A009CA906 /* YLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FC21F211A985A009CA906 /* YLBaseViewController.m */; };
+		7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
@@ -62,6 +64,10 @@
 		7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YLTextField.m"; sourceTree = "<group>"; };
 		7B8770BE20FF49CA00DAE2C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
+		7B8FC21E211A985A009CA906 /* YLBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseViewController.h; sourceTree = "<group>"; };
+		7B8FC21F211A985A009CA906 /* YLBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseViewController.m; sourceTree = "<group>"; };
+		7B8FC221211A9A8E009CA906 /* YLBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseNavigationController.h; sourceTree = "<group>"; };
+		7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseNavigationController.m; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		7B10B3D2210AC59500F35E77 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
+				7B8FC21D211A9834009CA906 /* ViewControllers */,
 				7B10B3E1210AC59500F35E77 /* YLMacro */,
 				7B10B3E3210AC59500F35E77 /* YLCategory */,
 			);
@@ -260,6 +267,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7B8FC21D211A9834009CA906 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B8FC21E211A985A009CA906 /* YLBaseViewController.h */,
+				7B8FC21F211A985A009CA906 /* YLBaseViewController.m */,
+				7B8FC221211A9A8E009CA906 /* YLBaseNavigationController.h */,
+				7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		7B941B2120F3126500811329 = {
 			isa = PBXGroup;
 			children = (
@@ -418,11 +436,13 @@
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
+				7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
+				7B8FC220211A985A009CA906 /* YLBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

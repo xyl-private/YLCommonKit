@@ -21,6 +21,8 @@
     NSLog(@"%@",dateStr);
     
 }
+- (IBAction)BaseViewControllerAction:(id)sender {
+}
 
 
 - (void)didReceiveMemoryWarning {
