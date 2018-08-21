@@ -135,4 +135,44 @@
 + (NSString *) yl_currencyFormatWith:(NSString *)str;
 
 
+
+#pragma mark - 二进制、十进制、十六进制 转换
+/**
+ 二进制 转换为 十进制
+ 
+ @param binary 二进制数
+ @return 十进制数
+ */
++ (NSInteger)yl_getDecimalByBinary:(NSString *)binary;
+
+/**
+ 二进制转换成十六进制
+ 
+ @param binary 二进制数
+ @return 十六进制数
+ */
++ (NSString *)yl_getHexByBinary:(NSString *)binary;
+/**
+ 十进制转换为二进制
+ 
+ @param decimal 十进制数
+ @return 二进制数
+ */
++ (NSString *)yl_getBinaryByDecimal:(NSInteger)decimal;
+
+/**
+ 十进制转换十六进制
+ 
+ @param decimal 十进制数
+ @return 十六进制数
+ */
++ (NSString *)yl_getHexByDecimal:(NSInteger)decimal;
+
+/**
+ 十六进制转换为二进制
+ 
+ @param hex 十六进制数
+ @return 二进制数
+ */
++ (NSString *)yl_getBinaryByHex:(NSString *)hex;
 @end
