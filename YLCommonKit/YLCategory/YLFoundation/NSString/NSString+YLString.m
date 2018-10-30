@@ -99,24 +99,26 @@
     if ([sender isEqualToString:@"nullnull"]) { return @"";}
     return sender;
 }
+
+
+
 /**
- * 计算字符串宽度
+ 计算字符串的 size
+
+ @param content 文本内容
+ @param font 字体大小 默认字体 非加粗之类的
+ @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
+ @return 文本内容的 size
  */
-+ (CGFloat) yl_getStringWidthWith:(CGFloat)fontSize string:(NSString *)str
-{
-    return [str boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, fontSize) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size.width;
++ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(CGFloat)font constrainedToSize:(CGSize)size{
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName : [UIFont systemFontOfSize:font]
+                                 };
+    
+    return [content boundingRectWithSize:size options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
 }
-/**
- * 计算字符串高度
- */
-+ (CGFloat) yl_getStringHeightWith:(CGFloat)fontSize twoEdge:(CGFloat)twoEdge string:(NSString *)str
-{
-    return [str boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - twoEdge, CGFLOAT_MAX) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:fontSize]} context:nil].size.height;
-}
-+ (CGFloat) yl_getStringHeightWith:(UIFont *)font strWidth:(CGFloat)strWidth string:(NSString *)str
-{
-    return [str boundingRectWithSize:CGSizeMake(strWidth, CGFLOAT_MAX) options: NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : font} context:nil].size.height;
-}
+
 /**
  *  隐藏手机号中间四位号码
  */

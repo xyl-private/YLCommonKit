@@ -58,15 +58,18 @@
  * 转换字符串：如果是空 -> @""
  */
 + (NSString *) yl_stringNoNullWith:(id)sender;
+
+
 /**
- * 计算字符串宽度
+ 计算字符串的 size
+ 
+ @param content 文本内容
+ @param font 字体大小 默认字体 非加粗之类的
+ @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
+ @return 文本内容的 size
  */
-+ (CGFloat) yl_getStringWidthWith:(CGFloat)fontSize string:(NSString *)str;
-/**
- * 计算字符串高度 twoEdge:两侧边距总和
- */
-+ (CGFloat) yl_getStringHeightWith:(CGFloat)fontSize twoEdge:(CGFloat)twoEdge string:(NSString *)str;
-+ (CGFloat) yl_getStringHeightWith:(UIFont *)font strWidth:(CGFloat)strWidth string:(NSString *)str;
++ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(CGFloat)font constrainedToSize:(CGSize)size;
+
 /**
  *  隐藏手机号中间四位号码
  */
