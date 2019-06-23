@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
 		7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3EA210AC59500F35E77 /* NSString+YLString.m */; };
 		7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3ED210AC59500F35E77 /* NSString+YLRegex.m */; };
@@ -34,8 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28EDF29822BF753500E9CB11 /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
+		28EDF29922BF756B00E9CB11 /* YLAppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppMacro.h; sourceTree = "<group>"; };
+		28EDF29A22BF759B00E9CB11 /* YLUIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
+		28EDF29B22BF75CF00E9CB11 /* YLFunctionMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLFunctionMacro.h; sourceTree = "<group>"; };
+		28EDF29C22BF75E400E9CB11 /* YLRegExMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLRegExMacro.h; sourceTree = "<group>"; };
+		28EDF29D22BF75F300E9CB11 /* YLSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLSingleton.h; sourceTree = "<group>"; };
+		28EDF29E22BF762000E9CB11 /* YLConstantDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLConstantDefines.h; sourceTree = "<group>"; };
+		28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLConstantDefines.m; sourceTree = "<group>"; };
 		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
-		7B10B3E2210AC59500F35E77 /* YLToolMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLToolMacro.h; sourceTree = "<group>"; };
 		7B10B3E7210AC59500F35E77 /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
 		7B10B3E8210AC59500F35E77 /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
 		7B10B3EA210AC59500F35E77 /* NSString+YLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLString.m"; sourceTree = "<group>"; };
@@ -108,7 +116,14 @@
 		7B10B3E1210AC59500F35E77 /* YLMacro */ = {
 			isa = PBXGroup;
 			children = (
-				7B10B3E2210AC59500F35E77 /* YLToolMacro.h */,
+				28EDF29822BF753500E9CB11 /* YLMacro.h */,
+				28EDF29922BF756B00E9CB11 /* YLAppMacro.h */,
+				28EDF29A22BF759B00E9CB11 /* YLUIMacro.h */,
+				28EDF29B22BF75CF00E9CB11 /* YLFunctionMacro.h */,
+				28EDF29C22BF75E400E9CB11 /* YLRegExMacro.h */,
+				28EDF29D22BF75F300E9CB11 /* YLSingleton.h */,
+				28EDF29E22BF762000E9CB11 /* YLConstantDefines.h */,
+				28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */,
 			);
 			path = YLMacro;
 			sourceTree = "<group>";
@@ -426,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */,
+				28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */,
 				7B10B42C210AC59500F35E77 /* UIImage+YLImage.m in Sources */,
 				7B10B42F210AC59500F35E77 /* UIView+YLView.m in Sources */,
 				7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */,
