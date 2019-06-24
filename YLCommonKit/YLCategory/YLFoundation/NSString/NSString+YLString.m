@@ -560,4 +560,26 @@
     return binary;
 }
 
+#pragma mark - 汉字转拼音
+/**
+ 汉字转拼音
+
+ @param chinese 汉字
+ @param isSymbol YES 带音标   NO 不带
+ @return 拼音
+ */
++ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol{
+    //将NSString装换成NSMutableString
+    NSMutableString *pinyin = [chinese mutableCopy];
+    
+    //将汉字转换为拼音(带音标)
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    
+    if (!isSymbol) {
+        //去掉拼音的音标
+        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
+    }
+    //返回最近结果
+    return pinyin;
+}
 @end

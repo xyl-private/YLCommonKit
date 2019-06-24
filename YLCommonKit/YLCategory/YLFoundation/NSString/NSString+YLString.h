@@ -178,4 +178,15 @@
  @return 二进制数
  */
 + (NSString *)yl_getBinaryByHex:(NSString *)hex;
+
+#pragma mark - 汉字转拼音
+/**
+ 汉字转拼音
+ 
+ @param chinese 汉字
+ @param isSymbol YES 带音标   NO 不带
+ @return 拼音
+ */
++ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol;
+
 @end
