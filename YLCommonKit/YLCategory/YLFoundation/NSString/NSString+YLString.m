@@ -458,7 +458,7 @@
     NSString *binary = @"";
     while (decimal) {
         
-        binary = [[NSString stringWithFormat:@"%d", decimal % 2] stringByAppendingString:binary];
+        binary = [[NSString stringWithFormat:@"%ld", decimal % 2] stringByAppendingString:binary];
         if (decimal / 2 < 1) {
             
             break;

@@ -18,4 +18,18 @@
  */
 + (UIViewController *) yl_getTargetVCWithVCCls:(Class)cls;
 
+
+/**
+ *  获得当前VC 获取当前处于activity状态的view controller
+ *
+ *  @return 返回当前VC
+ */
++ (UIViewController *)yl_getActivityViewController;
+
+/**
+ *  获得顶级VC
+ *
+ *  @return 返回顶级VC
+ */
++ (UIViewController *)yl_getAppRootViewController;
 @end

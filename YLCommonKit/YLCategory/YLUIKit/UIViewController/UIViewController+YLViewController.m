@@ -74,4 +74,61 @@
     return targetVC;
 }
 
+/**
+ *  获得当前VC 获取当前处于activity状态的view controller
+ *
+ *  @return 返回当前VC
+ */
++ (UIViewController *)yl_getActivityViewController
+{
+    UIViewController* activityViewController = nil;
+    
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    if(window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow *tmpWin in windows)
+        {
+            if(tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    NSArray *viewsArray = [window subviews];
+    if([viewsArray count] > 0)
+    {
+        UIView *frontView = [viewsArray objectAtIndex:0];
+        
+        id nextResponder = [frontView nextResponder];
+        
+        if([nextResponder isKindOfClass:[UIViewController class]])
+        {
+            activityViewController = nextResponder;
+        }
+        else
+        {
+            activityViewController = window.rootViewController;
+        }
+    }
+    
+    return activityViewController;
+}
+
+/**
+ *  获得顶级VC
+ *
+ *  @return 返回顶级VC
+ */
++ (UIViewController *)yl_getAppRootViewController {
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    while (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
+}
+
 @end

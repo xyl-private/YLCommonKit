@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */; };
+		28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
 		7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3EA210AC59500F35E77 /* NSString+YLString.m */; };
@@ -35,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseWebViewController.h; sourceTree = "<group>"; };
+		28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseWebViewController.m; sourceTree = "<group>"; };
+		28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
+		28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		28EDF29822BF753500E9CB11 /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
 		28EDF29922BF756B00E9CB11 /* YLAppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppMacro.h; sourceTree = "<group>"; };
 		28EDF29A22BF759B00E9CB11 /* YLUIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
@@ -102,10 +108,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
 		7B10B3D2210AC59500F35E77 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				7B8FC21D211A9834009CA906 /* ViewControllers */,
+				7B8FC21D211A9834009CA906 /* BaseControllers */,
 				7B10B3E1210AC59500F35E77 /* YLMacro */,
 				7B10B3E3210AC59500F35E77 /* YLCategory */,
 			);
@@ -140,6 +153,7 @@
 		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				28C8CACB22C0672900C9E8B9 /* NSObject */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
 				7B10B3EF210AC59500F35E77 /* NSAttributedString */,
@@ -282,15 +296,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7B8FC21D211A9834009CA906 /* ViewControllers */ = {
+		7B8FC21D211A9834009CA906 /* BaseControllers */ = {
 			isa = PBXGroup;
 			children = (
 				7B8FC21E211A985A009CA906 /* YLBaseViewController.h */,
 				7B8FC21F211A985A009CA906 /* YLBaseViewController.m */,
 				7B8FC221211A9A8E009CA906 /* YLBaseNavigationController.h */,
 				7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */,
+				28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */,
+				28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */,
+				28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */,
+				28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */,
 			);
-			path = ViewControllers;
+			path = BaseControllers;
 			sourceTree = "<group>";
 		};
 		7B941B2120F3126500811329 = {
@@ -449,10 +467,12 @@
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
+				28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */,
+				28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
