@@ -143,4 +143,7 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  @return YES 工作日 ; NO 周末
  */
 + (BOOL) yl_isWorkingDayWith:(NSDate *)date;
+
+
+- (NSString *)yl_getDateDisplayString:(NSDate *)date;
 @end

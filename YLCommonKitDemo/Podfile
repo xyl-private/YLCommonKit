@@ -5,4 +5,5 @@ target "YLCommonKit" do
     pod 'AFNetworking'
     pod 'Reachability'
     pod 'YYModel'
+    pod 'BGFMDB'#(2.0.13)
 end
