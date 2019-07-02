@@ -29,6 +29,6 @@
 #import <UIKit/UIKit.h>
 
 // 常量
-UIKIT_EXTERN const CGFloat ZQResultCode;
+UIKIT_EXTERN const CGFloat YLResultCode;
 // APP 名字
-FOUNDATION_EXTERN NSString *const ZQAppName;
+FOUNDATION_EXTERN NSString *const YLAppName;

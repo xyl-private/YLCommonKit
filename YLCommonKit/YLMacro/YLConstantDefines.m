@@ -7,7 +7,7 @@
 //
 #import "YLConstantDefines.h"
 
-const CGFloat ZQResultCode = 404;
+const CGFloat YLResultCode = 404;
 
 
-NSString *const ZQAppName = @"拼单";
+NSString *const YLAppName = @"拼单";

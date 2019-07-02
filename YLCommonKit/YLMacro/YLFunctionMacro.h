@@ -13,8 +13,8 @@
 
 
 // weakself strongself
-#define ZQWeak(type)  __weak typeof(type) weak##type = type;
-#define ZQStrong(type)  __strong typeof(type) type = weak##type;
+#define YLWeak(type)  __weak typeof(type) weak##type = type;
+#define YLStrong(type)  __strong typeof(type) type = weak##type;
 
 
 /**************************
