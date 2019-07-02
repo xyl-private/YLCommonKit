@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "9.0"
 
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
-    spec.dependency 'BGFMDB'
+    s.dependency 'BGFMDB'
 
 
     s.subspec 'YLMacro' do |ss|

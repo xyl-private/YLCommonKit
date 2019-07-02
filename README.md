@@ -19,12 +19,17 @@ pod trunk push --allow-warnings --use-libraries
 ```
 出现以下内容时,证明已经上传成功了
 ```
-Congrats
+Updating spec repo `master`
 
-.... successfully published
-是个日期
-提交的地址
-Tell your friends!
+--------------------------------------------------------------------------------
+🎉  Congrats
+
+🚀  Kit (0.0.7) successfully published
+📅  July 2nd, 01:54
+🌎  https://cocoapods.org/pods/Kit
+👍  Tell your friends!
+--------------------------------------------------------------------------------
+
 
 ```
 大概就是这些内容
