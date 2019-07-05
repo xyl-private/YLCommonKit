@@ -52,6 +52,9 @@
  */
 + (BOOL) yl_isPhoneNumberWith:(NSString *)str
 {
+    if (str.length != 11) {
+        return NO;
+    }
     NSString *regex = @"^1+[23456789]+\\d{9}";
     return [self yl_isValidateByRegex:regex string:str];
 }
