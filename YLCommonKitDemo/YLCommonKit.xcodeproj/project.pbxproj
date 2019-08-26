@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */; };
+		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */; };
 		28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
+		22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLHiddenNavBar.h"; sourceTree = "<group>"; };
+		22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLHiddenNavBar.m"; sourceTree = "<group>"; };
 		28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseWebViewController.h; sourceTree = "<group>"; };
 		28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseWebViewController.m; sourceTree = "<group>"; };
 		28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +124,13 @@
 				22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */,
 			);
 			path = NSDictionary;
+			sourceTree = "<group>";
+		};
+		22587C122313B7FA00EC3525 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
@@ -221,6 +231,7 @@
 		7B10B3F6210AC59500F35E77 /* YLUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				22587C122313B7FA00EC3525 /* New Group */,
 				7B10B3F7210AC59500F35E77 /* UIImage */,
 				7B10B3FB210AC59500F35E77 /* UIButton */,
 				7B10B3FE210AC59500F35E77 /* UIColor */,
@@ -283,6 +294,8 @@
 			children = (
 				7B10B408210AC59500F35E77 /* UIViewController+YLViewController.h */,
 				7B10B409210AC59500F35E77 /* UIViewController+YLViewController.m */,
+				22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */,
+				22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -497,6 +510,7 @@
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
+				22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */,
 				28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */,
 				7B8FC220211A985A009CA906 /* YLBaseViewController.m in Sources */,
 			);
