@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.8"
+    s.version      = "0.0.9"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -54,6 +54,10 @@ Pod::Spec.new do |s|
             ss.subspec 'NSObject' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.h'
+            end
+	    ss.subspec 'NSDictionary' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.h'
             end
         end
 

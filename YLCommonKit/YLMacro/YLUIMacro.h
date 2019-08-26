@@ -16,6 +16,30 @@
 
 #define kAppScreenBounds [UIScreen mainScreen].bounds//屏幕大小
 
+#define kIPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
+/*状态栏高度*/
+#define kStatusBarHeight [UIApplication sharedApplication].statusBarFrame.size.height
+/*导航栏高度*/
+#define kNavBarHeight (44)
+/*状态栏和导航栏总高度*/
+#define kNavBarAndStatusBarHeight (kIPhoneX?88.0:64.0)
+/*TabBar高度*/
+#define kTabBarHeight (CGFloat)(kIPhoneX?(49.0 + 34.0):(49.0))
+/*顶部安全区域远离高度*/
+#define kTopBarSafeHeight (CGFloat)(kIPhoneX?(44.0):(0))
+/*底部安全区域远离高度*/
+#define kBottomSafeHeight (CGFloat)(kIPhoneX?(34.0):(0))
+/*iPhoneX的状态栏高度差值*/
+#define kTopBarDifHeight (CGFloat)(kIPhoneX?(24.0):(0))
+/*导航条和Tabbar总高度*/
+#define kNavAndTabHeight (kNavBarAndStatusBarHeight + kTabBarHeight)
+
 #pragma mark - ----------------------- 颜色相关 -----------------------
 
 //颜色

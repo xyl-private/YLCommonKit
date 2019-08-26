@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */; };
 		28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */; };
 		28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
@@ -38,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
+		22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseWebViewController.h; sourceTree = "<group>"; };
 		28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseWebViewController.m; sourceTree = "<group>"; };
 		28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22587BCA23136BA900EC3525 /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */,
+				22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				22587BCA23136BA900EC3525 /* NSDictionary */,
 				28C8CACB22C0672900C9E8B9 /* NSObject */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
@@ -472,6 +485,7 @@
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
+				22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */,
 				28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
@@ -625,8 +639,8 @@
 			baseConfigurationReference = 7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B3ZC93AA8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YLCommonKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -635,6 +649,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.xyanl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -644,8 +659,8 @@
 			baseConfigurationReference = F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6B3ZC93AA8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = YLCommonKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,6 +669,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jy.xyanl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
