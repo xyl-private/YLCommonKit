@@ -8,9 +8,6 @@
 
 #import "UIViewController+YLFullScreen.h"
 
-#import <AppKit/AppKit.h>
-
-
 @implementation UIViewController (YLFullScreen)
 
 - (UIModalPresentationStyle)modalPresentationStyle {
