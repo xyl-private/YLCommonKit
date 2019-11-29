@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
     s.dependency 'BGFMDB'
-
+    s.frameworks = "Foundation","UIKit"
 
     s.subspec 'YLMacro' do |ss|
         ss.source_files = 'YLCommonKit/YLMacro/*.{h,m}'
@@ -54,10 +54,6 @@ Pod::Spec.new do |s|
             ss.subspec 'NSObject' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.h'
-            end
-	    ss.subspec 'NSDictionary' do |ss|
-                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.{h,m}'
-                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.h'
             end
         end
 

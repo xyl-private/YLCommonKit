@@ -3,15 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03EC31793C5C164B6E3B7AC6 /* Pods_YLCommonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */; };
 		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
-		22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
-		28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */; };
-		28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
 		28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F2EEF022CB321500C5CBA4 /* NSObject+YLBGFMDB.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
@@ -29,29 +27,20 @@
 		7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */; };
 		7B8770C020FF49CA00DAE2C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BE20FF49CA00DAE2C2 /* README.md */; };
 		7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */; };
-		7B8FC220211A985A009CA906 /* YLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FC21F211A985A009CA906 /* YLBaseViewController.m */; };
-		7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
 		7B941B3720F3126700811329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3620F3126700811329 /* Assets.xcassets */; };
 		7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3820F3126700811329 /* LaunchScreen.storyboard */; };
 		7B941B3D20F3126700811329 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3C20F3126700811329 /* main.m */; };
-		B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2255908B2391187E00569A5B /* YLNSEnumMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLNSEnumMacro.h; sourceTree = "<group>"; };
 		2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLFullScreen.h"; sourceTree = "<group>"; };
 		2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLFullScreen.m"; sourceTree = "<group>"; };
-		22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
-		22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLHiddenNavBar.h"; sourceTree = "<group>"; };
 		22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLHiddenNavBar.m"; sourceTree = "<group>"; };
-		28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseWebViewController.h; sourceTree = "<group>"; };
-		28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseWebViewController.m; sourceTree = "<group>"; };
-		28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
-		28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		28EDF29822BF753500E9CB11 /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
 		28EDF29922BF756B00E9CB11 /* YLAppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppMacro.h; sourceTree = "<group>"; };
 		28EDF29A22BF759B00E9CB11 /* YLUIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
@@ -91,10 +80,6 @@
 		7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YLTextField.m"; sourceTree = "<group>"; };
 		7B8770BE20FF49CA00DAE2C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
-		7B8FC21E211A985A009CA906 /* YLBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseViewController.h; sourceTree = "<group>"; };
-		7B8FC21F211A985A009CA906 /* YLBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseViewController.m; sourceTree = "<group>"; };
-		7B8FC221211A9A8E009CA906 /* YLBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLBaseNavigationController.h; sourceTree = "<group>"; };
-		7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLBaseNavigationController.m; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,7 +90,7 @@
 		7B941B3920F3126700811329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B941B3B20F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B941B3C20F3126700811329 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YLCommonKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YLCommonKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,22 +99,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B965BB1AA29CA8B0190C6748 /* libPods-YLCommonKit.a in Frameworks */,
+				03EC31793C5C164B6E3B7AC6 /* Pods_YLCommonKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		22587BCA23136BA900EC3525 /* NSDictionary */ = {
-			isa = PBXGroup;
-			children = (
-				22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */,
-				22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */,
-			);
-			path = NSDictionary;
-			sourceTree = "<group>";
-		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +118,6 @@
 		7B10B3D2210AC59500F35E77 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				7B8FC21D211A9834009CA906 /* BaseControllers */,
 				7B10B3E1210AC59500F35E77 /* YLMacro */,
 				7B10B3E3210AC59500F35E77 /* YLCategory */,
 			);
@@ -178,7 +153,6 @@
 		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				22587BCA23136BA900EC3525 /* NSDictionary */,
 				28C8CACB22C0672900C9E8B9 /* NSObject */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
@@ -326,21 +300,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		7B8FC21D211A9834009CA906 /* BaseControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7B8FC21E211A985A009CA906 /* YLBaseViewController.h */,
-				7B8FC21F211A985A009CA906 /* YLBaseViewController.m */,
-				7B8FC221211A9A8E009CA906 /* YLBaseNavigationController.h */,
-				7B8FC222211A9A8E009CA906 /* YLBaseNavigationController.m */,
-				28C8CACC22C0686900C9E8B9 /* YLBaseWebViewController.h */,
-				28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */,
-				28C8CACF22C068C600C9E8B9 /* YLWeakScriptMessageDelegate.h */,
-				28C8CAD022C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m */,
-			);
-			path = BaseControllers;
-			sourceTree = "<group>";
-		};
 		7B941B2120F3126500811329 = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +348,7 @@
 		EB60C5CB8CF98BC959C8B7B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D362DCD9347A4C45377E7021 /* libPods-YLCommonKit.a */,
+				ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -405,6 +364,7 @@
 				7B941B2620F3126500811329 /* Sources */,
 				7B941B2720F3126500811329 /* Frameworks */,
 				7B941B2820F3126500811329 /* Resources */,
+				3740EDE05A4934709EA1F73C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -481,6 +441,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3740EDE05A4934709EA1F73C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -497,14 +474,10 @@
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				7B10B42B210AC59500F35E77 /* NSDate+YLDate.m in Sources */,
 				7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */,
-				22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */,
-				28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
-				7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */,
-				28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
@@ -512,7 +485,6 @@
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */,
 				28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */,
-				7B8FC220211A985A009CA906 /* YLBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
