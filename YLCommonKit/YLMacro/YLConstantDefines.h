@@ -26,9 +26,14 @@
  用UIKIT_EXTERN修饰NSInteger。
  
  */
+
 #import <UIKit/UIKit.h>
+#import "YLNSEnumMacro.h"
 
 // 常量
 UIKIT_EXTERN const CGFloat YLResultCode;
 // APP 名字
 FOUNDATION_EXTERN NSString *const YLAppName;
+
+/// 品牌类型  枚举转字符串
+FOUNDATION_EXTERN NSString * NSStringFromJBBrandType(JBBrandType type);

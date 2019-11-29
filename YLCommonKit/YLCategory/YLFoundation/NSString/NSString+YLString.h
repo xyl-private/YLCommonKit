@@ -137,7 +137,9 @@
  */
 + (NSString *) yl_currencyFormatWith:(NSString *)str;
 
-
+///  距离格式转换
+/// @param distance 距离 单位:m
++(NSString *)yl_stringTromDitance:(NSString *)distance;
 
 #pragma mark - 二进制、十进制、十六进制 转换
 /**

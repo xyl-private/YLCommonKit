@@ -109,6 +109,12 @@
     NSString *regex = @"[1-9]\\d{5}(?!\\d)$";
     return [self yl_isValidateByRegex:regex string:str];
 }
+
++ (BOOL) yl_isPasswordValidWith:(NSString *)str{
+    NSString * regex = @"^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?![@.#_`]+$)[@.#_0-9A-Za-z]{6,12}$";
+    return [self yl_isValidateByRegex:regex string:str];
+}
+
 /**
  * 银行卡号有效性校验
  * 银行卡号有效性问题Luhn算法

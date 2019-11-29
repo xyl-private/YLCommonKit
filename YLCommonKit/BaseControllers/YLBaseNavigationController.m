@@ -24,7 +24,10 @@
     if (@available(iOS 9.0, *)) {
         navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]];
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         navBar = [UINavigationBar appearanceWhenContainedIn:self, nil];
+#pragma clang diagnostic pop
     }
     // 设置导航栏标题颜色
     NSMutableDictionary *navBarAttrs = [NSMutableDictionary dictionary];

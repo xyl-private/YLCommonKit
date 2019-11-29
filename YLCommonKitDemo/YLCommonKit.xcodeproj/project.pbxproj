@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587BCD23136BC900EC3525 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C8CACD22C0686900C9E8B9 /* YLBaseWebViewController.m */; };
@@ -40,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2255908B2391187E00569A5B /* YLNSEnumMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLNSEnumMacro.h; sourceTree = "<group>"; };
+		2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLFullScreen.h"; sourceTree = "<group>"; };
+		2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLFullScreen.m"; sourceTree = "<group>"; };
 		22587BCB23136BC900EC3525 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		22587BCC23136BC900EC3525 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLHiddenNavBar.h"; sourceTree = "<group>"; };
@@ -126,13 +130,6 @@
 			path = NSDictionary;
 			sourceTree = "<group>";
 		};
-		22587C122313B7FA00EC3525 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +161,7 @@
 				28EDF29D22BF75F300E9CB11 /* YLSingleton.h */,
 				28EDF29E22BF762000E9CB11 /* YLConstantDefines.h */,
 				28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */,
+				2255908B2391187E00569A5B /* YLNSEnumMacro.h */,
 			);
 			path = YLMacro;
 			sourceTree = "<group>";
@@ -231,7 +229,6 @@
 		7B10B3F6210AC59500F35E77 /* YLUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				22587C122313B7FA00EC3525 /* New Group */,
 				7B10B3F7210AC59500F35E77 /* UIImage */,
 				7B10B3FB210AC59500F35E77 /* UIButton */,
 				7B10B3FE210AC59500F35E77 /* UIColor */,
@@ -296,6 +293,8 @@
 				7B10B409210AC59500F35E77 /* UIViewController+YLViewController.m */,
 				22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */,
 				22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */,
+				2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */,
+				2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -502,6 +501,7 @@
 				28C8CACE22C0686900C9E8B9 /* YLBaseWebViewController.m in Sources */,
 				7B10B42E210AC59500F35E77 /* UIColor+YLColor.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
+				2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				7B8FC223211A9A8E009CA906 /* YLBaseNavigationController.m in Sources */,
 				28C8CAD122C068C600C9E8B9 /* YLWeakScriptMessageDelegate.m in Sources */,
@@ -653,15 +653,16 @@
 			baseConfigurationReference = 7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6C96XS7XU3;
 				INFOPLIST_FILE = YLCommonKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.xyanl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xyanl.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -673,15 +674,16 @@
 			baseConfigurationReference = F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6C96XS7XU3;
 				INFOPLIST_FILE = YLCommonKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jy.xyanl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xyanl.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

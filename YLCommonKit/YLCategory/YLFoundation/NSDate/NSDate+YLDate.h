@@ -51,6 +51,13 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  NSString 转 NSDate
  */
 + (NSDate *) yl_dateFromDateString:(NSString *)dateString DateFormat:(NSString *)dateFormat;
+
+
+/// 时间格式转换
+/// @param dateStr 时间
+/// @param oldDateFormat dateStr 目前的格式
+/// @param newDateFormat dateStr 转换的新格式
++ (NSString *) yl_stringTransDateFormatWithDateStr:(NSString*)dateStr oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat;
 /**
  获取农历时间
 

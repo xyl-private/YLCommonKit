@@ -9,5 +9,17 @@
 
 const CGFloat YLResultCode = 404;
 
-
 NSString *const YLAppName = @"拼单";
+
+NSString * NSStringFromJBBrandType(JBBrandType type) {
+    switch (type) {
+        case JBBrandTypeAll://：单板商城
+            return @"all";
+        case JBBrandTypePopular://：流行品牌
+            return @"popular";
+        case JBBrandTypePersonality:// ：个性品牌
+            return @"personality";
+        default:
+            return @"";
+    }
+}

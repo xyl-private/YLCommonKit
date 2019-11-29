@@ -56,6 +56,10 @@
  */
 + (BOOL) yl_isCarNumberWith:(NSString *)str;
 
+/// 验证密码是否有效
+/// 正则条件是 字母、数字、特殊字符(@.#_) 必须包含其中两项
+/// @param str 密码
++ (BOOL) yl_isPasswordValidWith:(NSString *)str;
 /**
  * 是否邮政编码
  */

@@ -151,7 +151,10 @@ static NSString * const kCanGoForward = @"canGoForward";
         dispatch_async(dispatch_get_global_queue(kNilOptions, kNilOptions), ^{
             NSURL *url = [NSURL URLWithString:callPhone];
             if ([[UIApplication sharedApplication] canOpenURL:url]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 [[UIApplication sharedApplication] openURL:url];
+#pragma clang diagnostic pop
             }
         });
     }

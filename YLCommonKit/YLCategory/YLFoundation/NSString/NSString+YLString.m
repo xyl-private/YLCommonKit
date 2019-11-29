@@ -358,11 +358,11 @@
         if (str2.length > 1) {
             return [NSString stringWithFormat:@"%@.%@",str1, str2];
         } else if (str2.length == 1) {
-            return [NSString stringWithFormat:@"%@.%@0",str1, str2];
+            return [NSString stringWithFormat:@"%@.%@",str1, str2];
         }
-        return [NSString stringWithFormat:@"%@.00",str1];
+        return [NSString stringWithFormat:@"%@",str1];
     }
-    return [NSString stringWithFormat:@"%@.00",str];
+    return [NSString stringWithFormat:@"%@",str];
 }
 /**
  * 金额保留两位小数
@@ -377,6 +377,23 @@
     return str;
 }
 
+///  距离格式转换
+/// @param distance 距离 单位:m
++(NSString *)yl_stringTromDitance:(NSString *)distance{
+    NSString * distanceStr = @"";
+    if (distance.intValue >= 1000) {
+        if (distance.intValue%1000 == 0) {//1000的整数倍,去掉小数
+            distanceStr = [NSString stringWithFormat:@"%dkm",distance.intValue/1000];
+        }else{
+            distanceStr = [NSString stringWithFormat:@"%0.1fkm",distance.intValue/1000.0];
+        }
+    }else if (distance.intValue == 0) {
+        distanceStr = @"";
+    }else{
+        distanceStr = [NSString stringWithFormat:@"%dm",distance.intValue];
+    }
+    return distanceStr;
+}
 
 #pragma mark - 二进制、十进制、十六进制 转换
 /**

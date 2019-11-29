@@ -29,6 +29,11 @@
     return [dateFormatter dateFromString:dateString];
 }
 
++ (NSString *) yl_stringTransDateFormatWithDateStr:(NSString*)dateStr oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat{
+    NSDate * date = [NSDate yl_dateFromDateString:dateStr DateFormat:oldDateFormat];
+    return [NSDate yl_stringFromDate:date DateFormat:newDateFormat];
+}
+
 + (NSDateComponents *) yl_lunarCalendarWithDate:(NSDate*)date{
     NSCalendar *localeCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;

@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "NSDate+YLDate.h"
+#import "NSString+YLString.h"
 @interface ViewController ()
 
 @end
@@ -16,9 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSDate * date = [NSDate yl_datePeriodOfDateFromCurrentDateWithComponentsType:YLDateComponentsTypeHour periodLength:2];
-    NSString * dateStr = [NSDate yl_stringFromDate:date DateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSLog(@"%@",dateStr);
+    NSString * str = [NSString yl_deleteFloatAllZeroWith:@"10.10"];
+    NSLog(@"%@",str);
     
 }
 - (IBAction)BaseViewControllerAction:(id)sender {
