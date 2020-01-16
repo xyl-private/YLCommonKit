@@ -88,4 +88,11 @@ static NSString * const colorStrPrefix2 = @"#";
     gradientLayer.frame = frame;
     return gradientLayer;
 }
+
++ (UIColor *)yl_randomColor{
+    CGFloat red = random()%255/255.0;
+    CGFloat green = random()%255/255.0;
+    CGFloat blue = random()%255/255.0;
+   return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+}
 @end

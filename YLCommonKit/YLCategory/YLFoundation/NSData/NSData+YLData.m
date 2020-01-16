@@ -9,99 +9,76 @@
 #import "NSData+YLData.h"
 
 @implementation NSData (YLData)
-/**
- * 压缩图片到指定大小,大小为多少KB
- */
-+ (NSData *) yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize
-{
-    CGFloat compression = 0.9f;
-    CGFloat maxCompression = 0.1f;
-    NSData *imageData = UIImageJPEGRepresentation(image, compression);
-    while ([imageData length]/1024 > maxFileSize && compression > maxCompression) {
-        compression -= 0.1;
-        imageData = UIImageJPEGRepresentation(image, compression);
-    }
-    return imageData;
-}
 
-+ (NSData *) yl_dataFromBase64String:(NSString *)encoding
-{
-    NSData *data = nil;
-    unsigned char *decodedBytes = NULL;
-    @try {
-#define __ 255
-        static char decodingTable[256] = {
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x00 - 0x0F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x10 - 0x1F
-            __,__,__,__, __,__,__,__, __,__,__,62, __,__,__,63,  // 0x20 - 0x2F
-            52,53,54,55, 56,57,58,59, 60,61,__,__, __, 0,__,__,  // 0x30 - 0x3F
-            __, 0, 1, 2,  3, 4, 5, 6,  7, 8, 9,10, 11,12,13,14,  // 0x40 - 0x4F
-            15,16,17,18, 19,20,21,22, 23,24,25,__, __,__,__,__,  // 0x50 - 0x5F
-            __,26,27,28, 29,30,31,32, 33,34,35,36, 37,38,39,40,  // 0x60 - 0x6F
-            41,42,43,44, 45,46,47,48, 49,50,51,__, __,__,__,__,  // 0x70 - 0x7F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x80 - 0x8F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0x90 - 0x9F
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xA0 - 0xAF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xB0 - 0xBF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xC0 - 0xCF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xD0 - 0xDF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xE0 - 0xEF
-            __,__,__,__, __,__,__,__, __,__,__,__, __,__,__,__,  // 0xF0 - 0xFF
-        };
-        encoding = [encoding stringByReplacingOccurrencesOfString:@"=" withString:@""];
-        NSData *encodedData = [encoding dataUsingEncoding:NSASCIIStringEncoding];
-        unsigned char *encodedBytes = (unsigned char *)[encodedData bytes];
-        
-        NSUInteger encodedLength = [encodedData length];
-        NSUInteger encodedBlocks = (encodedLength+3) >> 2;
-        NSUInteger expectedDataLength = encodedBlocks * 3;
-        
-        unsigned char decodingBlock[4];
-        
-        decodedBytes = malloc(expectedDataLength);
-        if( decodedBytes != NULL ) {
-            
-            NSUInteger i = 0;
-            NSUInteger j = 0;
-            NSUInteger k = 0;
-            unsigned char c;
-            while( i < encodedLength ) {
-                c = decodingTable[encodedBytes[i]];
-                i++;
-                if( c != __ ) {
-                    decodingBlock[j] = c;
-                    j++;
-                    if( j == 4 ) {
-                        decodedBytes[k] = (decodingBlock[0] << 2) | (decodingBlock[1] >> 4);
-                        decodedBytes[k+1] = (decodingBlock[1] << 4) | (decodingBlock[2] >> 2);
-                        decodedBytes[k+2] = (decodingBlock[2] << 6) | (decodingBlock[3]);
-                        j = 0;
-                        k += 3;
-                    }
-                }
++ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage
+                                    targetPx:(NSInteger)targetPx{
+    BOOL drawImge = NO;              // 是否需要重绘图片 默认是NO
+    CGFloat scaleFactor = 0.0;       // 压缩比例
+    CGFloat scaledWidth = targetPx;  // 压缩后的宽度 默认是参照像素1280px
+    CGFloat scaledHeight = targetPx; // 压缩后的高度 默认是参照像素1280px
+    // 压缩尺寸
+    // 新图片(尺寸压缩后的)
+    UIImage *newImage = nil;
+    // 原size
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    // 判断尺寸
+    if (width < targetPx && height < targetPx) {            // a.宽高均<=参照像素时:尺寸不变
+        newImage = sourceImage;
+    }else if (width > targetPx && height > targetPx) {      // b.宽或高均＞1280px时
+        drawImge = YES;
+        CGFloat factor = width / height;
+        if (factor <= 2) {  // b.1图片宽高比≤2，则将图片宽或者高取大的等比压缩至1280px
+            if (width > height) {
+                scaleFactor  = targetPx / width;
+            } else {
+                scaleFactor = targetPx / height;
             }
-            
-            // Process left over bytes, if any
-            if( j == 3 ) {
-                decodedBytes[k] = (decodingBlock[0] << 2) | (decodingBlock[1] >> 4);
-                decodedBytes[k+1] = (decodingBlock[1] << 4) | (decodingBlock[2] >> 2);
-                k += 2;
-            } else if( j == 2 ) {
-                decodedBytes[k] = (decodingBlock[0] << 2) | (decodingBlock[1] >> 4);
-                k += 1;
+        } else {            // b.2图片宽高比＞2时，则宽或者高取小的等比压缩至1280px
+            if (width > height) {
+                scaleFactor  = targetPx / height;
+            } else {
+                scaleFactor = targetPx / width;
             }
-            data = [[NSData alloc] initWithBytes:decodedBytes length:k];
+        }
+    }else if (width > targetPx &&  height < targetPx ) {    // c.宽高一个＞1280px，另一个＜1280px 宽大于1280
+        if (width / height > 2) {
+            newImage = sourceImage;
+        } else {
+            drawImge = YES;
+            scaleFactor = targetPx / width;
+        }
+    }else if (width < targetPx &&  height > targetPx) {     // c.宽高一个＞1280px，另一个＜1280px 高大于1280
+        if (height / width > 2) {
+            newImage = sourceImage;
+        } else {
+            drawImge = YES;
+            scaleFactor = targetPx / height;
         }
     }
-    @catch (NSException *exception) {
-        data = nil;
+    if (drawImge == YES) {      // 图片需要重绘 按新宽高压缩重绘图片
+        scaledWidth = width * scaleFactor;
+        scaledHeight = height * scaleFactor;
+        UIGraphicsBeginImageContext(CGSizeMake(scaledWidth, scaledHeight));
+        [sourceImage drawInRect:CGRectMake(0, 0, scaledWidth,scaledHeight)];
+        newImage =UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
     }
-    @finally {
-        if( decodedBytes != NULL ) {
-            free( decodedBytes );
+    if (newImage == nil) {
+        newImage = sourceImage;
+    }
+    
+    // 质量压缩(图片>200kb 时)
+    NSData * scaledImageData = nil;
+    if (UIImageJPEGRepresentation(newImage, 1) == nil) {
+        scaledImageData = UIImagePNGRepresentation(newImage);
+    }else{
+        scaledImageData = UIImageJPEGRepresentation(newImage, 1);
+        if (scaledImageData.length >= 1024 * 200) {
+            scaledImageData = UIImageJPEGRepresentation(newImage, 0.5);
         }
     }
-    return data;
+    return scaledImageData;
 }
-
 @end

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.11"
+    s.version      = "0.0.12"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类

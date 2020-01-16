@@ -10,13 +10,13 @@
 #define YLNSEnumMacro_h
 
 /// 品牌类型
-typedef NS_ENUM(NSUInteger, JBBrandType) {
+typedef NS_ENUM(NSUInteger, YLBrandType) {
     /// 全部
-    JBBrandTypeAll,
+    YLBrandTypeAll,
     /// 流行品牌
-    JBBrandTypePopular,
+    YLBrandTypePopular,
     /// 个性品牌
-    JBBrandTypePersonality,
+    YLBrandTypePersonality,
 };
 
 

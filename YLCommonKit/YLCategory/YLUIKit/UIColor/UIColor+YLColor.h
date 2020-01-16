@@ -30,4 +30,6 @@
  */
 + (CAGradientLayer *) yl_getGraduallyChangingColor:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame;
 
+/// 随机色
++ (UIColor *)yl_randomColor;
 @end

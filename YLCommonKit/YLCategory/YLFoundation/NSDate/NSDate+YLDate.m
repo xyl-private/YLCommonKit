@@ -43,8 +43,8 @@
 
 /**
  * 时间比较：-1：dateB比dateA小
-            0：相等；
-            1：dateB比dateA大；
+ 0：相等；
+ 1：dateB比dateA大；
  */
 + (NSInteger) yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat{
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
@@ -63,6 +63,14 @@
     return aa;
 }
 
++ (NSComparisonResult) yl_compareDateWithDateA:(NSString *)dateA dateB:(NSString *)dateB dateFormatter:(NSString *)dateFormatter{
+    NSDateFormatter *df = [self yl_dateFormatter:dateFormatter];
+    NSDate *dta = [df dateFromString:dateA];
+    NSDate *dtb = [df dateFromString:dateB];
+    NSComparisonResult result = [dta compare:dtb];
+    return result;
+}
+
 ///比较日期是否相等
 + (BOOL) yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat{
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
@@ -71,7 +79,7 @@
 
 /**
  给定日期时间 判断是不是今天的当前时间
-
+ 
  @param date 给定日期
  */
 + (BOOL) yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat{
@@ -87,7 +95,7 @@
 
 /**
  获取给定日期的月份
-
+ 
  @param date 给定日期
  */
 + (NSInteger) yl_monthFromDate:(NSDate *)date
@@ -113,8 +121,8 @@
  以当前时间为起点,间隔几个时间单位的 date
  @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
  @param length 长度可以是正负数，
-            正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
-            负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+ 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
 + (NSDate *) yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
@@ -125,12 +133,12 @@
 /**
  a period of time from the current time
  以当前时间为起点,间隔几个时间单位的 date
-
+ 
  @param startDate  以 startDate 为起始时间
  @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
  @param length 长度可以是正负数，
-            正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
-            负数是以当前时间为起点，向过去时间间隔出几个时间单位。
+ 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+ 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
  @return return value description
  */
 + (NSDate *) yl_datePeriodOfDateFromStertDate:(NSDate *)startDate componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
@@ -211,6 +219,20 @@
     [dateFormatter setCalendar:[NSDate yl_calendar]];
     dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
     return dateFormatter;
+}
+
+/// 获取当前时间点的时间戳
+/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
++ (NSString *)yl_getCurrentTimeIntervalWithLenght:(NSInteger)lenght{
+    // 获取当前时间0秒后的时间
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    // *1000 是精确到毫秒(13位),不乘就是精确到秒(10位)
+    NSTimeInterval timeInterval = [date timeIntervalSince1970];
+    if (lenght == 13) {
+        timeInterval = timeInterval*1000;
+    }
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", timeInterval];
+    return timeString;
 }
 
 /**

@@ -59,4 +59,10 @@
 
 /*两张图片合成*/
 + (UIImage *) yl_imageSynthesis:(UIImage *)image1 toImage:(UIImage *)image2;
+
+
+/// 获取 网络图片的 size
+/// @param URL 图片地址 支持 NSString和NSURL
++ (CGSize)yl_getNetworkPhotoSizeWithURL:(id)URL;
+
 @end

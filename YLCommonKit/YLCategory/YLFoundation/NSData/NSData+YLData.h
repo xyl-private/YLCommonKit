@@ -13,18 +13,22 @@
 @interface NSData (YLData)
 
 /**
- 压缩图片到指定大小,大小为多少KB
- @param image 需要压缩的图片
- @param maxFileSize 压缩的大小
- @return 压缩后的图片Data
+ 图片压缩的处理逻辑:
+ 
+ 一 尺寸压缩(一般参照像素为1280)
+ a. 宽高均<=1280px时    图片尺寸保持不变
+ b. 宽高均>1280px时     图片宽高比<=2，则将图片宽或者高取大的等比压缩至1280px; 图片宽高比＞2时，则宽或者高取小的等比压缩至1280px;
+ c. 宽或高某一个>1280px，另一个<1280px时  图片宽高比＞2时，则宽高尺寸不变;图片宽高比≤2时,则将图片宽或者高取大的等比压缩至1280px.
+ 
+ 二 质量压缩
+ 一般压缩在90%
  */
-+ (NSData *) yl_compressImage:(UIImage *)image toMaxFileSize:(NSInteger)maxFileSize;
 
-/**
- 将图片二进制字符串转成NSData
- @param encoding 二进制字符串
- @return 图片的NSData类型
- */
-+ (NSData *) yl_dataFromBase64String:(NSString *)encoding;
+
+/// 图片压缩
+/// @param sourceImage 原图
+/// @param targetPx 压缩后的图片宽高
++ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage
+                                    targetPx:(NSInteger)targetPx;
 
 @end

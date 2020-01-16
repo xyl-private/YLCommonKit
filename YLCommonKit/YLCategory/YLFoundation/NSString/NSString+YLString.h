@@ -125,7 +125,7 @@
 /**
  * 从身份证获取性别
  */
-+(NSString *) yl_getCardIdGenderWith:(NSString *)str;
++ (NSString *) yl_getCardIdGenderWith:(NSString *)str;
 
 #pragma mark - 金额相关
 /**
@@ -139,7 +139,7 @@
 
 ///  距离格式转换
 /// @param distance 距离 单位:m
-+(NSString *)yl_stringTromDitance:(NSString *)distance;
++ (NSString *)yl_stringTromDitance:(NSString *)distance;
 
 #pragma mark - 二进制、十进制、十六进制 转换
 /**

@@ -36,4 +36,4 @@ UIKIT_EXTERN const CGFloat YLResultCode;
 FOUNDATION_EXTERN NSString *const YLAppName;
 
 /// 品牌类型  枚举转字符串
-FOUNDATION_EXTERN NSString * NSStringFromJBBrandType(JBBrandType type);
+FOUNDATION_EXTERN NSString * NSStringFromYLBrandType(YLBrandType type);
