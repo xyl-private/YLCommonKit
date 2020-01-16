@@ -11,6 +11,8 @@
 		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		22F76D4323CFF07B008E8FEC /* NSString+YLAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */; };
+		22F76D5123CFFF02008E8FEC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22F76D4F23CFFF02008E8FEC /* README.md */; };
+		22F76D5223CFFF02008E8FEC /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 22F76D5023CFFF02008E8FEC /* YLCommonKit.podspec */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
 		28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F2EEF022CB321500C5CBA4 /* NSObject+YLBGFMDB.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
@@ -26,8 +28,6 @@
 		7B10B431210AC59500F35E77 /* UIViewController+YLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B409210AC59500F35E77 /* UIViewController+YLViewController.m */; };
 		7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40C210AC59500F35E77 /* UITableView+YLTableHeaderView.m */; };
 		7B10B433210AC59500F35E77 /* UITextField+YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */; };
-		7B8770C020FF49CA00DAE2C2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BE20FF49CA00DAE2C2 /* README.md */; };
-		7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
@@ -44,6 +44,8 @@
 		22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLHiddenNavBar.m"; sourceTree = "<group>"; };
 		22F76D4123CFF07B008E8FEC /* NSString+YLAppInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YLAppInfo.h"; sourceTree = "<group>"; };
 		22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLAppInfo.m"; sourceTree = "<group>"; };
+		22F76D4F23CFFF02008E8FEC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		22F76D5023CFFF02008E8FEC /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		28EDF29822BF753500E9CB11 /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
 		28EDF29922BF756B00E9CB11 /* YLAppMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppMacro.h; sourceTree = "<group>"; };
 		28EDF29A22BF759B00E9CB11 /* YLUIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUIMacro.h; sourceTree = "<group>"; };
@@ -81,8 +83,6 @@
 		7B10B40C210AC59500F35E77 /* UITableView+YLTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+YLTableHeaderView.m"; sourceTree = "<group>"; };
 		7B10B40E210AC59500F35E77 /* UITextField+YLTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+YLTextField.h"; sourceTree = "<group>"; };
 		7B10B40F210AC59500F35E77 /* UITextField+YLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YLTextField.m"; sourceTree = "<group>"; };
-		7B8770BE20FF49CA00DAE2C2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22F76D4E23CFFEDF008E8FEC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				22F76D4F23CFFF02008E8FEC /* README.md */,
+				22F76D5023CFFF02008E8FEC /* YLCommonKit.podspec */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,15 +305,6 @@
 			path = UITextField;
 			sourceTree = "<group>";
 		};
-		7B8770BD20FF49AD00DAE2C2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B8770BE20FF49CA00DAE2C2 /* README.md */,
-				7B8770BF20FF49CA00DAE2C2 /* YLCommonKit.podspec */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7B941B2120F3126500811329 = {
 			isa = PBXGroup;
 			children = (
@@ -326,7 +326,7 @@
 		7B941B2C20F3126500811329 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				7B8770BD20FF49AD00DAE2C2 /* Pods */,
+				22F76D4E23CFFEDF008E8FEC /* Config */,
 				7B941B2D20F3126600811329 /* AppDelegate.h */,
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
@@ -419,8 +419,8 @@
 			files = (
 				7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */,
 				7B941B3720F3126700811329 /* Assets.xcassets in Resources */,
-				7B8770C020FF49CA00DAE2C2 /* README.md in Resources */,
-				7B8770C120FF49CA00DAE2C2 /* YLCommonKit.podspec in Resources */,
+				22F76D5123CFFF02008E8FEC /* README.md in Resources */,
+				22F76D5223CFFF02008E8FEC /* YLCommonKit.podspec in Resources */,
 				7B941B3520F3126600811329 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
