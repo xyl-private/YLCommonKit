@@ -6,6 +6,6 @@ target 'YLCommonKit' do
   use_frameworks!
   # 忽略 pod 库中的警告
   inhibit_all_warnings!
-  pod 'BGFMDB'#(2.0.13)
+#  pod 'BGFMDB'#(2.0.13)
 end
 
