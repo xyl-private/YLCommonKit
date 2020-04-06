@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -638,6 +638,7 @@
 		};
 		7B941B5720F3126700811329 /* Debug */ = {
 			isa = XCBuildConfiguration;
+
 			baseConfigurationReference = 7699AE470494C4FEFA444DD0 /* Pods-YLCommonKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -659,7 +660,9 @@
 		};
 		7B941B5820F3126700811329 /* Release */ = {
 			isa = XCBuildConfiguration;
+
 			baseConfigurationReference = CBD30ECA2B229AF342F3ACD4 /* Pods-YLCommonKit.release.xcconfig */;
+
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
