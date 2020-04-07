@@ -3,21 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03EC31793C5C164B6E3B7AC6 /* Pods_YLCommonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */; };
 		2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBB243CA7C50007F753 /* NSDictionary+YLLog.m */; };
 		2210FEBF243CA7C50007F753 /* NSObject+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */; };
 		2210FEC3243CB30A0007F753 /* NSDictionary+YLRemoveNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEC2243CB30A0007F753 /* NSDictionary+YLRemoveNull.m */; };
 		2210FEC7243CB3F60007F753 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2210FEC5243CB3F60007F753 /* README.md */; };
-		2210FEC8243CB3F60007F753 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2210FEC6243CB3F60007F753 /* YLCommonKit.podspec */; };
 		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		22F76D4323CFF07B008E8FEC /* NSString+YLAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
-		28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F2EEF022CB321500C5CBA4 /* NSObject+YLBGFMDB.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
 		7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3EA210AC59500F35E77 /* NSString+YLString.m */; };
 		7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3ED210AC59500F35E77 /* NSString+YLRegex.m */; };
@@ -62,9 +59,6 @@
 		28EDF29D22BF75F300E9CB11 /* YLSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLSingleton.h; sourceTree = "<group>"; };
 		28EDF29E22BF762000E9CB11 /* YLConstantDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLConstantDefines.h; sourceTree = "<group>"; };
 		28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLConstantDefines.m; sourceTree = "<group>"; };
-		28F2EEEF22CB321500C5CBA4 /* NSObject+YLBGFMDB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+YLBGFMDB.h"; sourceTree = "<group>"; };
-		28F2EEF022CB321500C5CBA4 /* NSObject+YLBGFMDB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YLBGFMDB.m"; sourceTree = "<group>"; };
-		7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.debug.xcconfig"; sourceTree = "<group>"; };
 		7B10B3E7210AC59500F35E77 /* NSData+YLData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YLData.m"; sourceTree = "<group>"; };
 		7B10B3E8210AC59500F35E77 /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
 		7B10B3EA210AC59500F35E77 /* NSString+YLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLString.m"; sourceTree = "<group>"; };
@@ -101,8 +95,6 @@
 		7B941B3920F3126700811329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B941B3B20F3126700811329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B941B3C20F3126700811329 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YLCommonKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCommonKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03EC31793C5C164B6E3B7AC6 /* Pods_YLCommonKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,15 +135,6 @@
 				2210FEC6243CB3F60007F753 /* YLCommonKit.podspec */,
 			);
 			path = Pod;
-			sourceTree = "<group>";
-		};
-		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
-			isa = PBXGroup;
-			children = (
-				28F2EEEF22CB321500C5CBA4 /* NSObject+YLBGFMDB.h */,
-				28F2EEF022CB321500C5CBA4 /* NSObject+YLBGFMDB.m */,
-			);
-			path = NSObject;
 			sourceTree = "<group>";
 		};
 		7B10B3D2210AC59500F35E77 /* YLCommonKit */ = {
@@ -194,7 +176,6 @@
 			children = (
 				2210FEC0243CB2E10007F753 /* NSDictionary */,
 				2210FEB9243CA7C50007F753 /* NSLog */,
-				28C8CACB22C0672900C9E8B9 /* NSObject */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
 				7B10B3EF210AC59500F35E77 /* NSAttributedString */,
@@ -339,7 +320,6 @@
 			children = (
 				7B941B2C20F3126500811329 /* YLCommonKit */,
 				7B941B2B20F3126500811329 /* Products */,
-				DE81F01665D3AB5243CD2260 /* Pods */,
 				EB60C5CB8CF98BC959C8B7B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -370,19 +350,9 @@
 			path = YLCommonKit;
 			sourceTree = "<group>";
 		};
-		DE81F01665D3AB5243CD2260 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */,
-				F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		EB60C5CB8CF98BC959C8B7B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,11 +364,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B941B5620F3126700811329 /* Build configuration list for PBXNativeTarget "YLCommonKit" */;
 			buildPhases = (
-				2C35BBE5719310A61EAF038D /* [CP] Check Pods Manifest.lock */,
 				7B941B2620F3126500811329 /* Sources */,
 				7B941B2720F3126500811329 /* Frameworks */,
 				7B941B2820F3126500811329 /* Resources */,
-				3740EDE05A4934709EA1F73C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -449,50 +417,11 @@
 				7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */,
 				7B941B3720F3126700811329 /* Assets.xcassets in Resources */,
 				2210FEC7243CB3F60007F753 /* README.md in Resources */,
-				2210FEC8243CB3F60007F753 /* YLCommonKit.podspec in Resources */,
 				7B941B3520F3126600811329 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2C35BBE5719310A61EAF038D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YLCommonKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3740EDE05A4934709EA1F73C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YLCommonKit/Pods-YLCommonKit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B941B2620F3126500811329 /* Sources */ = {
@@ -522,7 +451,6 @@
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */,
 				2210FEC3243CB30A0007F753 /* NSDictionary+YLRemoveNull.m in Sources */,
-				28F2EEF122CB321500C5CBA4 /* NSObject+YLBGFMDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,7 +588,6 @@
 		};
 		7B941B5720F3126700811329 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A4FEE74BCC0DBFB09AA2994 /* Pods-YLCommonKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -681,7 +608,6 @@
 		};
 		7B941B5820F3126700811329 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1C2FA9D367320DA9CFBC0CB /* Pods-YLCommonKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
