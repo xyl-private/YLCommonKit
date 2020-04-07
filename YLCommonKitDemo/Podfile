@@ -4,6 +4,7 @@ platform :ios, '9.0'
 target 'YLCommonKit' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  source 'https://github.com/CocoaPods/Specs.git'
   # 忽略 pod 库中的警告
   inhibit_all_warnings!
   pod 'BGFMDB'#(2.0.13)
