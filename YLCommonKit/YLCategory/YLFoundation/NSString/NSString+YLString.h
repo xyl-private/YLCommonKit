@@ -33,6 +33,9 @@
 /// @param range 隐藏范围
 + (NSString *) yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
 
+/// obj 转成 json 字符串
++(NSString *)yl_jsonStringFromObject:(id)obj;
+
 /// 验证TouchID是否可用 返回YES:可用;  NO:不可用
 + (BOOL) yl_canTouchID;
 
