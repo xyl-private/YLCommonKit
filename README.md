@@ -52,7 +52,7 @@ pod search 库名
 `pod trunk me`
 
 如果没有注册过,输入下面的命令 并根据命令进行注册
-`pod trunk register xxx@xxx.com  'name'`
+`pod trunk register xxx@xxx.com 'name'`
 
 注册之后邮箱会收到一封确认邮件,点击验证,如果多人维护pod 可以添加其他维护者
 `pod trunk add-owner name xxx@xxx.com`

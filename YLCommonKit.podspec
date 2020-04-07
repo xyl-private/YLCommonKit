@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.12"
+    s.version      = "0.0.13"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -36,17 +36,14 @@ Pod::Spec.new do |s|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.h'
             end
-
             ss.subspec 'NSString' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSString/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSString/*.h'
             end
-
             ss.subspec 'NSDate' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSDate/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSDate/*.h'
             end
-
             ss.subspec 'NSAttributedString' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSAttributedString/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSAttributedString/*.h'
@@ -54,6 +51,14 @@ Pod::Spec.new do |s|
             ss.subspec 'NSObject' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSObject/*.h'
+            end
+            ss.subspec 'NSLog' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSLog/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSLog/*.h'
+            end
+            ss.subspec 'NSDictionary' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSDictionary/*.h'
             end
         end
 

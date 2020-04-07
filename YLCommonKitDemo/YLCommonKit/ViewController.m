@@ -16,18 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString * str = [NSString yl_deleteFloatAllZeroWith:@"10.10"];
-    NSLog(@"%@",str);
     
 }
+
 - (IBAction)BaseViewControllerAction:(id)sender {
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
