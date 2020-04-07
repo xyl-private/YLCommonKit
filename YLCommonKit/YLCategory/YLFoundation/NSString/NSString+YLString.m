@@ -12,60 +12,6 @@
 
 @implementation NSString (YLString)
 #pragma mark - 其他相关
-- (CGSize) yl_sizeWithAdapterFont:(UIFont *)font
-{
-    NSDictionary* dic = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
-    return [self sizeWithAttributes:dic];
-}
-
-- (CGSize) yl_sizeWithAdapterFont:(UIFont *)font constrainedToSize:(CGSize)size
-{
-    NSDictionary* dic = [NSDictionary dictionaryWithObject:font
-                                                    forKey:NSFontAttributeName];
-    CGRect rect = [self boundingRectWithSize:size
-                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                  attributes:dic
-                                     context:nil];
-    return  rect.size;
-}
-
-- (NSString *) yl_removeSpaces{
-    NSString *removedString = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
-    return removedString;
-}
-/** 处理数字类型
- *  str:   需要处理的数据
- *  type:  元/期
- */
-+ (NSString *) yl_numberFormateWith:(NSString *)str addType:(NSString *)type{
-    if (type == nil) {
-        type = @"";
-    }
-    if (str == nil) {
-        return [NSString stringWithFormat:@"0%@",type];
-    }else if([str rangeOfString:@"."].location == NSNotFound){
-        return [NSString stringWithFormat:@"%@%@",str,type];
-    }else if([str rangeOfString:@"."].location != NSNotFound){
-        return [NSString stringWithFormat:@"%.2f%@",[str floatValue],type];
-    }else{
-        return [NSString stringWithFormat:@"%@%@",str,type];
-    }
-}
-// 核对输入是否为空信息
-+ (BOOL) yl_checkInputText:(NSString*)text{
-    text = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if (!text||text.length==0) {
-        return NO;
-    }
-    return YES;
-}
-/**
- * 判断字符串是否是空
- */
-+ (BOOL) yl_stringIsNullWith:(NSString *)str
-{
-    return [self yl_stringNoNullWith:[self yl_removeSpacesWith:str]].length > 0 ? NO : YES;
-}
 
 //判断字符串数值
 + (BOOL) yl_stringValid:(NSString *)str {
@@ -100,48 +46,15 @@
     return sender;
 }
 
-
-
-/**
- 计算字符串的 size
-
- @param content 文本内容
- @param font 字体大小 默认字体 非加粗之类的
- @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
- @return 文本内容的 size
- */
-+ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(CGFloat)font constrainedToSize:(CGSize)size{
-    
-    NSDictionary *attributes = @{
-                                 NSFontAttributeName : [UIFont systemFontOfSize:font]
-                                 };
-    
+///  计算字符串的 size
+/// @param content 文本内容
+/// @param font 字体大小
+/// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
++ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size{
+    NSDictionary *attributes = @{NSFontAttributeName : font};
     return [content boundingRectWithSize:size options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
 }
 
-/**
- *  隐藏手机号中间四位号码
- */
-+ (NSString *) yl_hidePhoneMiddle4NumsWith:(NSString *)str
-{
-    if (![self isPhoneNumberWith:str]) return @"";
-    NSString *tempStr1 = [str substringToIndex:3];
-    NSString *tempStr2 = [str substringFromIndex:7];
-    return [NSString stringWithFormat:@"%@****%@",[self yl_stringNoNullWith:tempStr1], [self yl_stringNoNullWith:tempStr2]];
-}
-/**
- *  手机号码证验证 YES验证通过，NO验证失败
- */
-+ (BOOL)isPhoneNumberWith:(NSString *)str
-{
-    NSString *regex = @"^1+[23456789]+\\d{9}";
-    return [self isValidateByRegex:regex string:str];
-}
-+ (BOOL)isValidateByRegex:(NSString *)regex string:(NSString *)str
-{
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
-    return [pre evaluateWithObject:str];
-}
 /**
  *  MD5加密字符串
  */
@@ -158,12 +71,13 @@
             result[12], result[13], result[14], result[15]
             ];
 }
-/**
- * 隐藏字符中的一部分
- */
-+ (NSString *) yl_hideStringWith:(NSString *)str hideRange:(NSRange)range
+
+/// 隐藏字符中的一部分
+/// @param content 原始字符串
+/// @param range 隐藏范围
++ (NSString *) yl_hideStringWith:(NSString *)content hideRange:(NSRange)range
 {
-    NSMutableString *mString = [NSMutableString stringWithString:str];
+    NSMutableString *mString = [NSMutableString stringWithString:content];
     NSMutableString *comStr = [NSMutableString stringWithCapacity:range.length];
     for (int i = 0; i<range.length; i++) {
         [comStr appendString:@"*"];
@@ -171,100 +85,28 @@
     [mString replaceCharactersInRange:range withString:comStr];
     return mString;
 }
-/**
- *  去除字符串两边空格
- */
-+ (NSString *) yl_removeSidesSpacesWith:(NSString *)str
-{
-    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    str = [str stringByTrimmingCharactersInSet:whitespace];
-    return str;
-}
-/**
- *  去除字符串空格
- */
-+ (NSString *) yl_removeSpacesWith:(NSString *)str
-{
-    str = [str stringByReplacingOccurrencesOfString:@" " withString:@""];
-    return str;
-}
-/**
- *  去除字符串'.'
- */
-+ (NSString *) yl_removeDotWith:(NSString *)str
-{
-    return [str stringByReplacingOccurrencesOfString:@"." withString:@""];
-}
-/**
- *  验证TouchID是否可用 返回YES:可用;  NO:不可用
- */
+
+
+/// 验证TouchID是否可用 返回YES:可用;  NO:不可用
 + (BOOL) yl_canTouchID
 {
     LAContext *context = [[LAContext alloc] init];
     NSError *error;
     return [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
 }
-/**
- *  验证TouchID是否正确 successBlock TouchID验证Block
- */
+
+
+/// 验证TouchID是否正确 successBlock TouchID验证Block
 + (void) yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock
 {
     LAContext *context = [[LAContext alloc] init];
     // show the authentication UI with our reason string
     [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"请用指纹解锁" reply:
      ^(BOOL success, NSError *authenticationError) {
-         if (successBlock) {
-             successBlock(success,authenticationError);
-         }
-     }];
-}
-/**
- *  判断是否包含字符串 YES:包含; NO:不包含
- */
-- (BOOL) yl_containsStringWith:(NSString *)str
-{
-    NSRange range = [[self lowercaseString] rangeOfString:[str lowercaseString]];
-    return range.location != NSNotFound;
-}
-/**
- *  判断是否包含emoji表情 YES:包含; NO:不包含
- */
-+ (BOOL) yl_stringContainsEmojiWith:(NSString *)str
-{
-    __block BOOL returnValue = NO;
-    [str enumerateSubstringsInRange:NSMakeRange(0, [str length])
-                            options:NSStringEnumerationByComposedCharacterSequences
-                         usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange,BOOL *stop) {
-                             const unichar hs = [substring characterAtIndex:0];
-                             if (0xd800 <= hs && hs <= 0xdbff) {
-                                 if (substring.length > 1) {
-                                     const unichar ls = [substring characterAtIndex:1];
-                                     const int uc = ((hs - 0xd800) * 0x400) + (ls - 0xdc00) + 0x10000;
-                                     if (0x1d000 <= uc && uc <= 0x1f77f) {
-                                         returnValue = YES;
-                                     }
-                                 }
-                             } else if (substring.length > 1) {
-                                 const unichar ls = [substring characterAtIndex:1];
-                                 if (ls == 0x20e3) {
-                                     returnValue = YES;
-                                 }
-                             } else {
-                                 if (0x2100 <= hs && hs <= 0x27ff) {
-                                     returnValue = YES;
-                                 } else if (0x2B05 <= hs && hs <= 0x2b07) {
-                                     returnValue = YES;
-                                 } else if (0x2934 <= hs && hs <= 0x2935) {
-                                     returnValue = YES;
-                                 } else if (0x3297 <= hs && hs <= 0x3299) {
-                                     returnValue = YES;
-                                 } else if (hs == 0xa9 || hs == 0xae || hs == 0x303d || hs == 0x3030 || hs == 0x2b55 || hs == 0x2b1c || hs == 0x2b1b || hs == 0x2b50) {
-                                     returnValue = YES;
-                                 }
-                             }
-                         }];
-    
-    return returnValue;
+        if (successBlock) {
+            successBlock(success,authenticationError);
+        }
+    }];
 }
 
 
@@ -289,7 +131,6 @@
     NSString *day = nil;
     if([str length]<14)
         return result;
-    
     //**截取前14位
     NSString *fontNumer = [str substringWithRange:NSMakeRange(0, 13)];
     
@@ -343,38 +184,25 @@
 }
 
 #pragma mark - 金额相关
-/**
- * 字符串金额至少保留两位小数位末尾去零
- */
-+ (NSString*) yl_deleteFloatAllZeroWith:(NSString *)str
-{
-    if ([str containsString:@"."]) {
-        NSArray *arrStr = [str componentsSeparatedByString:@"."];
-        NSString *str1 = arrStr.firstObject;
-        NSString *str2 = arrStr.lastObject;
-        while ([str2 hasSuffix:@"0"]) {
-            str2 = [str2 substringToIndex:(str2.length - 1)];
-        }
-        if (str2.length > 1) {
-            return [NSString stringWithFormat:@"%@.%@",str1, str2];
-        } else if (str2.length == 1) {
-            return [NSString stringWithFormat:@"%@.%@",str1, str2];
-        }
-        return [NSString stringWithFormat:@"%@",str1];
-    }
-    return [NSString stringWithFormat:@"%@",str];
-}
-/**
- * 金额保留两位小数
- */
-+ (NSString *) yl_currencyFormatWith:(NSString *)str
-{
-    if ([[self yl_stringNoNullWith:str] isEqualToString:@""]) return @"0.00";
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    // 设置格式
-    [numberFormatter setPositiveFormat:@"###,##0.00"];
-    str = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:[str doubleValue]]];
-    return str;
+/// 小数点取舍处理方法
+/// @param roundingMode  舍入方式
+/// @param number 需要计算的数值
+/// @param scale 小数点后舍入值的位数
++ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale{
+    /**
+     初始化方法
+     roundingMode 舍入方式
+     scale 小数点后舍入值的位数
+     exact 精度错误处理
+     overflow 溢出错误处理
+     underflow 下溢错误处理
+     divideByZero 除以0的错误处理
+     NSDecimalNumberHandler对象
+     */
+    NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:roundingMode scale:scale raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
+    NSDecimalNumber * ouncesDecimal = [NSDecimalNumber decimalNumberWithString:number];
+    ouncesDecimal = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
+    return [NSString stringWithFormat:@"%@",ouncesDecimal];
 }
 
 ///  距离格式转换
@@ -403,13 +231,11 @@
  @return 十进制数
  */
 + (NSInteger)yl_getDecimalByBinary:(NSString *)binary {
-    
     NSInteger decimal = 0;
     for (int i=0; i<binary.length; i++) {
         
         NSString *number = [binary substringWithRange:NSMakeRange(binary.length - i - 1, 1)];
         if ([number isEqualToString:@"1"]) {
-            
             decimal += pow(2, i);
         }
     }
@@ -423,7 +249,6 @@
  @return 十六进制数
  */
 + (NSString *)yl_getHexByBinary:(NSString *)binary {
-    
     NSMutableDictionary *binaryDic = [[NSMutableDictionary alloc] initWithCapacity:16];
     [binaryDic setObject:@"0" forKey:@"0000"];
     [binaryDic setObject:@"1" forKey:@"0001"];
@@ -441,9 +266,7 @@
     [binaryDic setObject:@"D" forKey:@"1101"];
     [binaryDic setObject:@"E" forKey:@"1110"];
     [binaryDic setObject:@"F" forKey:@"1111"];
-    
     if (binary.length % 4 != 0) {
-        
         NSMutableString *mStr = [[NSMutableString alloc]init];;
         for (int i = 0; i < 4 - binary.length % 4; i++) {
             
@@ -471,30 +294,23 @@
  @return 二进制数
  */
 + (NSString *)yl_getBinaryByDecimal:(NSInteger)decimal {
-    
     NSString *binary = @"";
     while (decimal) {
-        
         binary = [[NSString stringWithFormat:@"%ld", decimal % 2] stringByAppendingString:binary];
         if (decimal / 2 < 1) {
-            
             break;
         }
         decimal = decimal / 2 ;
     }
     if (binary.length % 4 != 0) {
-        
         NSMutableString *mStr = [[NSMutableString alloc]init];;
         for (int i = 0; i < 4 - binary.length % 4; i++) {
-            
             [mStr appendString:@"0"];
         }
         binary = [mStr stringByAppendingString:binary];
     }
     return binary;
 }
-
-
 
 
 /**
@@ -504,16 +320,13 @@
  @return 十六进制数
  */
 + (NSString *)yl_getHexByDecimal:(NSInteger)decimal {
-    
     NSString *hex =@"";
     NSString *letter;
     NSInteger number;
     for (int i = 0; i<9; i++) {
-        
         number = decimal % 16;
         decimal = decimal / 16;
         switch (number) {
-                
             case 10:
                 letter =@"A"; break;
             case 11:
@@ -531,7 +344,6 @@
         }
         hex = [letter stringByAppendingString:hex];
         if (decimal == 0) {
-            
             break;
         }
     }
@@ -545,7 +357,6 @@
  @return 二进制数
  */
 + (NSString *)yl_getBinaryByHex:(NSString *)hex {
-    
     NSMutableDictionary *hexDic = [[NSMutableDictionary alloc] initWithCapacity:16];
     [hexDic setObject:@"0000" forKey:@"0"];
     [hexDic setObject:@"0001" forKey:@"1"];
@@ -563,14 +374,11 @@
     [hexDic setObject:@"1101" forKey:@"D"];
     [hexDic setObject:@"1110" forKey:@"E"];
     [hexDic setObject:@"1111" forKey:@"F"];
-    
     NSString *binary = @"";
     for (int i=0; i<[hex length]; i++) {
-        
         NSString *key = [hex substringWithRange:NSMakeRange(i, 1)];
         NSString *value = [hexDic objectForKey:key.uppercaseString];
         if (value) {
-            
             binary = [binary stringByAppendingString:value];
         }
     }
@@ -580,7 +388,6 @@
 #pragma mark - 汉字转拼音
 /**
  汉字转拼音
-
  @param chinese 汉字
  @param isSymbol YES 带音标   NO 不带
  @return 拼音
@@ -588,10 +395,8 @@
 + (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol{
     //将NSString装换成NSMutableString
     NSMutableString *pinyin = [chinese mutableCopy];
-    
     //将汉字转换为拼音(带音标)
     CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
-    
     if (!isSymbol) {
         //去掉拼音的音标
         CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);

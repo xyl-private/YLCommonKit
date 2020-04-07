@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03EC31793C5C164B6E3B7AC6 /* Pods_YLCommonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBA96D1F062B42DE11BB157 /* Pods_YLCommonKit.framework */; };
+		2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBB243CA7C50007F753 /* NSDictionary+YLLog.m */; };
+		2210FEBF243CA7C50007F753 /* NSObject+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */; };
 		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		22F76D4323CFF07B008E8FEC /* NSString+YLAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */; };
@@ -37,6 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2210FEBA243CA7C50007F753 /* NSObject+YLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YLLog.h"; sourceTree = "<group>"; };
+		2210FEBB243CA7C50007F753 /* NSDictionary+YLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLLog.m"; sourceTree = "<group>"; };
+		2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YLLog.m"; sourceTree = "<group>"; };
+		2210FEBD243CA7C50007F753 /* NSDictionary+YLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLLog.h"; sourceTree = "<group>"; };
 		2255908B2391187E00569A5B /* YLNSEnumMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLNSEnumMacro.h; sourceTree = "<group>"; };
 		2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLFullScreen.h"; sourceTree = "<group>"; };
 		2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLFullScreen.m"; sourceTree = "<group>"; };
@@ -109,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2210FEB9243CA7C50007F753 /* NSLog */ = {
+			isa = PBXGroup;
+			children = (
+				2210FEBA243CA7C50007F753 /* NSObject+YLLog.h */,
+				2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */,
+				2210FEBD243CA7C50007F753 /* NSDictionary+YLLog.h */,
+				2210FEBB243CA7C50007F753 /* NSDictionary+YLLog.m */,
+			);
+			path = NSLog;
+			sourceTree = "<group>";
+		};
 		28C8CACB22C0672900C9E8B9 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +173,7 @@
 		7B10B3E4210AC59500F35E77 /* YLFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				2210FEB9243CA7C50007F753 /* NSLog */,
 				28C8CACB22C0672900C9E8B9 /* NSObject */,
 				7B10B3E6210AC59500F35E77 /* NSData */,
 				7B10B3E9210AC59500F35E77 /* NSString */,
@@ -484,9 +502,11 @@
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
+				2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
 				7B10B428210AC59500F35E77 /* NSString+YLString.m in Sources */,
+				2210FEBF243CA7C50007F753 /* NSObject+YLLog.m in Sources */,
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */,

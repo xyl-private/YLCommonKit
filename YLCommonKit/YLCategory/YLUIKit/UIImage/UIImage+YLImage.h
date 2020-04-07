@@ -65,4 +65,8 @@
 /// @param URL 图片地址 支持 NSString和NSURL
 + (CGSize)yl_getNetworkPhotoSizeWithURL:(id)URL;
 
+/// 获取视频url第一帧图片
+/// @param url video url
++ (UIImage*)yl_getVideoCoverImageWithUrl:(NSString *)url;
+
 @end

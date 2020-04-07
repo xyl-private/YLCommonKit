@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// CFBundleShortVersionString:APP 版本号
 + (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key;
 
+/// 获取 APP Name
++ (NSString *)yl_getAppName;
+/// 获取 app 版本号
++ (NSString *)yl_getAppVersion;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -32,4 +32,5 @@
 
 /// 随机色
 + (UIColor *)yl_randomColor;
+
 @end

@@ -117,5 +117,6 @@
  */
 + (BOOL) yl_isTelephoneWith:(NSString *)telephone;
 
-
+/// 判断是否包含emoji表情 YES:包含; NO:不包含
++ (BOOL) yl_stringContainsEmojiWith:(NSString *)str;
 @end
