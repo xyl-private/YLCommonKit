@@ -26,7 +26,7 @@
 + (CGSize) yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size;
 
 /// MD5加密字符串
-+ (NSString *) yl_stringToMD5With:(NSString *)str;
++ (NSString *)yl_md5EncryptionWithInput:(NSString *)input;
 
 /// 隐藏字符中的一部分
 /// @param content 原始字符串
