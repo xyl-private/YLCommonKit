@@ -180,4 +180,40 @@
         [view removeFromSuperview];
     }
 }
+
+- (void)yl_setBackgroundImage:(UIImage *)image
+{
+    UIGraphicsBeginImageContext(self.frame.size);
+    [image drawInRect:self.bounds];
+    UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.backgroundColor = [UIColor colorWithPatternImage:bgImage];
+}
+
+/// view 转换成 图片
+- (UIImage*)yl_viewChangeIntoImage
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ctx];
+    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tImage;
+}
+
+/// 监听键盘 改变 view 的位置
+- (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler {
+    __weak __typeof(self) wSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        // 获取键盘弹出或收回时frame
+        CGRect endFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        // 获取键盘弹出所需时长
+        double animDuration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        changeHandler(endFrame.origin.y, endFrame.size.height);
+        [UIView animateWithDuration:animDuration animations:^{
+            [wSelf layoutIfNeeded];
+        }];
+    }];
+}
+
 @end

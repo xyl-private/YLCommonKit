@@ -52,4 +52,13 @@
  */
 - (void) yl_removeAllSubviews;
 
+/// 给 view 添加背景图片
+- (void)yl_setBackgroundImage:(UIImage *)image;
+
+/// view 转换成 图片
+- (UIImage*)yl_viewChangeIntoImage;
+
+/// 监听键盘 改变 view 的位置
+- (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler;
+
 @end
