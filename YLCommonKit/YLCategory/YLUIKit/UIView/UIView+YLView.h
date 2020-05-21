@@ -27,6 +27,9 @@
 /** point */
 @property (nonatomic, assign) CGPoint yl_origin;
 
+@property (nonatomic, assign) CGFloat yl_right;
+@property (nonatomic, assign) CGFloat yl_Bottom;
+
 /** 添加手势 */
 - (void) yl_addTapGestureOntarget:(id)obj selector:(SEL)selector;
 /**
@@ -60,5 +63,11 @@
 
 /// 监听键盘 改变 view 的位置
 - (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler;
+
+/// 获取 view 所在的 viewController
+- (UIViewController *)yl_viewController;
+
+/// view 转成 img
+- (UIImage*)yl_transformImage;
 
 @end

@@ -97,6 +97,25 @@
     return self.frame.origin;
 }
 
+
+- (CGFloat)yl_right{
+    return self.frame.origin.x+self.frame.size.width;
+}
+-(void)setYl_right:(CGFloat)yl_right{
+    CGRect frame = self.frame;
+    frame.origin.x = yl_right - frame.size.width;
+    self.frame = frame;
+}
+
+- (CGFloat)yl_Bottom{
+    return self.frame.origin.y+self.frame.size.height;
+}
+-(void)setYl_Bottom:(CGFloat)yl_Bottom{
+    CGRect frame = self.frame;
+    frame.origin.y = yl_Bottom - frame.size.height;
+    self.frame = frame;
+}
+
 /** 添加手势 */
 - (void) yl_addTapGestureOntarget:(id)obj selector:(SEL)selector{
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:obj action:selector];
@@ -175,10 +194,8 @@
     [self.layer addAnimation:animation forKey:nil];
 }
 
-- (void) yl_removeAllSubviews{
-    for (UIView *view in self.subviews){
-        [view removeFromSuperview];
-    }
+- (void)yl_removeAllSubviews{
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
 - (void)yl_setBackgroundImage:(UIImage *)image
@@ -214,6 +231,28 @@
             [wSelf layoutIfNeeded];
         }];
     }];
+}
+
+- (UIViewController *)yl_viewController{
+    UIView *view = self;
+    while (view) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+        view = view.superview;
+    }
+    return nil;
+}
+
+- (UIImage*)yl_transformImage
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ctx];
+    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tImage;
 }
 
 @end
