@@ -63,22 +63,43 @@ static NSString * const colorStrPrefix2 = @"#";
     CGFloat red = random()%255/255.0;
     CGFloat green = random()%255/255.0;
     CGFloat blue = random()%255/255.0;
-   return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1];
 }
 
 /**
-*  设置渐变色 默认从左向右 横向渐变
-*  @param colors 颜色数组,
-*  例:@[[UIColor redColor],[UIColor blackColor]] 或者
-*  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
-*  @param locations 渐变色区间,可为空,默认平均分配
-*  @param frame view.bouns
-*/
+ *  设置渐变色 默认从左向右 横向渐变
+ *  @param colors 颜色数组,
+ *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
+ *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
+ *  @param locations 渐变色区间,可为空,默认平均分配
+ *  @param frame view.bouns
+ */
 + (CAGradientLayer *)yl_setGradientLayerVerticallyWithColors:(NSArray *)colors
                                                    locations:(NSArray *)locations
-                                                       frame:(CGRect)frame
-{
-    return [UIColor yl_setGradientLayerWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1.0, 0)];
+                                                       frame:(CGRect)frame{
+    return [UIColor yl_setGradientLayerWithColors:colors
+                                        locations:locations
+                                            frame:frame
+                                       startPoint:CGPointMake(0, 0)
+                                         endPoint:CGPointMake(1.0, 0)];
+}
+
+/**
+ *  设置渐变色 默认从上向下 纵向渐变
+ *  @param colors 颜色数组,
+ *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
+ *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
+ *  @param locations 渐变色区间,可为空,默认平均分配
+ *  @param frame view.bouns
+ */
++ (CAGradientLayer *)yl_setGradientLayerHorizontalWithColors:(NSArray *)colors
+                                                   locations:(NSArray *)locations
+                                                       frame:(CGRect)frame{
+    return [UIColor yl_setGradientLayerWithColors:colors
+                                        locations:locations
+                                            frame:frame
+                                       startPoint:CGPointMake(0, 0)
+                                         endPoint:CGPointMake(0.0,1.0)];
 }
 
 /**
@@ -130,4 +151,5 @@ static NSString * const colorStrPrefix2 = @"#";
     gradientLayer.frame = frame;
     return gradientLayer;
 }
+
 @end
