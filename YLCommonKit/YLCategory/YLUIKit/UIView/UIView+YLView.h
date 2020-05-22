@@ -10,25 +10,26 @@
 
 @interface UIView (YLView)
 
-/** X */
+/// x
 @property (nonatomic, assign) CGFloat yl_x;
-/** Y */
+/// y
 @property (nonatomic, assign) CGFloat yl_y;
-/** 宽度 */
+/// 宽度
 @property (nonatomic, assign) CGFloat yl_width;
-/** 高度 */
+/// 高度
 @property (nonatomic, assign) CGFloat yl_height;
-/** centerX */
+/// centerX
 @property (nonatomic, assign) CGFloat yl_centerX;
-/** centerY */
+/// centerY
 @property (nonatomic, assign) CGFloat yl_centerY;
-/** size */
+/// size
 @property (nonatomic, assign) CGSize yl_size;
-/** point */
+/// point
 @property (nonatomic, assign) CGPoint yl_origin;
-
+/// right
 @property (nonatomic, assign) CGFloat yl_right;
-@property (nonatomic, assign) CGFloat yl_Bottom;
+/// bottom
+@property (nonatomic, assign) CGFloat yl_bottom;
 
 /** 添加手势 */
 - (void) yl_addTapGestureOntarget:(id)obj selector:(SEL)selector;

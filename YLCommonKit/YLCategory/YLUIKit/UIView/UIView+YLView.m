@@ -101,18 +101,20 @@
 - (CGFloat)yl_right{
     return self.frame.origin.x+self.frame.size.width;
 }
+
 -(void)setYl_right:(CGFloat)yl_right{
     CGRect frame = self.frame;
     frame.origin.x = yl_right - frame.size.width;
     self.frame = frame;
 }
 
-- (CGFloat)yl_Bottom{
+- (CGFloat)yl_bottom{
     return self.frame.origin.y+self.frame.size.height;
 }
--(void)setYl_Bottom:(CGFloat)yl_Bottom{
+
+-(void)setYl_bottom:(CGFloat)yl_bottom{
     CGRect frame = self.frame;
-    frame.origin.y = yl_Bottom - frame.size.height;
+    frame.origin.y = yl_bottom - frame.size.height;
     self.frame = frame;
 }
 
