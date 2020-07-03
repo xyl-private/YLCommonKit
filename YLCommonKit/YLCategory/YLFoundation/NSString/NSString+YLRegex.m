@@ -63,7 +63,7 @@
  */
 + (BOOL) yl_isNumberWith:(NSString *)str
 {
-    NSString *regex = @"[0-9.]*";
+    NSString *regex = @"[0-9]*";
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
