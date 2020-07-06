@@ -257,4 +257,18 @@
     return tImage;
 }
 
++ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii{
+    // 圆角
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:rectCorner cornerRadii:cornerRadii];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = viewRect;
+    maskLayer.path = maskPath.CGPath;
+    return maskLayer;
+}
+
++ (instancetype)yl_viewFromXib
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
+
 @end

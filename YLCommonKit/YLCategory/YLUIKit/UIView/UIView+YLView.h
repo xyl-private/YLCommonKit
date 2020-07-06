@@ -71,4 +71,13 @@
 /// view 转成 img
 - (UIImage*)yl_transformImage;
 
+
+/// view 切圆角
+/// @param viewRect view.frame
+/// @param rectCorner  圆角的位置
+/// @param cornerRadii 圆角 的 半径
++ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii;
+
++ (instancetype)yl_viewFromXib;
+
 @end
