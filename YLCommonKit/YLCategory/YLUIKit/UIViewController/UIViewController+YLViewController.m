@@ -49,6 +49,11 @@
     return targetVC;
 }
 
+
++ (UIViewController *) yl_getTargetVCWithVCName:(NSString *)vcName{
+    return [UIViewController yl_getTargetVCWithVCCls:[NSClassFromString(vcName) class]];
+}
+
 + (UIViewController *)getTargetVCFrom:(UIViewController *)rootVC targetCls:(Class)cls
 {
     __block UIViewController *targetVC;
