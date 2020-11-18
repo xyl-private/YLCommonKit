@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.15"
+    s.version      = "0.0.16"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
     s.homepage     = "https://github.com/xyl-private/YLCommonKit"
     s.license      = { :type => "MIT", :file => "LICENSE" }
-    s.author       = { "村雨灬龑" => "xyl-private@163.com" }
+    s.author       = { "村雨灬龑" => "xyl_private@163.com" }
 
     s.ios.deployment_target = "9.0"
 

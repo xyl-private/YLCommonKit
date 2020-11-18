@@ -240,4 +240,15 @@
     CGImageRelease(image);
     return videoImage;
 }
+
+/// 截图
+/// @param image 被截取的图片
+/// @param rect 截取方位
++ (UIImage *)yl_snippingImgWithImg:(UIImage *)image inRect:(CGRect)rect{
+    CGImageRef sourceImageRef = [image CGImage];
+    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, rect);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
+    return newImage;
+}
+
 @end

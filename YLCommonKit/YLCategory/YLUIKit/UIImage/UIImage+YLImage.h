@@ -9,27 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (YLImage)
-/**
- * 渲染为原始图片
- */
+
+/// 渲染为原始图片
 + (UIImage *) yl_imageWithRenderingImage:(NSString *)imageName;
-
-/**
- * 颜色转为图片
- */
+/// 颜色转为图片
 + (UIImage *) yl_imageWithColor:(UIColor *)color;
-
-/**
- * 颜色转为图片
- */
+/// 颜色转为图片
 + (UIImage *) yl_imageWithColor:(UIColor *)color andSize:(CGSize)size;
-
-/**
- 生成更清晰的图片
- @param image 需要更清晰的原图CIimage
- @param size 图片大小
- @return 更清晰的图片
- */
+/// 截图
+/// @param image 被截取的图片
+/// @param rect 截取方位
++ (UIImage *)yl_snippingImgWithImg:(UIImage *)image inRect:(CGRect)rect;
+/// 生成更清晰的图片
+/// @param image 需要更清晰的原图CIimage
+/// @param size 图片大小
 + (UIImage *) yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size;
 
 /**
