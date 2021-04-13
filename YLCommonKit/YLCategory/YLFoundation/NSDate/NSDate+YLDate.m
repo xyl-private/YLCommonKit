@@ -9,32 +9,107 @@
 #import "NSDate+YLDate.h"
 
 @implementation NSDate (YLDate)
-/**
- 获取当前时间
- 
- @param dateFormat dateFormat description
- */
-+ (NSString *) yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat{
+
++ (NSCalendar *) yl_calendar {
+    static NSCalendar *calendar;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        calendar.timeZone = [NSTimeZone localTimeZone];
+    });
+    return calendar;
+}
+
++ (NSCalendar *) yl_chineseCalendar {
+    static NSCalendar *calendar;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+        calendar.timeZone = [NSTimeZone localTimeZone];
+    });
+    return calendar;
+}
+
++ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = dateFormat;
+    [dateFormatter setCalendar:[NSDate yl_calendar]];
+    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
+    return dateFormatter;
+}
+
+/// 获取当前时间
+/// @param dateFormat 当前时间 的dateFormat
++ (NSString *) yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-+ (NSString *) yl_stringFromDate:(NSDate*)date DateFormat:(NSString *)dateFormat{
+/// 获取当前时间点的时间戳
+/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
++ (NSString *)yl_getCurrentTimeIntervalWithLenght:(NSInteger)lenght {
+    // 获取当前时间0秒后的时间
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    return [NSDate yl_getTimeIntervalSinceFrom:date lenght:lenght];
+}
+
+/// 将给定的时间转换成时间戳
+/// @param date 给定的事件
+/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
++ (NSString *)yl_getTimeIntervalSinceFrom:(NSDate *)date
+                                   lenght:(NSInteger)lenght {
+    // *1000 是精确到毫秒(13位),不乘就是精确到秒(10位)
+    NSTimeInterval timeInterval = [date timeIntervalSince1970];
+    if (lenght == 13) {
+        timeInterval = timeInterval*1000;
+    }
+    NSString *timeString = [NSString stringWithFormat:@"%.0f", timeInterval];
+    return timeString;
+}
+
+/// 将 NSDate 转成 NSDateComponents 类型
+/// @param date 给定的 date
++ (NSDateComponents *) yl_dateComponentsWithDate:(NSDate *)date {
+    NSCalendar *calendar = [NSDate yl_calendar];//当前用户的calendar
+    NSCalendarUnit unit = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitNanosecond | NSCalendarUnitCalendar | NSCalendarUnitTimeZone | NSCalendarUnitYearForWeekOfYear |NSCalendarUnitQuarter;
+    NSDateComponents * components = [calendar components:unit fromDate:date];
+    return components;
+}
+
+/// NSDate 转 NSString
+/// @param date date description
+/// @param dateFormat dateFormat description
++ (NSString *) yl_stringFromDate:(NSDate*)date
+                      DateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter stringFromDate:date];
 }
 
-+ (NSDate *) yl_dateFromDateString:(NSString *)dateString DateFormat:(NSString *)dateFormat{
+/// NSString 转 NSDate
+/// @param dateString dateString description
+/// @param dateFormat dateFormat description
++ (NSDate *) yl_dateFromDateString:(NSString *)dateString
+                        DateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter dateFromString:dateString];
 }
 
-+ (NSString *) yl_stringTransDateFormatWithDateStr:(NSString*)dateStr oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat{
+/// 时间格式转换
+/// @param dateStr 时间
+/// @param oldDateFormat dateStr 目前的格式
+/// @param newDateFormat dateStr 转换的新格式
++ (NSString *) yl_stringTransDateFormatWithDateStr:(NSString*)dateStr
+                                     oldDateFormat:(NSString *)oldDateFormat
+                                     newDateFormat:(NSString *)newDateFormat{
+    
     NSDate * date = [NSDate yl_dateFromDateString:dateStr DateFormat:oldDateFormat];
     return [NSDate yl_stringFromDate:date DateFormat:newDateFormat];
+    
 }
 
-+ (NSDateComponents *) yl_lunarCalendarWithDate:(NSDate*)date{
+/// 获取农历时间
+/// @param date date 阳历时间
++ (NSDateComponents *) yl_lunarCalendarWithDate:(NSDate*)date {
     NSCalendar *localeCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
     NSDateComponents *localeComp = [localeCalendar components:unitFlags fromDate:date];
@@ -46,7 +121,9 @@
  0：相等；
  1：dateB比dateA大；
  */
-+ (NSInteger) yl_compareDateA:(NSString *)dateA DateB:(NSString *)dateB DateFormatter:(NSString *)dateFormat{
++ (NSInteger) yl_compareDateA:(NSString *)dateA
+                        DateB:(NSString *)dateB
+                DateFormatter:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     
     NSDate *dta = [dateFormatter dateFromString:dateA];
@@ -63,7 +140,19 @@
     return aa;
 }
 
-+ (NSComparisonResult) yl_compareDateWithDateA:(NSString *)dateA dateB:(NSString *)dateB dateFormatter:(NSString *)dateFormatter{
+/**
+ 两个时间比较
+ @param dateA 第一个时间
+ @param dateB 第二个时间
+ @param dateFormatter 时间格式
+ @return NSComparisonResult
+ NSOrderedAscending = -1L, dateA > dateB  升序
+ NSOrderedSame,  dateA == dateB
+ NSOrderedDescending dateA < dateB  降序
+ */
++ (NSComparisonResult) yl_compareDateWithDateA:(NSString *)dateA
+                                         dateB:(NSString *)dateB
+                                 dateFormatter:(NSString *)dateFormatter {
     NSDateFormatter *df = [self yl_dateFormatter:dateFormatter];
     NSDate *dta = [df dateFromString:dateA];
     NSDate *dtb = [df dateFromString:dateB];
@@ -71,46 +160,23 @@
     return result;
 }
 
-///比较日期是否相等
-+ (BOOL) yl_isEqual:(NSDate *)dateA other:(NSDate *)dateB DateFormatter:(NSString *)dateFormat{
-    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
-    return [[dateFormatter stringFromDate:dateA] isEqualToString:[dateFormatter stringFromDate:dateB]];
-}
-
-/**
- 给定日期时间 判断是不是今天的当前时间
- 
- @param date 给定日期
- */
-+ (BOOL) yl_isCurrentDate:(NSDate *)date DateFormatter:(NSString *)dateFormat{
-    return [NSDate yl_isEqual:[NSDate date] other:date DateFormatter:dateFormat];
-}
-
-/**
- 判断给定时间是不是今天
- */
-+ (BOOL) yl_isToday:(NSDate *)date{
-    return [NSDate yl_isCurrentDate:date DateFormatter:@"yyyy-MM-dd"];
-}
-
-/**
- 获取给定日期的月份
- 
- @param date 给定日期
- */
-+ (NSInteger) yl_monthFromDate:(NSDate *)date
-{
+/// 获取给定日期的月份
+/// @param date 给定日期
++ (NSInteger) yl_monthFromDate:(NSDate *)date {
     NSDateComponents *comps = [[NSDate yl_calendar] components:NSCalendarUnitMonth fromDate:date];
     return comps.month;
 }
 
-//获取给定日期所在周 是在当月的第几周
-+ (NSInteger) yl_weekInMonthIndexWithDate:(NSDate *)date{
+/// 获取给定日期所在周 是在当月的第几周
+/// @param date 给定日期
++ (NSInteger) yl_weekInMonthIndexWithDate:(NSDate *)date {
     NSDateComponents * components =[[NSDate yl_calendar] components:NSCalendarUnitWeekOfMonth fromDate:date];
     return components.weekOfMonth;
 }
 
-+ (NSInteger) yl_numberWeeksInMonthWithDate:(NSDate *)date{
+/// 获取给定日期所在月中有多少周
+/// @param date 给定日期
++ (NSInteger) yl_numberWeeksInMonthWithDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];//指定日历的算法
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:date];
     return range.length;
@@ -173,7 +239,9 @@
     return nextData;
 }
 
-
+/// 判断给定日期 是周几 // 1 是周日，2是周一 3.以此类推
+/// @param date 给定的日期
+/// @return 周日、周一...
 + (NSInteger) yl_weekDayStringWithDate:(NSDate *)date{
     NSCalendar * calendar = [self yl_calendar]; // 指定日历的算法
     NSDateComponents *comps = [calendar components:NSCalendarUnitWeekday fromDate:date];
@@ -181,91 +249,8 @@
     return [comps weekday];
 }
 
-+ (BOOL) yl_isWorkingDayWith:(NSDate *)date{
-    NSInteger index = [self yl_weekDayStringWithDate:date];
-    if (index == 1 || index == 7) {
-        return NO;
-    }
-    return YES;
-}
-
-
-
-#pragma mark - 通用
-
-+ (NSCalendar *) yl_calendar{
-    static NSCalendar *calendar;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        calendar.timeZone = [NSTimeZone localTimeZone];
-    });
-    return calendar;
-}
-
-+ (NSCalendar *) yl_chineseCalendar{
-    static NSCalendar *calendar;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
-        calendar.timeZone = [NSTimeZone localTimeZone];
-    });
-    return calendar;
-}
-
-+ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat{
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateFormat = dateFormat;
-    [dateFormatter setCalendar:[NSDate yl_calendar]];
-    dateFormatter.timeZone = [NSDate yl_calendar].timeZone;
-    return dateFormatter;
-}
-
-/// 获取当前时间点的时间戳
-/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
-+ (NSString *)yl_getCurrentTimeIntervalWithLenght:(NSInteger)lenght{
-    // 获取当前时间0秒后的时间
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
-    // *1000 是精确到毫秒(13位),不乘就是精确到秒(10位)
-    NSTimeInterval timeInterval = [date timeIntervalSince1970];
-    if (lenght == 13) {
-        timeInterval = timeInterval*1000;
-    }
-    NSString *timeString = [NSString stringWithFormat:@"%.0f", timeInterval];
-    return timeString;
-}
-
-/**
- 将 NSDate 转成 NSDateComponents 类型
- 
- @param date 给定的 date
- */
-+ (NSDateComponents *) yl_dateComponentsWithDate:(NSDate *)date{
-    
-    NSCalendar *calendar = [NSDate yl_calendar];//当前用户的calendar
-    
-    NSDateComponents * components = [calendar components:
-                                     NSCalendarUnitEra |
-                                     NSCalendarUnitYear |
-                                     NSCalendarUnitMonth |
-                                     NSCalendarUnitDay |
-                                     NSCalendarUnitHour |
-                                     NSCalendarUnitMinute |
-                                     NSCalendarUnitSecond |
-                                     NSCalendarUnitWeekday |
-                                     NSCalendarUnitWeekdayOrdinal |
-                                     NSCalendarUnitWeekOfMonth |
-                                     NSCalendarUnitWeekOfYear |
-                                     NSCalendarUnitNanosecond |
-                                     NSCalendarUnitCalendar |
-                                     NSCalendarUnitTimeZone |
-                                     NSCalendarUnitYearForWeekOfYear |
-                                     NSCalendarUnitQuarter
-                                                fromDate:date];
-    return components;
-}
-
-
+/// 转换 时间展示样式
+/// @param date 日期
 - (NSString *)yl_getDateDisplayString:(NSDate *)date{
     NSCalendar *calendar = [ NSCalendar currentCalendar ];
     int unit = NSCalendarUnitDay | NSCalendarUnitMonth |  NSCalendarUnitYear ;
@@ -321,4 +306,40 @@
     }
     return [dateFmt stringFromDate:date];
 }
+
+#pragma mark - 通用
+/// 判断 给定日期 是不是工作日
+/// @param date 给定日历
+/// @return YES 工作日 ; NO 周末
++ (BOOL)yl_isWorkingDayWith:(NSDate *)date {
+    NSInteger index = [self yl_weekDayStringWithDate:date];
+    if (index == 1 || index == 7) {
+        return NO;
+    }
+    return YES;
+}
+
+/// 比较日期是否相等
+/// @return return YES 相等  NO 不等
++ (BOOL)yl_isEqual:(NSDate *)dateA
+             other:(NSDate *)dateB
+     DateFormatter:(NSString *)dateFormat {
+    NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
+    return [[dateFormatter stringFromDate:dateA] isEqualToString:[dateFormatter stringFromDate:dateB]];
+}
+
+/// 给定日期时间 判断是不是今天的当前时间
+/// @param date 给定日期
+/// @param dateFormat dateFormat description
++ (BOOL)yl_isCurrentDate:(NSDate *)date
+           DateFormatter:(NSString *)dateFormat {
+    return [NSDate yl_isEqual:[NSDate date] other:date DateFormatter:dateFormat];
+}
+
+/// 判断给定时间是不是今天
+/// @param date 给定日期
++ (BOOL)yl_isToday:(NSDate *)date {
+    return [NSDate yl_isCurrentDate:date DateFormatter:@"yyyy-MM-dd"];
+}
+
 @end
