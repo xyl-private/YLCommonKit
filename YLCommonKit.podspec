@@ -24,11 +24,6 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
     s.frameworks = "Foundation","UIKit"
 
-    s.subspec 'YLMacro' do |ss|
-        ss.source_files = 'YLCommonKit/YLMacro/*.{h,m}'
-        ss.public_header_files = 'YLCommonKit/YLMacro/*.h'
-    end
-
     s.subspec 'YLCategory' do |ss|
         ss.subspec 'YLFoundation' do |ss|
             ss.subspec 'NSData' do |ss|
