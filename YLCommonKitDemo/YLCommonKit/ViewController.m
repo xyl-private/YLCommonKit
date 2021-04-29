@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "TestViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -19,6 +21,8 @@
 }
 
 - (IBAction)BaseViewControllerAction:(id)sender {
+    TestViewController *vc = [TestViewController new];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

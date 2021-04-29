@@ -10,10 +10,13 @@
 		2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBB243CA7C50007F753 /* NSDictionary+YLLog.m */; };
 		2210FEBF243CA7C50007F753 /* NSObject+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */; };
 		2210FEC3243CB30A0007F753 /* NSDictionary+YLRemoveNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEC2243CB30A0007F753 /* NSDictionary+YLRemoveNull.m */; };
-		2210FEC7243CB3F60007F753 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2210FEC5243CB3F60007F753 /* README.md */; };
 		22455C7E2564F896003B5410 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */; };
 		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
+		2299396D263B08FD0055DA35 /* UITextView+YLPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396C263B08FD0055DA35 /* UITextView+YLPlaceholder.m */; };
+		22993970263B0A150055DA35 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396F263B0A150055DA35 /* TestViewController.m */; };
+		22993974263B0BB80055DA35 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 22993972263B0BB70055DA35 /* README.md */; };
+		22993975263B0BB80055DA35 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 22993973263B0BB70055DA35 /* YLCommonKit.podspec */; };
 		22F76D4323CFF07B008E8FEC /* NSString+YLAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */; };
 		28EDF2A022BF762000E9CB11 /* YLConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EDF29F22BF762000E9CB11 /* YLConstantDefines.m */; };
 		7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B10B3E7210AC59500F35E77 /* NSData+YLData.m */; };
@@ -44,8 +47,6 @@
 		2210FEBD243CA7C50007F753 /* NSDictionary+YLLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLLog.h"; sourceTree = "<group>"; };
 		2210FEC1243CB30A0007F753 /* NSDictionary+YLRemoveNull.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLRemoveNull.h"; sourceTree = "<group>"; };
 		2210FEC2243CB30A0007F753 /* NSDictionary+YLRemoveNull.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLRemoveNull.m"; sourceTree = "<group>"; };
-		2210FEC5243CB3F60007F753 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
-		2210FEC6243CB3F60007F753 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		22455C7C2564F896003B5410 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		2255908B2391187E00569A5B /* YLNSEnumMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLNSEnumMacro.h; sourceTree = "<group>"; };
@@ -53,6 +54,12 @@
 		2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLFullScreen.m"; sourceTree = "<group>"; };
 		22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLHiddenNavBar.h"; sourceTree = "<group>"; };
 		22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLHiddenNavBar.m"; sourceTree = "<group>"; };
+		2299396B263B08FD0055DA35 /* UITextView+YLPlaceholder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLPlaceholder.h"; sourceTree = "<group>"; };
+		2299396C263B08FD0055DA35 /* UITextView+YLPlaceholder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YLPlaceholder.m"; sourceTree = "<group>"; };
+		2299396E263B0A150055DA35 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		2299396F263B0A150055DA35 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		22993972263B0BB70055DA35 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		22993973263B0BB70055DA35 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		22F76D4123CFF07B008E8FEC /* NSString+YLAppInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YLAppInfo.h"; sourceTree = "<group>"; };
 		22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLAppInfo.m"; sourceTree = "<group>"; };
 		28EDF29822BF753500E9CB11 /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
@@ -133,11 +140,11 @@
 			path = NSDictionary;
 			sourceTree = "<group>";
 		};
-		2210FEC4243CB3BD0007F753 /* Pod */ = {
+		22993971263B0BA10055DA35 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				2210FEC5243CB3F60007F753 /* README.md */,
-				2210FEC6243CB3F60007F753 /* YLCommonKit.podspec */,
+				22993972263B0BB70055DA35 /* README.md */,
+				22993973263B0BB70055DA35 /* YLCommonKit.podspec */,
 			);
 			path = Pod;
 			sourceTree = "<group>";
@@ -285,6 +292,8 @@
 			children = (
 				7B10B405210AC59500F35E77 /* UITextView+YLTextView.h */,
 				7B10B406210AC59500F35E77 /* UITextView+YLTextView.m */,
+				2299396B263B08FD0055DA35 /* UITextView+YLPlaceholder.h */,
+				2299396C263B08FD0055DA35 /* UITextView+YLPlaceholder.m */,
 			);
 			path = UITextView;
 			sourceTree = "<group>";
@@ -340,11 +349,13 @@
 		7B941B2C20F3126500811329 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				2210FEC4243CB3BD0007F753 /* Pod */,
+				22993971263B0BA10055DA35 /* Pod */,
 				7B941B2D20F3126600811329 /* AppDelegate.h */,
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
 				7B941B3120F3126600811329 /* ViewController.m */,
+				2299396E263B0A150055DA35 /* TestViewController.h */,
+				2299396F263B0A150055DA35 /* TestViewController.m */,
 				7B10B3D2210AC59500F35E77 /* YLCommonKit */,
 				7B941B3620F3126700811329 /* Assets.xcassets */,
 				7B941B3820F3126700811329 /* LaunchScreen.storyboard */,
@@ -421,7 +432,8 @@
 			files = (
 				7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */,
 				7B941B3720F3126700811329 /* Assets.xcassets in Resources */,
-				2210FEC7243CB3F60007F753 /* README.md in Resources */,
+				22993974263B0BB80055DA35 /* README.md in Resources */,
+				22993975263B0BB80055DA35 /* YLCommonKit.podspec in Resources */,
 				7B941B3520F3126600811329 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +459,7 @@
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
 				2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
+				22993970263B0A150055DA35 /* TestViewController.m in Sources */,
 				2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */,
 				7B10B430210AC59500F35E77 /* UITextView+YLTextView.m in Sources */,
 				7B10B427210AC59500F35E77 /* NSData+YLData.m in Sources */,
@@ -456,6 +469,7 @@
 				7B10B429210AC59500F35E77 /* NSString+YLRegex.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */,
+				2299396D263B08FD0055DA35 /* UITextView+YLPlaceholder.m in Sources */,
 				2210FEC3243CB30A0007F753 /* NSDictionary+YLRemoveNull.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.16;
+				MARKETING_VERSION = 0.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -628,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.16;
+				MARKETING_VERSION = 0.0.17;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

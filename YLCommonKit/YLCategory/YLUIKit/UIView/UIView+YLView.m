@@ -9,6 +9,118 @@
 #import "UIView+YLView.h"
 
 @implementation UIView (YLView)
+
+- (UIViewController *)viewController {
+    return [self yl_viewController];
+}
+
+- (UIViewController *)yl_viewController{
+    UIView *view = self;
+    while (view) {
+        UIResponder *nextResponder = [view nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+        view = view.superview;
+    }
+    return nil;
+}
+
+- (void)yl_removeAllSubviews{
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
++ (instancetype)yl_viewFromXib {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
+}
+
+- (void)yl_setBackgroundImage:(UIImage *)image {
+    UIGraphicsBeginImageContext(self.frame.size);
+    [image drawInRect:self.bounds];
+    UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.backgroundColor = [UIColor colorWithPatternImage:bgImage];
+}
+
+/// 监听键盘 改变 view 的位置
+- (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler {
+    __weak __typeof(self) wSelf = self;
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        // 获取键盘弹出或收回时frame
+        CGRect endFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        // 获取键盘弹出所需时长
+        double animDuration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        changeHandler(endFrame.origin.y, endFrame.size.height);
+        [UIView animateWithDuration:animDuration animations:^{
+            [wSelf layoutIfNeeded];
+        }];
+    }];
+}
+
+/// view 转换成 图片
+- (UIImage*)yl_snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ctx];
+    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tImage;
+}
+
++ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii{
+    // 圆角
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:rectCorner cornerRadii:cornerRadii];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.frame = viewRect;
+    maskLayer.path = maskPath.CGPath;
+    return maskLayer;
+}
+
+/**
+ *  设置部分圆角(绝对布局)
+ *
+ *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
+ *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+ */
+- (void)yl_addRoundedCorners:(UIRectCorner)corners
+                 cornerRadii:(CGSize)cornerRadii {
+    [self yl_addRoundedCorners:corners cornerRadii:cornerRadii viewRect:self.bounds];
+}
+
+/**
+ *  设置部分圆角(相对布局)
+ *
+ *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
+ *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+ *  @param viewRect    需要设置的圆角view的rect
+ */
+- (void)yl_addRoundedCorners:(UIRectCorner)corners
+                 cornerRadii:(CGSize)cornerRadii
+                    viewRect:(CGRect)viewRect {
+    UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:corners cornerRadii:cornerRadii];
+    CAShapeLayer* shapeLayer = [[CAShapeLayer alloc] init];
+    shapeLayer.frame = viewRect;
+    [shapeLayer setPath:rounded.CGPath];
+    self.layer.mask = shapeLayer;
+}
+
+- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius {
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = YES;
+}
+
+- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius
+                      borderWidth:(UIRectCorner)borderWidth
+                      borderColor:(UIColor *)borderColor {
+    self.layer.cornerRadius = cornerRadius;
+    self.layer.masksToBounds = YES;
+    self.layer.borderWidth = borderWidth;
+    self.layer.borderColor = borderColor.CGColor;
+}
+
+
+
+#pragma mark - Frame
 /** x **/
 -(void)setYl_x:(CGFloat) yl_x{
     CGRect frame = self.frame;
@@ -117,158 +229,4 @@
     frame.origin.y = yl_bottom - frame.size.height;
     self.frame = frame;
 }
-
-/** 添加手势 */
-- (void) yl_addTapGestureOntarget:(id)obj selector:(SEL)selector{
-    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:obj action:selector];
-    [tap setNumberOfTapsRequired:1];
-    [tap setNumberOfTouchesRequired:1];
-    [self addGestureRecognizer:tap];
-}
-
-/**
- ** 绘制水平虚线
- ** lineLength:     虚线的宽度
- ** lineSpacing:    虚线的间距
- ** lineColor:      虚线的颜色
- **/
-- (void) yl_drawDashHorizontalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor
-{
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    [shapeLayer setBounds:self.bounds];
-    [shapeLayer setPosition:CGPointMake(CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame))];
-    [shapeLayer setFillColor:[UIColor clearColor].CGColor];
-    //  设置虚线颜色为blackColor
-    [shapeLayer setStrokeColor:lineColor.CGColor];
-    //  设置虚线宽度
-    [shapeLayer setLineWidth:CGRectGetHeight(self.frame)];
-    [shapeLayer setLineJoin:kCALineJoinRound];
-    //  设置线宽，线间距
-    [shapeLayer setLineDashPattern:[NSArray arrayWithObjects:[NSNumber numberWithInt:lineLength], [NSNumber numberWithInt:lineSpacing], nil]];
-    //  设置路径
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, 0, 0);
-    CGPathAddLineToPoint(path, NULL,CGRectGetWidth(self.frame), 0);
-    [shapeLayer setPath:path];
-    CGPathRelease(path);
-    //  把绘制好的虚线添加上来
-    [self.layer addSublayer:shapeLayer];
-}
-
-/**
- ** 绘制垂直虚线
- ** lineLength:     虚线的宽度
- ** lineSpacing:    虚线的间距
- ** lineColor:      虚线的颜色
- **/
-- (void) yl_drawDashVerticalLineWithLength:(int)lineLength lineSpacing:(int)lineSpacing lineColor:(UIColor *)lineColor{
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    [shapeLayer setBounds:self.bounds];
-    [shapeLayer setPosition:CGPointMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) / 2)];
-    [shapeLayer setFillColor:[UIColor clearColor].CGColor];
-    //  设置虚线颜色为blackColor
-    [shapeLayer setStrokeColor:lineColor.CGColor];
-    //  设置虚线宽度
-    [shapeLayer setLineWidth:CGRectGetWidth(self.frame)];
-    [shapeLayer setLineJoin:kCALineJoinRound];
-    //  设置线宽，线间距
-    [shapeLayer setLineDashPattern:[NSArray arrayWithObjects:[NSNumber numberWithInt:lineLength], [NSNumber numberWithInt:lineSpacing], nil]];
-    //  设置路径
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, NULL, 0, 0);
-    CGPathAddLineToPoint(path, NULL,0, CGRectGetHeight(self.frame));
-    [shapeLayer setPath:path];
-    CGPathRelease(path);
-    //  把绘制好的虚线添加上来
-    [self.layer addSublayer:shapeLayer];
-}
-
-/**
- * 水平抖动
- */
-- (void) yl_horizontalShake{
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
-    animation.values = @[@0, @(-10), @0, @10, @0];
-    animation.repeatCount = 3;
-    animation.duration = 0.06;
-    animation.autoreverses = YES;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    [self.layer addAnimation:animation forKey:nil];
-}
-
-- (void)yl_removeAllSubviews{
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-}
-
-- (void)yl_setBackgroundImage:(UIImage *)image
-{
-    UIGraphicsBeginImageContext(self.frame.size);
-    [image drawInRect:self.bounds];
-    UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.backgroundColor = [UIColor colorWithPatternImage:bgImage];
-}
-
-/// view 转换成 图片
-- (UIImage*)yl_viewChangeIntoImage
-{
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext:ctx];
-    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return tImage;
-}
-
-/// 监听键盘 改变 view 的位置
-- (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler {
-    __weak __typeof(self) wSelf = self;
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        // 获取键盘弹出或收回时frame
-        CGRect endFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        // 获取键盘弹出所需时长
-        double animDuration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        changeHandler(endFrame.origin.y, endFrame.size.height);
-        [UIView animateWithDuration:animDuration animations:^{
-            [wSelf layoutIfNeeded];
-        }];
-    }];
-}
-
-- (UIViewController *)yl_viewController{
-    UIView *view = self;
-    while (view) {
-        UIResponder *nextResponder = [view nextResponder];
-        if ([nextResponder isKindOfClass:[UIViewController class]]) {
-            return (UIViewController *)nextResponder;
-        }
-        view = view.superview;
-    }
-    return nil;
-}
-
-- (UIImage*)yl_transformImage
-{
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext:ctx];
-    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return tImage;
-}
-
-+ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii{
-    // 圆角
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:rectCorner cornerRadii:cornerRadii];
-    CAShapeLayer *maskLayer = [CAShapeLayer layer];
-    maskLayer.frame = viewRect;
-    maskLayer.path = maskPath.CGPath;
-    return maskLayer;
-}
-
-+ (instancetype)yl_viewFromXib
-{
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
-
 @end
