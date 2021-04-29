@@ -52,23 +52,15 @@
 /**************************
  * 常用
  **************************/
-//UserDefaults保存信息
-#define kUserUserDefaults_Save(_value,_key)  [[NSUserDefaults standardUserDefaults] setObject:_value forKey:_key]
-
-//UserDefaults获取信息
-#define kUserUserDefaults_Get(_key) [[NSUserDefaults standardUserDefaults] objectForKey:_key]
-
-//UserDefaults删除信息
-#define kUserUserDefaults_Remove(_key) [[NSUserDefaults standardUserDefaults] removeObjectForKey:_key]
-
-//获取图片资源
-#define kGetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
-//获取temp
+//获取沙盒 Temp
 #define kPathTemp NSTemporaryDirectory()
 //获取沙盒 Document
 #define kPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 //获取沙盒 Cache
 #define kPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+//获取图片资源
+#define kGetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 
 // 日志输出宏定义
 #ifdef DEBUG

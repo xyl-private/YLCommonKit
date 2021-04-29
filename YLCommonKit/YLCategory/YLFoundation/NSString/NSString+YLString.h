@@ -13,45 +13,37 @@
 @interface NSString (YLString)
 #pragma mark - 其他相关
 
-//判断字符串数值
-+ (BOOL) yl_stringValid:(NSString *)str;
-
 /// 转换字符串：如果是空 -> @""
-+ (NSString *) yl_stringNoNullWith:(id)sender;
++ (NSString *)yl_stringNoNullWith:(id)sender;
 
-///  计算字符串的 size
+/// 计算字符串的 size
 /// @param content 文本内容
 /// @param font 字体大小
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
-+ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size;
-
-/// MD5加密字符串
-+ (NSString *)yl_md5EncryptionWithInput:(NSString *)input;
++ (CGSize)yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size;
 
 /// 隐藏字符中的一部分
 /// @param content 原始字符串
 /// @param range 隐藏范围
-+ (NSString *) yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
++ (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
 
-/// obj 转成 json 字符串
-+(NSString *)yl_jsonStringFromObject:(id)obj;
-
+#pragma mark - 判断
+/// 判断字符串是否为 null
++ (BOOL)yl_stringValid:(NSString *)str;
 /// 验证TouchID是否可用 返回YES:可用;  NO:不可用
-+ (BOOL) yl_canTouchID;
-
++ (BOOL)yl_canTouchID;
 /// 验证TouchID是否正确 successBlock TouchID验证Block
-+ (void) yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock;
++ (void)yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock;
 
-/// 字符串转 url
-- (NSURL *) yl_url;
+#pragma mark - 加密
+/// MD5加密字符串
++ (NSString *)yl_md5EncryptionWithInput:(NSString *)input;
 
 #pragma mark - 身份证相关
-
 /// 从身份证获取生日
-+ (NSString *) yl_birthdayStrFromIdentityCardWith:(NSString *)str;
-
++ (NSString *)yl_birthdayStrFromIdentityCardWith:(NSString *)str;
 /// 从身份证获取性别
-+ (NSString *) yl_getCardIdGenderWith:(NSString *)str;
++ (NSString *)yl_getCardIdGenderWith:(NSString *)str;
 
 #pragma mark - 金额相关
 /// 小数点取舍处理方法
@@ -113,5 +105,35 @@
  @return 拼音
  */
 + (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol;
+
+#pragma mark - URL处理相关
+/// 字符串 转 url
+- (NSURL *)yl_url;
+
+/**
+ 对url特殊自己进行编码操作
+ 
+ @param charactersInString 需要转码的特殊字符串  例:@"!$&'()*+,-./:;=?@_~%#[]"
+ @return 编码后的url字符串
+ */
+- (NSString *)yl_urlEncodeCharacterSet:(NSString *)charactersInString;
+
+/**
+ urlEncode编码
+ 
+ @return 编码后的字符串
+ */
+- (NSString *)yl_urlEncodeStr;
+
+/**
+ urlEncode解码
+ 
+ @return 解码后的字符串
+ */
+- (NSString *)yl_decoderUrlEncodeStr;
+
+#pragma mark - 数组/字典等 转 JSON 字符串
+/// obj 转成 json 字符串
++ (NSString *)yl_jsonStringFromObject:(id)obj;
 
 @end

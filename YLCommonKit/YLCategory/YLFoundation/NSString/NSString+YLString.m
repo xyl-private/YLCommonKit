@@ -13,7 +13,42 @@
 @implementation NSString (YLString)
 #pragma mark - 其他相关
 
-//判断字符串数值
+/// 转换字符串：如果是空 -> @""
++ (NSString *) yl_stringNoNullWith:(id)sender
+{
+    if (sender == [NSNull null]){ return @"";}
+    if ([sender isKindOfClass:[NSNull class]]) { return @"";}
+    if (sender == nil) { return @"";}
+    if ([sender isEqualToString:@"(null)"]) { return @"";}
+    if ([sender isEqualToString:@"nullnull"]) { return @"";}
+    return sender;
+}
+
+/// 计算字符串的 size
+/// @param content 文本内容
+/// @param font 字体大小
+/// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
++ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size{
+    NSDictionary *attributes = @{NSFontAttributeName : font};
+    return [content boundingRectWithSize:size options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+}
+
+/// 隐藏字符中的一部分
+/// @param content 原始字符串
+/// @param range 隐藏范围
++ (NSString *) yl_hideStringWith:(NSString *)content hideRange:(NSRange)range
+{
+    NSMutableString *mString = [NSMutableString stringWithString:content];
+    NSMutableString *comStr = [NSMutableString stringWithCapacity:range.length];
+    for (int i = 0; i<range.length; i++) {
+        [comStr appendString:@"*"];
+    }
+    [mString replaceCharactersInRange:range withString:comStr];
+    return mString;
+}
+
+#pragma mark - 判断
+/// 判断字符串是否为 null
 + (BOOL) yl_stringValid:(NSString *)str {
     if (![str isKindOfClass:[NSString class]]) {
         return NO;
@@ -33,31 +68,29 @@
         return NO;
     }
 }
-/**
- * 转换字符串：如果是空 -> @""
- */
-+ (NSString *) yl_stringNoNullWith:(id)sender
-{
-    if (sender == [NSNull null]){ return @"";}
-    if ([sender isKindOfClass:[NSNull class]]) { return @"";}
-    if (sender == nil) { return @"";}
-    if ([sender isEqualToString:@"(null)"]) { return @"";}
-    if ([sender isEqualToString:@"nullnull"]) { return @"";}
-    return sender;
+
+/// 验证TouchID是否可用 返回YES:可用;  NO:不可用
++ (BOOL) yl_canTouchID {
+    LAContext *context = [[LAContext alloc] init];
+    NSError *error;
+    return [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
 }
 
-///  计算字符串的 size
-/// @param content 文本内容
-/// @param font 字体大小
-/// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
-+ (CGSize) yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size{
-    NSDictionary *attributes = @{NSFontAttributeName : font};
-    return [content boundingRectWithSize:size options: NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+/// 验证TouchID是否正确 successBlock TouchID验证Block
++ (void) yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock {
+    LAContext *context = [[LAContext alloc] init];
+    // show the authentication UI with our reason string
+    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"请用指纹解锁" reply:
+     ^(BOOL success, NSError *authenticationError) {
+        if (successBlock) {
+            successBlock(success,authenticationError);
+        }
+    }];
 }
 
-
+#pragma mark - 加密
 /// MD5加密字符串
-+ (NSString *)yl_md5EncryptionWithInput:(NSString *)input{
++ (NSString *)yl_md5EncryptionWithInput:(NSString *)input {
     // OC 字符串转换位C字符串
     const char *cStr = [input UTF8String];
     // 16位加密
@@ -74,64 +107,9 @@
     return  output;
 }
 
-/// 隐藏字符中的一部分
-/// @param content 原始字符串
-/// @param range 隐藏范围
-+ (NSString *) yl_hideStringWith:(NSString *)content hideRange:(NSRange)range
-{
-    NSMutableString *mString = [NSMutableString stringWithString:content];
-    NSMutableString *comStr = [NSMutableString stringWithCapacity:range.length];
-    for (int i = 0; i<range.length; i++) {
-        [comStr appendString:@"*"];
-    }
-    [mString replaceCharactersInRange:range withString:comStr];
-    return mString;
-}
-
-+(NSString *)yl_jsonStringFromObject:(id)obj{
-    if (obj == nil) {
-        return @"";
-    }
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
-    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-}
-
-/// 验证TouchID是否可用 返回YES:可用;  NO:不可用
-+ (BOOL) yl_canTouchID
-{
-    LAContext *context = [[LAContext alloc] init];
-    NSError *error;
-    return [context canEvaluatePolicy: LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error];
-}
-
-
-/// 验证TouchID是否正确 successBlock TouchID验证Block
-+ (void) yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock
-{
-    LAContext *context = [[LAContext alloc] init];
-    // show the authentication UI with our reason string
-    [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"请用指纹解锁" reply:
-     ^(BOOL success, NSError *authenticationError) {
-        if (successBlock) {
-            successBlock(success,authenticationError);
-        }
-    }];
-}
-
-
-- (NSURL *) yl_url {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored"-Wdeprecated-declarations"
-    return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]", NULL,kCFStringEncodingUTF8))];
-#pragma clang diagnostic pop
-}
-
 #pragma mark - 身份证相关
-/**
- * 从身份证获取生日
- */
-+ (NSString *) yl_birthdayStrFromIdentityCardWith:(NSString *)str
-{
+/// 从身份证获取生日
++ (NSString *) yl_birthdayStrFromIdentityCardWith:(NSString *)str {
     NSMutableString *result = [NSMutableString stringWithCapacity:0];
     NSString *year = nil;
     NSString *month = nil;
@@ -165,11 +143,9 @@
     [result appendString:day];
     return result;
 }
-/**
- * 从身份证获取性别
- */
-+ (NSString *) yl_getCardIdGenderWith:(NSString *)str
-{
+
+/// 从身份证获取性别
++ (NSString *) yl_getCardIdGenderWith:(NSString *)str {
     NSString *sex = @"";
     //获取18位 二代身份证  性别
     if (str.length == 18) {
@@ -197,7 +173,7 @@
 /// @param roundingMode  舍入方式
 /// @param number 需要计算的数值
 /// @param scale 小数点后舍入值的位数
-+ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale{
++ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale {
     /**
      初始化方法
      roundingMode 舍入方式
@@ -216,7 +192,7 @@
 
 ///  距离格式转换
 /// @param distance 距离 单位:m
-+(NSString *)yl_stringTromDitance:(NSString *)distance{
++ (NSString *)yl_stringTromDitance:(NSString *)distance {
     NSString * distanceStr = @"";
     if (distance.intValue >= 1000) {
         if (distance.intValue%1000 == 0) {//1000的整数倍,去掉小数
@@ -392,6 +368,59 @@
         }
     }
     return binary;
+}
+
+#pragma mark - URL处理相关
+/// 字符串 转 url
+- (NSURL *) yl_url {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored"-Wdeprecated-declarations"
+    return [NSURL URLWithString:(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, (CFStringRef)@"!$&'()*+,-./:;=?@_~%#[]", NULL,kCFStringEncodingUTF8))];
+#pragma clang diagnostic pop
+}
+
+/**
+ 对url特殊自己进行编码操作
+ 
+ @param charactersInString 需要转码的特殊字符串  例:@"!$&'()*+,-./:;=?@_~%#[]"
+ @return 编码后的url字符串
+ */
+- (NSString *)yl_urlEncodeCharacterSet:(NSString *)charactersInString {
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersInString] invertedSet];
+    NSString *upSign = [self stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    return upSign;
+}
+
+/**
+ urlEncode编码
+ 
+ @return 编码后的字符串
+ */
+- (NSString *)yl_urlEncodeStr {
+    NSString *charactersToEscape = @"!*'();:@&=+$,/?%#[]";
+    NSString *upSign = [self yl_urlEncodeCharacterSet:charactersToEscape];
+    return upSign;
+}
+
+/**
+ urlEncode解码
+ 
+ @return 解码后的字符串
+ */
+- (NSString *)yl_decoderUrlEncodeStr {
+    NSMutableString *outputStr = [NSMutableString stringWithString:self];
+    [outputStr replaceOccurrencesOfString:@"+" withString:@"" options:NSLiteralSearch range:NSMakeRange(0,[outputStr length])];
+    return [outputStr stringByRemovingPercentEncoding];
+}
+
+#pragma mark - 数组/字典等 转 JSON 字符串
+/// obj 转成 json 字符串
++ (NSString *)yl_jsonStringFromObject:(id)obj{
+    if (obj == nil) {
+        return @"";
+    }
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 #pragma mark - 汉字转拼音
