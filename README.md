@@ -47,16 +47,18 @@ pod search 库名
 ```
 
 注：
-6. 注册CocoaPods维护者信息
+6. 注册 CocoaPods 维护者信息
 查看自己的注册信息
 `pod trunk me`
 
 如果没有注册过,输入下面的命令 并根据命令进行注册
-`pod trunk register xxx@xxx.com 'name'`
+`pod trunk register xxx@xxx.com '村雨灬龑'`
 
 注册之后邮箱会收到一封确认邮件,点击验证,如果多人维护pod 可以添加其他维护者
-`pod trunk add-owner name xxx@xxx.com`
+`pod trunk add-owner YLCommonKit xxx@xxx.com` （即：pod trunk remove-owner 库名 邮箱）
 
+移除库的拥有者,也就是删除库
+`pod trunk remove-owner YLCommonKit aaa@qq.com`（即：pod trunk remove-owner 库名 邮箱）
 
 # 参考资料
 https://www.jianshu.com/p/c5487c225a36
