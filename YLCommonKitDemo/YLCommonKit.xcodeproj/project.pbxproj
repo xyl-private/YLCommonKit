@@ -621,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.17;
+				MARKETING_VERSION = 0.0.16;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -642,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.17;
+				MARKETING_VERSION = 0.0.16;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
