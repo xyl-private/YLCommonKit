@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.16"
+    s.version      = "0.0.17"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -66,6 +66,11 @@ Pod::Spec.new do |s|
             ss.subspec 'UIColor' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIColor/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIColor/*.h'
+            end
+
+            ss.subspec 'UIFont' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLUIKit/UIFont/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLUIKit/UIFont/*.h'
             end
 
             ss.subspec 'UIView' do |ss|
