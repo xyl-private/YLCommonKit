@@ -18,14 +18,14 @@
     return [UIFont fontWithName:[UIFont pingFangSCWithType:type] size:size];
 }
 
-+ (NSString *)pingFangSCWithType:(QKFontWeightType)type{
++ (NSString *)pingFangSCWithType:(YLFontType)type{
     NSDictionary * dic = @{
-        @(QKFontWeightTypePingFangSC_Ultralight):@"PingFangSC-Ultralight",
-        @(QKFontWeightTypePingFangSC_Thin):@"PingFangSC-Thin",
-        @(QKFontWeightTypePingFangSC_Light):@"PingFangSC-Light",
-        @(QKFontWeightTypePingFangSC_Regular):@"PingFangSC-Regular",
-        @(QKFontWeightTypePingFangSC_Medium):@"PingFangSC-Medium",
-        @(QKFontWeightTypePingFangSC_Semibold):@"PingFangSC-Semibold",
+        @(YLFontTypePingFangSC_Ultralight):@"PingFangSC-Ultralight",
+        @(YLFontTypePingFangSC_Thin):@"PingFangSC-Thin",
+        @(YLFontTypePingFangSC_Light):@"PingFangSC-Light",
+        @(YLFontTypePingFangSC_Regular):@"PingFangSC-Regular",
+        @(YLFontTypePingFangSC_Medium):@"PingFangSC-Medium",
+        @(YLFontTypePingFangSC_Semibold):@"PingFangSC-Semibold",
     };
     return dic[@(type)];
 }
