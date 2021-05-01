@@ -8,9 +8,6 @@
 
 #import "UIColor+YLColor.h"
 
-static NSString * const colorStrPrefix1 = @"0X";
-static NSString * const colorStrPrefix2 = @"#";
-
 @implementation UIColor (YLColor)
 /**
  *  十六进制颜色 - 不透明
@@ -28,12 +25,9 @@ static NSString * const colorStrPrefix2 = @"#";
     // 替换空格&统一变大写
     NSString *colorStr = [[hexColor stringByReplacingOccurrencesOfString:@" " withString:@""] uppercaseString];
     // 替换头部
-    if ([colorStr hasPrefix:colorStrPrefix1]) {
-        colorStr = [colorStr stringByReplacingOccurrencesOfString:colorStrPrefix1 withString:@""];
-    }
-    if ([colorStr hasPrefix:colorStrPrefix2]) {
-        colorStr = [colorStr stringByReplacingOccurrencesOfString:colorStrPrefix2 withString:@""];
-    }
+    colorStr = [colorStr stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    colorStr = [colorStr stringByReplacingOccurrencesOfString:@"0X" withString:@""];
+    
     // 检查字符串长度
     if (colorStr.length != 6) {
         NSLog(@"请检查hexColor字符串长度是否正确");
