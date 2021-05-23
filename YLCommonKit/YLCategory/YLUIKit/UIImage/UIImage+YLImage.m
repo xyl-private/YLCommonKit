@@ -138,18 +138,6 @@
     return image;
 }
 
-/*两张图片合成*/
-+ (UIImage *) yl_imageSynthesis:(UIImage *)image1 toImage:(UIImage *)image2{
-    UIGraphicsBeginImageContextWithOptions(image1.size, YES,1.0);
-    // Draw image1
-    [image1 drawInRect:CGRectMake(0, 0, image1.size.width, image1.size.height)];
-    // Draw image2
-    [image2 drawInRect:CGRectMake(0, 0, image2.size.width, image2.size.height)];
-    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return resultingImage;
-}
-
 /// 获取 网络图片的 size
 /// @param URL 图片地址 支持 NSString和NSURL
 + (CGSize)yl_getNetworkPhotoSizeWithURL:(id)URL{
@@ -215,7 +203,7 @@
                     break;
             }
             /***************** 此处解决返回图片宽高相反问题 *****************/
-
+            
             CFRelease(imageProperties);
         }
         CFRelease(imageSourceRef);

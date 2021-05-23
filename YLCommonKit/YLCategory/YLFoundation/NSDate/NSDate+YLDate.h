@@ -38,6 +38,11 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 + (NSString *)yl_getTimeIntervalSinceFrom:(NSDate *)date
                                    lenght:(NSInteger)lenght;
 
+/// 时间戳 转 时间
+/// @param timestamp 时间戳
+/// @param dateFormat 时间格式
++ (NSString *)yl_getDateFromTimestamp:(NSInteger)timestamp dateFormat:(NSString *)dateFormat;
+
 /// 将 NSDate 转成 NSDateComponents 类型
 /// @param date 给定的 date
 + (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date;
@@ -47,13 +52,13 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 /// @param date date description
 /// @param dateFormat dateFormat description
 + (NSString *)yl_stringFromDate:(NSDate*)date
-                     DateFormat:(NSString *)dateFormat;
+                     dateFormat:(NSString *)dateFormat;
 
 /// NSString 转 NSDate
 /// @param dateString dateString description
 /// @param dateFormat dateFormat description
 + (NSDate *)yl_dateFromDateString:(NSString *)dateString
-                       DateFormat:(NSString *)dateFormat;
+                       dateFormat:(NSString *)dateFormat;
 
 /// 时间格式转换
 /// @param dateStr 时间
@@ -73,8 +78,8 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 /// 0：相等；
 /// 1：dateA<dateB
 + (NSInteger)yl_compareDateA:(NSString *)dateA
-                       DateB:(NSString *)dateB
-               DateFormatter:(NSString *)dateFormatter;
+                       dateB:(NSString *)dateB
+               dateFormatter:(NSString *)dateFormatter;
 
 /**
  两个时间比较
@@ -82,9 +87,9 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
  @param dateB 第二个时间
  @param dateFormatter 时间格式
  @return NSComparisonResult
-    NSOrderedAscending = -1L, dateA > dateB  升序
-    NSOrderedSame,  dateA == dateB
-    NSOrderedDescending dateA < dateB  降序
+ NSOrderedAscending = -1L, dateA > dateB  升序
+ NSOrderedSame,  dateA == dateB
+ NSOrderedDescending dateA < dateB  降序
  */
 + (NSComparisonResult)yl_compareDateWithDateA:(NSString *)dateA
                                         dateB:(NSString *)dateB
@@ -149,14 +154,14 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
 /// @return return YES 相等  NO 不等
 + (BOOL)yl_isEqual:(NSDate *)dateA
              other:(NSDate *)dateB
-     DateFormatter:(NSString *)dateFormat;
+     dateFormatter:(NSString *)dateFormat;
 
-    
+
 /// 给定日期时间 判断是不是今天的当前时间
 /// @param date 给定日期
 /// @param dateFormat dateFormat description
 + (BOOL)yl_isCurrentDate:(NSDate *)date
-           DateFormatter:(NSString *)dateFormat;
+           dateFormatter:(NSString *)dateFormat;
 
 
 /// 判断给定时间是不是今天

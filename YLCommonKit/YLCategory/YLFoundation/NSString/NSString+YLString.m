@@ -423,6 +423,23 @@
     return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
+/// JSONString  转 id
+/// @param jsonString JSON 字符串
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString
+{
+    if (jsonString == nil || jsonString.length == 0) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return obj;
+}
+
 #pragma mark - 汉字转拼音
 /**
  汉字转拼音

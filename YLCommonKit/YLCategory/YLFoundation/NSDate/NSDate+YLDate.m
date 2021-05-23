@@ -67,6 +67,20 @@
     return timeString;
 }
 
+/// 时间戳 转 时间
+/// @param timestamp 时间戳
+/// @param dateFormat 时间格式
++ (NSString *)yl_getDateFromTimestamp:(NSInteger)timestamp dateFormat:(NSString *)dateFormat {
+    //将对象类型的时间转换为NSDate类型
+    NSDate * myDate=[NSDate dateWithTimeIntervalSince1970:timestamp];
+    //设置时间格式
+    NSDateFormatter * formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:dateFormat];
+    //将时间转换为字符串
+    NSString *timeStr=[formatter stringFromDate:myDate];
+    return timeStr;
+}
+
 /// 将 NSDate 转成 NSDateComponents 类型
 /// @param date 给定的 date
 + (NSDateComponents *) yl_dateComponentsWithDate:(NSDate *)date {
@@ -80,7 +94,7 @@
 /// @param date date description
 /// @param dateFormat dateFormat description
 + (NSString *) yl_stringFromDate:(NSDate*)date
-                      DateFormat:(NSString *)dateFormat {
+                      dateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter stringFromDate:date];
 }
@@ -89,7 +103,7 @@
 /// @param dateString dateString description
 /// @param dateFormat dateFormat description
 + (NSDate *) yl_dateFromDateString:(NSString *)dateString
-                        DateFormat:(NSString *)dateFormat {
+                        dateFormat:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [dateFormatter dateFromString:dateString];
 }
@@ -102,8 +116,8 @@
                                      oldDateFormat:(NSString *)oldDateFormat
                                      newDateFormat:(NSString *)newDateFormat{
     
-    NSDate * date = [NSDate yl_dateFromDateString:dateStr DateFormat:oldDateFormat];
-    return [NSDate yl_stringFromDate:date DateFormat:newDateFormat];
+    NSDate * date = [NSDate yl_dateFromDateString:dateStr dateFormat:oldDateFormat];
+    return [NSDate yl_stringFromDate:date dateFormat:newDateFormat];
     
 }
 
@@ -122,8 +136,8 @@
  1：dateB比dateA大；
  */
 + (NSInteger) yl_compareDateA:(NSString *)dateA
-                        DateB:(NSString *)dateB
-                DateFormatter:(NSString *)dateFormat {
+                        dateB:(NSString *)dateB
+                dateFormatter:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     
     NSDate *dta = [dateFormatter dateFromString:dateA];
@@ -323,7 +337,7 @@
 /// @return return YES 相等  NO 不等
 + (BOOL)yl_isEqual:(NSDate *)dateA
              other:(NSDate *)dateB
-     DateFormatter:(NSString *)dateFormat {
+     dateFormatter:(NSString *)dateFormat {
     NSDateFormatter *dateFormatter = [self yl_dateFormatter:dateFormat];
     return [[dateFormatter stringFromDate:dateA] isEqualToString:[dateFormatter stringFromDate:dateB]];
 }
@@ -332,14 +346,14 @@
 /// @param date 给定日期
 /// @param dateFormat dateFormat description
 + (BOOL)yl_isCurrentDate:(NSDate *)date
-           DateFormatter:(NSString *)dateFormat {
-    return [NSDate yl_isEqual:[NSDate date] other:date DateFormatter:dateFormat];
+           dateFormatter:(NSString *)dateFormat {
+    return [NSDate yl_isEqual:[NSDate date] other:date dateFormatter:dateFormat];
 }
 
 /// 判断给定时间是不是今天
 /// @param date 给定日期
 + (BOOL)yl_isToday:(NSDate *)date {
-    return [NSDate yl_isCurrentDate:date DateFormatter:@"yyyy-MM-dd"];
+    return [NSDate yl_isCurrentDate:date dateFormatter:@"yyyy-MM-dd"];
 }
 
 @end

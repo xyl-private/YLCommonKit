@@ -20,9 +20,9 @@
     
 }
 
-- (IBAction)BaseViewControllerAction:(id)sender {
-    TestViewController *vc = [TestViewController new];
-    [self presentViewController:vc animated:YES completion:nil];
+- (IBAction)BaseViewControllerAction:(UIButton *)sender {
+//    TestViewController *vc = [TestViewController new];
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end

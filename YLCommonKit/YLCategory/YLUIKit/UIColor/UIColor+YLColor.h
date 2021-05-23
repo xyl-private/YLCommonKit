@@ -20,6 +20,32 @@
 + (UIColor *)yl_randomColor;
 
 
+#pragma mark - Gradient
+/**
+ *  设置渐变色 默认从左向右 横向渐变
+ *  @param colors 颜色数组,
+ *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
+ *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
+ *  @param locations 渐变色区间,可为空,默认平均分配
+ *  @param frame view.bouns
+ */
++ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors
+                                      locations:(NSArray *)locations
+                                          frame:(CGRect)frame;
+
+/**
+ *  设置渐变色 默认从上向下 纵向渐变
+ *  @param colors 颜色数组,
+ *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
+ *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
+ *  @param locations 渐变色区间,可为空,默认平均分配
+ *  @param frame view.bouns
+ */
++ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors
+                                      locations:(NSArray *)locations
+                                          frame:(CGRect)frame;
+
+
 /**
  *  设置渐变色 默认从左向右 横向渐变
  *  @param colors 颜色数组,
@@ -30,7 +56,7 @@
  */
 + (CAGradientLayer *)yl_setGradientLayerVerticallyWithColors:(NSArray *)colors
                                                    locations:(NSArray *)locations
-                                                       frame:(CGRect)frame;
+                                                       frame:(CGRect)frame API_DEPRECATED_WITH_REPLACEMENT("yl_setGradientVerticallyWithColors:locations:frame:", ios(2.0, 10.0)) NS_EXTENSION_UNAVAILABLE_IOS("");
 
 /**
  *  设置渐变色 默认从上向下 纵向渐变
@@ -42,7 +68,7 @@
  */
 + (CAGradientLayer *)yl_setGradientLayerHorizontalWithColors:(NSArray *)colors
                                                    locations:(NSArray *)locations
-                                                       frame:(CGRect)frame;
+                                                       frame:(CGRect)frame API_DEPRECATED_WITH_REPLACEMENT("yl_setGradientHorizontalWithColors:locations:frame:", ios(2.0, 10.0)) NS_EXTENSION_UNAVAILABLE_IOS("");
 
 /**
  *  设置渐变色

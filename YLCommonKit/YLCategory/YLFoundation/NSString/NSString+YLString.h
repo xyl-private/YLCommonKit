@@ -136,4 +136,8 @@
 /// obj 转成 json 字符串
 + (NSString *)yl_jsonStringFromObject:(id)obj;
 
+/// JSONString  转 id
+/// @param jsonString JSON 字符串
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString;
+
 @end
