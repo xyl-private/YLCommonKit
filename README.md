@@ -8,7 +8,7 @@
 2.  将更新内容上传到 GitHub,然后给这个更新内容设置标签,标签的版本号要和*.podspec文件中的版本号一致.
 3.  打开终端,来到项目的根目录下,远程检测代码仓库是否有问题
 项目未引用第三方库时
-```pod spec lint --allow-warnings --use-libraries```
+```pod spec lint --allow-warnings```
 当项目引用第三方库时（在后面加上--use-libraries，后面的pod trunk push也是一样）
 ```pod spec lint --allow-warnings --use-libraries```
 当出现*.podspec passed validation.时，证明没有问题，可以继续提交。
