@@ -22,4 +22,8 @@
 
 /// 获得顶级VC
 + (UIViewController *)yl_getAppRootViewController;
+
+/// 创建 XIB Controller
++ (instancetype)yl_controllerFromXib;
+
 @end

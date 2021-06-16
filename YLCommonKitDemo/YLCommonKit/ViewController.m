@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "TestViewController.h"
-
+#import "YLCommonKitHeader.h"
 @interface ViewController ()
 
 @end
@@ -17,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor yl_randomColor];
+
 }
 
 - (IBAction)BaseViewControllerAction:(UIButton *)sender {

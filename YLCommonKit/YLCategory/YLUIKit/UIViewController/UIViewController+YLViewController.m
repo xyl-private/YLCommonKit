@@ -9,19 +9,15 @@
 #import "UIViewController+YLViewController.h"
 
 @implementation UIViewController (YLViewController)
-/**
- * 获取当前页面的控制器
- */
+
 //获取当前屏幕显示的viewcontroller
-+ (UIViewController *) yl_getCurrentVC
-{
++ (UIViewController *) yl_getCurrentVC {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
     return currentVC;
 }
 
-+ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC
-{
++ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC {
     UIViewController *currentVC;
     if ([rootVC presentedViewController]) {
         // 视图是被presented出来的
@@ -39,23 +35,19 @@
     }
     return currentVC;
 }
-/**
- * 获取目标页面的控制器
- */
-+ (UIViewController *) yl_getTargetVCWithVCCls:(Class)cls
-{
+
+/// 获取目标页面的控制器
++ (UIViewController *) yl_getTargetVCWithVCCls:(Class)cls {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *targetVC = [self getTargetVCFrom:rootViewController targetCls:cls];
     return targetVC;
 }
 
-
 + (UIViewController *) yl_getTargetVCWithVCName:(NSString *)vcName{
     return [UIViewController yl_getTargetVCWithVCCls:[NSClassFromString(vcName) class]];
 }
 
-+ (UIViewController *)getTargetVCFrom:(UIViewController *)rootVC targetCls:(Class)cls
-{
++ (UIViewController *)getTargetVCFrom:(UIViewController *)rootVC targetCls:(Class)cls {
     __block UIViewController *targetVC;
     if ([rootVC presentedViewController]) {
         // 视图是被presented出来的
@@ -84,18 +76,14 @@
  *
  *  @return 返回当前VC
  */
-+ (UIViewController *)yl_getActivityViewController
-{
++ (UIViewController *)yl_getActivityViewController {
     UIViewController* activityViewController = nil;
     
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    if(window.windowLevel != UIWindowLevelNormal)
-    {
+    if(window.windowLevel != UIWindowLevelNormal) {
         NSArray *windows = [[UIApplication sharedApplication] windows];
-        for(UIWindow *tmpWin in windows)
-        {
-            if(tmpWin.windowLevel == UIWindowLevelNormal)
-            {
+        for(UIWindow *tmpWin in windows) {
+            if(tmpWin.windowLevel == UIWindowLevelNormal) {
                 window = tmpWin;
                 break;
             }
@@ -103,18 +91,14 @@
     }
     
     NSArray *viewsArray = [window subviews];
-    if([viewsArray count] > 0)
-    {
+    if([viewsArray count] > 0) {
         UIView *frontView = [viewsArray objectAtIndex:0];
         
         id nextResponder = [frontView nextResponder];
         
-        if([nextResponder isKindOfClass:[UIViewController class]])
-        {
+        if([nextResponder isKindOfClass:[UIViewController class]]) {
             activityViewController = nextResponder;
-        }
-        else
-        {
+        } else {
             activityViewController = window.rootViewController;
         }
     }
@@ -122,11 +106,7 @@
     return activityViewController;
 }
 
-/**
- *  获得顶级VC
- *
- *  @return 返回顶级VC
- */
+/// 获得根控制器
 + (UIViewController *)yl_getAppRootViewController {
     UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *topVC = appRootVC;
@@ -134,6 +114,10 @@
         topVC = topVC.presentedViewController;
     }
     return topVC;
+}
+
++ (instancetype)yl_controllerFromXib {
+    return [[self alloc] initWithNibName:NSStringFromClass(self) bundle:nil];
 }
 
 @end

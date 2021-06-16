@@ -92,9 +92,9 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)ll_setGradientLayerHorizontalWithColors:(NSArray *)colors
-                                           locations:(NSArray *)locations
-                                               frame:(CGRect)frame{
++ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors
+                                      locations:(NSArray *)locations
+                                          frame:(CGRect)frame{
     
     CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors
                                                                   locations:locations

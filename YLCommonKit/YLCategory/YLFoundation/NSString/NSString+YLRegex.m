@@ -111,7 +111,7 @@
 }
 
 + (BOOL) yl_isPasswordValidWith:(NSString *)str{
-    NSString * regex = @"^(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)(?![@.#_`]+$)[@.#_0-9A-Za-z]{6,12}$";
+    NSString *regex = @"^((?![0-9]+$)(?![a-zA-Z]+$)(?![~!@#$^&|*-_+=.?,]+$))[0-9A-Za-z~!@#$^&|*-_+=.?,]{8,20}$";
     return [self yl_isValidateByRegex:regex string:str];
 }
 

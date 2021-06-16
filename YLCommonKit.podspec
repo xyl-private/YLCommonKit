@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.18"
+    s.version      = "0.0.19"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
     s.frameworks = "Foundation","UIKit"
 
     s.subspec 'YLCategory' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/*.h'
+        
         ss.subspec 'YLFoundation' do |ss|
             ss.subspec 'NSData' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.{h,m}'

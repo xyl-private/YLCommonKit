@@ -57,7 +57,7 @@
 + (BOOL) yl_isCarNumberWith:(NSString *)str;
 
 /// 验证密码是否有效
-/// 正则条件是 字母、数字、特殊字符(@.#_) 必须包含其中两项
+/// 正则条件是 字母、数字、特殊字符(~!@#$^&|*-_+=.?,) 必须包含其中两项
 /// @param str 密码
 + (BOOL) yl_isPasswordValidWith:(NSString *)str;
 /**
@@ -90,10 +90,10 @@
 - (BOOL) yl_isContainsString:(NSString *)aString;
 
 /**
- 正则校验
- @param regularStr 正则表达式
- @param centent 验证的内容
- @return 结果
+ * 正则校验
+ * @param regularStr 正则表达式
+ * @param centent 验证的内容
+ * @return 结果
  */
 + (BOOL) yl_regularCheck:(NSString *)regularStr content:(NSString*)centent;
 /**
