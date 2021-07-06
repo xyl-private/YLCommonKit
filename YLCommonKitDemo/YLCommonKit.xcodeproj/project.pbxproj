@@ -11,7 +11,6 @@
 		2210FEBF243CA7C50007F753 /* NSObject+YLLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEBC243CA7C50007F753 /* NSObject+YLLog.m */; };
 		2210FEC3243CB30A0007F753 /* NSDictionary+YLRemoveNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 2210FEC2243CB30A0007F753 /* NSDictionary+YLRemoveNull.m */; };
 		22455C7E2564F896003B5410 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */; };
-		2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		2295668E263C6BA500FAC55A /* UIFont+YLFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 2295668D263C6BA500FAC55A /* UIFont+YLFont.m */; };
 		2299396D263B08FD0055DA35 /* UITextView+YLPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396C263B08FD0055DA35 /* UITextView+YLPlaceholder.m */; };
@@ -50,8 +49,6 @@
 		22455C7C2564F896003B5410 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCommonKitHeader.h; sourceTree = "<group>"; };
-		2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLFullScreen.h"; sourceTree = "<group>"; };
-		2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLFullScreen.m"; sourceTree = "<group>"; };
 		22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YLHiddenNavBar.h"; sourceTree = "<group>"; };
 		22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YLHiddenNavBar.m"; sourceTree = "<group>"; };
 		2295668C263C6BA500FAC55A /* UIFont+YLFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIFont+YLFont.h"; sourceTree = "<group>"; };
@@ -295,8 +292,6 @@
 				7B10B409210AC59500F35E77 /* UIViewController+YLViewController.m */,
 				22587C132313B83500EC3525 /* UIViewController+YLHiddenNavBar.h */,
 				22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */,
-				2255908C2391194200569A5B /* UIViewController+YLFullScreen.h */,
-				2255908D2391194200569A5B /* UIViewController+YLFullScreen.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -447,7 +442,6 @@
 				22F76D4323CFF07B008E8FEC /* NSString+YLAppInfo.m in Sources */,
 				2295668E263C6BA500FAC55A /* UIFont+YLFont.m in Sources */,
 				7B10B42A210AC59500F35E77 /* NSAttributedString+YLAttributedString.m in Sources */,
-				2255908E2391194200569A5B /* UIViewController+YLFullScreen.m in Sources */,
 				7B941B3D20F3126700811329 /* main.m in Sources */,
 				22993970263B0A150055DA35 /* TestViewController.m in Sources */,
 				2210FEBE243CA7C50007F753 /* NSDictionary+YLLog.m in Sources */,
@@ -611,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.19;
+				MARKETING_VERSION = 0.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -632,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.19;
+				MARKETING_VERSION = 0.0.20;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hs.xingfaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

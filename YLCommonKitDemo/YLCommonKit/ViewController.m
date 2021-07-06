@@ -22,8 +22,9 @@
 }
 
 - (IBAction)BaseViewControllerAction:(UIButton *)sender {
-//    TestViewController *vc = [TestViewController new];
-//    [self presentViewController:vc animated:YES completion:nil];
+    TestViewController *vc = [TestViewController new];
+    vc.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 @end
