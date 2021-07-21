@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param borderWidth 边界线宽度
 /// @param borderColor 边界线颜色
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius
-                      borderWidth:(UIRectCorner)borderWidth
+                      borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor;
 
 #pragma mark - Frame

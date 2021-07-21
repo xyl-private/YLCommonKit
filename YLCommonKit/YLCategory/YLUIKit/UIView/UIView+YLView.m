@@ -110,7 +110,7 @@
 }
 
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius
-                      borderWidth:(UIRectCorner)borderWidth
+                      borderWidth:(CGFloat)borderWidth
                       borderColor:(UIColor *)borderColor {
     self.layer.cornerRadius = cornerRadius;
     self.layer.masksToBounds = YES;
