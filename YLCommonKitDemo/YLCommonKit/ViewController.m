@@ -18,13 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yl_randomColor];
-
+    
 }
 
 - (IBAction)BaseViewControllerAction:(UIButton *)sender {
-    TestViewController *vc = [TestViewController new];
-    vc.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:vc animated:YES completion:nil];
+    
+    NSLog(@"timeIntervalSinceNow %f",[[NSDate date] timeIntervalSinceNow]);
+    NSLog(@"timeIntervalSince1970 %f",[[NSDate date] timeIntervalSince1970]);
+    [self getNowTimeTimestamp3];
 }
 
+//获取当前时间戳  （以毫秒为单位）
+
+-(NSString *)getNowTimeTimestamp3{
+   NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+
+   NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
+
+   return timeSp;
+
+}
 @end

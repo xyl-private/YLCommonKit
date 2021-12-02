@@ -18,154 +18,84 @@ typedef NS_ENUM(NSUInteger, YLDateComponentsType) {
     YLDateComponentsTypeWeekday
 };
 
+typedef NS_ENUM(NSUInteger, YLTimestampType) {
+    /// 秒    10 位
+    YLTimestampTypeSecond,
+    /// 毫秒 13 位
+    YLTimestampTypeMillisecond,
+    /// 微秒 16 位
+    YLTimestampTypeMicrosecond
+};
+
 @interface NSDate (YLDate)
 
-+ (NSCalendar *)yl_calendar;
-+ (NSCalendar *)yl_chineseCalendar;
-+ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat;
++ (NSCalendar *) yl_calendar;
 
-/// 获取当前时间
-/// @param dateFormat 当前时间 的dateFormat
-+ (NSString *)yl_stringCurrentDateWithDateFormat:(NSString *)dateFormat;
++ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat;
 
-/// 获取当前时间点的时间戳
-/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
-+ (NSString *)yl_getCurrentTimeIntervalWithLenght:(NSInteger)lenght;
+/// 当前时间戳
++ (NSInteger)yl_timestampWithType:(YLTimestampType)type;
 
-/// 将给定的时间转换成时间戳
-/// @param date 给定的事件
-/// @param lenght 时间戳精确度 10 位:精确到秒   13 位:精确到毫秒
-+ (NSString *)yl_getTimeIntervalSinceFrom:(NSDate *)date
-                                   lenght:(NSInteger)lenght;
+/// NSDate 转 时间戳
++ (NSInteger)yl_timestampFromDate:(NSDate *)date type:(YLTimestampType)type;
 
-/// 时间戳 转 时间
-/// @param timestamp 时间戳
-/// @param dateFormat 时间格式
-+ (NSString *)yl_getDateFromTimestamp:(NSInteger)timestamp dateFormat:(NSString *)dateFormat;
+/// 时间戳 转 NSDate
++ (NSDate *)yl_dateFromTimestamp:(NSInteger)timestamp;
 
-/// 将 NSDate 转成 NSDateComponents 类型
-/// @param date 给定的 date
-+ (NSDateComponents *)yl_dateComponentsWithDate:(NSDate *)date;
-
+/// 时间戳 转 NSString
++ (NSString *)yl_dateFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter;
 
 /// NSDate 转 NSString
-/// @param date date description
-/// @param dateFormat dateFormat description
-+ (NSString *)yl_stringFromDate:(NSDate*)date
-                     dateFormat:(NSString *)dateFormat;
++ (NSString *)yl_stringDateFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter;
 
 /// NSString 转 NSDate
-/// @param dateString dateString description
-/// @param dateFormat dateFormat description
-+ (NSDate *)yl_dateFromDateString:(NSString *)dateString
-                       dateFormat:(NSString *)dateFormat;
++ (NSDate *)yl_dateFromDateString:(NSString *)dateString dateFormatter:(NSString *)dateFormatter;
+
+/// NSDate 转成 NSDateComponents
++ (NSDateComponents *) yl_dateComponentsFromDate:(NSDate *)date;
 
 /// 时间格式转换
-/// @param dateStr 时间
-/// @param oldDateFormat dateStr 目前的格式
-/// @param newDateFormat dateStr 转换的新格式
-+ (NSString *)yl_stringTransDateFormatWithDateStr:(NSString*)dateStr
-                                    oldDateFormat:(NSString *)oldDateFormat
-                                    newDateFormat:(NSString *)newDateFormat;
++ (NSString *) yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat;
+
+/// 获取农历日期
++ (NSDateComponents *) yl_chineseCalendarWithDate:(NSDate*)date;
+
+/// 比较两个日期
+/// dateStringA : 8:00  dateStringB : 9:00  return NSOrderedAscending  升序
+/// dateStringA : 9:00  dateStringB : 8:00  return NSOrderedDescending 降序
+/// dateStringA : 8:00  dateStringB : 8:00  return NSOrderedSame 相同
++ (NSComparisonResult) yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter;
+
+/// 比较两个日期
+/// dateA : 8:00  dateB : 9:00  return NSOrderedAscending  升序
+/// dateA : 9:00  dateB : 8:00  return NSOrderedDescending 降序
+/// dateA : 8:00  dateB : 8:00  return NSOrderedSame 相同
++ (NSComparisonResult) yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB;
+
+/// a period of time from the current time
+/// 以当前时间为起点,间隔几个时间单位的 date
+/// @param date 起始时间
+/// @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+/// @param length 间单位长度可以是正负数，
+/// 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+/// 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
++ (NSDate *) yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
+
+/// 判断给定日期 是周几   1-周日，2-周一 ... 7-周六
++ (NSInteger) yl_weekDayFromDate:(NSDate *)date;
+
+///  某月中周的数量
++ (NSInteger) yl_weeksInMonthWithDate:(NSDate *)date;
+/// 某年中周的数量
++ (NSInteger) yl_weeksInYearWithDate:(NSDate *)date;
 
 
-/// 获取农历时间
-/// @param date date 阳历时间
-+ (NSDateComponents *)yl_lunarCalendarWithDate:(NSDate*)date;
-
-/// 时间比较
-/// -1：dateA>dateB
-/// 0：相等；
-/// 1：dateA<dateB
-+ (NSInteger)yl_compareDateA:(NSString *)dateA
-                       dateB:(NSString *)dateB
-               dateFormatter:(NSString *)dateFormatter;
-
-/**
- 两个时间比较
- @param dateA 第一个时间
- @param dateB 第二个时间
- @param dateFormatter 时间格式
- @return NSComparisonResult
- NSOrderedAscending = -1L, dateA > dateB  升序
- NSOrderedSame,  dateA == dateB
- NSOrderedDescending dateA < dateB  降序
- */
-+ (NSComparisonResult)yl_compareDateWithDateA:(NSString *)dateA
-                                        dateB:(NSString *)dateB
-                                dateFormatter:(NSString *)dateFormatter;
-
-/// 获取给定日期的月份
-/// @param date 给定日期
-+ (NSInteger)yl_monthFromDate:(NSDate *)date;
-
-/// 获取给定日期所在周 是在当月的第几周
-/// @param date 给定日期
-+ (NSInteger)yl_weekInMonthIndexWithDate:(NSDate *)date;
-
-/// 获取给定日期所在月中有多少周
-/// @param date 给定日期
-+ (NSInteger)yl_numberWeeksInMonthWithDate:(NSDate*)date;
-
-/**
- a period of time from the current time
- 以当前时间为起点,间隔几个时间单位的 date
- @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
- @param length 长度可以是正负数，
- 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
- 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
- @return return value description
- */
-+ (NSDate *)yl_datePeriodOfDateFromCurrentDateWithComponentsType:(YLDateComponentsType)type
-                                                    periodLength:(NSInteger)length;
-
-/**
- a period of time from the current time
- 以当前时间为起点,间隔几个时间单位的 date
- 
- @param startDate  以 startDate 为起始时间
- @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
- @param length 长度可以是正负数，
- 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
- 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
- @return return value description
- */
-+ (NSDate *)yl_datePeriodOfDateFromStertDate:(NSDate *)startDate
-                              componentsType:(YLDateComponentsType)type
-                                periodLength:(NSInteger)length;
-
-/// 判断给定日期 是周几 // 1 是周日，2是周一 3.以此类推
-/// @param date 给定的日期
-/// @return 周日、周一...
-+ (NSInteger)yl_weekDayStringWithDate:(NSDate *)date;
-
-/// 转换 时间展示样式
-/// @param date 日期
-- (NSString *)yl_getDateDisplayString:(NSDate *)date;
-
-#pragma mark - 判断
-
-/// 判断 给定日期 是不是工作日
-/// @param date 给定日历
+#pragma mark - BOOL
+///  是不是工作日
 /// @return YES 工作日 ; NO 周末
 + (BOOL)yl_isWorkingDayWith:(NSDate *)date;
 
-/// 比较日期是否相等
-/// @return return YES 相等  NO 不等
-+ (BOOL)yl_isEqual:(NSDate *)dateA
-             other:(NSDate *)dateB
-     dateFormatter:(NSString *)dateFormat;
-
-
-/// 给定日期时间 判断是不是今天的当前时间
-/// @param date 给定日期
-/// @param dateFormat dateFormat description
-+ (BOOL)yl_isCurrentDate:(NSDate *)date
-           dateFormatter:(NSString *)dateFormat;
-
-
-/// 判断给定时间是不是今天
-/// @param date 给定日期
+/// 是不是今天
 + (BOOL)yl_isToday:(NSDate *)date;
 
 @end
