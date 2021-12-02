@@ -33,6 +33,8 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 
 + (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat;
 
+/// 获取当前时区与0时区的间隔秒数
++ (NSInteger)yl_secondsFromGMT;
 /// 当前时间戳
 + (NSInteger)yl_timestampWithType:(YLTimestampType)type;
 
@@ -72,6 +74,10 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 /// dateA : 8:00  dateB : 8:00  return NSOrderedSame 相同
 + (NSComparisonResult) yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB;
 
+/// 比较两个日期,
+/// @param unit 时间单位, 例:NSCalendarUnitDay|NSCalendarUnitHour,相差 1 天 5 小时
++ (NSDateComponents *)yl_components:(NSCalendarUnit)unit fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+
 /// a period of time from the current time
 /// 以当前时间为起点,间隔几个时间单位的 date
 /// @param date 起始时间
@@ -89,6 +95,9 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 /// 某年中周的数量
 + (NSInteger) yl_weeksInYearWithDate:(NSDate *)date;
 
+/// 日期显示样式
+/// @param timeStamp 时间戳 10 位 秒
++ (NSString *)yl_getDateDisplayString:(NSInteger)timeStamp;
 
 #pragma mark - BOOL
 ///  是不是工作日

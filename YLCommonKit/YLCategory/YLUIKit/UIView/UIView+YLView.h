@@ -12,59 +12,47 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (YLView)
 
-/// Returns the view's view controller (may be nil).
-@property (nullable, nonatomic, readonly) UIViewController *viewController;
++ (UIWindow *)yl_keyWindow;
 
-/// 获取 view 所在的 viewController
-- (UIViewController *)yl_viewController;
-/// 删除所有Views
-- (void) yl_removeAllSubviews;
-/// 初始化 xib view
 + (instancetype)yl_viewFromXib;
-
-/// 给 view 添加背景图片
+/// 当前所在的 viewController
+- (UIViewController *)yl_viewController;
+/// 移除所有子视图
+- (void)yl_removeAllSubviews;
+///  添加背景图片
 - (void)yl_setBackgroundImage:(UIImage *)image;
+
+/// view 转换成 图片
+- (UIImage*) yl_snapshotImage;
 /// 监听键盘 改变 view 的位置
 - (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler;
-/// view 转换成 图片
-- (UIImage*)yl_snapshotImage;
 
+#pragma mark - UIGestureRecognizer
+/// 添加点击手势
+- (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector;
+/// 添加长按手势
+- (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector;
+/// 添加拖拽手势
+- (UIPanGestureRecognizer *)yl_addPanGestureWithTarget:(id)target action:(nullable SEL)selector;
 
 #pragma mark - 圆角
-/// view 切圆角
-/// @param viewRect view.frame
-/// @param rectCorner  圆角的位置
-/// @param cornerRadii 圆角 的 半径
-+ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect
-                       rectCorner:(UIRectCorner)rectCorner
-                      cornerRadii:(CGSize)cornerRadii;
-/**
- *  设置部分圆角(绝对布局)
- *
- *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
- *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
- */
-- (void)yl_addRoundedCorners:(UIRectCorner)corners
-                 cornerRadii:(CGSize)cornerRadii;
-/**
- *  设置部分圆角(相对布局)
- *
- *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
- *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
- *  @param viewRect    需要设置的圆角view的rect
- */
-- (void)yl_addRoundedCorners:(UIRectCorner)corners
-                 cornerRadii:(CGSize)cornerRadii
-                    viewRect:(CGRect)viewRect;
-/// layer 切圆角
+
++ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii;
+
+/// 设置部分圆角(绝对布局)
+/// @param corners 圆角的位置
+/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
+
+/// 设置部分圆角(相对布局)
+/// @param corners 圆角的位置
+/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+/// @param viewRect 需要设置的圆角view的rect
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii viewRect:(CGRect)viewRect;
+
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius;
-/// layer 圆角+边界线
-/// @param cornerRadius 圆角
-/// @param borderWidth 边界线宽度
-/// @param borderColor 边界线颜色
-- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius
-                      borderWidth:(CGFloat)borderWidth
-                      borderColor:(UIColor *)borderColor;
+
+- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 #pragma mark - Frame
 /// x

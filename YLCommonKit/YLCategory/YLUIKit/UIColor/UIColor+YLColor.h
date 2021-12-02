@@ -19,6 +19,8 @@
 /// 随机色
 + (UIColor *)yl_randomColor;
 
+/// UIColor 转 十六进制
+- (NSString *)yl_hexadecimalColor;
 
 #pragma mark - Gradient
 /**

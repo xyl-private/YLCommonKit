@@ -7,6 +7,7 @@
 //
 
 #import "NSString+YLString.h"
+#import "NSString+YLRegex.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <LocalAuthentication/LocalAuthentication.h>
 
@@ -370,6 +371,65 @@
     return binary;
 }
 
+#pragma mark - 拼音
+/**
+ 汉字转拼音
+ @param chinese 汉字
+ @param isSymbol YES 带音标   NO 不带
+ @return 拼音
+ */
++ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol{
+    //将NSString装换成NSMutableString
+    NSMutableString *pinyin = [chinese mutableCopy];
+    //将汉字转换为拼音(带音标)
+    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
+    if (!isSymbol) {
+        //去掉拼音的音标
+        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
+    }
+    //返回最近结果
+    return pinyin;
+}
+
+- (NSString*)yl_pinYin {
+    NSMutableString *str = [self mutableCopy];
+    /*转换成成带音 调的拼音*/
+    CFStringTransform((CFMutableStringRef)str,NULL,kCFStringTransformMandarinLatin,NO);
+    /*去掉音调*/
+    CFStringTransform((CFMutableStringRef)str,NULL,kCFStringTransformStripDiacritics,NO);
+    /*多音字处理*/
+    if (self.length == 0) return @"";
+    if ([[self substringToIndex:1] isEqualToString:@"长"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 5) withString:@"chang"];
+    } else if ([[self substringToIndex:1] isEqualToString:@"沈"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 4) withString:@"shen"];
+    } else if ([[self substringToIndex:1] isEqualToString:@"厦"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 3) withString:@"xia"];
+    } else if ([[self substringToIndex:1] isEqualToString:@"地"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 3) withString:@"di"];
+    } else if ([[self substringToIndex:1] isEqualToString:@"重"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 5) withString:@"chong"];
+    } else if ([[self substringToIndex:1] isEqualToString:@"行"]) {
+        [str replaceCharactersInRange:NSMakeRange(0, 4) withString:@"xing"];
+    }
+    return str.lowercaseString;
+}
+
+/// 拼音首字母
+- (NSString*)dl_firstCharactor
+{
+    NSString *pinYin = [self.yl_pinYin uppercaseString];
+    if (pinYin.length > 0) {
+        NSString *pf = [pinYin substringToIndex:1];
+        if ([NSString yl_isEnglishWith:pf]) {
+            return pf;
+        }
+        return @"#";
+    }
+    return @"#";
+}
+
+
 #pragma mark - URL处理相关
 /// 字符串 转 url
 - (NSURL *) yl_url {
@@ -438,25 +498,5 @@
         return nil;
     }
     return obj;
-}
-
-#pragma mark - 汉字转拼音
-/**
- 汉字转拼音
- @param chinese 汉字
- @param isSymbol YES 带音标   NO 不带
- @return 拼音
- */
-+ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol{
-    //将NSString装换成NSMutableString
-    NSMutableString *pinyin = [chinese mutableCopy];
-    //将汉字转换为拼音(带音标)
-    CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformMandarinLatin, NO);
-    if (!isSymbol) {
-        //去掉拼音的音标
-        CFStringTransform((__bridge CFMutableStringRef)pinyin, NULL, kCFStringTransformStripCombiningMarks, NO);
-    }
-    //返回最近结果
-    return pinyin;
 }
 @end

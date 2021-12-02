@@ -28,6 +28,11 @@
     return dateFormatter;
 }
 
+/// 获取当前时区与0时区的间隔秒数
++ (NSInteger)yl_secondsFromGMT{
+    return [[NSTimeZone localTimeZone] secondsFromGMT];
+}
+
 /// 当前时间戳
 + (NSInteger)yl_timestampWithType:(YLTimestampType)type{
     return [NSDate yl_timestampFromDate:[NSDate date] type:type];
@@ -109,17 +114,21 @@
     return [dateA compare:dateB];
 }
 
-/**
- a period of time from the current time
- 以当前时间为起点,间隔几个时间单位的 date
- 
- @param date  以 date 为起始时间
- @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
- @param length 时间单位长度可以是正负数，
- 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
- 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
- @return return value description
- */
+/// 比较两个日期,
+/// @param unit 时间单位, 例:NSCalendarUnitDay|NSCalendarUnitHour,相差 1 天 5 小时
++ (NSDateComponents *)yl_components:(NSCalendarUnit)unit fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate{
+    //比较的结果是NSDateComponents类对象
+    NSDateComponents *delta = [[NSCalendar currentCalendar] components:unit fromDate:fromDate toDate:toDate options:NSCalendarMatchStrictly];
+    return delta;
+}
+
+/// a period of time from the current time
+/// 以当前时间为起点,间隔几个时间单位的 date
+/// @param date 起始时间
+/// @param type 时间类型,间隔的是几年/月/日/时/分/秒/星期
+/// @param length 间单位长度可以是正负数，
+/// 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
+/// 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
 + (NSDate *) yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
     NSDateComponents * components = [[NSDateComponents alloc] init];
     switch (type) {
@@ -170,6 +179,55 @@
     return range.length;
 }
 
+
+/// 日期显示样式
+/// @param timeStamp 时间戳 10 位 秒
++ (NSString *)yl_getDateDisplayString:(NSInteger)timeStamp {
+    // 输入日期
+    NSDate *myDate = [NSDate dateWithTimeIntervalSince1970:timeStamp];
+    NSDate *nowDate = [NSDate date];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    int unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    
+    NSDateComponents *nowCmps = [calendar components:unit fromDate:nowDate];
+    NSDateComponents *myCmps = [calendar components:unit fromDate:myDate];
+    
+    NSDateFormatter *dateFmt = [[NSDateFormatter alloc] init];
+    
+    if (nowCmps.year != myCmps.year) {
+        // 不是同一年
+        dateFmt.dateFormat = @"yyyy-MM-dd";
+    }else {
+        if (nowCmps.month != myCmps.month) {
+            // 不是同一月
+            dateFmt.dateFormat = @"MM-dd";
+        }else{
+            if (nowCmps.day == myCmps.day) {
+                // 当天
+                if (nowCmps.hour != myCmps.hour) {
+                    dateFmt.dateFormat = @"HH:mm";
+                }else{
+                    // 一小时内
+                    if (nowCmps.minute != myCmps.minute) {
+                        return [NSString stringWithFormat:@"%ld分钟前",nowCmps.minute - myCmps.minute];
+                    }else{
+                        return [NSString stringWithFormat:@"%ld秒",nowCmps.second - myCmps.second];
+                    }
+                }
+            } else if((nowCmps.day-myCmps.day)==1) {
+                dateFmt.dateFormat = @"昨天";
+            } else {
+                if ((nowCmps.day-myCmps.day) <=9) {
+                    return [NSString stringWithFormat:@"%ld天前",(nowCmps.day-myCmps.day)];
+                }else {
+                    dateFmt.dateFormat = @"MM-dd";
+                }
+            }
+        }
+    }
+    return [dateFmt stringFromDate:myDate];
+}
 
 #pragma mark - BOOL
 ///  是不是工作日

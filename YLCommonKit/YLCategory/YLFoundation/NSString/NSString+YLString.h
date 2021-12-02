@@ -97,14 +97,18 @@
  */
 + (NSString *)yl_getBinaryByHex:(NSString *)hex;
 
-#pragma mark - 汉字转拼音
-/**
- 汉字转拼音
- @param chinese 汉字
- @param isSymbol YES 带音标   NO 不带
- @return 拼音
- */
+#pragma mark - 拼音
+
+/// 汉字转拼音
+/// @param chinese 汉字
+/// @param isSymbol YES 带音标   NO 不带
 + (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol;
+
+/// 汉字转拼音
+- (NSString*)yl_pinYin;
+
+/// 首字母
+- (NSString*)dl_firstCharactor;
 
 #pragma mark - URL处理相关
 /// 字符串 转 url

@@ -10,8 +10,18 @@
 
 @implementation UIView (YLView)
 
-- (UIViewController *)viewController {
-    return [self yl_viewController];
++ (UIWindow *)yl_keyWindow{
+    UIWindow* window = nil;
+    if (@available(iOS 13.0, *)) {
+        window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+    }else{
+        window = [UIApplication sharedApplication].keyWindow;
+    }
+    return window;
+}
+
++ (instancetype)yl_viewFromXib {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
 - (UIViewController *)yl_viewController{
@@ -30,16 +40,22 @@
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 }
 
-+ (instancetype)yl_viewFromXib {
-    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
-}
-
 - (void)yl_setBackgroundImage:(UIImage *)image {
     UIGraphicsBeginImageContext(self.frame.size);
     [image drawInRect:self.bounds];
     UIImage *bgImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.backgroundColor = [UIColor colorWithPatternImage:bgImage];
+}
+
+/// view 转换成 图片
+- (UIImage*) yl_snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [self.layer renderInContext:ctx];
+    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return tImage;
 }
 
 /// 监听键盘 改变 view 的位置
@@ -57,15 +73,33 @@
     }];
 }
 
-/// view 转换成 图片
-- (UIImage*)yl_snapshotImage {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext:ctx];
-    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return tImage;
+#pragma mark - UIGestureRecognizer
+/// 添加点击手势
+- (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:selector];
+    [self addGestureRecognizer:tap];
+    return tap;
 }
+
+/// 添加长按手势
+- (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector
+{
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:target action:selector];
+    [self addGestureRecognizer:longPress];
+    return longPress;
+}
+
+/// 添加拖拽手势
+- (UIPanGestureRecognizer *)yl_addPanGestureWithTarget:(id)target action:(nullable SEL)selector
+{
+    UIPanGestureRecognizer *panPress = [[UIPanGestureRecognizer alloc] initWithTarget:target action:selector];
+    [self addGestureRecognizer:panPress];
+    return panPress;
+}
+
+
+#pragma mark - 圆角
 
 + (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii{
     // 圆角
@@ -82,8 +116,7 @@
  *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
  *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
  */
-- (void)yl_addRoundedCorners:(UIRectCorner)corners
-                 cornerRadii:(CGSize)cornerRadii {
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii {
     [self yl_addRoundedCorners:corners cornerRadii:cornerRadii viewRect:self.bounds];
 }
 
@@ -94,9 +127,7 @@
  *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
  *  @param viewRect    需要设置的圆角view的rect
  */
-- (void)yl_addRoundedCorners:(UIRectCorner)corners
-                 cornerRadii:(CGSize)cornerRadii
-                    viewRect:(CGRect)viewRect {
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii viewRect:(CGRect)viewRect {
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:corners cornerRadii:cornerRadii];
     CAShapeLayer* shapeLayer = [[CAShapeLayer alloc] init];
     shapeLayer.frame = viewRect;
@@ -109,9 +140,7 @@
     self.layer.masksToBounds = YES;
 }
 
-- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius
-                      borderWidth:(CGFloat)borderWidth
-                      borderColor:(UIColor *)borderColor {
+- (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor {
     self.layer.cornerRadius = cornerRadius;
     self.layer.masksToBounds = YES;
     self.layer.borderWidth = borderWidth;

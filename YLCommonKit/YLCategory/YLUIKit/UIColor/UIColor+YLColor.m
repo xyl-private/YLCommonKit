@@ -59,6 +59,51 @@
 }
 
 
+/// UIColor 转十六进制
+- (NSString *)yl_hexadecimalColor{
+    if (CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor)) != kCGColorSpaceModelRGB)
+    {
+        NSLog(@"非RGB：");
+        if ([self isEqual:[UIColor clearColor]]) {
+            return @"#000000FF";
+        }
+        else if ([self isEqual:[UIColor whiteColor]]){
+            return @"#FFFFFF";
+        }else{
+            return @"000000";
+        }
+        return [NSString stringWithFormat:@"#FFFFFF"];
+    }
+    
+    if (CGColorGetNumberOfComponents(self.CGColor) < 4)
+    {
+        NSLog(@"CGColorGetNumberOfComponents < 4");
+        const CGFloat *components = CGColorGetComponents(self.CGColor);
+        CGFloat r = components[0];//红色
+        CGFloat g = components[1];//绿色
+        CGFloat b = components[2];//蓝色
+        return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)];
+        
+    }
+    
+    const CGFloat *components = CGColorGetComponents(self.CGColor);
+    CGFloat r = components[0];
+    CGFloat g = components[1];
+    CGFloat b = components[2];
+    CGFloat a = components[3];
+    if (a==1) {
+        return [NSString stringWithFormat:@"#%02lX%02lX%02lX",
+                lroundf(r * 255),
+                lroundf(g * 255),
+                lroundf(b * 255)] ;
+    }
+    return [NSString stringWithFormat:@"#%02lX%02lX%02lX%02lX",
+            lroundf(r * 255),
+            lroundf(g * 255),
+            lroundf(b * 255),
+            lroundf(a * 255)];
+}
+
 /**
  *  设置渐变色 默认从左向右 横向渐变
  *  @param colors 颜色数组,
@@ -68,8 +113,8 @@
  *  @param frame view.bouns
  */
 + (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors
-                                           locations:(NSArray *)locations
-                                               frame:(CGRect)frame{
+                                      locations:(NSArray *)locations
+                                          frame:(CGRect)frame{
     CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors
                                                                   locations:locations
                                                                       frame:frame
