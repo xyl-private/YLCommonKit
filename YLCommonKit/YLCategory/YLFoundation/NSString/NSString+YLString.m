@@ -416,7 +416,7 @@
 }
 
 /// 拼音首字母
-- (NSString*)dl_firstCharactor
+- (NSString*)yl_firstLetter
 {
     NSString *pinYin = [self.yl_pinYin uppercaseString];
     if (pinYin.length > 0) {

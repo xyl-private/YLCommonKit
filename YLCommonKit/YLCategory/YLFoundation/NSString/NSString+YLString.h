@@ -108,7 +108,7 @@
 - (NSString*)yl_pinYin;
 
 /// 首字母
-- (NSString*)dl_firstCharactor;
+- (NSString*)yl_firstLetter;
 
 #pragma mark - URL处理相关
 /// 字符串 转 url
