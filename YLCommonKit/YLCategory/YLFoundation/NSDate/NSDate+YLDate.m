@@ -134,7 +134,7 @@
 }
 
 /// 时间戳 转 NSString
-+ (NSString *)yl_dateFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter {
++ (NSString *)yl_stringFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter {
     NSDate * date = [NSDate dateWithTimeIntervalSince1970:timestamp];
     NSDateFormatter * df = [self yl_dateFormatter:dateFormatter];
     return [df stringFromDate:date];

@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 + (NSDate *)yl_dateFromTimestamp:(NSInteger)timestamp;
 
 /// 时间戳 转 NSString
-+ (NSString *)yl_dateFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter;
++ (NSString *)yl_stringFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter;
 
 /// NSDate 转 NSString
 + (NSString *)yl_stringDateFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter;
