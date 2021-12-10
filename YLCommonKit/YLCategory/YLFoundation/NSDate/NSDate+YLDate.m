@@ -141,7 +141,7 @@
 }
 
 /// NSDate 转 NSString
-+ (NSString *)yl_stringDateFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter {
++ (NSString *)yl_stringFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter {
     return [[self yl_dateFormatter:dateFormatter] stringFromDate:date];
 }
 
@@ -162,7 +162,7 @@
 /// 时间格式转换
 + (NSString *) yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat{
     NSDate * date = [NSDate yl_dateFromDateString:dateString dateFormatter:oldDateFormat];
-    return [NSDate yl_stringDateFromDate:date dateFormatter:newDateFormat];
+    return [NSDate yl_stringFromDate:date dateFormatter:newDateFormat];
 }
 
 /// 获取农历日期

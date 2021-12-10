@@ -71,7 +71,7 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 + (NSString *)yl_stringFromTimestamp:(NSInteger)timestamp dateFormatter:(NSString *)dateFormatter;
 
 /// NSDate 转 NSString
-+ (NSString *)yl_stringDateFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter;
++ (NSString *)yl_stringFromDate:(NSDate *)date dateFormatter:(NSString *)dateFormatter;
 
 /// NSString 转 NSDate
 + (NSDate *)yl_dateFromDateString:(NSString *)dateString dateFormatter:(NSString *)dateFormatter;
@@ -86,14 +86,14 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 + (NSDateComponents *) yl_chineseCalendarWithDate:(NSDate*)date;
 
 /// 比较两个日期
-/// dateStringA : 8:00  dateStringB : 9:00  return NSOrderedAscending  升序
-/// dateStringA : 9:00  dateStringB : 8:00  return NSOrderedDescending 降序
+/// dateStringA : 8:00  dateStringB : 9:00  return NSOrderedAscending  升序 顺时针
+/// dateStringA : 9:00  dateStringB : 8:00  return NSOrderedDescending 降序 逆时针
 /// dateStringA : 8:00  dateStringB : 8:00  return NSOrderedSame 相同
 + (NSComparisonResult) yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter;
 
 /// 比较两个日期
-/// dateA : 8:00  dateB : 9:00  return NSOrderedAscending  升序
-/// dateA : 9:00  dateB : 8:00  return NSOrderedDescending 降序
+/// dateA : 8:00  dateB : 9:00  return NSOrderedAscending  升序  顺时针
+/// dateA : 9:00  dateB : 8:00  return NSOrderedDescending 降序  逆时针
 /// dateA : 8:00  dateB : 8:00  return NSOrderedSame 相同
 + (NSComparisonResult) yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB;
 
