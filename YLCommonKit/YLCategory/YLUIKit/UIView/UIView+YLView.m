@@ -13,7 +13,7 @@
 + (UIWindow *)yl_keyWindow{
     UIWindow* window = nil;
     if (@available(iOS 13.0, *)) {
-        window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+        window = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
     }else{
         window = [UIApplication sharedApplication].keyWindow;
     }
