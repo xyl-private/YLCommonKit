@@ -11,13 +11,12 @@
 @implementation UIView (YLView)
 
 + (UIWindow *)yl_keyWindow{
-    UIWindow* window = nil;
-    if (@available(iOS 13.0, *)) {
-        window = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
-    }else{
-        window = [UIApplication sharedApplication].keyWindow;
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    for(UIWindow *window in [windows reverseObjectEnumerator]) {
+        if ([window isKindOfClass:[UIWindow class]] && CGRectEqualToRect(window.bounds, [UIScreen mainScreen].bounds))
+            return window;
     }
-    return window;
+    return [UIApplication sharedApplication].keyWindow;
 }
 
 + (instancetype)yl_viewFromXib {
