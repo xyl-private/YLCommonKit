@@ -499,4 +499,77 @@
     }
     return obj;
 }
+
+/**
+ 查找子字符串在父字符串中的所有位置
+ @param content 父字符串
+ @param subString 子字符串
+ @return 返回位置数组,NSRange的字符串类型
+ */
++ (NSArray*)yl_getSubStringInRangeWithContent:(NSString *)content subString:(NSString *)subString {
+    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
+    NSString *tempString = content;
+    NSInteger count = 0;
+    while ([tempString containsString:subString]) {
+        NSRange range = [tempString rangeOfString:subString];
+        tempString = [tempString stringByReplacingCharactersInRange:range withString:@""];
+        
+        range = NSMakeRange(range.location + subString.length * count, range.length);
+        [rangeArr addObject:[NSValue valueWithRange:range]];
+        
+        count++;
+    }
+    return [rangeArr copy];
+}
+
+/**
+ 查找子字符串在父字符串中的所有位置
+ @param subString 子字符串
+ @return 返回位置数组,NSRange的字符串类型
+ */
+- (NSArray *)yl_getSubStringInRangeWithSubString:(NSString *)subString {
+    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
+    NSString *tempString = self;
+    NSInteger count = 0;
+    while ([tempString containsString:subString]) {
+        NSRange range = [tempString rangeOfString:subString];
+        tempString = [tempString stringByReplacingCharactersInRange:range withString:@""];
+        
+        range = NSMakeRange(range.location + subString.length * count, range.length);
+        [rangeArr addObject:[NSValue valueWithRange:range]];
+        
+        count++;
+    }
+    return [rangeArr copy];
+}
+
+#pragma mark - 方法1：查找 substring 在 string 中的位置范围
+- (NSArray *)br_substringRange:(NSString *)substring ofString:(NSString *)string {
+    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
+    NSString *tempString = string;
+    NSInteger count = 0;
+    while ([tempString containsString:substring]) {
+        NSRange range = [tempString rangeOfString:substring];
+        tempString = [tempString stringByReplacingCharactersInRange:range withString:@""];
+        
+        range = NSMakeRange(range.location + substring.length * count, range.length);
+        [rangeArr addObject:[NSValue valueWithRange:range]];
+        
+        count++;
+    }
+    return [rangeArr copy];
+}
+
+#pragma mark - 方法2：查找 substring 在 string 中的位置范围
+//- (NSArray *)br_substringRange:(NSString *)substring ofString:(NSString *)string {
+//    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
+//    for (NSInteger i = 0; i < string.length - substring.length + 1; i++) {
+//        NSString *findString = [string substringWithRange:NSMakeRange(i, substring.length)];
+//        if ([findString isEqualToString:substring]) {
+//            NSRange range = NSMakeRange(i, substring.length);
+//            [rangeArr addObject:[NSValue valueWithRange:range]];
+//        }
+//    }
+//    return [rangeArr copy];
+//}
 @end

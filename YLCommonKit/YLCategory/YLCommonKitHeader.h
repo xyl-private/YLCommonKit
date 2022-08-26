@@ -11,6 +11,7 @@
 
 #import "NSString+YLString.h"
 #import "NSString+YLRegex.h"
+#import "NSString+YLAppInfo.h"
 #import "NSDate+YLDate.h"
 #import "NSData+YLData.h"
 

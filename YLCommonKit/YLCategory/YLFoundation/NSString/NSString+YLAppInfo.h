@@ -9,7 +9,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, YLBundleType) {
+    /// 项目名称
+    YLBundleTypeName,
+    /// 版本 0.0.1
+    YLBundleTypeShortVersion,
+    /// build 版本
+    YLBundleTypeBuildVersion,
+    /// bundle id
+    YLBundleTypeIdentifier,
+};
+
 @interface NSString (YLAppInfo)
+
+/// 获取 APP 信息
+/// @param type 信息类型
++ (NSString *)yl_appInfoWithType:(YLBundleType)type;
 
 /// 获取 APP 信息
 /// @param key 参考返回值输出内容
@@ -17,10 +32,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// CFBundleShortVersionString:APP 版本号
 + (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key;
 
-/// 获取 APP Name
-+ (NSString *)yl_getAppName;
-/// 获取 app 版本号
-+ (NSString *)yl_getAppVersion;
 @end
 
 NS_ASSUME_NONNULL_END

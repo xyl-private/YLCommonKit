@@ -144,4 +144,19 @@
 /// @param jsonString JSON 字符串
 + (id)yl_dictionaryFromJSONString:(NSString *)jsonString;
 
+/**
+ 查找子字符串在父字符串中的所有位置
+ @param content 父字符串
+ @param subString 子字符串
+ @return 返回位置数组,NSRange的字符串类型
+ */
++ (NSArray*)yl_getSubStringInRangeWithContent:(NSString *)content subString:(NSString *)subString;
+
+/**
+ 查找子字符串在父字符串中的所有位置
+ @param subString 子字符串
+ @return 返回位置数组,NSRange的字符串类型
+ */
+- (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
+
 @end

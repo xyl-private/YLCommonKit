@@ -10,6 +10,22 @@
 
 @implementation NSString (YLAppInfo)
 
++ (NSString *)yl_appInfoWithType:(YLBundleType)type {
+    NSDictionary * typeKeys = @{
+        @(YLBundleTypeName) : @"CFBundleName",
+        @(YLBundleTypeShortVersion) : @"CFBundleShortVersionString",
+        @(YLBundleTypeBuildVersion) : @"CFBundleVersion",
+        @(YLBundleTypeIdentifier) : @"CFBundleIdentifier",
+    };
+    NSString *typeString = typeKeys[@(type)];
+    
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    
+    NSString *appInfo = [infoDictionary objectForKey:typeString];
+    
+    return appInfo;
+}
+
 + (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key{
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     if (key.length != 0) {
@@ -18,15 +34,4 @@
     return infoDictionary;
 }
 
-+ (NSString *)yl_getAppName{
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleName"];
-    return app_Name;
-}
-
-+ (NSString *)yl_getAppVersion{
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *app_version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    return app_version;
-}
 @end
