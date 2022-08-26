@@ -31,9 +31,7 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors
-                                      locations:(NSArray *)locations
-                                          frame:(CGRect)frame;
++ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame;
 
 /**
  *  设置渐变色 默认从上向下 纵向渐变
@@ -43,49 +41,18 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors
-                                      locations:(NSArray *)locations
-                                          frame:(CGRect)frame;
-
-
-/**
- *  设置渐变色 默认从左向右 横向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,0~1,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (CAGradientLayer *)yl_setGradientLayerVerticallyWithColors:(NSArray *)colors
-                                                   locations:(NSArray *)locations
-                                                       frame:(CGRect)frame API_DEPRECATED_WITH_REPLACEMENT("yl_setGradientVerticallyWithColors:locations:frame:", ios(2.0, 10.0)) NS_EXTENSION_UNAVAILABLE_IOS("");
-
-/**
- *  设置渐变色 默认从上向下 纵向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (CAGradientLayer *)yl_setGradientLayerHorizontalWithColors:(NSArray *)colors
-                                                   locations:(NSArray *)locations
-                                                       frame:(CGRect)frame API_DEPRECATED_WITH_REPLACEMENT("yl_setGradientHorizontalWithColors:locations:frame:", ios(2.0, 10.0)) NS_EXTENSION_UNAVAILABLE_IOS("");
++ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame;
 
 /**
  *  设置渐变色
  *  @param colors 颜色数组,
  *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
  *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,0~1,可为空,默认平均分配
+ *  @param locations 渐变色区间,可为空,默认平均分配,例@[0, 0.3, 0.6, 1]
  *  @param frame view.bouns
- *  @param startPoint  起始位置坐标 以左上角为起始位置 坐标(0,0) 右下角坐标(1,1)
- *  @param endPoint 终止位置坐标
+ *  @param startPoint 左上角起始点 CGPointMake(0, 0);
+ *  @param endPoint 右下角是终点 CGPointMake(1, 1);
  */
-+ (CAGradientLayer *)yl_setGradientLayerWithColors:(NSArray *)colors
-                                         locations:(NSArray *)locations
-                                             frame:(CGRect)frame
-                                        startPoint:(CGPoint)startPoint
-                                          endPoint:(CGPoint)endPoint;
++ (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
 
 @end

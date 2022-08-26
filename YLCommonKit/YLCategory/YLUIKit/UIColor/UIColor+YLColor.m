@@ -112,64 +112,8 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors
-                                      locations:(NSArray *)locations
-                                          frame:(CGRect)frame{
-    CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors
-                                                                  locations:locations
-                                                                      frame:frame
-                                                                 startPoint:CGPointMake(0, 0)
-                                                                   endPoint:CGPointMake(1.0, 0)];
-    
-    UIGraphicsBeginImageContext(frame.size);
-    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return [UIColor colorWithPatternImage:image];
-}
-
-
-/**
- *  设置渐变色 默认从上向下 纵向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors
-                                      locations:(NSArray *)locations
-                                          frame:(CGRect)frame{
-    
-    CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors
-                                                                  locations:locations
-                                                                      frame:frame
-                                                                 startPoint:CGPointMake(0, 0)
-                                                                   endPoint:CGPointMake(0.0,1.0)];
-    
-    UIGraphicsBeginImageContext(frame.size);
-    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return [UIColor colorWithPatternImage:image];
-}
-
-/**
- *  设置渐变色 默认从左向右 横向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (CAGradientLayer *)yl_setGradientLayerVerticallyWithColors:(NSArray *)colors
-                                                   locations:(NSArray *)locations
-                                                       frame:(CGRect)frame{
-    return [UIColor yl_setGradientLayerWithColors:colors
-                                        locations:locations
-                                            frame:frame
-                                       startPoint:CGPointMake(0, 0)
-                                         endPoint:CGPointMake(1.0, 0)];
++ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
+    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1.0,0.0)];
 }
 
 /**
@@ -180,14 +124,27 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (CAGradientLayer *)yl_setGradientLayerHorizontalWithColors:(NSArray *)colors
-                                                   locations:(NSArray *)locations
-                                                       frame:(CGRect)frame{
-    return [UIColor yl_setGradientLayerWithColors:colors
-                                        locations:locations
-                                            frame:frame
-                                       startPoint:CGPointMake(0, 0)
-                                         endPoint:CGPointMake(0.0,1.0)];
++ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
+    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0.0,1.0)];
+}
+
+/**
+ *  设置渐变色
+ *  @param colors 颜色数组,
+ *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
+ *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
+ *  @param locations 渐变色区间,可为空,默认平均分配,例@[0, 0.3, 0.6, 1]
+ *  @param frame view.bouns
+ *  @param startPoint 左上角起始点 CGPointMake(0, 0);
+ *  @param endPoint 右下角是终点 CGPointMake(1, 1);
+ */
++ (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint{
+    CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors locations:locations frame:frame startPoint:startPoint endPoint:endPoint];
+    UIGraphicsBeginImageContext(frame.size);
+    [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return [UIColor colorWithPatternImage:image];
 }
 
 /**
@@ -200,12 +157,7 @@
  *  @param startPoint  起始位置坐标 以左上角为起始位置 坐标(0,0) 右下角坐标(1,1)
  *  @param endPoint 终止位置坐标
  */
-+ (CAGradientLayer *)yl_setGradientLayerWithColors:(NSArray *)colors
-                                         locations:(NSArray *)locations
-                                             frame:(CGRect)frame
-                                        startPoint:(CGPoint)startPoint
-                                          endPoint:(CGPoint)endPoint
-{
++ (CAGradientLayer *)yl_setGradientLayerWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     NSMutableArray *colorsMarr = [NSMutableArray array];
     for (int i = 0 ; i<colors.count; i++) {
