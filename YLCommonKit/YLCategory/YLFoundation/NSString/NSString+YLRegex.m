@@ -10,7 +10,7 @@
 
 @implementation NSString (YLRegex)
 #pragma mark - 正则表达式验证
-+ (BOOL) yl_isValidateByRegex:(NSString *)regex string:(NSString *)str
++ (BOOL)yl_isValidateByRegex:(NSString *)regex string:(NSString *)str
 {
     NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     return [pre evaluateWithObject:str];
@@ -18,7 +18,7 @@
 /**
  * 是否是邮箱
  */
-+ (BOOL) yl_isEmailWith:(NSString *)str
++ (BOOL)yl_isEmailWith:(NSString *)str
 {
     NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     return [self yl_isValidateByRegex:regex string:str];
@@ -27,7 +27,7 @@
 /**
  * 判断字符串是否包含某些字符
  */
-+ (BOOL) yl_isStringContainSomeSymbolWithString:(NSString * )string Symbol:(NSArray *)symbols
++ (BOOL)yl_isStringContainSomeSymbolWithString:(NSString * )string Symbol:(NSArray *)symbols
 {
     BOOL isOK = NO;//不包含
     for (NSString * symbol in symbols) {
@@ -41,7 +41,7 @@
 /**
  * 只包含 汉字、数字、英文、-、_ 、#字符
  */
-+ (BOOL) yl_isAddressWith:(NSString *)address
++ (BOOL)yl_isAddressWith:(NSString *)address
 {
     NSString * un = @"^[\u4e00-\u9fa5_-#a-zA-Z0-9]+$";
     return [self yl_isValidateByRegex:un string:address];
@@ -50,7 +50,7 @@
 /**
  *  手机号码证验证 YES验证通过，NO验证失败
  */
-+ (BOOL) yl_isPhoneNumberWith:(NSString *)str
++ (BOOL)yl_isPhoneNumberWith:(NSString *)str
 {
     if (str.length != 11) {
         return NO;
@@ -61,7 +61,7 @@
 /**
  *  验证数字 YES:是数字; NO:不是数字
  */
-+ (BOOL) yl_isNumberWith:(NSString *)str
++ (BOOL)yl_isNumberWith:(NSString *)str
 {
     NSString *regex = @"[0-9]*";
     return [self yl_isValidateByRegex:regex string:str];
@@ -69,7 +69,7 @@
 /**
  *  验证是否是中文 YES:是; NO:不是
  */
-+ (BOOL) yl_isChineseWith:(NSString *)str
++ (BOOL)yl_isChineseWith:(NSString *)str
 {
     NSString *regex = @"[\u4e00-\u9fa5]+";
     return [self yl_isValidateByRegex:regex string:str];
@@ -77,7 +77,7 @@
 /**
  *  验证是否是英文 YES:是; NO:不是
  */
-+ (BOOL) yl_isEnglishWith:(NSString *)str
++ (BOOL)yl_isEnglishWith:(NSString *)str
 {
     NSString *regex = @"[a-zA-Z]";
     return [self yl_isValidateByRegex:regex string:str];
@@ -85,7 +85,7 @@
 /**
  *  验证金额，输入只限小数点后两位 YES:是数字; NO:不是数字
  */
-+ (BOOL) yl_isMoneyWith:(NSString *)str
++ (BOOL)yl_isMoneyWith:(NSString *)str
 {
     NSString *regex = @"^[0-9]+(\\.[0-9]{1,2})?$";
     return [self yl_isValidateByRegex:regex string:str];
@@ -93,7 +93,7 @@
 /**
  *   车牌号的有效性验证 YES:是数字; NO:不是数字
  */
-+ (BOOL) yl_isCarNumberWith:(NSString *)str
++ (BOOL)yl_isCarNumberWith:(NSString *)str
 {
     //车牌号:湘K-DE829 香港车牌号码:粤Z-J499港
     NSString *regex = @"^[\\u4e00-\\u9fff]{1}[a-zA-Z]{1}[-][a-zA-Z_0-9]{4}[a-zA-Z_0-9_\\u4e00-\\u9fff]$";//其中\\u4e00-\\u9fa5表示unicode编码中汉字已编码部分，\\u9fa5-\\u9fff是保留部分，将来可能会添加
@@ -102,7 +102,7 @@
 /**
  * 是否邮政编码
  */
-+ (BOOL) yl_isPostalcodeWith:(NSString *)str
++ (BOOL)yl_isPostalcodeWith:(NSString *)str
 {
     //    NSString *regex = @"^[0-8]\\\\d{5}(?!\\\\d)$";
     
@@ -110,7 +110,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 
-+ (BOOL) yl_isPasswordValidWith:(NSString *)str{
++ (BOOL)yl_isPasswordValidWith:(NSString *)str{
     NSString *regex = @"^((?![0-9]+$)(?![a-zA-Z]+$)(?![~!@#$^&|*-_+=.?,]+$))[0-9A-Za-z~!@#$^&|*-_+=.?,]{8,20}$";
     return [self yl_isValidateByRegex:regex string:str];
 }
@@ -125,7 +125,7 @@
  *  2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
  *  3，将加法和加上校验位能被 10 整除。
  */
-- (BOOL) yl_isBankCard
+- (BOOL)yl_isBankCard
 {
     NSString * lastNum = [[self substringFromIndex:(self.length - 1)] copy];//取出最后一位
     NSString * forwardNum = [[self substringToIndex:(self.length - 1)] copy];//前15或18位
@@ -185,7 +185,7 @@
 /**
  *  身份证验证
  */
-+ (BOOL) yl_isIDCardWith:(NSString *)str
++ (BOOL)yl_isIDCardWith:(NSString *)str
 {
     str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSInteger length =0;
@@ -271,13 +271,13 @@
     }
 }
 
-- (BOOL) yl_isContainsString:(NSString *)aString
+- (BOOL)yl_isContainsString:(NSString *)aString
 {
     NSRange range = [[self lowercaseString] rangeOfString:[aString lowercaseString]];
     return range.location != NSNotFound;
 }
 
-+ (BOOL) yl_regularCheck:(NSString *)regularStr content:(NSString*)centent
++ (BOOL)yl_regularCheck:(NSString *)regularStr content:(NSString*)centent
 {
     if ([NSString yl_isNumber:centent]) {
         
@@ -291,7 +291,7 @@
     return NO;
 }
 //验证数字
-+ (BOOL) yl_isNumber:(NSString*)number {
++ (BOOL)yl_isNumber:(NSString*)number {
     BOOL res = YES;
     if (!number) {
         return NO;
@@ -312,7 +312,7 @@
 /**
  * 座机区号验证
  */
-+ (BOOL) yl_isTelephoneAreaCodeWith:(NSString *)telephoneAreaCode
++ (BOOL)yl_isTelephoneAreaCodeWith:(NSString *)telephoneAreaCode
 {
     NSString *regex = @"^0[0-9]{2,3}$";
     return [self yl_isValidateByRegex:regex string:telephoneAreaCode];
@@ -320,14 +320,14 @@
 /**
  * 座机电话验证
  */
-+ (BOOL) yl_isTelephoneWith:(NSString *)telephone
++ (BOOL)yl_isTelephoneWith:(NSString *)telephone
 {
     NSString * regex = @"^((0\\d{2,3})-)?(\\d{7,8})(-(\\d{3,}))?$";
     return [self yl_isValidateByRegex:regex string:telephone];
 }
 
 /// 判断是否包含emoji表情 YES:包含; NO:不包含
-+ (BOOL) yl_stringContainsEmojiWith:(NSString *)str
++ (BOOL)yl_stringContainsEmojiWith:(NSString *)str
 {
     __block BOOL returnValue = NO;
     [str enumerateSubstringsInRange:NSMakeRange(0, [str length])

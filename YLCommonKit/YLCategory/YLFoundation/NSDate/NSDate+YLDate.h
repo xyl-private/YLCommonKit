@@ -52,9 +52,9 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 @property (nonatomic, readonly) BOOL isToday; ///< Weather date is today (based on current locale)
 @property (nonatomic, readonly) BOOL isYesterday; ///< Weather date is yesterday (based on current locale)
 
-+ (NSCalendar *) yl_calendar;
++ (NSCalendar *)yl_calendar;
 
-+ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat;
++ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat;
 
 /// 获取当前时区与0时区的间隔秒数
 + (NSInteger)yl_secondsFromGMT;
@@ -77,25 +77,25 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 + (NSDate *)yl_dateFromDateString:(NSString *)dateString dateFormatter:(NSString *)dateFormatter;
 
 /// NSDate 转成 NSDateComponents
-+ (NSDateComponents *) yl_dateComponentsFromDate:(NSDate *)date;
++ (NSDateComponents *)yl_dateComponentsFromDate:(NSDate *)date;
 
 /// 时间格式转换
-+ (NSString *) yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat;
++ (NSString *)yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat;
 
 /// 获取农历日期
-+ (NSDateComponents *) yl_chineseCalendarWithDate:(NSDate*)date;
++ (NSDateComponents *)yl_chineseCalendarWithDate:(NSDate*)date;
 
 /// 比较两个日期
 /// dateStringA : 8:00  dateStringB : 9:00  return NSOrderedAscending  升序 顺时针
 /// dateStringA : 9:00  dateStringB : 8:00  return NSOrderedDescending 降序 逆时针
 /// dateStringA : 8:00  dateStringB : 8:00  return NSOrderedSame 相同
-+ (NSComparisonResult) yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter;
++ (NSComparisonResult)yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter;
 
 /// 比较两个日期
 /// dateA : 8:00  dateB : 9:00  return NSOrderedAscending  升序  顺时针
 /// dateA : 9:00  dateB : 8:00  return NSOrderedDescending 降序  逆时针
 /// dateA : 8:00  dateB : 8:00  return NSOrderedSame 相同
-+ (NSComparisonResult) yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB;
++ (NSComparisonResult)yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB;
 
 /// 比较两个日期,
 /// @param unit 时间单位, 例:NSCalendarUnitDay|NSCalendarUnitHour,相差 1 天 5 小时
@@ -108,15 +108,15 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 /// @param length 间单位长度可以是正负数，
 /// 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
 /// 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
-+ (NSDate *) yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
++ (NSDate *)yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length;
 
 /// 判断给定日期 是周几   1-周日，2-周一 ... 7-周六
-+ (NSInteger) yl_weekDayFromDate:(NSDate *)date;
++ (NSInteger)yl_weekDayFromDate:(NSDate *)date;
 
 ///  某月中周的数量
-+ (NSInteger) yl_weeksInMonthWithDate:(NSDate *)date;
++ (NSInteger)yl_weeksInMonthWithDate:(NSDate *)date;
 /// 某年中周的数量
-+ (NSInteger) yl_weeksInYearWithDate:(NSDate *)date;
++ (NSInteger)yl_weeksInYearWithDate:(NSDate *)date;
 
 /// 日期显示样式
 /// @param timeStamp 时间戳 10 位 秒

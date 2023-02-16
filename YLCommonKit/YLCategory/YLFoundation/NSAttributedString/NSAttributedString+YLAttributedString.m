@@ -12,7 +12,7 @@
 /**
  * 设置段落样式
  */
-+ (NSAttributedString *) yl_stringWithParagraphlineSpeace:(CGFloat)lineSpacing kernAttribute:(CGFloat)kernAttribute textColor:(UIColor *)textcolor textFont:(UIFont *)font string:(NSString *)string
++ (NSAttributedString *)yl_stringWithParagraphlineSpeace:(CGFloat)lineSpacing kernAttribute:(CGFloat)kernAttribute textColor:(UIColor *)textcolor textFont:(UIFont *)font string:(NSString *)string
 {
     if (string.length == 0) return nil;
     // 设置段落
@@ -32,7 +32,7 @@
 /**
  *  计算富文本字体高度
  */
-+ (CGFloat) yl_getSpaceLabelHeightwithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute withFont:(UIFont *)font withWidth:(CGFloat)width string:(NSString *)string
++ (CGFloat)yl_getSpaceLabelHeightwithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute withFont:(UIFont *)font withWidth:(CGFloat)width string:(NSString *)string
 {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = lineSpeace;
@@ -49,7 +49,7 @@
 /**
  *  计算富文本字体宽度
  */
-+ (CGFloat) yl_getSpaceLabelWidthWithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute font:(UIFont *)font height:(CGFloat)height string:(NSString *)string
++ (CGFloat)yl_getSpaceLabelWidthWithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute font:(UIFont *)font height:(CGFloat)height string:(NSString *)string
 {
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineSpacing = lineSpeace;

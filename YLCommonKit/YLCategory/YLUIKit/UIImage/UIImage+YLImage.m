@@ -16,21 +16,21 @@
 /**
  * 渲染为原始图片
  */
-+ (UIImage *) yl_imageWithRenderingImage:(NSString *)imageName
++ (UIImage *)yl_imageWithRenderingImage:(NSString *)imageName
 {
     return [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 /**
  * 颜色转为图片
  */
-+ (UIImage *) yl_imageWithColor:(UIColor *)color
++ (UIImage *)yl_imageWithColor:(UIColor *)color
 {
     return [UIImage yl_imageWithColor:color andSize:CGSizeMake(1, 1)];
 }
 /**
  * 颜色转为图片
  */
-+ (UIImage *) yl_imageWithColor:(UIColor *)color andSize:(CGSize)size
++ (UIImage *)yl_imageWithColor:(UIColor *)color andSize:(CGSize)size
 {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
@@ -52,7 +52,7 @@
  @return 生成的二维码图片
  */
 
-+ (UIImage *) yl_createQRCodeWithContentText:(NSString *)contentText withSize:(CGFloat) size {
++ (UIImage *)yl_createQRCodeWithContentText:(NSString *)contentText withSize:(CGFloat) size {
     // 1. 创建一个二维码滤镜实例(CIFilter)
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     // 滤镜恢复默认设置
@@ -76,7 +76,7 @@
  @param size 图片大小
  @return 更清晰的图片
  */
-+ (UIImage *) yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size {
++ (UIImage *)yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size {
     
     CGRect extent = CGRectIntegral(image.extent);
     CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
@@ -106,7 +106,7 @@
  @param size 生成二维码的大小
  @return 生成的二维码图片
  */
-+ (UIImage *) yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage withSize:(CGFloat)size {
++ (UIImage *)yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage withSize:(CGFloat)size {
     
     UIImage *img = [self yl_createQRCodeWithContentText:contentText withSize:size];
     //----------合成图片-----------
@@ -129,7 +129,7 @@
  @param size 区域大小
  @return 生成后的Image
  */
-- (UIImage *) yl_makeImageWithView:(UIView *)view withSize:(CGSize)size {
+- (UIImage *)yl_makeImageWithView:(UIView *)view withSize:(CGSize)size {
     // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了，关键就是第三个参数 [UIScreen mainScreen].scale。
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];

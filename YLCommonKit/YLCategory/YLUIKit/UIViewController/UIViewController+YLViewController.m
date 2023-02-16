@@ -11,7 +11,7 @@
 @implementation UIViewController (YLViewController)
 
 //获取当前屏幕显示的viewcontroller
-+ (UIViewController *) yl_getCurrentVC {
++ (UIViewController *)yl_getCurrentVC {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
     return currentVC;
@@ -37,13 +37,13 @@
 }
 
 /// 获取目标页面的控制器
-+ (UIViewController *) yl_getTargetVCWithVCCls:(Class)cls {
++ (UIViewController *)yl_getTargetVCWithVCCls:(Class)cls {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     UIViewController *targetVC = [self getTargetVCFrom:rootViewController targetCls:cls];
     return targetVC;
 }
 
-+ (UIViewController *) yl_getTargetVCWithVCName:(NSString *)vcName{
++ (UIViewController *)yl_getTargetVCWithVCName:(NSString *)vcName{
     return [UIViewController yl_getTargetVCWithVCCls:[NSClassFromString(vcName) class]];
 }
 

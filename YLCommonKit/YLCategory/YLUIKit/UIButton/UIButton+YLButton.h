@@ -22,6 +22,6 @@ typedef NS_ENUM(NSInteger, YLImagePosition) {
  *
  *  @param spacing 图片和文字的间隔
  */
-- (void) yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing;
+- (void)yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing;
 
 @end

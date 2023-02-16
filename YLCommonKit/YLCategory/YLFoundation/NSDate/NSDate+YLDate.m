@@ -89,7 +89,7 @@
     return newDate;
 }
 
-+ (NSCalendar *) yl_calendar {
++ (NSCalendar *)yl_calendar {
     static NSCalendar *calendar;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -99,7 +99,7 @@
     return calendar;
 }
 
-+ (NSDateFormatter *) yl_dateFormatter:(NSString *)dateFormat {
++ (NSDateFormatter *)yl_dateFormatter:(NSString *)dateFormat {
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateFormat = dateFormat;
     [dateFormatter setCalendar:[NSDate yl_calendar]];
@@ -152,7 +152,7 @@
 }
 
 /// NSDate 转成 NSDateComponents
-+ (NSDateComponents *) yl_dateComponentsFromDate:(NSDate *)date {
++ (NSDateComponents *)yl_dateComponentsFromDate:(NSDate *)date {
     NSCalendar *calendar = [NSDate yl_calendar];
     NSCalendarUnit unit = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitNanosecond | NSCalendarUnitCalendar | NSCalendarUnitTimeZone | NSCalendarUnitYearForWeekOfYear |NSCalendarUnitQuarter;
     NSDateComponents * components = [calendar components:unit fromDate:date];
@@ -160,13 +160,13 @@
 }
 
 /// 时间格式转换
-+ (NSString *) yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat{
++ (NSString *)yl_stringTransDateFormatWithDateString:(NSString*)dateString oldDateFormat:(NSString *)oldDateFormat newDateFormat:(NSString *)newDateFormat{
     NSDate * date = [NSDate yl_dateFromDateString:dateString dateFormatter:oldDateFormat];
     return [NSDate yl_stringFromDate:date dateFormatter:newDateFormat];
 }
 
 /// 获取农历日期
-+ (NSDateComponents *) yl_chineseCalendarWithDate:(NSDate*)date {
++ (NSDateComponents *)yl_chineseCalendarWithDate:(NSDate*)date {
     NSCalendar *localeCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
     NSCalendarUnit unit = NSCalendarUnitEra | NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal | NSCalendarUnitWeekOfMonth | NSCalendarUnitWeekOfYear | NSCalendarUnitNanosecond | NSCalendarUnitCalendar | NSCalendarUnitTimeZone | NSCalendarUnitYearForWeekOfYear |NSCalendarUnitQuarter;
     NSDateComponents *localeComp = [localeCalendar components:unit fromDate:date];
@@ -177,7 +177,7 @@
 /// dateStringA : 8:00  dateStringB : 9:00  return NSOrderedAscending  升序
 /// dateStringA : 9:00  dateStringB : 8:00  return NSOrderedDescending 降序
 /// dateStringA : 8:00  dateStringB : 8:00  return NSOrderedSame 相同
-+ (NSComparisonResult) yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter {
++ (NSComparisonResult)yl_compareDateWithDateStringA:(NSString *)dateStringA dateStringB:(NSString *)dateStringB dateFormatter:(NSString *)dateFormatter {
     NSDateFormatter *df = [self yl_dateFormatter:dateFormatter];
     NSDate *dateA = [df dateFromString:dateStringA];
     NSDate *dateB = [df dateFromString:dateStringB];
@@ -189,7 +189,7 @@
 /// dateA : 8:00  dateB : 9:00  return NSOrderedAscending  升序
 /// dateA : 9:00  dateB : 8:00  return NSOrderedDescending 降序
 /// dateA : 8:00  dateB : 8:00  return NSOrderedSame 相同
-+ (NSComparisonResult) yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB{
++ (NSComparisonResult)yl_compareDateWithDateA:(NSDate *)dateA dateStringB:(NSDate *)dateB{
     return [dateA compare:dateB];
 }
 
@@ -208,7 +208,7 @@
 /// @param length 间单位长度可以是正负数，
 /// 正数是以当前时间为起点，向未来的时间间隔出几个时间单位。
 /// 负数是以当前时间为起点，向过去时间间隔出几个时间单位。
-+ (NSDate *) yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
++ (NSDate *)yl_datePeriodOfDateFromDate:(NSDate *)date componentsType:(YLDateComponentsType)type periodLength:(NSInteger)length{
     NSDateComponents * components = [[NSDateComponents alloc] init];
     switch (type) {
         case YLDateComponentsTypeYear:
@@ -239,20 +239,20 @@
 }
 
 /// 判断给定日期 是周几   1-周日，2-周一 ... 7-周六
-+ (NSInteger) yl_weekDayFromDate:(NSDate *)date{
++ (NSInteger)yl_weekDayFromDate:(NSDate *)date{
     NSDateComponents *comps = [[self yl_calendar] components:NSCalendarUnitWeekday fromDate:date];
     // 1 是周日，2是周一 3.以此类推
     return [comps weekday];
 }
 
 ///  某月中周的数量
-+ (NSInteger) yl_weeksInMonthWithDate:(NSDate *)date {
++ (NSInteger)yl_weeksInMonthWithDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:date];
     return range.length;
 }
 /// 某年中周的数量
-+ (NSInteger) yl_weeksInYearWithDate:(NSDate *)date {
++ (NSInteger)yl_weeksInYearWithDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfYear inUnit:NSCalendarUnitYear forDate:date];
     return range.length;

@@ -21,11 +21,43 @@
 /// @param font 字体大小
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
 + (CGSize)yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size;
+/// 计算字符串的 size
+/// @param font 字体
+/// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
+- (CGSize)yl_stringSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+/// 计算字符串的 size
+/// @param font 字体
+/// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
+/// @param options options description
+/// NSStringDrawingUsesLineFragmentOrigin 整个文本将以每行组成的矩形为单位计算整个文本的尺寸。
+/// NSStringDrawingUsesFontLeading 以字体间的行距（leading，行距：从一行文字的底部到另一行文字底部的间距。）来计算。
+/// NSStringDrawingTruncatesLastVisibleLine/NSStringDrawingUsesDeviceMetric 计算文本尺寸时将以每个字或字形为单位来计算。
+/// 一般使用:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
+- (CGSize)yl_stringSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size options:(NSStringDrawingOptions)options;
 
 /// 隐藏字符中的一部分
 /// @param content 原始字符串
 /// @param range 隐藏范围
 + (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
+
+/// 打电话
+/// @param telephone 电话号码,+8618212345678,区号直接加在前面
++ (void)yl_callUpWithTelephone:(NSString *)telephone;
+
+/*!
+ * @abstract 比较两个版本号
+ *
+ * @param serveVersion 服务器版本
+ * @param currentVesion 当前版本
+ *
+ * @discussion
+ * serveVersion:2.9.1  currentVesion:2.9.0  返回NSOrderedDescending  serveVersion 最新
+ *
+ * serveVersion:2.8.1  currentVesion:2.9.0  返回NSOrderedAscending currentVesion 最新
+ *
+ * serveVersion:2.9.0  currentVesion:2.9.0  返回NSOrderedSame 相同
+ */
++ (NSComparisonResult)yl_compareVesionWithServerVersion:(NSString *)serveVersion currentVesion:(NSString *)currentVesion;
 
 #pragma mark - 判断
 /// 判断字符串是否为 null
@@ -34,6 +66,8 @@
 + (BOOL)yl_canTouchID;
 /// 验证TouchID是否正确 successBlock TouchID验证Block
 + (void)yl_verifyTouchID:(void(^)(BOOL success,NSError *error))successBlock;
+/// 是否包含中文
+- (BOOL)yl_isContainsChinese;
 
 #pragma mark - 加密
 /// MD5加密字符串
@@ -158,5 +192,8 @@
  @return 返回位置数组,NSRange的字符串类型
  */
 - (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
+
+#pragma mark -- 判断手机型号
++ (NSString*)yl_phoneModel;
 
 @end

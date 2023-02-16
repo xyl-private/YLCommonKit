@@ -11,10 +11,10 @@
 @interface UIColor (YLColor)
 
 /// 十六进制颜色 - 不透明
-+ (UIColor *) yl_colorWithHexString:(NSString *)hexColor;
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor;
 
 /// 十六进制颜色 - 可透明
-+ (UIColor *) yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha;
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha;
 
 /// 随机色
 + (UIColor *)yl_randomColor;

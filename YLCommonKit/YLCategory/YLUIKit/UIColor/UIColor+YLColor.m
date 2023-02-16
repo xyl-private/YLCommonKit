@@ -12,7 +12,7 @@
 /**
  *  十六进制颜色 - 不透明
  */
-+ (UIColor *) yl_colorWithHexString:(NSString *)hexColor
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor
 {
     return [self yl_colorWithHexString:hexColor alpha:1.0f];
 }
@@ -20,7 +20,7 @@
 /**
  *  十六进制颜色 - 可透明
  */
-+ (UIColor *) yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha
 {
     // 统一变大写
     NSString *colorStr = [hexColor uppercaseString];
