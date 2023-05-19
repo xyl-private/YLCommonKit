@@ -10,7 +10,11 @@
 #import "TestViewController.h"
 #import "YLCommonKitHeader.h"
 
+#define kKeyWondow UIApplication.yl_keyWindow
+
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIButton *clickBtn;
 
 @end
 
@@ -23,7 +27,11 @@
 }
 
 - (IBAction)BaseViewControllerAction:(UIButton *)sender {
-
+    NSLog(@"%@", UIApplication.yl_keyWindow.rootViewController);
+    TestViewController *vc = [TestViewController new];
+    [(UINavigationController *)UIApplication.yl_keyWindow.rootViewController pushViewController:vc animated:YES];
+    
+    
 }
 
 @end

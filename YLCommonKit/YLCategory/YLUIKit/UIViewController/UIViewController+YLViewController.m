@@ -7,12 +7,13 @@
 //
 
 #import "UIViewController+YLViewController.h"
+#import "UIApplication+YLApplication.h"
 
 @implementation UIViewController (YLViewController)
 
 //获取当前屏幕显示的viewcontroller
 + (UIViewController *)yl_getCurrentVC {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *rootViewController = UIApplication.yl_keyWindow.rootViewController;
     UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
     return currentVC;
 }
@@ -38,7 +39,7 @@
 
 /// 获取目标页面的控制器
 + (UIViewController *)yl_getTargetVCWithVCCls:(Class)cls {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *rootViewController = UIApplication.yl_keyWindow.rootViewController;
     UIViewController *targetVC = [self getTargetVCFrom:rootViewController targetCls:cls];
     return targetVC;
 }
@@ -79,7 +80,7 @@
 + (UIViewController *)yl_getActivityViewController {
     UIViewController* activityViewController = nil;
     
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIWindow *window = [UIApplication yl_keyWindow];
     if(window.windowLevel != UIWindowLevelNormal) {
         NSArray *windows = [[UIApplication sharedApplication] windows];
         for(UIWindow *tmpWin in windows) {
@@ -108,7 +109,7 @@
 
 /// 获得根控制器
 + (UIViewController *)yl_getAppRootViewController {
-    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *appRootVC = UIApplication.yl_keyWindow.rootViewController;
     UIViewController *topVC = appRootVC;
     while (topVC.presentedViewController) {
         topVC = topVC.presentedViewController;

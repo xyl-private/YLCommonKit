@@ -21,5 +21,6 @@
 #import "UIButton+YLButton.h"
 #import "UIFont+YLFont.h"
 #import "UIViewController+YLViewController.h"
+#import "UIApplication+YLApplication.h"
 
 #endif /* YLCommonKitHeader_h */

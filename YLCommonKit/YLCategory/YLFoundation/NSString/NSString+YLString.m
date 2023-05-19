@@ -191,13 +191,35 @@
     // 1: 需要加密的C字符串
     // 2: 加密的字符串的长度
     // 3: 加密长度
+#pragma mark - ----------------------- 警告 -----------------------
+    // 去掉警告的宏
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"// 找到警告的类型
+    //被警告的代码
     CC_MD5( cStr, (CC_LONG)strlen(cStr), digest );
+#pragma clang diagnostic pop
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++){
         [output appendFormat:@"%02x", digest[i]];
     }
     // 返回一个32位长度的加密后的字符串
     return  output;
+}
+
+/// 字符串SHA256加密
+- (NSString *)yl_sha256Encryption {
+    const char* str = [self UTF8String];
+    
+    unsigned char result[CC_SHA256_DIGEST_LENGTH];
+    
+    CC_SHA256(str, (CC_LONG)strlen(str), result);
+    
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i<CC_SHA256_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@"%02x",result[i]];
+    }    
+    return ret;
 }
 
 #pragma mark - 身份证相关

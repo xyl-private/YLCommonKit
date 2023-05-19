@@ -10,15 +10,6 @@
 
 @implementation UIView (YLView)
 
-+ (UIWindow *)yl_keyWindow{
-    NSArray *windows = [UIApplication sharedApplication].windows;
-    for(UIWindow *window in [windows reverseObjectEnumerator]) {
-        if ([window isKindOfClass:[UIWindow class]] && CGRectEqualToRect(window.bounds, [UIScreen mainScreen].bounds))
-            return window;
-    }
-    return [UIApplication sharedApplication].keyWindow;
-}
-
 + (instancetype)yl_viewFromXib {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }

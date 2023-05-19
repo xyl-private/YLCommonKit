@@ -72,6 +72,8 @@
 #pragma mark - 加密
 /// MD5加密字符串
 + (NSString *)yl_md5EncryptionWithInput:(NSString *)input;
+/// 字符串SHA256加密
+- (NSString *)yl_sha256Encryption;
 
 #pragma mark - 身份证相关
 /// 从身份证获取生日

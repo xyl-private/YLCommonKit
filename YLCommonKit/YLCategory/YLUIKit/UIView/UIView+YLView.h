@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (YLView)
 
-+ (UIWindow *)yl_keyWindow;
-
 + (instancetype)yl_viewFromXib;
 /// 当前所在的 viewController
 - (UIViewController *)yl_viewController;
