@@ -120,12 +120,12 @@
 /// NSDate 转 时间戳
 + (NSInteger)yl_timestampFromDate:(NSDate *)date type:(YLTimestampType)type{
     NSTimeInterval timeInterval = [date timeIntervalSince1970];
-    if (type == YLTimestampTypeSecond) {
-        return (NSInteger)timeInterval;
+    if (type == YLTimestampTypeMillisecond) {
+        timeInterval = timeInterval*1000;
     }else if (type == YLTimestampTypeMillisecond) {
-        return (NSInteger)timeInterval*1000;
+        timeInterval = timeInterval*1000*1000;
     }
-    return (NSInteger)timeInterval*1000000;
+    return (NSInteger)timeInterval;
 }
 
 /// 时间戳 转 NSDate
