@@ -43,7 +43,7 @@ static inline void sq_swizzleSelector(Class class, SEL originalSelector, SEL swi
 
 #pragma mark - NSObject分类
 
-@implementation NSObject (YLPrintBeautifulLog)
+@implementation NSObject (YLConsoleLog)
 //将obj转换成json字符串。如果失败则返回nil.
 - (NSString *)convertToJsonString {
     
