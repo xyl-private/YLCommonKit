@@ -39,6 +39,8 @@
     return [UIFont fontNamesForFamilyName:familyName];
 }
 
+
+#pragma mark - 弃用
 + (UIFont *)yl_systemFontSize:(NSInteger)size{
     return [UIFont fontWithName:[UIFont pingFangSCWithType:YLFontTypePingFangSC_Regular] size:size];
 }

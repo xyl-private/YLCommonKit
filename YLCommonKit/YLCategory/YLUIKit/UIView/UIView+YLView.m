@@ -100,23 +100,26 @@
     return maskLayer;
 }
 
-/**
- *  设置部分圆角(绝对布局)
- *
- *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
- *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
- */
+
+/// 添加圆角
+/// @param corners 需要设置为圆角的角
+/// @param cornerRadius 圆角半径
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius {
+    [self yl_addRoundedCorners:corners cornerRadii:CGSizeMake(cornerRadius, cornerRadius) viewRect:self.bounds];
+}
+
+
+/// 设置部分圆角(绝对布局)
+/// @param corners 圆角的位置
+/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii {
     [self yl_addRoundedCorners:corners cornerRadii:cornerRadii viewRect:self.bounds];
 }
 
-/**
- *  设置部分圆角(相对布局)
- *
- *  @param corners 需要设置为圆角的角 UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerAllCorners
- *  @param cornerRadii   需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
- *  @param viewRect    需要设置的圆角view的rect
- */
+/// 设置部分圆角(相对布局)
+/// @param corners 圆角的位置
+/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+/// @param viewRect 需要设置的圆角view的rect
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii viewRect:(CGRect)viewRect {
     UIBezierPath* rounded = [UIBezierPath bezierPathWithRoundedRect:viewRect byRoundingCorners:corners cornerRadii:cornerRadii];
     CAShapeLayer* shapeLayer = [[CAShapeLayer alloc] init];

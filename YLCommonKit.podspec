@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "YLCommonKit"
-    s.version      = "0.0.26"
+    s.version      = "0.0.27"
     s.summary      = "我的基础库"
     s.description  = <<-DESC
                         简单的整理,常用的分类
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.license      = { :type => "MIT", :file => "LICENSE" }
     s.author       = { "村雨灬龑" => "xyl_private@163.com" }
 
-    s.ios.deployment_target = "9.0"
+    s.ios.deployment_target = "12.0"
 
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
     s.frameworks = "Foundation","UIKit"
@@ -29,6 +29,10 @@ Pod::Spec.new do |s|
         ss.public_header_files = 'YLCommonKit/YLCategory/*.h'
         
         ss.subspec 'YLFoundation' do |ss|
+            ss.subspec 'Other' do |ss|
+                ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/Other/*.{h,m}'
+                ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/Other/*.h'
+            end
             ss.subspec 'NSData' do |ss|
                 ss.source_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.{h,m}'
                 ss.public_header_files = 'YLCommonKit/YLCategory/YLFoundation/NSData/*.h'

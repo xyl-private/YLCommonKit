@@ -10,14 +10,23 @@
 #import "NSString+YLRegex.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <LocalAuthentication/LocalAuthentication.h>
-#import <sys/utsname.h>
+
+//首先导入头文件信息,IP
+#include <ifaddrs.h>
+#include <arpa/inet.h>
+#include <net/if.h>
+
+#define IOS_CELLULAR    @"pdp_ip0"
+#define IOS_WIFI        @"en0"
+#define IOS_VPN         @"utun0"
+#define IP_ADDR_IPv4    @"ipv4"
+#define IP_ADDR_IPv6    @"ipv6"
 
 @implementation NSString (YLString)
 #pragma mark - 其他相关
 
 /// 转换字符串：如果是空 -> @""
-+ (NSString *)yl_stringNoNullWith:(id)sender
-{
++ (NSString *)yl_stringNoNullWith:(id)sender {
     if (sender == [NSNull null]){ return @"";}
     if ([sender isKindOfClass:[NSNull class]]) { return @"";}
     if (sender == nil) { return @"";}
@@ -30,7 +39,7 @@
 /// @param content 文本内容
 /// @param font 字体大小
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
-+ (CGSize)yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size{
++ (CGSize)yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size {
     return [content yl_stringSizeWithFont:font constrainedToSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading];
 }
 
@@ -61,8 +70,7 @@
 /// 隐藏字符中的一部分
 /// @param content 原始字符串
 /// @param range 隐藏范围
-+ (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range
-{
++ (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range {
     NSMutableString *mString = [NSMutableString stringWithString:content];
     NSMutableString *comStr = [NSMutableString stringWithCapacity:range.length];
     for (int i = 0; i<range.length; i++) {
@@ -70,6 +78,15 @@
     }
     [mString replaceCharactersInRange:range withString:comStr];
     return mString;
+}
+
+/// 截取字符串
+/// - Parameter lenght: 最大长度
+- (NSString *)yl_substringWithLenght:(NSInteger)lenght {
+    if (self.length > lenght) {
+        return [self substringToIndex:lenght];
+    }
+    return self;
 }
 
 /// 打电话
@@ -95,7 +112,7 @@
  *
  * serveVersion:2.9.0  currentVesion:2.9.0  返回NSOrderedSame 相同
  */
-+ (NSComparisonResult)yl_compareVesionWithServerVersion:(NSString *)serveVersion currentVesion:(NSString *)currentVesion {
++ (NSComparisonResult)yl_compareVesionWithCurrentVesion:(NSString *)currentVesion serverVersion:(NSString *)serveVersion {
     
     if ([serveVersion isEqualToString:currentVesion]) {
         // 版本相同
@@ -127,6 +144,74 @@
         return NSOrderedDescending;
     }
     return NSOrderedAscending;
+}
+
+/// 获取设备当前网络IP地址
+/// - Parameter preferIPv4: YES:ipv4  NO:ipv6
++ (NSString *)yl_getCurrentIP:(BOOL)preferIPv4 {
+    NSArray *searchArray = preferIPv4 ?
+    @[ /*IOS_VPN @"/" IP_ADDR_IPv4, IOS_VPN @"/" IP_ADDR_IPv6,*/
+        IOS_WIFI @"/" IP_ADDR_IPv4,
+        IOS_WIFI @"/" IP_ADDR_IPv6,
+        IOS_CELLULAR @"/" IP_ADDR_IPv4,
+        IOS_CELLULAR @"/" IP_ADDR_IPv6
+    ] :
+    @[ /*IOS_VPN @"/" IP_ADDR_IPv6, IOS_VPN @"/" IP_ADDR_IPv4,*/
+        IOS_WIFI @"/" IP_ADDR_IPv6,
+        IOS_WIFI @"/" IP_ADDR_IPv4,
+        IOS_CELLULAR @"/" IP_ADDR_IPv6,
+        IOS_CELLULAR @"/" IP_ADDR_IPv4 ] ;
+    
+    NSDictionary *addresses = [self getIPAddresses];
+    NSLog(@"addresses: %@", addresses);
+    
+    __block NSString *address;
+    [searchArray enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL *stop)
+     {
+        address = addresses[key];
+        if(address) *stop = YES;
+    } ];
+    return address ? address : @"0.0.0.0";
+}
+
+//获取所有相关IP信息
++ (NSDictionary *)getIPAddresses {
+    NSMutableDictionary *addresses = [NSMutableDictionary dictionaryWithCapacity:8];
+    
+    // retrieve the current interfaces - returns 0 on success
+    struct ifaddrs *interfaces;
+    if(!getifaddrs(&interfaces)) {
+        // Loop through linked list of interfaces
+        struct ifaddrs *interface;
+        for(interface=interfaces; interface; interface=interface->ifa_next) {
+            if(!(interface->ifa_flags & IFF_UP) /* || (interface->ifa_flags & IFF_LOOPBACK) */ ) {
+                continue; // deeply nested code harder to read
+            }
+            const struct sockaddr_in *addr = (const struct sockaddr_in*)interface->ifa_addr;
+            char addrBuf[ MAX(INET_ADDRSTRLEN, INET6_ADDRSTRLEN) ];
+            if(addr && (addr->sin_family==AF_INET || addr->sin_family==AF_INET6)) {
+                NSString *name = [NSString stringWithUTF8String:interface->ifa_name];
+                NSString *type;
+                if(addr->sin_family == AF_INET) {
+                    if(inet_ntop(AF_INET, &addr->sin_addr, addrBuf, INET_ADDRSTRLEN)) {
+                        type = IP_ADDR_IPv4;
+                    }
+                } else {
+                    const struct sockaddr_in6 *addr6 = (const struct sockaddr_in6*)interface->ifa_addr;
+                    if(inet_ntop(AF_INET6, &addr6->sin6_addr, addrBuf, INET6_ADDRSTRLEN)) {
+                        type = IP_ADDR_IPv6;
+                    }
+                }
+                if(type) {
+                    NSString *key = [NSString stringWithFormat:@"%@/%@", name, type];
+                    addresses[key] = [NSString stringWithUTF8String:addrBuf];
+                }
+            }
+        }
+        // Free memory
+        freeifaddrs(interfaces);
+    }
+    return [addresses count] ? addresses : nil;
 }
 
 #pragma mark - 判断
@@ -172,7 +257,7 @@
 
 
 /// 是否包含中文
-- (BOOL)yl_isContainsChinese{
+- (BOOL)yl_isContainsChinese {
     for(int i=0; i< [self length];i++) {
         int a = [self characterAtIndex:i];
         if( a > 0x4E00 && a < 0x9FFF) {
@@ -492,7 +577,7 @@
  @param isSymbol YES 带音标   NO 不带
  @return 拼音
  */
-+ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol{
++ (NSString *)yl_transform:(NSString *)chinese isSymbol:(BOOL)isSymbol {
     //将NSString装换成NSMutableString
     NSMutableString *pinyin = [chinese mutableCopy];
     //将汉字转换为拼音(带音标)
@@ -588,7 +673,7 @@
 
 #pragma mark - 数组/字典等 转 JSON 字符串
 /// obj 转成 json 字符串
-+ (NSString *)yl_jsonStringFromObject:(id)obj{
++ (NSString *)yl_jsonStringFromObject:(id)obj {
     if (obj == nil) {
         return @"";
     }
@@ -598,8 +683,7 @@
 
 /// JSONString  转 id
 /// @param jsonString JSON 字符串
-+ (id)yl_dictionaryFromJSONString:(NSString *)jsonString
-{
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString {
     if (jsonString == nil || jsonString.length == 0) {
         return nil;
     }
@@ -686,190 +770,4 @@
 //    return [rangeArr copy];
 //}
 
-#pragma mark -- 判断手机型号
-+ (NSString*)yl_phoneModel {
-    // 苹果设备 iPhone、iPad 型号
-    // https://www.theiphonewiki.com/wiki/Models
-    struct utsname systemInfo;
-    
-    uname(&systemInfo);
-    
-    NSString * identifier = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    
-    NSDictionary *generations = @{
-        // Simulator 模拟器
-        @"i386": @"iPhone Simulator",
-        @"x86_64": @"iPhone Simulator",
-        
-        // iPhone
-        @"iPhone1,1": @"iPhone 2G",
-        @"iPhone1,2": @"iPhone 3G",
-        @"iPhone2,1": @"iPhone 3GS",
-        @"iPhone3,1": @"iPhone 4",
-        @"iPhone3,2": @"iPhone 4",
-        @"iPhone3,3": @"iPhone 4",
-        @"iPhone4,1": @"iPhone 4S",
-        @"iPhone5,1": @"iPhone 5",
-        @"iPhone5,2": @"iPhone 5",
-        @"iPhone5,3": @"iPhone 5c",
-        @"iPhone5,4": @"iPhone 5c",
-        @"iPhone6,1": @"iPhone 5s",
-        @"iPhone6,2": @"iPhone 5s",
-        @"iPhone7,1": @"iPhone 6 Plus",
-        @"iPhone7,2": @"iPhone 6",
-        @"iPhone8,1": @"iPhone 6s",
-        @"iPhone8,2": @"iPhone 6s Plus",
-        @"iPhone8,4": @"iPhone SE",
-        @"iPhone9,1": @"iPhone 7",
-        @"iPhone9,3": @"iPhone 7",
-        @"iPhone9,2": @"iPhone 7 Plus",
-        @"iPhone9,4": @"iPhone 7 Plus",
-        @"iPhone10,1": @"iPhone 8",
-        @"iPhone10,4": @"iPhone 8",
-        @"iPhone10,2": @"iPhone 8 Plus",
-        @"iPhone10,5": @"iPhone 8 Plus",
-        @"iPhone10,3": @"iPhone X",
-        @"iPhone10,6": @"iPhone X",
-        @"iPhone11,8": @"iPhone XR",
-        @"iPhone11,2": @"iPhone XS",
-        @"iPhone11,4": @"iPhone XS Max",
-        @"iPhone11,6": @"iPhone XS Max",
-        
-        @"iPhone12,1": @"iPhone 11",
-        @"iPhone12,3": @"iPhone 11 Pro",
-        @"iPhone12,5": @"iPhone 11 Pro Max",
-        @"iPhone12,8": @"iPhone SE 2nd",
-        
-        @"iPhone13,1": @"iPhone 12 mini",
-        @"iPhone13,2": @"iPhone 12",
-        @"iPhone13,3": @"iPhone 12 Pro",
-        @"iPhone13,4": @"iPhone 12 Pro Max",
-        
-        @"iPhone14,4": @"iPhone 13 mini",
-        @"iPhone14,5": @"iPhone 13",
-        @"iPhone14,2": @"iPhone 13 Pro",
-        @"iPhone14,3": @"iPhone 13 Pro Max",
-        @"iPhone14,6": @"iPhone SE 3rd",
-        
-        @"iPhone14,7": @"iPhone 14",
-        @"iPhone14,8": @"iPhone 14 Plus",
-        @"iPhone15,2": @"iPhone 14 Pro",
-        @"iPhone15,3": @"iPhone 14 Pro Max",
-        
-        // iPad
-        @"iPad1,1": @"iPad",
-        @"iPad2,1": @"iPad 2",
-        @"iPad2,2": @"iPad 2",
-        @"iPad2,3": @"iPad 2",
-        @"iPad2,4": @"iPad 2",
-        
-        @"iPad3,1": @"iPad 3",
-        @"iPad3,2": @"iPad 3",
-        @"iPad3,3": @"iPad 3",
-        
-        @"iPad3,4": @"iPad 4",
-        @"iPad3,5": @"iPad 4",
-        @"iPad3,6": @"iPad 4",
-        
-        @"iPad6,11": @"iPad 5",
-        @"iPad6,12": @"iPad 5",
-        
-        @"iPad7,5": @"iPad 6",
-        @"iPad7,6": @"iPad 6",
-        
-        @"iPad7,11": @"iPad 7",
-        @"iPad7,12": @"iPad 7",
-        
-        @"iPad11,6": @"iPad 8",
-        @"iPad11,7": @"iPad 8",
-        
-        @"iPad12,1": @"iPad 8",
-        @"iPad12,2": @"iPad 8",
-        
-        // iPad Air
-        @"iPad4,1": @"iPad Air",
-        @"iPad4,2": @"iPad Air",
-        @"iPad4,3": @"iPad Air",
-        
-        @"iPad5,3": @"iPad Air 2",
-        @"iPad5,4": @"iPad Air 2",
-        
-        @"iPad11,3": @"iPad Air 3",
-        @"iPad11,4": @"iPad Air 3",
-        
-        @"iPad13,1": @"iPad Air 4",
-        @"iPad13,2": @"iPad Air 4",
-        
-        @"iPad13,16": @"iPad Air 5",
-        @"iPad13,17": @"iPad Air 5",
-        
-        // iPad Pro
-        @"iPad6,7": @"iPad Pro (12.9-inch)",
-        @"iPad6,8": @"iPad Pro (12.9-inch)",
-        
-        @"iPad6,3": @"iPad Pro (9.7-inch)",
-        @"iPad6,4": @"iPad Pro (9.7-inch)",
-        
-        @"iPad7,1": @"iPad Pro 2(12.9-inch)",
-        @"iPad7,2": @"iPad Pro 2(12.9-inch)",
-        
-        @"iPad7,3": @"iPad Pro (10.5-inch)",
-        @"iPad7,4": @"iPad Pro (10.5-inch)",
-        
-        @"iPad8,1": @"iPad Pro (11-inch)",
-        @"iPad8,2": @"iPad Pro (11-inch)",
-        @"iPad8,3": @"iPad Pro (11-inch)",
-        @"iPad8,4": @"iPad Pro (11-inch)",
-        
-        
-        @"iPad8,5": @"iPad Pro 3(12.9-inch)",
-        @"iPad8,6": @"iPad Pro 3(12.9-inch)",
-        @"iPad8,7": @"iPad Pro 3(12.9-inch)",
-        @"iPad8,8": @"iPad Pro 3(12.9-inch)",
-        
-        @"iPad8,9": @"iPad Pro 2(11-inch)",
-        @"iPad8,10": @"iPad Pro 2(11-inch)",
-        
-        @"iPad8,11": @"iPad Pro 4(12.9-inch)",
-        @"iPad8,12": @"iPad Pro 4(12.9-inch)",
-        
-        @"iPad13,4": @"iPad Pro 3(11-inch)",
-        @"iPad13,5": @"iPad Pro 3(11-inch)",
-        @"iPad13,6": @"iPad Pro 3(11-inch)",
-        @"iPad13,7": @"iPad Pro 3(11-inch)",
-        
-        @"iPad13,8": @"iPad Pro 5(12.9-inch)",
-        @"iPad13,9": @"iPad Pro 5(12.9-inch)",
-        @"iPad13,10": @"iPad Pro 5(12.9-inch)",
-        @"iPad13,11": @"iPad Pro 5(12.9-inch)",
-        
-        // iPad mini
-        @"iPad2,5": @"iPad mini",
-        @"iPad2,6": @"iPad mini",
-        @"iPad2,7": @"iPad mini",
-        
-        @"iPad4,4": @"iPad mini 2",
-        @"iPad4,5": @"iPad mini 2",
-        @"iPad4,6": @"iPad mini 2",
-        
-        @"iPad4,7": @"iPad mini 3",
-        @"iPad4,8": @"iPad mini 3",
-        @"iPad4,9": @"iPad mini 3",
-        
-        @"iPad5,1": @"iPad mini 4",
-        @"iPad5,2": @"iPad mini 4",
-        
-        @"iPad11,1": @"iPad mini 5",
-        @"iPad11,2": @"iPad mini 5",
-        
-        @"iPad14,1": @"iPad mini 6",
-        @"iPad14,2": @"iPad mini 6",
-    };
-    // 手机型号
-    NSString *generation = generations[identifier];
-    if (generation.length > 0) {
-        return generation;
-    }
-    return identifier;
-}
 @end

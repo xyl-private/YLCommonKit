@@ -37,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii;
 
+/// 添加圆角 (绝对布局)
+/// @param corners 需要设置为圆角的角
+/// @param cornerRadius 圆角半径
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius;
+    
 /// 设置部分圆角(绝对布局)
 /// @param corners 圆角的位置
 /// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
@@ -48,8 +53,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param viewRect 需要设置的圆角view的rect
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii viewRect:(CGRect)viewRect;
 
+/// 添加圆角
+/// @param cornerRadius 圆角半径
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius;
 
+/// 添加外环线
+/// @param cornerRadius 圆角半径
+/// @param borderWidth 线宽度
+/// @param borderColor 线颜色
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 #pragma mark - Frame

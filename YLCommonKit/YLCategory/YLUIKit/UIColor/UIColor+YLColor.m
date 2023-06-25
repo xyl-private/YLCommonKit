@@ -9,19 +9,18 @@
 #import "UIColor+YLColor.h"
 
 @implementation UIColor (YLColor)
-/**
- *  十六进制颜色 - 不透明
- */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor
-{
+
+/// 十六进制颜色 - 不透明
+/// - Parameter hexColor: 十六进制颜色
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor {
     return [self yl_colorWithHexString:hexColor alpha:1.0f];
 }
 
-/**
- *  十六进制颜色 - 可透明
- */
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha
-{
+/// 十六进制颜色 - 可透明
+/// - Parameters:
+///   - hexColor: 十六进制颜色
+///   - alpha: 透明度
++ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha {
     // 统一变大写
     NSString *colorStr = [hexColor uppercaseString];
     // 删除空格
@@ -51,7 +50,7 @@
     return [UIColor colorWithRed:((CGFloat)red/ 255.0f) green:((CGFloat)green/ 255.0f) blue:((CGFloat)blue/ 255.0f) alpha:alpha];
 }
 
-+ (UIColor *)yl_randomColor{
++ (UIColor *)yl_randomColor {
     CGFloat red = random()%255/255.0;
     CGFloat green = random()%255/255.0;
     CGFloat blue = random()%255/255.0;
@@ -60,23 +59,20 @@
 
 
 /// UIColor 转十六进制
-- (NSString *)yl_hexadecimalColor{
-    if (CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor)) != kCGColorSpaceModelRGB)
-    {
+- (NSString *)yl_hexadecimalColor {
+    if (CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor)) != kCGColorSpaceModelRGB) {
         NSLog(@"非RGB：");
         if ([self isEqual:[UIColor clearColor]]) {
             return @"#000000FF";
-        }
-        else if ([self isEqual:[UIColor whiteColor]]){
+        } else if ([self isEqual:[UIColor whiteColor]]) {
             return @"#FFFFFF";
-        }else{
+        } else {
             return @"000000";
         }
         return [NSString stringWithFormat:@"#FFFFFF"];
     }
     
-    if (CGColorGetNumberOfComponents(self.CGColor) < 4)
-    {
+    if (CGColorGetNumberOfComponents(self.CGColor) < 4) {
         NSLog(@"CGColorGetNumberOfComponents < 4");
         const CGFloat *components = CGColorGetComponents(self.CGColor);
         CGFloat r = components[0];//红色
@@ -91,17 +87,10 @@
     CGFloat g = components[1];
     CGFloat b = components[2];
     CGFloat a = components[3];
-    if (a==1) {
-        return [NSString stringWithFormat:@"#%02lX%02lX%02lX",
-                lroundf(r * 255),
-                lroundf(g * 255),
-                lroundf(b * 255)] ;
+    if (a == 1) {
+        return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)] ;
     }
-    return [NSString stringWithFormat:@"#%02lX%02lX%02lX%02lX",
-            lroundf(r * 255),
-            lroundf(g * 255),
-            lroundf(b * 255),
-            lroundf(a * 255)];
+    return [NSString stringWithFormat:@"#%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255)];
 }
 
 /**
@@ -112,8 +101,8 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
-    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1.0,0.0)];
++ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame {
+    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1.0, 0.0)];
 }
 
 /**
@@ -124,8 +113,8 @@
  *  @param locations 渐变色区间,可为空,默认平均分配
  *  @param frame view.bouns
  */
-+ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame{
-    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0.0,1.0)];
++ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame {
+    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0.0, 1.0)];
 }
 
 /**
@@ -138,7 +127,7 @@
  *  @param startPoint 左上角起始点 CGPointMake(0, 0);
  *  @param endPoint 右下角是终点 CGPointMake(1, 1);
  */
-+ (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint{
++ (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
     CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors locations:locations frame:frame startPoint:startPoint endPoint:endPoint];
     UIGraphicsBeginImageContext(frame.size);
     [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
@@ -178,7 +167,7 @@
     
     if (locations.count) {
         gradientLayer.locations = locations;
-    }else{
+    } else {
         NSMutableArray * templocations = [NSMutableArray array];
         for (int i = 0 ; i<colors.count; i++) {
             double value = (1.0/colors.count) * i;

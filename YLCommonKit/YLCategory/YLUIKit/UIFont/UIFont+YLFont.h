@@ -48,16 +48,14 @@ typedef NS_ENUM(NSUInteger, YLFontType) {
 /// - Parameter familyName: 库名
 + (NSArray *)yl_fontNamesForFamilyName:(NSString *)familyName;
 
-
+#pragma mark - 弃用
 /// 设置字体 默认:常规体
 /// @param size 字体大小
-+ (UIFont *)yl_systemFontSize:(NSInteger)size DEPRECATED_MSG_ATTRIBUTE("Use 'br_stringFromDate:dateFormat:' instead");
++ (UIFont *)yl_systemFontSize:(NSInteger)size DEPRECATED_MSG_ATTRIBUTE("Use 'yl_fontSystemOfWeight:size:' instead");
 /// 设置字体
 /// @param type 字重类型
 /// @param size 字体大小
-+ (UIFont *)yl_fontType:(YLFontType )type size:(NSInteger)size DEPRECATED_MSG_ATTRIBUTE("Use 'br_stringFromDate:dateFormat:' instead");
++ (UIFont *)yl_fontType:(YLFontType )type size:(NSInteger)size DEPRECATED_MSG_ATTRIBUTE("Use 'yl_fontSystemOfWeight:size:' instead");
 @end
 
 NS_ASSUME_NONNULL_END
-
-/** NSDate 转 NSString（已弃用） */

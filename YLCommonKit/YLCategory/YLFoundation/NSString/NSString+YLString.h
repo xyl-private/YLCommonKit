@@ -40,6 +40,10 @@
 /// @param range 隐藏范围
 + (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
 
+/// 截取字符串
+/// - Parameter lenght: 最大长度
+- (NSString *)yl_substringWithLenght:(NSInteger)lenght;
+
 /// 打电话
 /// @param telephone 电话号码,+8618212345678,区号直接加在前面
 + (void)yl_callUpWithTelephone:(NSString *)telephone;
@@ -47,17 +51,21 @@
 /*!
  * @abstract 比较两个版本号
  *
- * @param serveVersion 服务器版本
  * @param currentVesion 当前版本
+ * @param serveVersion 服务器版本
  *
  * @discussion
- * serveVersion:2.9.1  currentVesion:2.9.0  返回NSOrderedDescending  serveVersion 最新
+ * serveVersion:2.9.1  currentVesion:2.9.0  返回NSOrderedDescending  serveVersion 最新(需要更新)
  *
  * serveVersion:2.8.1  currentVesion:2.9.0  返回NSOrderedAscending currentVesion 最新
  *
  * serveVersion:2.9.0  currentVesion:2.9.0  返回NSOrderedSame 相同
  */
-+ (NSComparisonResult)yl_compareVesionWithServerVersion:(NSString *)serveVersion currentVesion:(NSString *)currentVesion;
++ (NSComparisonResult)yl_compareVesionWithCurrentVesion:(NSString *)currentVesion serverVersion:(NSString *)serveVersion;
+
+/// 获取设备当前网络IP地址
+/// - Parameter preferIPv4: YES:ipv4  NO:ipv6
++ (NSString *)yl_getCurrentIP:(BOOL)preferIPv4;
 
 #pragma mark - 判断
 /// 判断字符串是否为 null
@@ -194,8 +202,5 @@
  @return 返回位置数组,NSRange的字符串类型
  */
 - (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
-
-#pragma mark -- 判断手机型号
-+ (NSString*)yl_phoneModel;
 
 @end
