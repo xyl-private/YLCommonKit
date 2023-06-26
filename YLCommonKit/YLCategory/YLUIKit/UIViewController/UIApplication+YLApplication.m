@@ -17,12 +17,19 @@
     if (@available(iOS 13.0, *)) {
         NSSet<UIScene *> *connectedScenes = [UIApplication sharedApplication].connectedScenes;
         for (UIScene *scene in connectedScenes) {
-            if (scene.activationState == UISceneActivationStateForegroundActive && [scene isKindOfClass:[UIWindowScene class]]) {
+            if ([scene isKindOfClass:[UIWindowScene class]]) {
                 UIWindowScene *windowScene = (UIWindowScene *)scene;
-                for (UIWindow *window in windowScene.windows) {
-                    if (window.isKeyWindow) {
-                        keyWindow = window;
-                        break;
+                // window 活动状态, 从后台回到前台的时候,是无效的 但是需要这个window
+                if (windowScene.activationState == UISceneActivationStateForegroundActive ||
+                    windowScene.activationState == UISceneActivationStateForegroundInactive) {
+                    if (@available(iOS 15.0, *)) {
+                        return windowScene.keyWindow;
+                    } else {
+                        for (UIWindow *window in windowScene.windows) {
+                            if (window.isKeyWindow) {
+                                return window;
+                            }
+                        }
                     }
                 }
             }
