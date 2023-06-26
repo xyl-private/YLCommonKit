@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIColor (YLColor)
 
 /// 十六进制颜色 - 不透明
@@ -60,3 +62,5 @@
 + (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIImage (YLImage)
 
 /// 渲染为原始图片
@@ -55,3 +57,5 @@
 + (UIImage*)yl_getVideoCoverImageWithUrl:(NSString *)url;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSAttributedString (YLAttributedString)
 
 /**
@@ -25,3 +27,5 @@
 + (CGFloat)yl_getSpaceLabelWidthWithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute font:(UIFont *)font height:(CGFloat)height string:(NSString *)string;
 
 @end
+
+NS_ASSUME_NONNULL_END

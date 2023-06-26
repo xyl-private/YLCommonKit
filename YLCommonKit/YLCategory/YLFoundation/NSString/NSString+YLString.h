@@ -10,6 +10,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSString (YLString)
 #pragma mark - 其他相关
 
@@ -186,7 +188,8 @@
 
 /// JSONString  转 id
 /// @param jsonString JSON 字符串
-+ (id)yl_dictionaryFromJSONString:(NSString *)jsonString;
+/// @param error error description
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString error:(NSError **)error ;
 
 /**
  查找子字符串在父字符串中的所有位置
@@ -204,3 +207,5 @@
 - (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
 
 @end
+
+NS_ASSUME_NONNULL_END

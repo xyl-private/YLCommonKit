@@ -683,18 +683,18 @@
 
 /// JSONString  转 id
 /// @param jsonString JSON 字符串
-+ (id)yl_dictionaryFromJSONString:(NSString *)jsonString {
-    if (jsonString == nil || jsonString.length == 0) {
+/// @param error error description
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString error:(NSError **)error {
+    if (jsonString.length == 0) {
+        
+        if (error) {
+            NSDictionary *userInfo = @{ NSDebugDescriptionErrorKey: @"JSON String 转 id 失败, JSON String 的长度不能为0"};
+            *error = [[NSError alloc] initWithDomain:NSCocoaErrorDomain code:NSURLErrorCannotDecodeContentData userInfo:userInfo];
+        }
         return nil;
     }
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    id obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-    if(err) {
-        NSLog(@"json解析失败：%@",err);
-        return nil;
-    }
-    return obj;
+    
+    return [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:error];
 }
 
 /**
