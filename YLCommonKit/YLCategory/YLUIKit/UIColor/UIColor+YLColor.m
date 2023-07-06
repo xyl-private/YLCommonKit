@@ -12,35 +12,35 @@
 
 /// 十六进制颜色 - 不透明
 /// - Parameter hexColor: 十六进制颜色
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor {
-    return [self yl_colorWithHexString:hexColor alpha:1.0f];
++ (UIColor *)yl_colorWithHexString:(NSString *)hexString {
+    return [self yl_colorWithHexString:hexString alpha:1.0f];
 }
 
 /// 十六进制颜色 - 可透明
 /// - Parameters:
 ///   - hexColor: 十六进制颜色
 ///   - alpha: 透明度
-+ (UIColor *)yl_colorWithHexString:(NSString *)hexColor alpha:(CGFloat)alpha {
++ (UIColor *)yl_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha {
     // 统一变大写
-    NSString *colorStr = [hexColor uppercaseString];
+    NSString *colorString = [hexString uppercaseString];
     // 删除空格
-    colorStr = [colorStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    colorString = [colorString stringByReplacingOccurrencesOfString:@" " withString:@""];
     // 替换头部
-    colorStr = [colorStr stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    colorStr = [colorStr stringByReplacingOccurrencesOfString:@"0X" withString:@""];
+    colorString = [colorString stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    colorString = [colorString stringByReplacingOccurrencesOfString:@"0X" withString:@""];
     
     // 检查字符串长度
-    if (colorStr.length != 6) {
+    if (colorString.length != 6) {
         NSLog(@"请检查hexColor字符串长度是否正确");
         return [UIColor clearColor];
     }
     
     //red
-    NSString *redString = [colorStr substringWithRange:NSMakeRange(0, 2)];
+    NSString *redString = [colorString substringWithRange:NSMakeRange(0, 2)];
     //green
-    NSString *greenString = [colorStr substringWithRange:NSMakeRange(2, 2)];
+    NSString *greenString = [colorString substringWithRange:NSMakeRange(2, 2)];
     //blue
-    NSString *blueString= [colorStr substringWithRange:NSMakeRange(4, 2)];
+    NSString *blueString= [colorString substringWithRange:NSMakeRange(4, 2)];
     
     // Scan values
     unsigned int red, green, blue;
@@ -48,6 +48,18 @@
     [[NSScanner scannerWithString:greenString] scanHexInt:&green];
     [[NSScanner scannerWithString:blueString] scanHexInt:&blue];
     return [UIColor colorWithRed:((CGFloat)red/ 255.0f) green:((CGFloat)green/ 255.0f) blue:((CGFloat)blue/ 255.0f) alpha:alpha];
+}
+
+/// 重新设置颜色的透明度
+/// - Parameter alpha: 透明度 0~1
+- (UIColor *)alpha:(CGFloat)alpha {
+    CGFloat hue; // 色度,颜色
+    CGFloat saturation; // 饱和度
+    CGFloat brightness; // 亮度
+    //获取该颜色的几项值
+    [self getHue:&hue saturation:&saturation brightness:&brightness alpha:nil];
+    //重新把几项值+新亮度重新组合成新颜色
+    return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
 }
 
 + (UIColor *)yl_randomColor {
@@ -93,60 +105,52 @@
     return [NSString stringWithFormat:@"#%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255)];
 }
 
-/**
- *  设置渐变色 默认从左向右 横向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (UIColor *)yl_setGradientVerticallyWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame {
-    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(1.0, 0.0)];
+#pragma mark - Gradient 渐变色
++ (UIColor *)yl_gradientWithDirection:(YLGradientDirection)direction colors:(NSArray *)colors frame:(CGRect)frame {
+    return [UIColor yl_gradientWithDirection:direction colors:colors frame:frame locations:@[]];
 }
 
-/**
- *  设置渐变色 默认从上向下 纵向渐变
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- */
-+ (UIColor *)yl_setGradientHorizontalWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame {
-    return [UIColor yl_setGradientWithColors:colors locations:locations frame:frame startPoint:CGPointMake(0, 0) endPoint:CGPointMake(0.0, 1.0)];
++ (UIColor *)yl_gradientWithDirection:(YLGradientDirection)direction colors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations  {
+    
+    if (CGSizeEqualToSize(frame.size, CGSizeZero) ||
+        colors.count == 0) {
+        return nil;
+    }
+    
+    CGPoint startPoint = CGPointZero;
+    CGPoint endPoint = CGPointZero;
+    
+    switch(direction) {
+        case YLGradientDirectionHorizontal:
+            endPoint = CGPointMake(1.0, 0.0);
+            break;
+        case YLGradientDirectionVertical:
+            endPoint = CGPointMake(0.0, 1.0);
+            break;
+        case YLGradientDirectionUpDiagonalLine:
+            endPoint = CGPointMake(1.0, 1.0);
+            break;
+        case YLGradientDirectionDownDiagonalLine:
+            startPoint = CGPointMake(0.0, 1.0);
+            endPoint = CGPointMake(1.0, 0.0);
+            break;
+        default:
+            break;
+    }    
+    return [UIColor yl_gradientWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];
 }
 
-/**
- *  设置渐变色
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配,例@[0, 0.3, 0.6, 1]
- *  @param frame view.bouns
- *  @param startPoint 左上角起始点 CGPointMake(0, 0);
- *  @param endPoint 右下角是终点 CGPointMake(1, 1);
- */
-+ (UIColor *)yl_setGradientWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
-    CAGradientLayer *gradientLayer = [UIColor yl_setGradientLayerWithColors:colors locations:locations frame:frame startPoint:startPoint endPoint:endPoint];
++ (UIColor *)yl_gradientWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
+    CAGradientLayer *gradientLayer = [UIColor yl_gradientLayerWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];    
     UIGraphicsBeginImageContext(frame.size);
     [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
     return [UIColor colorWithPatternImage:image];
 }
 
-/**
- *  设置渐变色
- *  @param colors 颜色数组,
- *  例:@[[UIColor redColor],[UIColor blackColor]] 或者
- *  @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor blackColor].CGColor] 两者都可以
- *  @param locations 渐变色区间,可为空,默认平均分配
- *  @param frame view.bouns
- *  @param startPoint  起始位置坐标 以左上角为起始位置 坐标(0,0) 右下角坐标(1,1)
- *  @param endPoint 终止位置坐标
- */
-+ (CAGradientLayer *)yl_setGradientLayerWithColors:(NSArray *)colors locations:(NSArray *)locations frame:(CGRect)frame startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
++ (CAGradientLayer *)yl_gradientLayerWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     NSMutableArray *colorsMarr = [NSMutableArray array];
     for (int i = 0 ; i<colors.count; i++) {

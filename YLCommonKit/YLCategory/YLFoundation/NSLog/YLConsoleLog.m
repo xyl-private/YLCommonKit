@@ -135,6 +135,7 @@ static inline void sq_swizzleSelector(Class class, SEL originalSelector, SEL swi
     }
     return result;
 }
+
 //用此方法交换系统的 descriptionWithLocale:indent:方法。功能同上。
 - (NSString *)printlog_descriptionWithLocale:(id)locale indent:(NSUInteger)level {
     
@@ -145,6 +146,7 @@ static inline void sq_swizzleSelector(Class class, SEL originalSelector, SEL swi
     }
     return result;
 }
+
 //用此方法交换系统的 debugDescription 方法。该方法在控制台使用po打印的时候调用。
 - (NSString *)printlog_debugDescription {
     

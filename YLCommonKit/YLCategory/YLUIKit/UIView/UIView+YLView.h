@@ -27,40 +27,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - UIGestureRecognizer
 /// 添加点击手势
+/// - Parameters:
+///   - target: target
+///   - selector: selector
 - (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector;
 /// 添加长按手势
+/// - Parameters:
+///   - target: target
+///   - selector: selector
 - (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector;
 /// 添加拖拽手势
+/// - Parameters:
+///   - target: target
+///   - selector: selector
 - (UIPanGestureRecognizer *)yl_addPanGestureWithTarget:(id)target action:(nullable SEL)selector;
 
 #pragma mark - 圆角
 
-+ (CAShapeLayer *)yl_viewClipRect:(CGRect)viewRect rectCorner:(UIRectCorner)rectCorner cornerRadii:(CGSize)cornerRadii;
-
 /// 添加圆角 (绝对布局)
-/// @param corners 需要设置为圆角的角
-/// @param cornerRadius 圆角半径
+/// - Parameters:
+///   - corners: 需要设置为圆角的角
+///   - cornerRadius: 圆角半径
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius;
-    
+
 /// 设置部分圆角(绝对布局)
-/// @param corners 圆角的位置
-/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
+/// - Parameters:
+///   - corners: 需要设置为圆角的角
+///   - cornerRadii: 需要设置的圆角半径 例如 CGSizeMake(20.0f, 20.0f)
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii;
 
 /// 设置部分圆角(相对布局)
-/// @param corners 圆角的位置
-/// @param cornerRadii 需要设置的圆角大小 例如 CGSizeMake(20.0f, 20.0f)
-/// @param viewRect 需要设置的圆角view的rect
-- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii viewRect:(CGRect)viewRect;
+/// - Parameters:
+///   - corners: 需要设置为圆角的角
+///   - cornerRadii: 需要设置的圆角半径 例如 CGSizeMake(20.0f, 20.0f)
+///   - frame: 需要设置的圆角view的frame
+- (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadii:(CGSize)cornerRadii frame:(CGRect)frame;
 
 /// 添加圆角
-/// @param cornerRadius 圆角半径
+/// - Parameters:
+///   - cornerRadius: 圆角半径
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius;
 
 /// 添加外环线
-/// @param cornerRadius 圆角半径
-/// @param borderWidth 线宽度
-/// @param borderColor 线颜色
+/// - Parameters:
+///   - cornerRadius 圆角半径
+///   - borderWidth 线宽度
+///   - borderColor 线颜色
 - (void)yl_addLayerRoundedCorners:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
 #pragma mark - Frame

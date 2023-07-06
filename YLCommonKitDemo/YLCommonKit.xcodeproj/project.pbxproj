@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224424222A5691E1009C15EA /* NSString+YLDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424212A5691E1009C15EA /* NSString+YLDecimalNumber.m */; };
 		22455C7E2564F896003B5410 /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */; };
 		22587C152313B83500EC3525 /* UIViewController+YLHiddenNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22587C142313B83500EC3525 /* UIViewController+YLHiddenNavBar.m */; };
 		225FC96C2A47EA9D000363E5 /* YLConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 225FC96B2A47EA9D000363E5 /* YLConsoleLog.m */; };
@@ -41,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		224424202A5691E1009C15EA /* NSString+YLDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLDecimalNumber.h"; sourceTree = "<group>"; };
+		224424212A5691E1009C15EA /* NSString+YLDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLDecimalNumber.m"; sourceTree = "<group>"; };
 		22455C7C2564F896003B5410 /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		22455C7D2564F896003B5410 /* NSDictionary+YLDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+YLDictionary.m"; sourceTree = "<group>"; };
 		224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCommonKitHeader.h; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				7B10B3ED210AC59500F35E77 /* NSString+YLRegex.m */,
 				22F76D4123CFF07B008E8FEC /* NSString+YLAppInfo.h */,
 				22F76D4223CFF07B008E8FEC /* NSString+YLAppInfo.m */,
+				224424202A5691E1009C15EA /* NSString+YLDecimalNumber.h */,
+				224424212A5691E1009C15EA /* NSString+YLDecimalNumber.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -397,7 +402,8 @@
 		7B941B2220F3126500811329 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = xyanl;
 				TargetAttributes = {
 					7B941B2920F3126500811329 = {
@@ -447,6 +453,7 @@
 				7B10B42C210AC59500F35E77 /* UIImage+YLImage.m in Sources */,
 				7B10B42F210AC59500F35E77 /* UIView+YLView.m in Sources */,
 				225FC9732A47EF36000363E5 /* NSArray+YLExtension.m in Sources */,
+				224424222A5691E1009C15EA /* NSString+YLDecimalNumber.m in Sources */,
 				7B10B432210AC59500F35E77 /* UITableView+YLTableHeaderView.m in Sources */,
 				7B10B42D210AC59500F35E77 /* UIButton+YLButton.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,

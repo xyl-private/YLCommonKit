@@ -12,9 +12,10 @@
 #import "NSArray+YLExtension.h"
 #import "NSData+YLData.h"
 #import "NSDate+YLDate.h"
-#import "NSString+YLString.h"
-#import "NSString+YLRegex.h"
 #import "NSString+YLAppInfo.h"
+#import "NSString+YLDecimalNumber.h"
+#import "NSString+YLRegex.h"
+#import "NSString+YLString.h"
 #import "NSURL+YLExtension.h"
 #import "YLConsoleLog.h"
 
