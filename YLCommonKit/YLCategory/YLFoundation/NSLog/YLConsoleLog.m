@@ -7,10 +7,9 @@
 //
 
 /**
- 将字典（NSDictionary）和数组（NSArray）转化成JSON格式字符串输出到控制台。
- 可以正常在控制台输出中文。
- 直接将这个文件拖到工程中即可生效。
- https://github.com/shixueqian/PrintBeautifulLog
+ * 将字典（NSDictionary）和数组（NSArray）转化成JSON格式字符串输出到控制台。
+ * version: 1.2.0
+ * https://github.com/shixueqian/PrintBeautifulLog
  */
 
 //DEBUG模式生效
