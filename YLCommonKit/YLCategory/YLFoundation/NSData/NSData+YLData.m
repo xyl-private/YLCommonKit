@@ -10,8 +10,7 @@
 
 @implementation NSData (YLData)
 
-+ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage
-                                    targetPx:(NSInteger)targetPx{
++ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage targetPx:(NSInteger)targetPx {
     BOOL drawImge = NO;              // 是否需要重绘图片 默认是NO
     CGFloat scaleFactor = 0.0;       // 压缩比例
     CGFloat scaledWidth = targetPx;  // 压缩后的宽度 默认是参照像素1280px

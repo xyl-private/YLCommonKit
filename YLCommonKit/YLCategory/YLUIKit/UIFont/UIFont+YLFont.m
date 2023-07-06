@@ -26,39 +26,15 @@
     return [UIFont systemFontOfSize:size weight:weight];
 }
 
-
 /// 获取系统所有的字体库名
 + (NSArray *)yl_fontFamilyNames {
     return [UIFont familyNames];
 }
 
-
 /// 字体库中所有字体类型
 /// - Parameter familyName: 库名
 + (NSArray *)yl_fontNamesForFamilyName:(NSString *)familyName {
     return [UIFont fontNamesForFamilyName:familyName];
-}
-
-
-#pragma mark - 弃用
-+ (UIFont *)yl_systemFontSize:(NSInteger)size{
-    return [UIFont fontWithName:[UIFont pingFangSCWithType:YLFontTypePingFangSC_Regular] size:size];
-}
-
-+ (UIFont *)yl_fontType:(YLFontType )type size:(NSInteger)size{
-    return [UIFont fontWithName:[UIFont pingFangSCWithType:type] size:size];
-}
-
-+ (NSString *)pingFangSCWithType:(YLFontType)type{
-    NSDictionary * dic = @{
-        @(YLFontTypePingFangSC_Ultralight):@"PingFangSC-Ultralight",
-        @(YLFontTypePingFangSC_Thin):@"PingFangSC-Thin",
-        @(YLFontTypePingFangSC_Light):@"PingFangSC-Light",
-        @(YLFontTypePingFangSC_Regular):@"PingFangSC-Regular",
-        @(YLFontTypePingFangSC_Medium):@"PingFangSC-Medium",
-        @(YLFontTypePingFangSC_Semibold):@"PingFangSC-Semibold",
-    };
-    return dic[@(type)];
 }
 
 @end

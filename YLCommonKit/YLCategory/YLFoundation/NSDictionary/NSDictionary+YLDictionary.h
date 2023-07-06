@@ -13,8 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSDictionary (YLDictionary)
 
 /// 读取本地JSON文件
-/// @param name 文件名字
-/// @param type 文件类型
+/// - Parameters:
+///   - name: 文件名字
+///   - type: 文件类型
 + (NSDictionary *)yl_readLocalFileWithName:(NSString *)name type:(NSString *)type;
 
 

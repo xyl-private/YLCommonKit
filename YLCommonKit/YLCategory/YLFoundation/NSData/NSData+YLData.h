@@ -30,8 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 图片压缩
 /// @param sourceImage 原图
 /// @param targetPx 压缩后的图片宽高
-+ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage
-                                    targetPx:(NSInteger)targetPx;
++ (NSData *)yl_imageCompressForSizeWithImage:(UIImage *)sourceImage targetPx:(NSInteger)targetPx;
 
 @end
 

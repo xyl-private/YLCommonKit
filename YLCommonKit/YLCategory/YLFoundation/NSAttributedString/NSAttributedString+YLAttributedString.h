@@ -18,11 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSAttributedString *)yl_stringWithParagraphlineSpeace:(CGFloat)lineSpacing kernAttribute:(CGFloat)kernAttribute textColor:(UIColor *)textcolor textFont:(UIFont *)font string:(NSString *)string;
 /**
- *  计算富文本字体高度
+ * 计算富文本字体高度
  */
 + (CGFloat)yl_getSpaceLabelHeightwithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute withFont:(UIFont *)font withWidth:(CGFloat)width string:(NSString *)string;
 /**
- *  计算富文本字体宽度
+ * 计算富文本字体宽度
  */
 + (CGFloat)yl_getSpaceLabelWidthWithSpeace:(CGFloat)lineSpeace kernAttribute:(CGFloat)kernAttribute font:(UIFont *)font height:(CGFloat)height string:(NSString *)string;
 

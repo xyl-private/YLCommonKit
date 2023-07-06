@@ -73,9 +73,9 @@
 }
 
 /**
- *  获得当前VC 获取当前处于activity状态的view controller
+ * 获得当前VC 获取当前处于activity状态的view controller
  *
- *  @return 返回当前VC
+ * @return 返回当前VC
  */
 + (UIViewController *)yl_getActivityViewController {
     UIViewController* activityViewController = nil;

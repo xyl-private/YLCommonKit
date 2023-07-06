@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIApplication (YLApplication)
 
+/// 获取 keyWindow
 + (UIWindow *)yl_keyWindow;
 
 @end

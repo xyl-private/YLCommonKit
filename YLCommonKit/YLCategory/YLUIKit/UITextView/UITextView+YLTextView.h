@@ -11,12 +11,12 @@
 @interface UITextView (YLTextView)
 
 /**
- *  UITextView+placeholder
+ * UITextView+placeholder
  */
 @property (nonatomic, copy) NSString *yl_placeHolder;
 
 /**
- *  placeHolder颜色
+ * placeHolder颜色
  */
 @property (nonatomic, strong) UIColor *yl_placeHolderColor;
 

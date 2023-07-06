@@ -48,7 +48,7 @@
 }
 
 /**
- *  手机号码证验证 YES验证通过，NO验证失败
+ * 手机号码证验证 YES验证通过，NO验证失败
  */
 + (BOOL)yl_isPhoneNumberWith:(NSString *)str
 {
@@ -59,7 +59,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
- *  验证数字 YES:是数字; NO:不是数字
+ * 验证数字 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isNumberWith:(NSString *)str
 {
@@ -67,7 +67,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
- *  验证是否是中文 YES:是; NO:不是
+ * 验证是否是中文 YES:是; NO:不是
  */
 + (BOOL)yl_isChineseWith:(NSString *)str
 {
@@ -75,7 +75,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
- *  验证是否是英文 YES:是; NO:不是
+ * 验证是否是英文 YES:是; NO:不是
  */
 + (BOOL)yl_isEnglishWith:(NSString *)str
 {
@@ -83,7 +83,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
- *  验证金额，输入只限小数点后两位 YES:是数字; NO:不是数字
+ * 验证金额，输入只限小数点后两位 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isMoneyWith:(NSString *)str
 {
@@ -91,7 +91,7 @@
     return [self yl_isValidateByRegex:regex string:str];
 }
 /**
- *   车牌号的有效性验证 YES:是数字; NO:不是数字
+ * 车牌号的有效性验证 YES:是数字; NO:不是数字
  */
 + (BOOL)yl_isCarNumberWith:(NSString *)str
 {
@@ -118,12 +118,12 @@
 /**
  * 银行卡号有效性校验
  * 银行卡号有效性问题Luhn算法
- *  现行 16 位银联卡现行卡号开头 6 位是 622126～622925 之间的，7 到 15 位是银行自定义的，
- *  可能是发卡分行，发卡网点，发卡序号，第 16 位是校验码。
- *  16 位卡号校验位采用 Luhm 校验方法计算：
- *  1，将未带校验位的 15 位卡号从右依次编号 1 到 15，位于奇数位号上的数字乘以 2
- *  2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
- *  3，将加法和加上校验位能被 10 整除。
+ * 现行 16 位银联卡现行卡号开头 6 位是 622126～622925 之间的，7 到 15 位是银行自定义的，
+ * 可能是发卡分行，发卡网点，发卡序号，第 16 位是校验码。
+ * 16 位卡号校验位采用 Luhm 校验方法计算：
+ * 1，将未带校验位的 15 位卡号从右依次编号 1 到 15，位于奇数位号上的数字乘以 2
+ * 2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
+ * 3，将加法和加上校验位能被 10 整除。
  */
 - (BOOL)yl_isBankCard
 {
@@ -183,7 +183,7 @@
     return (luhmTotal%10 ==0)?YES:NO;
 }
 /**
- *  身份证验证
+ * 身份证验证
  */
 + (BOOL)yl_isIDCardWith:(NSString *)str
 {
