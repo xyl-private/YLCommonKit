@@ -41,8 +41,41 @@ typedef NS_ENUM(NSInteger, YLGradientDirection) {
 /// 随机色
 + (UIColor *)yl_randomColor;
 
-/// UIColor 转 十六进制
-- (NSString *)yl_hexadecimalColor;
+/// UIColor 转十六进制(6位:十六进制的颜色字符串  8位:十六进制+2位的透明度)
+- (NSString *)yl_hexColor;
+
+#pragma mark - 暗黑模式适配
+
+/**
+ * ⚠️⚠️ 这里我们需要特别注意，当模式发生变化的时候，只有在以下情况下才能监听模式发生了变化。⚠️⚠️
+ * 第一：在UIView中 以下四个方法
+ * draw();  
+ * layoutSubview();  
+ * traitCollectionDidChange();   
+ * tintColorDidChange();
+ *
+ * 第二：在UIViewController中 以下三个方法中
+ * viewWillLayoutSubviews();   
+ * viewDidLayoutSubviews();     
+ * traitCollectionDidChange();
+ *
+ * 第三：在UIPresentationController中 以下三个方法
+ * containerViewWillLayoutSubviews();    
+ * containerViewDidLayoutSubviews(); 
+ * traitCollectionDidChange();
+ */
+
+/// 适配暗黑模式颜色
+/// - Parameters:
+///   - lightColor: 浅色模式颜色(UIColor或者NSString)
+///   - darkColor: 深色模式颜色(UIColor或者NSString)
+UIColor * YLDynamicColors(id lightColor, id darkColor);
+
+/// 适配暗黑模式颜色
+/// - Parameters:
+///   - lightColor: 浅色模式颜色
+///   - darkColor: 深色模式颜色
++ (UIColor *)yl_dynamicColorsWithLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
 
 #pragma mark - Gradient 渐变色
 

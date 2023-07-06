@@ -85,6 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 字符串SHA256加密
 - (NSString *)yl_sha256Encryption;
 
+/// 字符串 转 Base64
+- (NSString *)yl_base64String;
+
 #pragma mark - 身份证相关
 /// 从身份证获取生日
 + (NSString *)yl_birthdayStrFromIdentityCardWith:(NSString *)str;

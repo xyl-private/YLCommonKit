@@ -307,6 +307,15 @@
     return ret;
 }
 
+/// 字符串 转 Base64
+- (NSString *)yl_base64String {
+    NSData *authData =  [self dataUsingEncoding: NSUTF8StringEncoding];
+    NSData *base64Data = [authData base64EncodedDataWithOptions:0];
+    NSString *base64 = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
+    NSString *base64AuthString =[NSString stringWithFormat:@"Basic %@",base64];
+    return base64AuthString;
+}
+
 #pragma mark - 身份证相关
 /// 从身份证获取生日
 + (NSString *)yl_birthdayStrFromIdentityCardWith:(NSString *)str {

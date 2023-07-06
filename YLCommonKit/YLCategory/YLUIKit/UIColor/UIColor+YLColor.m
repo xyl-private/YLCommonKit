@@ -58,7 +58,7 @@
     CGFloat brightness; // 亮度
     //获取该颜色的几项值
     [self getHue:&hue saturation:&saturation brightness:&brightness alpha:nil];
-    //重新把几项值+新亮度重新组合成新颜色
+    //重新把几项值+新透明度重新组合成新颜色
     return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:alpha];
 }
 
@@ -70,18 +70,18 @@
 }
 
 
-/// UIColor 转十六进制
-- (NSString *)yl_hexadecimalColor {
+/// UIColor 转十六进制(6位:十六进制的颜色字符串  8位:十六进制+2位的透明度)
+- (NSString *)yl_hexColor {
     if (CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor)) != kCGColorSpaceModelRGB) {
-        NSLog(@"非RGB：");
+        NSLog(@"非RGB");
         if ([self isEqual:[UIColor clearColor]]) {
-            return @"#000000FF";
+            return @"000000FF";
         } else if ([self isEqual:[UIColor whiteColor]]) {
-            return @"#FFFFFF";
+            return @"FFFFFF";
         } else {
             return @"000000";
         }
-        return [NSString stringWithFormat:@"#FFFFFF"];
+        return [NSString stringWithFormat:@"FFFFFF"];
     }
     
     if (CGColorGetNumberOfComponents(self.CGColor) < 4) {
@@ -90,8 +90,7 @@
         CGFloat r = components[0];//红色
         CGFloat g = components[1];//绿色
         CGFloat b = components[2];//蓝色
-        return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)];
-        
+        return [NSString stringWithFormat:@"%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)];
     }
     
     const CGFloat *components = CGColorGetComponents(self.CGColor);
@@ -100,9 +99,59 @@
     CGFloat b = components[2];
     CGFloat a = components[3];
     if (a == 1) {
-        return [NSString stringWithFormat:@"#%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)] ;
+        return [NSString stringWithFormat:@"%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)] ;
     }
-    return [NSString stringWithFormat:@"#%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255)];
+    return [NSString stringWithFormat:@"%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255)];
+}
+
+#pragma mark - 动态 暗黑模式
+
+/// 适配暗黑模式颜色
+/// - Parameters:
+///   - lightColor: 浅色模式颜色(UIColor或者NSString)
+///   - darkColor: 深色模式颜色(UIColor或者NSString)
+UIColor * YLDynamicColors(id lightColor, id darkColor) {
+    
+    UIColor *lColor = [UIColor whiteColor];
+    UIColor *dColor = [UIColor blackColor];
+    
+    if ([lightColor isKindOfClass:[UIColor class]]) {
+        lColor = (UIColor *)lightColor;
+    } else if ([lightColor isKindOfClass:[NSString class]]) {
+        lColor = [UIColor yl_colorWithHexString:(NSString *)lightColor];
+    } else {
+        NSLog(@"浅色模式的颜色类型错误");
+        return nil;
+    }
+    
+    if ([darkColor isKindOfClass:[UIColor class]]) {
+        dColor = (UIColor *)darkColor;
+    } else if ([darkColor isKindOfClass:[NSString class]]) {
+        dColor = [UIColor yl_colorWithHexString:(NSString *)darkColor];
+    } else {
+        NSLog(@"深色模式的颜色类型错误");
+        return nil;
+    }
+    
+    return [UIColor yl_dynamicColorsWithLightColor:lColor darkColor:dColor];
+}
+
+/// 适配暗黑模式颜色
+/// - Parameters:
+///   - lightColor: 浅色模式颜色
+///   - darkColor: 深色模式颜色
++ (UIColor *)yl_dynamicColorsWithLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor {
+    if (@available(iOS 13.0, *)) {
+        return [UIColor colorWithDynamicProvider:^UIColor * _Nonnull(UITraitCollection * _Nonnull trainCollection) {
+            if ([trainCollection userInterfaceStyle] == UIUserInterfaceStyleLight) {
+                return lightColor;
+            } else {
+                return darkColor;
+            }
+        }];
+    } else {
+        return lightColor ? lightColor : (darkColor ? darkColor : [UIColor clearColor]);
+    }
 }
 
 #pragma mark - Gradient 渐变色
