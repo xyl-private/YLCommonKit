@@ -7,36 +7,39 @@
 #
 
 Pod::Spec.new do |s|
-
+    # 项目名
     s.name         = "YLCommonKit"
+    # 版本号
     s.version      = "0.1.0"
+    # 简单描述
     s.summary      = "我的基础库"
+    # 详细描述
     s.description  = <<-DESC
-                        简单的整理,常用的分类
-                    DESC
-
+                        简单整理常用的分类
+                        DESC
+    # 项目的主页
     s.homepage     = "https://github.com/xyl-private/YLCommonKit"
+    # 项目遵守的协议
     s.license      = { :type => "MIT", :file => "LICENSE" }
+    # 作者的邮箱
     s.author       = { "村雨灬龑" => "xyl_private@163.com" }
-
-    s.ios.deployment_target = "12.0"
-
+    # 项目的最低版本支持
+    s.ios.deployment_target = "13.0"
+    # git仓库的https地址
     s.source       = { :git => "https://github.com/xyl-private/YLCommonKit.git", :tag => "#{s.version}" }
     s.frameworks = "Foundation","UIKit"
 
-    s.subspec 'YLCategory' do |ss|
-        ss.source_files = 'YLCommonKit/YLCategory/*.{h,m}'
-        ss.public_header_files = 'YLCommonKit/YLCategory/*.h'
-        
-        ss.subspec 'Foundation' do |ss|
-            ss.source_files = 'YLCommonKit/YLCategory/Foundation/*.{h,m}'
-            ss.public_header_files = 'YLCommonKit/YLCategory/Foundation/*.h'
-        end
-
-        ss.subspec 'UIKit' do |ss|
-            ss.source_files = 'YLCommonKit/YLCategory/UIKit/*.{h,m}'
-            ss.public_header_files = 'YLCommonKit/YLCategory/UIKit/*.h'
-        end
+    # 表示源文件的路径，这个路径是相对podspec文件而言的。（这属性下面单独讨论）
+    s.source_files = 'YLCommonKit/YLCategory/*.{h,m}'
+    s.public_header_files = 'YLCommonKit/YLCategory/*.h'
+            
+    s.subspec 'Foundation' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/Foundation/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/Foundation/*.h'
+    end
+    s.subspec 'UIKit' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/UIKit/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/UIKit/*.h'
     end
 
 end
