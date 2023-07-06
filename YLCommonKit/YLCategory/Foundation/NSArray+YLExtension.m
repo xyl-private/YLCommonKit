@@ -10,6 +10,15 @@
 
 @implementation NSArray (YLExtension)
 
+- (NSArray *)yl_reverseArray {
+    NSMutableArray *arrayTemp = [NSMutableArray arrayWithCapacity:[self count]];
+    NSEnumerator *enumerator = [self reverseObjectEnumerator];
+    for (id element in enumerator) {
+        [arrayTemp addObject:element];
+    }
+    return arrayTemp;
+}
+
 /// 比较两个数组中的字符串元素是否相同
 /// - Parameter aArray: 元素必须都是字符串类型的
 - (BOOL)yl_isEquestToArray:(NSArray<NSString *> *)aArray {

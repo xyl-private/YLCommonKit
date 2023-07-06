@@ -24,6 +24,7 @@
 #import "UIColor+YLColor.h"
 #import "UIFont+YLFont.h"
 #import "UIImage+YLImage.h"
+#import "UIView+YLFrame.h"
 #import "UIView+YLView.h"
 #import "UIViewController+YLViewController.h"
 

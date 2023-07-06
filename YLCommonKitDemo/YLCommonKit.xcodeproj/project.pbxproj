@@ -32,6 +32,7 @@
 		224424F32A56ABF8009C15EA /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424E72A56ABF8009C15EA /* NSString+YLString.m */; };
 		225FC9772A47EF8B000363E5 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */; };
 		225FC9782A47EF8B000363E5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9762A47EF8B000363E5 /* README.md */; };
+		2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */; };
 		22993970263B0A150055DA35 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396F263B0A150055DA35 /* TestViewController.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
@@ -91,6 +92,8 @@
 		224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCommonKitHeader.h; sourceTree = "<group>"; };
 		225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		225FC9762A47EF8B000363E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		2266EFDF2A56B6C60075E7EF /* UIView+YLFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YLFrame.h"; sourceTree = "<group>"; };
+		2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLFrame.m"; sourceTree = "<group>"; };
 		2299396E263B0A150055DA35 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2299396F263B0A150055DA35 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,8 @@
 				224424C02A56ABF1009C15EA /* UITextView+YLPlaceholder.m */,
 				224424B62A56ABF1009C15EA /* UITextView+YLTextView.h */,
 				224424B42A56ABF1009C15EA /* UITextView+YLTextView.m */,
+				2266EFDF2A56B6C60075E7EF /* UIView+YLFrame.h */,
+				2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */,
 				224424C12A56ABF1009C15EA /* UIView+YLView.h */,
 				224424BB2A56ABF1009C15EA /* UIView+YLView.m */,
 				224424AF2A56ABF1009C15EA /* UIViewController+YLHiddenNavBar.h */,
@@ -336,6 +341,7 @@
 				224424EC2A56ABF8009C15EA /* NSAttributedString+YLAttributedString.m in Sources */,
 				224424F02A56ABF8009C15EA /* NSString+YLDecimalNumber.m in Sources */,
 				224424CF2A56ABF1009C15EA /* UITextView+YLPlaceholder.m in Sources */,
+				2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				224424EA2A56ABF8009C15EA /* NSString+YLAppInfo.m in Sources */,
 				224424F32A56ABF8009C15EA /* NSString+YLString.m in Sources */,
