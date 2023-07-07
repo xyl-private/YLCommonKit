@@ -16,12 +16,20 @@ typedef NS_ENUM(NSInteger, YLImagePosition) {
 };
 
 @interface UIButton (YLButton)
-/**
- * 利用UIButton的titleEdgeInsets和imageEdgeInsets来实现文字和图片的自由排列
- * 注意：这个方法需要在设置图片和文字之后才可以调用，且button的大小要大于 图片大小+文字大小+spacing
- *
- * @param spacing 图片和文字的间隔
- */
+
+/// 设置按钮额外热区
+@property (nonatomic, assign) UIEdgeInsets touchAreaInsets;
+
+/// 利用UIButton的titleEdgeInsets和imageEdgeInsets来实现文字和图片的自由排列, 注意:这个方法需要在设置图片和文字之后才可以调用, 且button的大小要大于图片大小+文字大小+spacing
+/// - Parameters:
+///   - postion: 图片的位置
+///   - spacing: 图片和文字的间距
 - (void)yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing;
+
+/// 设置按钮的背景色
+/// - Parameters:
+///   - backgroundColor: 背景色
+///   - state: 状态
+- (void)yl_setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state;
 
 @end

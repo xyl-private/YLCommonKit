@@ -26,13 +26,13 @@
 		224424ED2A56ABF8009C15EA /* YLConsoleLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424DA2A56ABF8009C15EA /* YLConsoleLog.m */; };
 		224424EE2A56ABF8009C15EA /* NSArray+YLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424DB2A56ABF8009C15EA /* NSArray+YLExtension.m */; };
 		224424EF2A56ABF8009C15EA /* NSURL+YLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424DD2A56ABF8009C15EA /* NSURL+YLExtension.m */; };
-		224424F02A56ABF8009C15EA /* NSString+YLDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424DF2A56ABF8009C15EA /* NSString+YLDecimalNumber.m */; };
 		224424F12A56ABF8009C15EA /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424E02A56ABF8009C15EA /* NSDate+YLDate.m */; };
 		224424F22A56ABF8009C15EA /* NSDictionary+YLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424E42A56ABF8009C15EA /* NSDictionary+YLDictionary.m */; };
 		224424F32A56ABF8009C15EA /* NSString+YLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424E72A56ABF8009C15EA /* NSString+YLString.m */; };
 		225FC9772A47EF8B000363E5 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */; };
 		225FC9782A47EF8B000363E5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9762A47EF8B000363E5 /* README.md */; };
 		2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */; };
+		2276B2732A57EBB600E0DFFD /* NSString+YLDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276B2722A57EBB600E0DFFD /* NSString+YLDecimal.m */; };
 		22993970263B0A150055DA35 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396F263B0A150055DA35 /* TestViewController.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
@@ -79,7 +79,6 @@
 		224424DC2A56ABF8009C15EA /* NSData+YLData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YLData.h"; sourceTree = "<group>"; };
 		224424DD2A56ABF8009C15EA /* NSURL+YLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+YLExtension.m"; sourceTree = "<group>"; };
 		224424DE2A56ABF8009C15EA /* NSArray+YLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+YLExtension.h"; sourceTree = "<group>"; };
-		224424DF2A56ABF8009C15EA /* NSString+YLDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLDecimalNumber.m"; sourceTree = "<group>"; };
 		224424E02A56ABF8009C15EA /* NSDate+YLDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YLDate.m"; sourceTree = "<group>"; };
 		224424E12A56ABF8009C15EA /* NSString+YLRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLRegex.h"; sourceTree = "<group>"; };
 		224424E22A56ABF8009C15EA /* NSDate+YLDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YLDate.h"; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 		224424E52A56ABF8009C15EA /* NSDictionary+YLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+YLDictionary.h"; sourceTree = "<group>"; };
 		224424E62A56ABF8009C15EA /* NSString+YLAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLAppInfo.h"; sourceTree = "<group>"; };
 		224424E72A56ABF8009C15EA /* NSString+YLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLString.m"; sourceTree = "<group>"; };
-		224424E82A56ABF8009C15EA /* NSString+YLDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YLDecimalNumber.h"; sourceTree = "<group>"; };
 		224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCommonKitHeader.h; sourceTree = "<group>"; };
 		225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
 		225FC9762A47EF8B000363E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
@@ -96,6 +94,8 @@
 		2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLFrame.m"; sourceTree = "<group>"; };
 		2276B26C2A57DFE500E0DFFD /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
 		2276B26E2A57E96E00E0DFFD /* YLSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLSingleton.h; sourceTree = "<group>"; };
+		2276B2712A57EBB600E0DFFD /* NSString+YLDecimal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YLDecimal.h"; sourceTree = "<group>"; };
+		2276B2722A57EBB600E0DFFD /* NSString+YLDecimal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YLDecimal.m"; sourceTree = "<group>"; };
 		2299396E263B0A150055DA35 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2299396F263B0A150055DA35 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,12 +132,12 @@
 				224424D52A56ABF7009C15EA /* NSData+YLData.m */,
 				224424E22A56ABF8009C15EA /* NSDate+YLDate.h */,
 				224424E02A56ABF8009C15EA /* NSDate+YLDate.m */,
+				2276B2712A57EBB600E0DFFD /* NSString+YLDecimal.h */,
+				2276B2722A57EBB600E0DFFD /* NSString+YLDecimal.m */,
 				224424E52A56ABF8009C15EA /* NSDictionary+YLDictionary.h */,
 				224424E42A56ABF8009C15EA /* NSDictionary+YLDictionary.m */,
 				224424E62A56ABF8009C15EA /* NSString+YLAppInfo.h */,
 				224424D62A56ABF8009C15EA /* NSString+YLAppInfo.m */,
-				224424E82A56ABF8009C15EA /* NSString+YLDecimalNumber.h */,
-				224424DF2A56ABF8009C15EA /* NSString+YLDecimalNumber.m */,
 				224424E12A56ABF8009C15EA /* NSString+YLRegex.h */,
 				224424D72A56ABF8009C15EA /* NSString+YLRegex.m */,
 				224424D92A56ABF8009C15EA /* NSString+YLString.h */,
@@ -351,7 +351,6 @@
 				224424ED2A56ABF8009C15EA /* YLConsoleLog.m in Sources */,
 				224424E92A56ABF8009C15EA /* NSData+YLData.m in Sources */,
 				224424EC2A56ABF8009C15EA /* NSAttributedString+YLAttributedString.m in Sources */,
-				224424F02A56ABF8009C15EA /* NSString+YLDecimalNumber.m in Sources */,
 				224424CF2A56ABF1009C15EA /* UITextView+YLPlaceholder.m in Sources */,
 				2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
@@ -365,6 +364,7 @@
 				224424CE2A56ABF1009C15EA /* UIFont+YLFont.m in Sources */,
 				7B941B2F20F3126600811329 /* AppDelegate.m in Sources */,
 				224424D02A56ABF1009C15EA /* UITableView+YLTableHeaderView.m in Sources */,
+				2276B2732A57EBB600E0DFFD /* NSString+YLDecimal.m in Sources */,
 				224424F22A56ABF8009C15EA /* NSDictionary+YLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,14 @@
 //
 
 #import "UIColor+YLColor.h"
+#import "UIImage+YLImage.h"
 
 @implementation UIColor (YLColor)
+
+/// color 转 image
+- (UIImage *)image {
+    return [UIImage yl_imageWithColor:self];
+}
 
 UIColor *YLColor(NSString *hexString) {
     return [UIColor yl_colorWithHexString:hexString];

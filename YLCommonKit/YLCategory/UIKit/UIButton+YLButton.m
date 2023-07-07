@@ -7,6 +7,8 @@
 //
 
 #import "UIButton+YLButton.h"
+#import "UIImage+YLImage.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (YLButton)
 
@@ -62,4 +64,35 @@
             break;
     }
 }
+
+/// 设置按钮的背景色
+/// - Parameters:
+///   - backgroundColor: 背景色
+///   - state: 状态
+- (void)yl_setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
+    [self setBackgroundImage:[UIImage yl_imageWithColor:backgroundColor] forState:state];
+}
+
+
+- (UIEdgeInsets)touchAreaInsets {
+    return [objc_getAssociatedObject(self, @selector(touchAreaInsets)) UIEdgeInsetsValue];
+}
+
+- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets {
+    NSValue *value = [NSValue valueWithUIEdgeInsets:touchAreaInsets];
+    objc_setAssociatedObject(self, @selector(touchAreaInsets), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    UIEdgeInsets touchAreaInsets = self.touchAreaInsets;
+    CGRect bounds = self.bounds;
+    bounds = CGRectMake(bounds.origin.x - touchAreaInsets.left,
+                        bounds.origin.y - touchAreaInsets.top,
+                        bounds.size.width + touchAreaInsets.left + touchAreaInsets.right,
+                        bounds.size.height + touchAreaInsets.top + touchAreaInsets.bottom);
+    return CGRectContainsPoint(bounds, point);
+}
+
+
+
 @end

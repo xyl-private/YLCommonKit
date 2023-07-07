@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger, YLGradientDirection) {
 
 @interface UIColor (YLColor)
 
+@property (nonatomic, strong, readonly) UIImage *image;
+
 UIColor *YLColor(NSString *hexString);
 UIColor *YLColorAlpha(NSString *hexString, CGFloat alpha);
 
