@@ -9,9 +9,10 @@
 #ifndef YLCommonKitHeader_h
 #define YLCommonKitHeader_h
 
-#import "NSArray+YLExtension.h"
+#import "NSArray+YLArray.h"
 #import "NSData+YLData.h"
 #import "NSDate+YLDate.h"
+#import "NSObject+YLGCD.h"
 #import "NSString+YLAppInfo.h"
 #import "NSString+YLDecimal.h"
 #import "NSString+YLRegex.h"

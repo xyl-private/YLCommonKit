@@ -1,8 +1,8 @@
 //
-//  NSArray+YLExtension.h
+//  NSArray+YLArray.h
 //  YLCommonKit
 //
-//  Created by xyanl on 2023/6/25.
+//  Created by xyanl on 2023/7/7.
 //  Copyright © 2023 xyanl. All rights reserved.
 //
 
@@ -10,8 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSArray (YLExtension)
-
+@interface NSArray (YLArray)
 
 /// 将数组反向排序
 - (NSArray *)yl_reverseArray;
