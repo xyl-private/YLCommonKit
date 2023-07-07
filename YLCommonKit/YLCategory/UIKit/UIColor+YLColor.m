@@ -10,6 +10,14 @@
 
 @implementation UIColor (YLColor)
 
+UIColor *YLColor(NSString *hexString) {
+    return [UIColor yl_colorWithHexString:hexString];
+}
+
+UIColor *YLColorAlpha(NSString *hexString, CGFloat alpha) {
+    return [UIColor yl_colorWithHexString:hexString alpha:alpha];
+}
+
 /// 十六进制颜色 - 不透明
 /// - Parameter hexColor: 十六进制颜色
 + (UIColor *)yl_colorWithHexString:(NSString *)hexString {

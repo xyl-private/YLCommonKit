@@ -94,6 +94,7 @@
 		225FC9762A47EF8B000363E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		2266EFDF2A56B6C60075E7EF /* UIView+YLFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YLFrame.h"; sourceTree = "<group>"; };
 		2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLFrame.m"; sourceTree = "<group>"; };
+		2276B26C2A57DFE500E0DFFD /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
 		2299396E263B0A150055DA35 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2299396F263B0A150055DA35 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */,
+				2276B26C2A57DFE500E0DFFD /* YLMacro.h */,
 				224424682A56ABDE009C15EA /* Foundation */,
 				2244247F2A56ABDE009C15EA /* UIKit */,
 			);

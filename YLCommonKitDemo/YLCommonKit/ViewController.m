@@ -10,8 +10,6 @@
 #import "TestViewController.h"
 #import "YLCommonKitHeader.h"
 
-#define kKeyWondow UIApplication.yl_keyWindow
-
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *clickBtn;
