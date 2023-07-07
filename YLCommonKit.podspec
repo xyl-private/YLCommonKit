@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     # 项目名
     s.name         = "YLCommonKit"
     # 版本号
-    s.version      = "0.1.0"
+    s.version      = "0.1.1"
     # 简单描述
     s.summary      = "我的基础库"
     # 详细描述
@@ -32,7 +32,11 @@ Pod::Spec.new do |s|
     # 表示源文件的路径，这个路径是相对podspec文件而言的。（这属性下面单独讨论）
     s.source_files = 'YLCommonKit/YLCategory/*.{h,m}'
     s.public_header_files = 'YLCommonKit/YLCategory/*.h'
-            
+       
+    s.subspec 'Macro' do |ss|
+        ss.source_files = 'YLCommonKit/YLCategory/Macro/*.{h,m}'
+        ss.public_header_files = 'YLCommonKit/YLCategory/Macro/*.h'
+    end
     s.subspec 'Foundation' do |ss|
         ss.source_files = 'YLCommonKit/YLCategory/Foundation/*.{h,m}'
         ss.public_header_files = 'YLCommonKit/YLCategory/Foundation/*.h'
