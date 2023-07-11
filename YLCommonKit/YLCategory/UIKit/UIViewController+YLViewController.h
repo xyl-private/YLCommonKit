@@ -10,6 +10,9 @@
 
 @interface UIViewController (YLViewController)
 
+/// 创建 XIB Controller
++ (instancetype)yl_controllerFromXib;
+
 /// 获取当前页面的控制器
 + (UIViewController *)yl_getCurrentVC;
 
@@ -22,8 +25,5 @@
 
 /// 获得顶级VC
 + (UIViewController *)yl_getAppRootViewController;
-
-/// 创建 XIB Controller
-+ (instancetype)yl_controllerFromXib;
 
 @end

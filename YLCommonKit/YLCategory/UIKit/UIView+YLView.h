@@ -13,15 +13,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (YLView)
 
 + (instancetype)yl_viewFromXib;
+
 /// 当前所在的 viewController
 - (UIViewController *)yl_viewController;
+
 /// 移除所有子视图
 - (void)yl_removeAllSubviews;
+
 /// 添加背景图片
 - (void)yl_setBackgroundImage:(UIImage *)image;
 
 /// view 转换成 图片
 - (UIImage*)yl_snapshotImage;
+
 /// 监听键盘 改变 view 的位置
 - (void)yl_observeKeyboardOnChange:(void(^)(CGFloat keyboardTop, CGFloat height))changeHandler;
 
@@ -31,11 +35,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - target: target
 ///   - selector: selector
 - (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector;
+
 /// 添加长按手势
 /// - Parameters:
 ///   - target: target
 ///   - selector: selector
 - (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector;
+
 /// 添加拖拽手势
 /// - Parameters:
 ///   - target: target

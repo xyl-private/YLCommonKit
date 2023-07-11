@@ -11,6 +11,10 @@
 
 @implementation UIViewController (YLViewController)
 
++ (instancetype)yl_controllerFromXib {
+    return [[self alloc] initWithNibName:NSStringFromClass(self) bundle:nil];
+}
+
 //获取当前屏幕显示的viewcontroller
 + (UIViewController *)yl_getCurrentVC {
     UIViewController *rootViewController = UIApplication.yl_keyWindow.rootViewController;
@@ -115,10 +119,6 @@
         topVC = topVC.presentedViewController;
     }
     return topVC;
-}
-
-+ (instancetype)yl_controllerFromXib {
-    return [[self alloc] initWithNibName:NSStringFromClass(self) bundle:nil];
 }
 
 @end

@@ -65,24 +65,21 @@
 
 #pragma mark - UIGestureRecognizer
 /// 添加点击手势
-- (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector
-{
+- (UITapGestureRecognizer *)yl_addTapGestureWithTarget:(id)target action:(nullable SEL)selector {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:selector];
     [self addGestureRecognizer:tap];
     return tap;
 }
 
 /// 添加长按手势
-- (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector
-{
+- (UILongPressGestureRecognizer *)yl_addLongPressGestureWithTarget:(id)target action:(nullable SEL)selector {
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:target action:selector];
     [self addGestureRecognizer:longPress];
     return longPress;
 }
 
 /// 添加拖拽手势
-- (UIPanGestureRecognizer *)yl_addPanGestureWithTarget:(id)target action:(nullable SEL)selector
-{
+- (UIPanGestureRecognizer *)yl_addPanGestureWithTarget:(id)target action:(nullable SEL)selector {
     UIPanGestureRecognizer *panPress = [[UIPanGestureRecognizer alloc] initWithTarget:target action:selector];
     [self addGestureRecognizer:panPress];
     return panPress;
@@ -90,7 +87,6 @@
 
 
 #pragma mark - 圆角
-
 - (void)yl_addRoundedCorners:(UIRectCorner)corners cornerRadius:(CGFloat)cornerRadius {
     [self yl_addRoundedCorners:corners cornerRadii:CGSizeMake(cornerRadius, cornerRadius) frame:self.bounds];
 }
