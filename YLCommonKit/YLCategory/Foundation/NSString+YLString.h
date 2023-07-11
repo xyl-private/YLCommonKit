@@ -45,6 +45,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param range 隐藏范围
 + (NSString *)yl_hideStringWith:(NSString *)content hideRange:(NSRange)range;
 
+/// 隐藏手机号中间号码, 显示前面3位和后面4位
+/// - Parameter mobile: 手机号
++ (NSString *)yl_hideMobileMiddleNums:(NSString *)mobile;
+
 /// 截取字符串
 /// - Parameter lenght: 最大长度
 - (NSString *)yl_substringWithLenght:(NSInteger)lenght;

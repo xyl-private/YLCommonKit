@@ -80,6 +80,16 @@
     return mString;
 }
 
+/// 隐藏手机号中间号码, 显示前面3位和后面4位
+/// - Parameter mobile: 手机号
++ (NSString *)yl_hideMobileMiddleNums:(NSString *)mobile {
+    if (mobile.length <= 7) {
+        // 号码不足6位, 不隐藏
+        return mobile;
+    }
+    return [mobile stringByReplacingCharactersInRange:NSMakeRange(3, mobile.length - 7) withString:@"****"];
+}
+
 /// 截取字符串
 /// - Parameter lenght: 最大长度
 - (NSString *)yl_substringWithLenght:(NSInteger)lenght {
