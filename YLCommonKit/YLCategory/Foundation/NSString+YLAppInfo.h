@@ -32,6 +32,10 @@ typedef NS_ENUM(NSUInteger, YLBundleType) {
 /// CFBundleShortVersionString:APP 版本号
 + (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key;
 
+
+/// 设备唯一码
++ (NSString *)yl_UUID;
+
 #pragma mark -- 判断手机型号
 + (NSString*)yl_phoneModel;
 

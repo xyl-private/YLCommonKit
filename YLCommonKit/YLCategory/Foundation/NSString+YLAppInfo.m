@@ -8,6 +8,7 @@
 
 #import "NSString+YLAppInfo.h"
 #import <sys/utsname.h>
+#import <UIKit/UIKit.h>
 
 @implementation NSString (YLAppInfo)
 
@@ -27,12 +28,16 @@
     return appInfo;
 }
 
-+ (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key{
++ (NSDictionary *)yl_getAppInfoWithKey:(NSString *)key {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     if (key.length != 0) {
         return [infoDictionary objectForKey:key];
     }
     return infoDictionary;
+}
+
++ (NSString *)yl_UUID {
+    return [UIDevice currentDevice].identifierForVendor.UUIDString;
 }
 
 #pragma mark -- 判断手机型号

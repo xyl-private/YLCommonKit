@@ -115,7 +115,7 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 /// 判断给定日期 是周几   1-周日，2-周一 ... 7-周六
 + (NSInteger)yl_weekDayFromDate:(NSDate *)date;
 
-///  某月中周的数量
+/// 某月中周的数量
 + (NSInteger)yl_weeksInMonthWithDate:(NSDate *)date;
 /// 某年中周的数量
 + (NSInteger)yl_weeksInYearWithDate:(NSDate *)date;
@@ -125,10 +125,15 @@ typedef NS_ENUM(NSUInteger, YLTimestampType) {
 + (NSString *)yl_getDateDisplayString:(NSInteger)timeStamp;
 
 #pragma mark - BOOL
-///  是不是工作日
-/// @return YES 工作日 ; NO 周末
+/// 是不是工作日
+/// @return YES:工作日, NO:周末
 + (BOOL)yl_isWorkingDayWith:(NSDate *)date;
 
+/// 比较两个时间段是否有交集
+/// @param time1 时间段1 例:9:00-12:00
+/// @param time2 时间段2 例:10:00-13:00
+/// @param dateFormatter 时间格式 例:HH:mm
++ (BOOL)yl_compareTimeBucker:(NSString *)time1 timeBucker:time2 dateFormatter:(NSString *)dateFormatter;
 
 @end
 

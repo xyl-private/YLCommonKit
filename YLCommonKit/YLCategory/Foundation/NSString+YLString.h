@@ -23,10 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param font 字体大小
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
 + (CGSize)yl_stringSizeWithContent:(NSString *)content font:(UIFont *)font constrainedToSize:(CGSize)size;
+
 /// 计算字符串的 size
 /// @param font 字体
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
 - (CGSize)yl_stringSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
+
 /// 计算字符串的 size
 /// @param font 字体
 /// @param size 计算范围的大小  ps:CGSizeMake(MAXFLOAT, fontSize)
@@ -36,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// NSStringDrawingTruncatesLastVisibleLine/NSStringDrawingUsesDeviceMetric 计算文本尺寸时将以每个字或字形为单位来计算。
 /// 一般使用:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin
 - (CGSize)yl_stringSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size options:(NSStringDrawingOptions)options;
+
 
 /// 隐藏字符中的一部分
 /// @param content 原始字符串
@@ -47,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)yl_substringWithLenght:(NSInteger)lenght;
 
 /// 打电话
-/// @param telephone 电话号码,+8618212345678,区号直接加在前面
+/// - Parameter telephone: 电话号码,+8618212345678,区号直接加在前面
 + (void)yl_callUpWithTelephone:(NSString *)telephone;
 
 /*!
@@ -58,9 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @discussion
  * serveVersion:2.9.1  currentVesion:2.9.0  返回NSOrderedDescending  serveVersion 最新(需要更新)
- *
  * serveVersion:2.8.1  currentVesion:2.9.0  返回NSOrderedAscending currentVesion 最新
- *
  * serveVersion:2.9.0  currentVesion:2.9.0  返回NSOrderedSame 相同
  */
 + (NSComparisonResult)yl_compareVesionWithCurrentVesion:(NSString *)currentVesion serverVersion:(NSString *)serveVersion;
@@ -94,56 +95,30 @@ NS_ASSUME_NONNULL_BEGIN
 /// 从身份证获取性别
 + (NSString *)yl_getCardIdGenderWith:(NSString *)str;
 
-#pragma mark - 金额相关
-/// 小数点取舍处理方法
-/// @param roundingMode  舍入方式
-/// @param number 需要计算的数值
-/// @param scale 小数点后舍入值的位数
-+ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale;
-
-///  距离格式转换
-/// @param distance 距离 单位:m
+/// 距离格式转换
+/// - Parameter distance: 距离 单位:m
 + (NSString *)yl_stringTromDitance:(NSString *)distance;
 
 #pragma mark - 二进制、十进制、十六进制 转换
-/**
- 二进制转换为十进制
- 
- @param binary 二进制数
- @return 十进制数
- */
+
+/// 二进制转换为十进制
+/// - Parameter binary:  二进制数
 + (NSInteger)yl_getDecimalByBinary:(NSString *)binary;
 
-/**
- 二进制转换成十六进制
- 
- @param binary 二进制数
- @return 十六进制数
- */
+/// 二进制转换成十六进制
+/// - Parameter binary: 二进制数
 + (NSString *)yl_getHexByBinary:(NSString *)binary;
 
-/**
- 十进制转换为二进制
- 
- @param decimal 十进制数
- @return 二进制数
- */
+/// 十进制转换为二进制
+/// - Parameter decimal: 十进制数
 + (NSString *)yl_getBinaryByDecimal:(NSInteger)decimal;
 
-/**
- 十进制转换十六进制
- 
- @param decimal 十进制数
- @return 十六进制数
- */
+/// 十进制转换十六进制
+/// - Parameter hex: 十进制数
 + (NSString *)yl_getHexByDecimal:(NSInteger)decimal;
 
-/**
- 十六进制转换为二进制
- 
- @param hex 十六进制数
- @return 二进制数
- */
+/// 十六进制转换为二进制
+/// - Parameter hex: 十六进制数
 + (NSString *)yl_getBinaryByHex:(NSString *)hex;
 
 #pragma mark - 拼音
@@ -163,26 +138,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 字符串 转 url
 - (NSURL *)yl_url;
 
-/**
- 对url特殊自己进行编码操作
- 
- @param charactersInString 需要转码的特殊字符串  例:@"!$&'()*+,-./:;=?@_~%#[]"
- @return 编码后的url字符串
- */
+/// 对url特殊自己进行编码操作
+/// - Parameter charactersInString: 需要转码的特殊字符串  例:@"!$&'()*+,-./:;=?@_~%#[]"
 - (NSString *)yl_urlEncodeCharacterSet:(NSString *)charactersInString;
 
-/**
- urlEncode编码
- 
- @return 编码后的字符串
- */
+/// urlEncode编码
 - (NSString *)yl_urlEncodeStr;
 
-/**
- urlEncode解码
- 
- @return 解码后的字符串
- */
+/// urlEncode 解码
 - (NSString *)yl_decoderUrlEncodeStr;
 
 #pragma mark - 数组/字典等 转 JSON 字符串
@@ -192,21 +155,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// JSONString  转 id
 /// @param jsonString JSON 字符串
 /// @param error error description
-+ (id)yl_dictionaryFromJSONString:(NSString *)jsonString error:(NSError **)error ;
++ (id)yl_dictionaryFromJSONString:(NSString *)jsonString error:(NSError **)error;
 
-/**
- 查找子字符串在父字符串中的所有位置
- @param content 父字符串
- @param subString 子字符串
- @return 返回位置数组,NSRange的字符串类型
- */
+/// 查找子字符串在父字符串中的所有位置,返回位置数组,NSRange的字符串类型
+/// @param content 父字符串
+/// @param subString 子字符串
 + (NSArray*)yl_getSubStringInRangeWithContent:(NSString *)content subString:(NSString *)subString;
 
-/**
- 查找子字符串在父字符串中的所有位置
- @param subString 子字符串
- @return 返回位置数组,NSRange的字符串类型
- */
+/// 查找子字符串在父字符串中的所有位置,返回位置数组,NSRange的字符串类型
+/// @param subString 子字符串
 - (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
 
 @end

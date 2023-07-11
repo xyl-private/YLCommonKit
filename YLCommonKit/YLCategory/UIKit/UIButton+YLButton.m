@@ -12,6 +12,35 @@
 
 @implementation UIButton (YLButton)
 
+- (UIEdgeInsets)touchAreaInsets {
+    return [objc_getAssociatedObject(self, @selector(touchAreaInsets)) UIEdgeInsetsValue];
+}
+
+- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets {
+    objc_setAssociatedObject(self, @selector(touchAreaInsets), [NSValue valueWithUIEdgeInsets:touchAreaInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGRect)enlargedRect{
+    if (UIEdgeInsetsEqualToEdgeInsets(self.touchAreaInsets, UIEdgeInsetsZero)) {
+        return self.bounds;
+    }
+    
+    return CGRectMake(self.bounds.origin.x - self.touchAreaInsets.left, 
+                      self.bounds.origin.y - self.touchAreaInsets.top, 
+                      self.bounds.size.width + self.touchAreaInsets.left + self.touchAreaInsets.right, 
+                      self.bounds.size.height + self.touchAreaInsets.top + self.touchAreaInsets.bottom);
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    if (self.alpha <= 0.01 || !self.userInteractionEnabled || self.hidden) {
+        return nil;
+    }
+    
+    CGRect rect = [self enlargedRect];    
+    return CGRectContainsPoint(rect, point) ? self : nil;
+}
+
 - (void)yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing {
     [self setTitle:self.currentTitle forState:UIControlStateNormal];
     [self setImage:self.currentImage forState:UIControlStateNormal];
@@ -72,25 +101,5 @@
 - (void)yl_setBackgroundColor:(UIColor *)backgroundColor forState:(UIControlState)state {
     [self setBackgroundImage:[UIImage yl_imageWithColor:backgroundColor] forState:state];
 }
-
-
-- (UIEdgeInsets)touchAreaInsets {
-    return [objc_getAssociatedObject(self, @selector(touchAreaInsets)) UIEdgeInsetsValue];
-}
-
-- (void)setTouchAreaInsets:(UIEdgeInsets)touchAreaInsets {
-    objc_setAssociatedObject(self, @selector(touchAreaInsets), [NSValue valueWithUIEdgeInsets:touchAreaInsets], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    if (UIEdgeInsetsEqualToEdgeInsets(self.touchAreaInsets, UIEdgeInsetsZero)) {
-        return [super pointInside:point withEvent:event];
-    }
-
-    CGRect large = UIEdgeInsetsInsetRect(self.bounds, self.touchAreaInsets);
-    return CGRectContainsPoint(large, point);    
-}
-
-
 
 @end

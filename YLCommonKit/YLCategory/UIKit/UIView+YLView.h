@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIViewController *)yl_viewController;
 /// 移除所有子视图
 - (void)yl_removeAllSubviews;
-///  添加背景图片
+/// 添加背景图片
 - (void)yl_setBackgroundImage:(UIImage *)image;
 
 /// view 转换成 图片

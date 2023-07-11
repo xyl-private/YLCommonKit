@@ -46,6 +46,30 @@
     return @"";
 }
 
+/// 加上, 求和
+/// - Parameter aString: 加和
+- (NSString *)yl_additionAString:(NSString *)aString {
+    return [self yl_decimalWithType:YLDecimalTypeAdd operatedString:aString];
+}
+
+/// 减去, 求差
+/// - Parameter aString: 被减数
+- (NSString *)yl_subtractionAString:(NSString *)aString {
+    return [self yl_decimalWithType:YLDecimalTypeSubtraction operatedString:aString];
+}
+
+/// 乘以, 求积
+/// - Parameter aString: 被乘数
+- (NSString *)yl_multiplyByAString:(NSString *)aString {
+    return [self yl_decimalWithType:YLDecimalTypeMultiply operatedString:aString];
+}
+
+/// 除以, 求商
+/// - Parameter aString: 被除数
+- (NSString *)yl_dividingByAString:(NSString *)aString {
+    return [self yl_decimalWithType:YLDecimalTypeDivision operatedString:aString];
+}
+
 /// 乘方, n的power次幂
 /// - Parameter power: 次幂
 - (NSString *)yl_raisingToPower:(NSUInteger)power {
@@ -80,4 +104,37 @@
     return ouncesDecimal.stringValue;
 }
 
+/// 数字格式化
+/// 小数点后，位数不足的用0补位，位数多出的部分四舍五入
+/// - Parameter format: 格式 例: ,##0.00  结果 123,456,789.12
+- (NSString *)yl_numberFormatWithFormat:(NSString *)format {
+    return [NSString yl_numberFormatWithNumber:self format:format];
+}
+
+/// 数字格式化
+/// - Parameters:
+///   - number: 数字 例: 123456789.1234
+///   - format: 格式 例: ,##0.00  结果 123,456,789.12
++ (NSString *)yl_numberFormatWithNumber:(NSString *)number format:(NSString *)format {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setPositiveFormat:format];
+    return [numberFormatter stringFromNumber:@(number.doubleValue)];
+}
+
+/// 在数字前面添加0
+/// - Parameters:
+///   - number: 数字
+///   - length: 添加后的总长度 例: number = @"25" length = 5, 结果为 @"00025"
++ (NSString *)yl_beforeAddZoreWithNumber:(NSString *)number length:(NSInteger)length {
+    if (number.length > length) {
+        return number;
+    }
+    NSInteger index = 1;
+    for (NSInteger i = 0; i < length; i ++) {
+        index = index * 10; 
+    }
+    index += number.integerValue;
+    
+    return [@(index).stringValue substringFromIndex:1];
+}
 @end

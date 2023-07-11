@@ -113,7 +113,7 @@ UIColor *YLColorAlpha(NSString *hexString, CGFloat alpha) {
     CGFloat b = components[2];
     CGFloat a = components[3];
     if (a == 1) {
-        return [NSString stringWithFormat:@"%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)] ;
+        return [NSString stringWithFormat:@"%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255)];
     }
     return [NSString stringWithFormat:@"%02lX%02lX%02lX%02lX", lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255)];
 }
@@ -216,7 +216,7 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
 + (CAGradientLayer *)yl_gradientLayerWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
     NSMutableArray *colorsMarr = [NSMutableArray array];
-    for (int i = 0 ; i<colors.count; i++) {
+    for (int i = 0; i<colors.count; i++) {
         id obj = colors[i];
         //获得色值描述
         NSString * describe = [NSString stringWithFormat:@"%@",obj];
@@ -236,7 +236,7 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
         gradientLayer.locations = locations;
     } else {
         NSMutableArray * templocations = [NSMutableArray array];
-        for (int i = 0 ; i<colors.count; i++) {
+        for (int i = 0; i<colors.count; i++) {
             double value = (1.0/colors.count) * i;
             [templocations addObject:@(value)];
         }

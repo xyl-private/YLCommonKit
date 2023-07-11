@@ -90,7 +90,7 @@
 }
 
 /// 打电话
-/// @param telephone 电话号码,+8618212345678,区号直接加在前面
+/// - Parameter telephone: 电话号码,+8618212345678,区号直接加在前面
 + (void)yl_callUpWithTelephone:(NSString *)telephone {
     telephone = [NSString stringWithFormat:@"telprompt://%@", telephone];
     NSURL *url = [NSURL URLWithString:telephone];
@@ -160,7 +160,8 @@
         IOS_WIFI @"/" IP_ADDR_IPv6,
         IOS_WIFI @"/" IP_ADDR_IPv4,
         IOS_CELLULAR @"/" IP_ADDR_IPv6,
-        IOS_CELLULAR @"/" IP_ADDR_IPv4 ] ;
+        IOS_CELLULAR @"/" IP_ADDR_IPv4
+    ];
     
     NSDictionary *addresses = [self getIPAddresses];
     NSLog(@"addresses: %@", addresses);
@@ -301,7 +302,7 @@
     
     NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
     
-    for(int i = 0; i<CC_SHA256_DIGEST_LENGTH; i++) {
+    for(int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
         [ret appendFormat:@"%02x",result[i]];
     }    
     return ret;
@@ -377,29 +378,7 @@
     return sex;
 }
 
-#pragma mark - 金额相关
-/// 小数点取舍处理方法
-/// @param roundingMode  舍入方式
-/// @param number 需要计算的数值
-/// @param scale 小数点后舍入值的位数
-+ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale {
-    /**
-     初始化方法
-     roundingMode 舍入方式
-     scale 小数点后舍入值的位数
-     exact 精度错误处理
-     overflow 溢出错误处理
-     underflow 下溢错误处理
-     divideByZero 除以0的错误处理
-     NSDecimalNumberHandler对象
-     */
-    NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:roundingMode scale:scale raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:YES];
-    NSDecimalNumber * ouncesDecimal = [NSDecimalNumber decimalNumberWithString:number];
-    ouncesDecimal = [ouncesDecimal decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
-    return [NSString stringWithFormat:@"%@",ouncesDecimal];
-}
-
-///  距离格式转换
+/// 距离格式转换
 /// @param distance 距离 单位:m
 + (NSString *)yl_stringTromDitance:(NSString *)distance {
     NSString * distanceStr = @"";
@@ -494,7 +473,7 @@
         if (decimal / 2 < 1) {
             break;
         }
-        decimal = decimal / 2 ;
+        decimal = decimal / 2;
     }
     if (binary.length % 4 != 0) {
         NSMutableString *mStr = [[NSMutableString alloc]init];;

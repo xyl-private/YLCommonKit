@@ -245,7 +245,7 @@
     return [comps weekday];
 }
 
-///  某月中周的数量
+/// 某月中周的数量
 + (NSInteger)yl_weeksInMonthWithDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:date];
@@ -309,14 +309,37 @@
 }
 
 #pragma mark - BOOL
-///  是不是工作日
-/// @return YES 工作日 ; NO 周末
+/// 是不是工作日
+/// @return YES:工作日, NO:周末
 + (BOOL)yl_isWorkingDayWith:(NSDate *)date {
     NSInteger index = [self yl_weekDayFromDate:date];
     if (index == 1 || index == 7) {
         return NO;
     }
     return YES;
+}
+
+/// 比较两个时间段是否有交集
+/// @param time1 时间段1 例:9:00-12:00
+/// @param time2 时间段2 例:10:00-13:00
+/// @param dateFormatter 时间格式 例:HH:mm
++ (BOOL)yl_compareTimeBucker:(NSString *)time1 timeBucker:time2 dateFormatter:(NSString *)dateFormatter {
+    
+    NSArray *arr1 = [time1 componentsSeparatedByString:@"-"];
+    
+    NSInteger beginTimestamp1 = [NSDate yl_timestampFromDate:[NSDate yl_dateFromDateString:arr1.firstObject dateFormatter:dateFormatter] type:YLTimestampTypeSecond];
+    NSInteger endTimestamp1 = [NSDate yl_timestampFromDate:[NSDate yl_dateFromDateString:arr1.lastObject dateFormatter:dateFormatter] type:YLTimestampTypeSecond];
+    
+    NSArray *arr2 = [time2 componentsSeparatedByString:@"-"];
+    
+    NSInteger beginTimestamp2 = [NSDate yl_timestampFromDate:[NSDate yl_dateFromDateString:arr2.firstObject dateFormatter:dateFormatter] type:YLTimestampTypeSecond];
+    NSInteger endTimestamp2 = [NSDate yl_timestampFromDate:[NSDate yl_dateFromDateString:arr2.lastObject dateFormatter:dateFormatter] type:YLTimestampTypeSecond];
+    
+    if (endTimestamp1>beginTimestamp2 && endTimestamp2>beginTimestamp1) {
+        // 有交集
+        return YES;
+    }
+    return NO;
 }
 
 @end
