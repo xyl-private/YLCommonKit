@@ -55,6 +55,12 @@ typedef NS_ENUM(NSInteger, YLDecimalType) {
 ///   - scale: 小数点后保留的位数
 - (NSString *)yl_decimalWithRoundingMode:(NSRoundingMode)roundingMode scale:(NSInteger)scale;
 
+/// 小数点取舍处理方法
+/// @param roundingMode  舍入方式
+/// @param number 需要计算的数值
+/// @param scale 小数点后舍入值的位数
++ (NSString *)yl_decimalNumberWithRoundingMode:(NSRoundingMode)roundingMode number:(NSString *)number scale:(int)scale;
+
 
 /// 数字格式化
 /// - Parameter format: 格式 例: ,##0.00  结果 123,456,789.12
