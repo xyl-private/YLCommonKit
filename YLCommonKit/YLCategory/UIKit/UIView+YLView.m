@@ -40,12 +40,10 @@
 
 /// view 转换成 图片
 - (UIImage*)yl_snapshotImage {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0.0);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext:ctx];
-    UIImage* tImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return tImage;
+    UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:self.bounds.size];
+    return [renderer imageWithActions:^(UIGraphicsImageRendererContext * _Nonnull rendererContext) {
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }];
 }
 
 /// 监听键盘 改变 view 的位置

@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     # 项目名
     s.name         = "YLCommonKit"
     # 版本号
-    s.version      = "0.1.2"
+    s.version      = "0.1.3"
     # 简单描述
     s.summary      = "我的基础库"
     # 详细描述

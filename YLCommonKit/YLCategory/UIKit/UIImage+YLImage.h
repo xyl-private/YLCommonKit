@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIImage *)yl_imageWithColor:(UIColor *)color;
 
 /// 颜色转为图片
-+ (UIImage *)yl_imageWithColor:(UIColor *)color andSize:(CGSize)size;
++ (UIImage *)yl_imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /// 截图
 /// @param image 被截取的图片
@@ -29,23 +29,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// 生成更清晰的图片
 /// @param image 需要更清晰的原图CIimage
 /// @param size 图片大小
-+ (UIImage *)yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size;
++ (UIImage *)yl_createNonInterpolatedUIImageFormCIImage:(CIImage *)image size:(CGFloat)size;
 
 /// 生成二维码
 /// @param contentText 要生成二维码的字符串
 /// @param size 生成二维码的大小
-+ (UIImage *)yl_createQRCodeWithContentText:(NSString *)contentText withSize:(CGFloat)size;
++ (UIImage *)yl_createQRCodeWithContentText:(NSString *)contentText size:(CGFloat)size;
 
 /// 获取带中心图标的二维码
 /// @param contentText 要生成二维码的字符串
 /// @param centerImage 中心图标图片(大小为size的三分之一)
 /// @param size 生成二维码的大小
-+ (UIImage *)yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage withSize:(CGFloat)size;
++ (UIImage *)yl_creatQRCodeWithContentText:(NSString *)contentText centerImage:(UIImage *)centerImage size:(CGFloat)size;
 
 /// 将UIView 转成 Image
 /// @param view view
 /// @param size  view 区域大小
-- (UIImage *)yl_makeImageWithView:(UIView *)view withSize:(CGSize)size;
++ (UIImage *)yl_snapshotWithView:(UIView *)view size:(CGSize)size;
 
 
 /// 获取 网络图片的 size
