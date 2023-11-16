@@ -12,6 +12,7 @@
 #import "NSArray+YLArray.h"
 #import "NSData+YLData.h"
 #import "NSDate+YLDate.h"
+#import "NSDictionary+YLDictionary.h"
 #import "NSObject+YLGCD.h"
 #import "NSString+YLAppInfo.h"
 #import "NSString+YLDecimal.h"

@@ -31,11 +31,12 @@
 
 
 #define xIPhoneX \
-{   BOOL isPhoneX = NO;\
+({   BOOL isPhoneX = NO;\
     if (@available(iOS 11.0, *)) {\
         isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
     }\
-    (isPhoneX);}\
+    (isPhoneX);\
+})
 
 /*状态栏高度*/
 #define X_IPHONE_STATUS_H  [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height
@@ -46,9 +47,9 @@
 /*TabBar高度*/
 #define X_IPHONE_TAB_H (CGFloat)(49.0 + X_IPHONE_BOTTOM_SAFE_H)
 /*顶部安全区域高度*/
-#define X_IPHONE_TOP_SAFE_H (CGFloat)(kIPhoneX ? X_IPHONE_NAV_H : 0.0)
+#define X_IPHONE_TOP_SAFE_H (CGFloat)(xIPhoneX ? X_IPHONE_NAV_H : 0.0)
 /*底部安全区域高度*/
-#define X_IPHONE_BOTTOM_SAFE_H (CGFloat)(kIPhoneX ? 34.0 : 0.0)
+#define X_IPHONE_BOTTOM_SAFE_H (CGFloat)(xIPhoneX ? 34.0 : 0.0)
 /*导航条和Tabbar总高度*/
 #define X_IPHONE_NAV_TAB_H (X_IPHONE_NAV_STATUS_H + X_IPHONE_TAB_H)
 
