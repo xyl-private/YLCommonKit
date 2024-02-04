@@ -237,7 +237,7 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
     } else {
         NSMutableArray * templocations = [NSMutableArray array];
         for (int i = 0; i<colors.count; i++) {
-            double value = (1.0/colors.count) * i;
+            double value = (1.0/(colors.count-1)) * i;
             [templocations addObject:@(value)];
         }
         gradientLayer.locations = templocations;
