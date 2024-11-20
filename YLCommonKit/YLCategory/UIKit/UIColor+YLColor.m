@@ -204,7 +204,10 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
 }
 
 + (UIColor *)yl_gradientWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
-    CAGradientLayer *gradientLayer = [UIColor yl_gradientLayerWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];    
+    if (frame.size.width <= 0 || frame.size.height <= 0) {
+        return [UIColor redColor];
+    }
+    CAGradientLayer *gradientLayer = [UIColor yl_gradientLayerWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];
     UIGraphicsBeginImageContext(frame.size);
     [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
