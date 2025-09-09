@@ -173,13 +173,25 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
     return [UIColor yl_gradientWithDirection:direction colors:colors frame:frame locations:@[]];
 }
 
-+ (UIColor *)yl_gradientWithDirection:(YLGradientDirection)direction colors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations  {
+/**
+ * 创建渐变颜色
+ * @param direction 渐变方向
+ * @param colors 颜色数组，可以是UIColor对象或CGColorRef
+ * @param frame 渐变区域
+ * @param locations 位置数组(可选)，数值范围0-1
+ * @return 渐变颜色对象，失败返回nil
+ */
++ (UIColor *)yl_gradientWithDirection:(YLGradientDirection)direction
+                              colors:(NSArray *)colors
+                               frame:(CGRect)frame
+                          locations:(NSArray *)locations {
     
-    if (CGSizeEqualToSize(frame.size, CGSizeZero) ||
-        colors.count == 0) {
+    // 参数校验
+    if (CGRectIsEmpty(frame) || colors.count == 0) {
         return nil;
     }
     
+    // 设置起点和终点
     CGPoint startPoint = CGPointZero;
     CGPoint endPoint = CGPointZero;
     
@@ -199,56 +211,90 @@ UIColor * YLDynamicColors(id lightColor, id darkColor) {
             break;
         default:
             break;
-    }    
-    return [UIColor yl_gradientWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];
+    }
+    
+    return [self yl_gradientWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];
 }
 
-+ (UIColor *)yl_gradientWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
-    if (frame.size.width <= 0 || frame.size.height <= 0) {
-        return [UIColor redColor];
-    }
-    CAGradientLayer *gradientLayer = [UIColor yl_gradientLayerWithColors:colors frame:frame locations:locations startPoint:startPoint endPoint:endPoint];
-    UIGraphicsBeginImageContext(frame.size);
+/**
+ * 创建渐变颜色
+ * @param colors 颜色数组
+ * @param frame 渐变区域
+ * @param locations 位置数组(可选)
+ * @param startPoint 起点(CGPoint)
+ * @param endPoint 终点(CGPoint)
+ * @return 渐变颜色对象
+ */
++ (UIColor *)yl_gradientWithColors:(NSArray *)colors
+                            frame:(CGRect)frame
+                       locations:(NSArray *)locations
+                      startPoint:(CGPoint)startPoint
+                        endPoint:(CGPoint)endPoint {
+    
+    CAGradientLayer *gradientLayer = [self yl_gradientLayerWithColors:colors
+                                                              frame:frame
+                                                         locations:locations
+                                                        startPoint:startPoint
+                                                          endPoint:endPoint];
+    
+    // 使用UIGraphics生成渐变图像
+    UIGraphicsBeginImageContextWithOptions(frame.size, NO, 0);
     [gradientLayer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return [UIColor colorWithPatternImage:image];
+    return image ? [UIColor colorWithPatternImage:image] : nil;
 }
 
-+ (CAGradientLayer *)yl_gradientLayerWithColors:(NSArray *)colors frame:(CGRect)frame locations:(NSArray *)locations startPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint {
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    NSMutableArray *colorsMarr = [NSMutableArray array];
-    for (int i = 0; i<colors.count; i++) {
-        id obj = colors[i];
-        //获得色值描述
-        NSString * describe = [NSString stringWithFormat:@"%@",obj];
-        NSArray * arr = [describe componentsSeparatedByString:@" "];
-        NSString * colorDescribe = arr.firstObject;
-        if ([colorDescribe isEqualToString:@"UIExtendedSRGBColorSpace"] ||
-            [colorDescribe isEqualToString:@"UICachedDeviceRGBColor"] ) {
-            UIColor * c = (UIColor *)obj;
-            [colorsMarr addObject:(__bridge id)c.CGColor];
-        }else{
-            [colorsMarr addObject:obj];
-        }
-    }
-    gradientLayer.colors = colorsMarr;
+/**
+ * 创建渐变图层
+ * @param colors 颜色数组
+ * @param frame 渐变区域
+ * @param locations 位置数组(可选)
+ * @param startPoint 起点
+ * @param endPoint 终点
+ * @return 配置好的CAGradientLayer
+ */
++ (CAGradientLayer *)yl_gradientLayerWithColors:(NSArray *)colors
+                                        frame:(CGRect)frame
+                                   locations:(NSArray *)locations
+                                  startPoint:(CGPoint)startPoint
+                                    endPoint:(CGPoint)endPoint {
     
-    if (locations.count) {
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    NSMutableArray *cgColors = [NSMutableArray arrayWithCapacity:colors.count];
+    
+    // 处理颜色数组
+    for (id colorObj in colors) {
+        if ([colorObj isKindOfClass:[UIColor class]]) {
+            [cgColors addObject:(__bridge id)[(UIColor *)colorObj CGColor]];
+        } else if (CFGetTypeID((__bridge CFTypeRef)colorObj) == CGColorGetTypeID()) {
+            [cgColors addObject:colorObj];
+        }
+        // 忽略无效颜色对象
+    }
+    
+    // 设置颜色
+    gradientLayer.colors = cgColors;
+    
+    // 设置位置
+    if (locations.count > 0 && locations.count == cgColors.count) {
         gradientLayer.locations = locations;
     } else {
-        NSMutableArray * templocations = [NSMutableArray array];
-        for (int i = 0; i<colors.count; i++) {
-            double value = (1.0/(colors.count-1)) * i;
-            [templocations addObject:@(value)];
+        // 自动计算均匀分布的位置
+        NSMutableArray *defaultLocations = [NSMutableArray arrayWithCapacity:cgColors.count];
+        CGFloat step = 1.0f / (cgColors.count - 1);
+        for (NSUInteger i = 0; i < cgColors.count; i++) {
+            [defaultLocations addObject:@(i * step)];
         }
-        gradientLayer.locations = templocations;
+        gradientLayer.locations = defaultLocations;
     }
+    
+    // 设置起点、终点和frame
     gradientLayer.startPoint = startPoint;
     gradientLayer.endPoint = endPoint;
     gradientLayer.frame = frame;
+    
     return gradientLayer;
 }
-
 @end

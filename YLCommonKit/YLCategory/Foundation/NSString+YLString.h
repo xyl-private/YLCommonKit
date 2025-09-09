@@ -170,6 +170,23 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param subString 子字符串
 - (NSArray*)yl_getSubStringInRangeWithSubString:(NSString *)subString;
 
+
+#pragma mark - 查找 substring 在 string 中的位置范围
+/**
+ * 在字符串中查找所有子字符串的出现位置
+ *
+ * @param substring 要查找的子字符串
+ * @return 包含所有匹配位置NSRange的NSValue数组，如果没有匹配则返回空数组
+ */
+- (NSArray *)yl_findSubstringRanges:(NSString *)substring;
+
+/**
+ * 查找字符串中所有连续数字的范围
+ *
+ * @return 包含所有数字范围NSRange的NSValue数组，如果没有数字则返回空数组
+ */
+- (NSArray<NSValue *> *)yl_findAllNumberRanges;
+
 @end
 
 NS_ASSUME_NONNULL_END

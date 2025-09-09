@@ -41,30 +41,39 @@
     return CGRectContainsPoint(rect, point) ? self : nil;
 }
 
-- (void)yl_setImagePosition:(YLImagePosition)postion spacing:(CGFloat)spacing {
+/// 设置按钮图片和文字的相对位置及间距
+/// - Parameters:
+///   - position: 图片相对于文字的位置
+///   - spacing: 图片和文字之间的间距
+- (void)yl_setImagePosition:(YLImagePosition)position spacing:(CGFloat)spacing {
+    // 确保按钮有图片和文字
+    if (!self.currentImage || !self.currentTitle) {
+        NSLog(@"Warning: Button must have both image and title for position adjustment");
+        return;
+    }
+    
+    // 重置状态以确保获取正确的图片和文字
     [self setTitle:self.currentTitle forState:UIControlStateNormal];
     [self setImage:self.currentImage forState:UIControlStateNormal];
     
+    // 获取图片和文字的尺寸
+    CGSize imageSize = self.imageView.image.size;
+    CGSize labelSize = [self.titleLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)];
     
-    CGFloat imageWidth = self.imageView.image.size.width;
-    CGFloat imageHeight = self.imageView.image.size.height;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    CGFloat labelWidth = [self.titleLabel.text sizeWithFont:self.titleLabel.font].width;
-    CGFloat labelHeight = [self.titleLabel.text sizeWithFont:self.titleLabel.font].height;
-#pragma clang diagnostic pop
+    // 计算偏移量
+    CGFloat imageOffsetX = (imageSize.width + labelSize.width) / 2 - imageSize.width / 2;
+    CGFloat imageOffsetY = imageSize.height / 2 + spacing / 2;
+    CGFloat labelOffsetX = (imageSize.width + labelSize.width / 2) - (imageSize.width + labelSize.width) / 2;
+    CGFloat labelOffsetY = labelSize.height / 2 + spacing / 2;
     
-    CGFloat imageOffsetX = (imageWidth + labelWidth) / 2 - imageWidth / 2;//image中心移动的x距离
-    CGFloat imageOffsetY = imageHeight / 2 + spacing / 2;//image中心移动的y距离
-    CGFloat labelOffsetX = (imageWidth + labelWidth / 2) - (imageWidth + labelWidth) / 2;//label中心移动的x距离
-    CGFloat labelOffsetY = labelHeight / 2 + spacing / 2;//label中心移动的y距离
+    // 计算内容尺寸调整
+    CGFloat maxWidth = MAX(labelSize.width, imageSize.width);
+    CGFloat changedWidth = labelSize.width + imageSize.width - maxWidth;
+    CGFloat maxHeight = MAX(labelSize.height, imageSize.height);
+    CGFloat changedHeight = labelSize.height + imageSize.height + spacing - maxHeight;
     
-    CGFloat tempWidth = MAX(labelWidth, imageWidth);
-    CGFloat changedWidth = labelWidth + imageWidth - tempWidth;
-    CGFloat tempHeight = MAX(labelHeight, imageHeight);
-    CGFloat changedHeight = labelHeight + imageHeight + spacing - tempHeight;
-    
-    switch (postion) {
+    // 根据位置设置不同的边距
+    switch (position) {
         case YLImagePositionLeft:
             self.imageEdgeInsets = UIEdgeInsetsMake(0, -spacing/2, 0, spacing/2);
             self.titleEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, -spacing/2);
@@ -72,8 +81,8 @@
             break;
             
         case YLImagePositionRight:
-            self.imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + spacing/2, 0, -(labelWidth + spacing/2));
-            self.titleEdgeInsets = UIEdgeInsetsMake(0, -(imageWidth + spacing/2), 0, imageWidth + spacing/2);
+            self.imageEdgeInsets = UIEdgeInsetsMake(0, labelSize.width + spacing/2, 0, -(labelSize.width + spacing/2));
+            self.titleEdgeInsets = UIEdgeInsetsMake(0, -(imageSize.width + spacing/2), 0, imageSize.width + spacing/2);
             self.contentEdgeInsets = UIEdgeInsetsMake(0, spacing/2, 0, spacing/2);
             break;
             
@@ -88,10 +97,10 @@
             self.titleEdgeInsets = UIEdgeInsetsMake(-labelOffsetY, -labelOffsetX, labelOffsetY, labelOffsetX);
             self.contentEdgeInsets = UIEdgeInsetsMake(changedHeight-imageOffsetY, -changedWidth/2, imageOffsetY, -changedWidth/2);
             break;
-            
-        default:
-            break;
     }
+    
+    // 强制布局更新
+    [self layoutIfNeeded];
 }
 
 /// 设置按钮的背景色

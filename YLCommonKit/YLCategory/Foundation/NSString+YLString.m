@@ -738,34 +738,80 @@
     return [rangeArr copy];
 }
 
-#pragma mark - 方法1：查找 substring 在 string 中的位置范围
-- (NSArray *)br_substringRange:(NSString *)substring ofString:(NSString *)string {
-    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
-    NSString *tempString = string;
-    NSInteger count = 0;
-    while ([tempString containsString:substring]) {
-        NSRange range = [tempString rangeOfString:substring];
-        tempString = [tempString stringByReplacingCharactersInRange:range withString:@""];
-        
-        range = NSMakeRange(range.location + substring.length * count, range.length);
-        [rangeArr addObject:[NSValue valueWithRange:range]];
-        
-        count++;
+#pragma mark - 查找 substring 在 string 中的位置范围
+/**
+ * 在字符串中查找所有子字符串的出现位置
+ *
+ * @param substring 要查找的子字符串
+ * @return 包含所有匹配位置NSRange的NSValue数组，如果没有匹配则返回空数组
+ */
+- (NSArray *)yl_findSubstringRanges:(NSString *)substring {
+    // 1. 边界条件检查
+    // 如果子字符串为空或原始字符串为空，直接返回空数组
+    if (!substring.length || !self.length) {
+        return @[];
     }
+    
+    // 2. 初始化结果数组和搜索变量
+    NSMutableArray *rangeArr = [NSMutableArray array];
+    NSUInteger searchLength = self.length;       // 原始字符串长度
+    NSRange searchRange = NSMakeRange(0, searchLength); // 初始搜索范围是整个字符串
+    
+    // 3. 循环搜索所有匹配项
+    while (searchRange.location < searchLength) {
+        // 在当前搜索范围内查找子字符串
+        NSRange foundRange = [self rangeOfString:substring options:0 range:searchRange];
+        
+        // 如果没有找到，退出循环
+        if (foundRange.location == NSNotFound) {
+            break;
+        }
+        
+        // 4. 将找到的范围存入结果数组
+        [rangeArr addObject:[NSValue valueWithRange:foundRange]];
+        
+        // 5. 调整搜索范围，从找到的位置之后继续搜索
+        NSUInteger nextLocation = foundRange.location + foundRange.length;
+        searchRange = NSMakeRange(nextLocation, searchLength - nextLocation);
+        
+        // 检查是否超出字符串长度，防止无限循环
+        if (nextLocation >= searchLength) {
+            break;
+        }
+    }
+    
+    // 6. 返回不可变的结果数组
     return [rangeArr copy];
 }
 
-#pragma mark - 方法2：查找 substring 在 string 中的位置范围
-//- (NSArray *)br_substringRange:(NSString *)substring ofString:(NSString *)string {
-//    NSMutableArray *rangeArr = [[NSMutableArray alloc]init];
-//    for (NSInteger i = 0; i < string.length - substring.length + 1; i++) {
-//        NSString *findString = [string substringWithRange:NSMakeRange(i, substring.length)];
-//        if ([findString isEqualToString:substring]) {
-//            NSRange range = NSMakeRange(i, substring.length);
-//            [rangeArr addObject:[NSValue valueWithRange:range]];
-//        }
-//    }
-//    return [rangeArr copy];
-//}
+/**
+ * 查找字符串中所有连续数字的范围
+ *
+ * @return 包含所有数字范围NSRange的NSValue数组，如果没有数字则返回空数组
+ */
+- (NSArray<NSValue *> *)yl_findAllNumberRanges {
+    // 1. 空字符串检查
+    if (self.length == 0) {
+        return @[];
+    }
+    
+    // 2. 预编译正则表达式（提高性能，避免重复编译）
+    static NSRegularExpression *regex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        regex = [NSRegularExpression regularExpressionWithPattern:@"\\d+" options:0 error:NULL];
+    });
+    
+    // 3. 执行正则匹配
+    NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:self options:0 range:NSMakeRange(0, self.length)];
+    
+    // 4. 快速构建结果数组
+    NSMutableArray<NSValue *> *ranges = [NSMutableArray arrayWithCapacity:matches.count];
+    for (NSTextCheckingResult *match in matches) {
+        [ranges addObject:[NSValue valueWithRange:match.range]];
+    }
+    
+    return [ranges copy];
+}
 
 @end

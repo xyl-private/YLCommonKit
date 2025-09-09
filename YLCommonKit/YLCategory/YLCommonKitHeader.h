@@ -28,6 +28,7 @@
 #import "UIImage+YLImage.h"
 #import "UIView+YLFrame.h"
 #import "UIView+YLView.h"
+#import "UIView+YLRoundedCorners.h"
 #import "UIViewController+YLViewController.h"
 
 #endif /* YLCommonKitHeader_h */

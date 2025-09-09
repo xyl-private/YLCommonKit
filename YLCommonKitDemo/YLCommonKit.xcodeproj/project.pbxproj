@@ -34,6 +34,7 @@
 		2276B29A2A57FAD400E0DFFD /* NSDate+YLDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276B28C2A57FAD400E0DFFD /* NSDate+YLDate.m */; };
 		2276B29D2A57FB0F00E0DFFD /* NSArray+YLArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276B29C2A57FB0F00E0DFFD /* NSArray+YLArray.m */; };
 		22993970263B0A150055DA35 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2299396F263B0A150055DA35 /* TestViewController.m */; };
+		22E10F492E702AE800D4ABD6 /* UIView+YLRoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E10F482E702AE800D4ABD6 /* UIView+YLRoundedCorners.m */; };
 		7B941B2F20F3126600811329 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B2E20F3126600811329 /* AppDelegate.m */; };
 		7B941B3220F3126600811329 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B941B3120F3126600811329 /* ViewController.m */; };
 		7B941B3520F3126600811329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B941B3320F3126600811329 /* Main.storyboard */; };
@@ -98,6 +99,8 @@
 		2276B29C2A57FB0F00E0DFFD /* NSArray+YLArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YLArray.m"; sourceTree = "<group>"; };
 		2299396E263B0A150055DA35 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2299396F263B0A150055DA35 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		22E10F472E702AE800D4ABD6 /* UIView+YLRoundedCorners.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YLRoundedCorners.h"; sourceTree = "<group>"; };
+		22E10F482E702AE800D4ABD6 /* UIView+YLRoundedCorners.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLRoundedCorners.m"; sourceTree = "<group>"; };
 		7B941B2A20F3126500811329 /* YLCommonKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YLCommonKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B941B2D20F3126600811329 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B941B2E20F3126600811329 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */,
 				224424C12A56ABF1009C15EA /* UIView+YLView.h */,
 				224424BB2A56ABF1009C15EA /* UIView+YLView.m */,
+				22E10F472E702AE800D4ABD6 /* UIView+YLRoundedCorners.h */,
+				22E10F482E702AE800D4ABD6 /* UIView+YLRoundedCorners.m */,
 				224424AF2A56ABF1009C15EA /* UIViewController+YLHiddenNavBar.h */,
 				224424B92A56ABF1009C15EA /* UIViewController+YLHiddenNavBar.m */,
 				224424B52A56ABF1009C15EA /* UIViewController+YLViewController.h */,
@@ -351,6 +356,7 @@
 				224424C82A56ABF1009C15EA /* UITextView+YLTextView.m in Sources */,
 				224424CF2A56ABF1009C15EA /* UITextView+YLPlaceholder.m in Sources */,
 				2276B28F2A57FAD400E0DFFD /* NSString+YLDecimal.m in Sources */,
+				22E10F492E702AE800D4ABD6 /* UIView+YLRoundedCorners.m in Sources */,
 				2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */,
 				7B941B3220F3126600811329 /* ViewController.m in Sources */,
 				224424C72A56ABF1009C15EA /* UIColor+YLColor.m in Sources */,
