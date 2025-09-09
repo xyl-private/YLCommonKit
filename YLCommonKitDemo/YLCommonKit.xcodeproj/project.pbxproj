@@ -19,8 +19,6 @@
 		224424D02A56ABF1009C15EA /* UITableView+YLTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424C22A56ABF1009C15EA /* UITableView+YLTableHeaderView.m */; };
 		224424D12A56ABF1009C15EA /* UIViewController+YLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424C32A56ABF1009C15EA /* UIViewController+YLViewController.m */; };
 		224424D22A56ABF1009C15EA /* UITextField+YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 224424C52A56ABF1009C15EA /* UITextField+YLTextField.m */; };
-		225FC9772A47EF8B000363E5 /* YLCommonKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */; };
-		225FC9782A47EF8B000363E5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 225FC9762A47EF8B000363E5 /* README.md */; };
 		2266EFE12A56B6C60075E7EF /* UIView+YLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */; };
 		2276B28F2A57FAD400E0DFFD /* NSString+YLDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276B2792A57FAD300E0DFFD /* NSString+YLDecimal.m */; };
 		2276B2902A57FAD400E0DFFD /* NSObject+YLGCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276B27B2A57FAD300E0DFFD /* NSObject+YLGCD.m */; };
@@ -69,8 +67,6 @@
 		224424C52A56ABF1009C15EA /* UITextField+YLTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+YLTextField.m"; sourceTree = "<group>"; };
 		224424C62A56ABF1009C15EA /* UITextView+YLPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YLPlaceholder.h"; sourceTree = "<group>"; };
 		224A27792679DD2D005C9CCE /* YLCommonKitHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCommonKitHeader.h; sourceTree = "<group>"; };
-		225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YLCommonKit.podspec; path = ../../../YLCommonKit.podspec; sourceTree = "<group>"; };
-		225FC9762A47EF8B000363E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 		2266EFDF2A56B6C60075E7EF /* UIView+YLFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YLFrame.h"; sourceTree = "<group>"; };
 		2266EFE02A56B6C60075E7EF /* UIView+YLFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YLFrame.m"; sourceTree = "<group>"; };
 		2276B26C2A57DFE500E0DFFD /* YLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLMacro.h; sourceTree = "<group>"; };
@@ -188,15 +184,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		225FC9742A47EF7C000363E5 /* POD */ = {
-			isa = PBXGroup;
-			children = (
-				225FC9762A47EF8B000363E5 /* README.md */,
-				225FC9752A47EF8B000363E5 /* YLCommonKit.podspec */,
-			);
-			path = POD;
-			sourceTree = "<group>";
-		};
 		2276B26D2A57E95F00E0DFFD /* Macro */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +233,6 @@
 		7B941B2C20F3126500811329 /* YLCommonKit */ = {
 			isa = PBXGroup;
 			children = (
-				225FC9742A47EF7C000363E5 /* POD */,
 				7B941B2D20F3126600811329 /* AppDelegate.h */,
 				7B941B2E20F3126600811329 /* AppDelegate.m */,
 				7B941B3020F3126600811329 /* ViewController.h */,
@@ -329,8 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B941B3A20F3126700811329 /* LaunchScreen.storyboard in Resources */,
-				225FC9772A47EF8B000363E5 /* YLCommonKit.podspec in Resources */,
-				225FC9782A47EF8B000363E5 /* README.md in Resources */,
 				7B941B3720F3126700811329 /* Assets.xcassets in Resources */,
 				7B941B3520F3126600811329 /* Main.storyboard in Resources */,
 			);
@@ -525,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.xyanl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -547,7 +531,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.xyanl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
